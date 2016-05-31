@@ -1,0 +1,9 @@
+
+*.sublime-workspace
+
+*.sublime-project
+
+sftp-config.json
+
+node_modules/
+*.xml

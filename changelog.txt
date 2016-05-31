@@ -1,0 +1,21 @@
+** York Changelog **
+
+26 May 2016 - Version 1.1.0
+     * Added single post navigation (NEW)
+     * Updated 500px SVG icon
+     * Footer social icons are larger for better UX
+     * Minor comments styling fix
+     * Improved JetPack sharing module
+     * Removed fixed positioning on mobile header
+     * Added languages/readme.txt translation guide (NEW)
+     * Added rtl.css stylesheet (NEW)
+     * Updated languages
+
+23 May 2016 - Version 1.0.2
+     * Socail SVG performance update
+
+06 May 2016 - Version 1.0.1
+     * Updater class updated
+
+03 May 2016 - Version 1.0.0
+     * Initial release
