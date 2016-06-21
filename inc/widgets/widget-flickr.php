@@ -2,8 +2,7 @@
 // Register widget
 add_action('widgets_init', create_function('', 'return register_widget("Bean_Flickr_Widget");'));
 
-class Bean_Flickr_Widget extends WP_Widget 
-{
+class Bean_Flickr_Widget extends WP_Widget {
     // Constructor
     function __construct() {
         parent::__construct(

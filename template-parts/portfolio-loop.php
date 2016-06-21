@@ -15,43 +15,46 @@ if ( has_post_thumbnail() ) :
 	 * Let's check if there's a secondary thumbnail uploaded. If so, we'll 
 	 * add the '.project--has-second' class to the article.
 	 */
+    
+    $size_class = get_post_meta($post->ID, '_bean_portfolio_grid_size', true);
 
-    $secondThumb = MultiPostThumbnails::has_post_thumbnail('portfolio', 'secondary-image');
-    $secondThumb = ( $secondThumb ) == true ? 'project--has-second' : '';
+    printf( '<article class="project %1s" >', $size_class );  
 
-	printf( '<article class="project %1$s">', esc_html( $secondThumb ) );  
+        echo '<div class="project-inner">';
 
-        echo '<div class="intrinsic">';
-    		
-            the_title( '<h3 class="entry-title--hidden">', '</h3>' );
-            
-            /*
-    		 * Let's check if there's an external url included on the back end.
-    		 * If there is, that will be assigned as the $portfolio_url variable, if not,
-    		 * the post permalink will be assigned. 
-    		 */
+                echo '<div class="overlay">';
 
-    		$external_url = get_post_meta($post->ID, '_bean_portfolio_external_url', true);  
-    		$portfolio_url = ( $external_url ) == true ? $external_url : get_the_permalink();
-            $portfolio_url_class = ( $external_url ) == true ? 'class=project--link_external' : '';
-            $portfolio_url_target = ( $external_url ) == true ? '_blank' : '_self';
+                    echo '<div class="center">';
 
-            /*
-             * Let's print the post link, featured image and secondary featured image.
-             * If there is one uploaded, we'll add it to be displayed upon image hover.
-             */
+                        the_title( '<h3 class="entry-title">', '</h3>' );
 
-    		printf( '<a href="%1s" data-id="%2$s" %3$s target="%4$s">%5$s%6$s</a>', 
-                esc_url( $portfolio_url ), 
-                esc_html( get_the_ID() ), 
-                esc_html( $portfolio_url_class ), 
-                esc_html( $portfolio_url_target ), 
-                york_project_featured_img( get_the_ID() ),
-                york_project_featured_img_hover( get_the_ID() )
-            );
+                    echo '</div>';
 
-            echo esc_html( york_project_background_colors() );
-        
+                echo '</div>';
+
+                printf( '<figure>' );
+
+                    /*
+                     * Let's check if there's an external url included on the back end.
+                     * If there is, that will be assigned as the $portfolio_url variable, if not,
+                     * the post permalink will be assigned. 
+                     */
+                    $external_url = get_post_meta($post->ID, '_bean_portfolio_external_url', true);  
+                    $portfolio_url = ( $external_url ) == true ? $external_url : get_the_permalink();
+                    $portfolio_url_class = ( $external_url ) == true ? 'class=project--link_external' : '';
+                    $portfolio_url_target = ( $external_url ) == true ? '_blank' : '_self';
+
+                    printf( '<a href="%1s" data-id="%2$s" %3$s target="%4$s" class="project-link"></a>', 
+                        esc_url( $portfolio_url ), 
+                        esc_html( get_the_ID() ), 
+                        esc_html( $portfolio_url_class ), 
+                        esc_html( $portfolio_url_target )
+                    );
+
+                   the_post_thumbnail( 'project-thumbnail' ); 
+
+                echo '</figure>';
+
         echo '</div>';
 
     echo '</article>';

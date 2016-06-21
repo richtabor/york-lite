@@ -1,56 +1,47 @@
 <?php
 /**
- * The template part for displaying single posts
- *
- * @package York
+ * The file for displaying the portfolio meta.
+ *  
+ * @subpackage York
  */
-?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-    <?php 
+//Log the view counts.
+york_setPostViews( get_the_ID() ); 
 
-    the_title( '<h1 class="entry-title">', '</h1>' );
 
-    york_entry_meta();
+/*
+ * Set variables for the content below.
+ */
+$portfolio_cats = get_post_meta($post->ID, '_bean_portfolio_cats', true);
+$portfolio_tags = get_post_meta($post->ID, '_bean_portfolio_tags', true); ?>
 
-    york_post_thumbnail();
+ <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
 
-    if ( is_sticky() && is_home() && ! is_paged() ) {
-        printf( '<span class="sticky-post">%s</span>', esc_html__( 'Featured', 'york' ) );
-    } ?>
+    <div class="hero">
 
-    <div class="entry-content">
-        <?php
-            /* translators: %s: Name of current post */
-            the_content( sprintf(
-                wp_kses( __( 'Continue reading %s', 'york' ), array( 'span' => array( 'class' => array() ) ) ),
-                the_title( '<span class="screen-reader-text">"', '"</span>', false )
-            ) );
+        <header class="entry-header">
+        
+            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-            wp_link_pages( array(
-                'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'york' ) . '</span>',
-                'after'       => '</div>',
-                'link_before' => '<span>',
-                'link_after'  => '</span>',
-                'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'york' ) . ' </span>%',
-                'separator'   => '<span class="screen-reader-text">, </span>',
-            ) );
-        ?>
-    </div><!-- .entry-content -->
+            <?php if ($portfolio_cats == 'on' OR $portfolio_tags == 'on' ) { ?> 
 
-    <footer class="entry-footer">
-        <?php
-        edit_post_link(
-            sprintf(
-                /* translators: %s: Name of current post */
-                esc_html__( 'Edit %s', 'york' ),
-                the_title( '<span class="screen-reader-text">', '</span>', false )
-            ),
-            '<span class="edit-link">',
-            '</span>'
-        );
-        ?>
-    </footer><!-- .entry-footer -->
+                <div class="project-taxonomy">
+                    <p><?php york_entry_taxonomies(); ?></p>
+                </div>
 
-</article><!-- #post-## -->
+            <?php } ?>
+
+        </header><!-- .entry-header -->
+
+        <div class="project-description entry-content">
+            <?php the_content(); ?>
+        </div>
+    
+        <?php get_template_part( 'template-parts/portfolio-meta'); ?>
+        
+    </div>
+
+    <?php york_gallery($post->ID, 'port-full', 'portfolio-single' , '' , true); ?>
+
+</article>

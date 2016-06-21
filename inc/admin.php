@@ -12,6 +12,7 @@
  */
 if( is_admin() ) {
 	require get_template_directory() . '/inc/meta/metaboxes.php';
+    require get_template_directory() . '/inc/meta/meta-page.php';
 	require get_template_directory() . '/inc/meta/meta-post.php';
 	require get_template_directory() . '/inc/meta/meta-portfolio.php';
 }
@@ -19,14 +20,12 @@ if( is_admin() ) {
 
 
 /**
- * Load theme updater functions.
- * Action is used so that child themes can easily disable.
+ * Pro upgrade functions.
+ * Warning: Don't just remove or delete these lines below.
+ * You will get errors. 
  */
-
-function yorkpro_theme_updater() {
-	require( get_template_directory() . '/inc/updater/theme-updater.php' );
-}
-add_action( 'after_setup_theme', 'yorkpro_theme_updater' );
+require get_template_directory() . '/inc/upgrade/upgrade-setup.php';    
+require get_template_directory() . '/inc/upgrade/upgrade.php';  
 
 
 
@@ -35,28 +34,6 @@ add_action( 'after_setup_theme', 'yorkpro_theme_updater' );
  */
 if( is_admin() ) {
 	require get_template_directory() . '/inc/feedback.php';
-}
-
-
-
-/**
- * Load secondary post thumbnails class.
- */
-require get_template_directory() . '/inc/thumbnails.php';
-
-
-
-/**
- * Add the secondary post thumbnail to the portfolio post type.
- */
-if (class_exists('MultiPostThumbnails')) {
-    new MultiPostThumbnails(
-        array(
-            'label'     => esc_html__( 'Hover Featured Image', 'york' ),
-            'id'        => 'secondary-image',
-            'post_type' => 'portfolio'
-        )
-    );
 }
 
 

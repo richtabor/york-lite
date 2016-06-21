@@ -26,12 +26,7 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'page' );
 
 		// End of the loop.
-		endwhile; 
-        
-        // Include the post more loop.
-        if( get_theme_mod( 'portfolio_loop_pages' ) == true ) {
-            get_template_part( 'template-parts/portfolio-more' );
-        } ?>
+		endwhile; ?>
 
 	</main><!-- #main -->	
 

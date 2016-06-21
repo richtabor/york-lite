@@ -10,20 +10,24 @@ if ( !function_exists('Bean_Customize_Variables') ) {
 function Bean_Customize_Variables() {
 
 		// Colors
-		$theme_accent_color = get_theme_mod('theme_accent_color', '#00bac7');
+		$theme_accent_color = get_theme_mod('theme_accent_color', '#52bad5');
         $background_color = get_theme_mod('york_background_color', '#ffffff'); 
         $sitetitle_color = get_theme_mod('york_sitetitle_color', '#000000');
-        $sitetitlehover_color = get_theme_mod('york_sitetitlehover_color', '#00bac7');
+        $sitetitlehover_color = get_theme_mod('york_sitetitlehover_color', '#52bad5');
         $navigationicon_color = get_theme_mod('york_navigationicon_color', '#000000');
         $navigationiconhover_color = get_theme_mod('york_navigationiconhover_color', '#000000');
-        $project_color = get_theme_mod('york_project_color', '#f6f6f6'); 
-        $projecthover_color = get_theme_mod('york_projecthover_color', '#000000');
-        $project_modal = get_theme_mod('york_project_modal', '#ffffff');
-        $footertext_color = get_theme_mod('york_footertext_color', '#969696');
-        $footertexthover_color = get_theme_mod('york_footertexthover_color', '#00bac7');
+        $footertext_color = get_theme_mod('york_footertext_color', '#000000');
+        $footernav_a_color = get_theme_mod('york_footernav_a_color', '#909090');
+        $footertexthover_color = get_theme_mod('york_footertexthover_color', '#52bad5');
         $footersocial_color = get_theme_mod('york_footersocial_color', '#000000');
         $sidebarsocial_color = get_theme_mod('york_sidebarsocial_color', '#000000');
-        $badge_color = get_theme_mod('york_badge_color', '#00bac7');
+        $cta_background_color = get_theme_mod('york_cta_background_color', '#1c1c1c');
+        $cta_text_color = get_theme_mod('york_cta_text_color', '#ffffff');
+        $cta_shape_color = get_theme_mod('york_cta_shape_color', '#ffffff');
+        $overlay_color = get_theme_mod('york_overlay_color', '#000000');
+        $overlay_text_color = get_theme_mod('york_overlay_text_color', '#ffffff');
+        $cta_shape_color_rgb = york_hex2rgb( $cta_shape_color );
+        $portfolio_social_color = get_theme_mod('york_portfolio_social_color', '#000000');
 
         // Convert main text hex color to rgba.
         $theme_accent_color_rgb = york_hex2rgb( $theme_accent_color );
@@ -34,10 +38,12 @@ function Bean_Customize_Variables() {
         }
 
         $rgb_10_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.075)', $theme_accent_color_rgb );
+        $rgb_50_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.25)', $theme_accent_color_rgb );
+        $rgb_15_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.15)', $cta_shape_color_rgb );
 
 		$body_typography_color = get_theme_mod('body_typography_color', '#000');
 		$header_typography_color = get_theme_mod('header_typography_color', '#000'); 
-        $body_secondary_typography_color = get_theme_mod('body_secondary_typography_color', '#969696');
+        $body_secondary_typography_color = get_theme_mod('body_secondary_typography_color', '#909090');
         
         $body_font_family = get_theme_mod('body_font_family', 'Karla'); 
 		$body_font_size = get_theme_mod('body_font_size', '15');
@@ -53,54 +59,89 @@ function Bean_Customize_Variables() {
 			<?php
 			$customizations = 
 			'
-            body {
-                background:'.$background_color.' !important;
+        
+            body .share-toggle + label {
+                background:'.$portfolio_social_color.';
+            }   
+
+            body .share-menu-item svg {
+                fill:'.$portfolio_social_color.';
+            }   
+
+            body .project .overlay {
+                background:'.$overlay_color.';
             }
 
-            body .site-header,
-            body .site-footer {
-                background:'.$background_color.';
+            body .project .overlay h3 {
+                color:'.$overlay_text_color.';
+            }
+
+            body .lightbox-play svg {
+                fill:'.$overlay_text_color.';
+            }
+
+            body .cta {
+                background:'.$cta_background_color.' !important;
+            }
+
+            body .cta h2 {
+                color:'.$cta_text_color.' !important;
+            }
+
+            body .cta h2 i {
+                border-color:'.$rgb_15_opacity.' !important;   
+            }
+
+            body .cta svg {
+                fill:'.$cta_shape_color.' !important;
+            }
+
+            body, 
+            body .site {
+                background-color:'.$background_color.' !important;
+            }
+
+            body .cta a:after {
+                border-color: '.$background_color.';
+            }
+
+            body .cd-words-wrapper.selected b {
+                color: '.$background_color.';
             }
             
             body h1.site-logo-link {
                 color: '.$sitetitle_color.' ;
+                border-color: '.$sitetitle_color.' ;
+            }
+
+            body h1.site-logo-link:hover,
+            body h1.site-logo-link:focus {
+                border-color: '.$sitetitlehover_color.' ;
             }
             
             body h1.site-logo-link a:hover {
                 color: '.$sitetitlehover_color.'!important;
+                border-color: '.$sitetitlehover_color.'!important;
             }
 
-            body .button--close span,
             body .mobile-menu-toggle span {
                 background:'.$navigationicon_color.';
             }
 
-            @media screen and (min-width: 940px) {
-                body.nav-open .close-toggle span {
-                    background:'.$navigationicon_color.';
-                }
-            }
-
-            body .button--close:hover span,
-            body .mobile-menu-toggle:hover span {
+            body .mobile-menu-toggle:hover span,
+            body.nav-open .mobile-menu-toggle span {
                 background-color:'.$navigationiconhover_color.';
-            }
-
-            body .project--color,
-            body .projects .pagination a.next {
-                background:'.$project_color.';
-            }
-
-            body .project--color-hover,
-            body .projects .pagination a.next:hover {
-                background:'.$projecthover_color.';
             }
 
             body .site-footer {
                 color:'.$footertext_color.';
             }
 
-            body #colophon.site-footer span:not(.badge--hire-me) a:hover {
+            body .site-footer .footer-navigation a {
+                color:'.$footernav_a_color.';
+            }
+
+            body #colophon.site-footer span a:hover {
                 color:'.$footertexthover_color.';
             }
 
@@ -108,23 +149,18 @@ function Bean_Customize_Variables() {
                 fill:'.$footersocial_color.'; 
             }
 
-            body .badge--hire-me a {
-                border-color:'.$badge_color.';
-                color:'.$badge_color.';
+            body #content a:hover,
+            body #content a:focus {
+                color:'.$theme_accent_color.'!important;
+                border-color:'.$theme_accent_color.'!important;
             }
 
-            body .badge--hire-me a:hover { 
-                background:'.$badge_color.';
+            body .js--focus .input-control::before {
+                background:'.$theme_accent_color.';
             }
 
-            body #content a,
-            body .widget-area a,
-            body #modal-content a {
-                color:'.$theme_accent_color.';
-            }
-
-            body #nprogress .peg {
-                box-shadow: 0 0 10px '.$theme_accent_color.', 0 0 5px '.$theme_accent_color.';
+            body .js--focus .input-control::after {
+                border-color:'.$theme_accent_color.';
             }
 
             body button,
@@ -146,6 +182,11 @@ function Bean_Customize_Variables() {
             article .yorkup--highlight {
                 background-image: linear-gradient(to bottom, '.$rgb_10_opacity.', '.$rgb_10_opacity.');
             }
+
+            body.single-portfolio .navigation a:hover {
+                color:'.$theme_accent_color.' !important;
+                border-color:'.$theme_accent_color.' !important;
+            }
             
             body,
             body.single,
@@ -156,13 +197,15 @@ function Bean_Customize_Variables() {
             body input,
             body select,
             body textarea,
-            p a:hover,
-            body #content a:hover, 
-            body .widget-area a:hover, 
-            body #modal-content a:hover {
+            p a:hover {
                 color: '.$body_typography_color.'; 
             }
 
+            body #content a:hover,
+            body .main-navigation a:hover {
+                color: '.$theme_accent_color.'; 
+            }
+            
             body blockquote {
                 border-color: '.$body_typography_color.'; 
             }
@@ -174,19 +217,19 @@ function Bean_Customize_Variables() {
                 color: '.$body_typography_color.'!important; 
             }
 
-            
             body .post-meta a, 
             body .post-meta span, 
             body .post-meta span:before,
             body .project-meta p, 
+            body .project-taxonomy,
+            body .project-taxonomy a,
             body .project-meta p:before,
             body .widget_bean_tweets a.twitter-time-stamp  {
                 color: '.$body_secondary_typography_color.'!important; 
             }
 
             body blockquote cite,
-            body blockquote small,
-            body h6.widget-title {
+            body blockquote small {
                 color: '.$body_secondary_typography_color.';
             }
 
@@ -195,16 +238,22 @@ function Bean_Customize_Variables() {
             body h3,
             body h4,
             body h5,
+            body .project-caption,
             body .main-navigation a {
                 color: '.$header_typography_color.'; 
             }
 
+            body.single .navigation a {
+                color: '.$header_typography_color.' !important; 
+            }
+
+            body .cd-words-wrapper::after,
+            body .cd-words-wrapper.selected {
+                background-color: '.$header_typography_color.'; 
+            }
+
             body .sidebar .social-navigation svg { 
                 fill:'.$sidebarsocial_color.'; 
-            }
-            
-            body .modal-content--show { 
-                background:'.$project_modal.'; 
             }
 
 			a:hover,
@@ -234,19 +283,28 @@ function Bean_Customize_Variables() {
 				color:'.$theme_accent_color.'!important; 
 			}
 
-			button:hover,
-			button:focus,
-			.button:hover,
-			.button:focus,
-			input[type="button"]:hover,
-			input[type="button"]:focus,
-			input[type="reset"]:hover,
-			input[type="reset"]:focus,
-			input[type="submit"]:hover,
-			input[type="submit"]:focus {
+			body button:hover,
+			body button:focus,
+			body .button:hover,
+			body .button:focus,
+			body input[type="button"]:hover,
+			body input[type="button"]:focus,
+			body input[type="reset"]:hover,
+			body input[type="reset"]:focus,
+			body input[type="submit"]:hover,
+			body input[type="submit"]:focus {
 				border-color:'.$theme_accent_color.'; 
 			}
-			
+
+            body input[type="text"]:focus,
+            body input[type="email"]:focus,
+            body input[type="url"]:focus,
+            body input[type="password"]:focus,
+            body input[type="search"]:focus,
+            body textarea:focus {
+                border-color:'.$theme_accent_color.'; 
+            }
+
 			button:hover,
 			button:focus,
 			.button:hover,
@@ -261,7 +319,6 @@ function Bean_Customize_Variables() {
 			.tagcloud a,
 			nav a h1:hover, 
 			div.jp-play-bar,
-			#nprogress .bar,
 			div.jp-volume-bar-value,
 			.bean-direction-nav a:hover,
 			.bean-pricing-table .table-mast,
@@ -280,10 +337,10 @@ function Bean_Customize_Variables() {
 					case 'none':
 					break;
 					case 'grayscale':
-					echo '.project .thumb { filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); filter:gray; -webkit-filter:grayscale(100%);-moz-filter: grayscale(100%);-o-filter: grayscale(100%);}';
+					echo '.project .project-inner { filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); filter:gray; -webkit-filter:grayscale(100%);-moz-filter: grayscale(100%);-o-filter: grayscale(100%);}';
 					break;
 					case 'sepia':
-					echo '.project .thumb { -webkit-filter: sepia(50%); }';
+					echo '.project .project-inner { -webkit-filter: sepia(30%); }';
 					break;    
 				}
 			}

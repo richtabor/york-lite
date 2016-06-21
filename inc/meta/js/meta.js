@@ -9,7 +9,6 @@ jQuery( document ).ready( function($) {
 
     //POST FORMAT METABOX SWITCH
     var $linkSettings  = $('#bean-meta-box-link').hide(),
-        $videoSettings = $('#bean-meta-box-video').hide(),
         $audioSettings = $('#bean-meta-box-audio').hide(),
         $gallerySettings = $('#bean-meta-box-gallery').hide(),
         $quoteSettings = $('#bean-meta-box-quote').hide(),
@@ -26,15 +25,12 @@ jQuery( document ).ready( function($) {
 
     function changePostFormat( val ) {
         $linkSettings.hide();
-        $videoSettings.hide();
         $audioSettings.hide();
         $gallerySettings.hide();
         $quoteSettings.hide();
 
         if( val === 'link' ) {
             $linkSettings.show();
-        } else if( val === 'video' ) {
-            $videoSettings.show();
         } else if( val === 'audio' ) {
             $audioSettings.show();
         } else if( val === 'image' ) {
@@ -49,30 +45,21 @@ jQuery( document ).ready( function($) {
 
     //PORTFOLIO FORMAT METABOX CHECKBOXES
     var  displayGallery = $('#_bean_portfolio_type_gallery'),
-        displayVideo = $('#_bean_portfolio_type_video'),
         displayAudio = $('#_bean_portfolio_type_audio'),
 
         portfolioGalleryType = $('#bean-meta-box-portfolio-images'),
-        portfolioVideoType = $('#bean-meta-box-portfolio-video'),
         portfolioAudioType = $('#bean-meta-box-portfolio-audio');
 
 
     portfolioGalleryType.css('display', 'none');
-    portfolioVideoType.css('display', 'none');
     portfolioAudioType.css('display', 'none');
 
     if( displayGallery.is(':checked') ) portfolioGalleryType.css('display', 'block');
-    if( displayVideo.is(':checked') ) portfolioVideoType.css('display', 'block');
     if( displayAudio.is(':checked') ) portfolioAudioType.css('display', 'block');
 
     displayGallery.click(function(e) {
         if( $(this).is(':checked') ) portfolioGalleryType.css('display', 'block');
         else portfolioGalleryType.css('display', 'none');
-    });
-
-    displayVideo.click(function(e) {
-        if( $(this).is(':checked') ) portfolioVideoType.css('display', 'block');
-        else portfolioVideoType.css('display', 'none');
     });
 
     displayAudio.click(function(e) {

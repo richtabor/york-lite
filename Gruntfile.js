@@ -31,10 +31,10 @@ module.exports = function(grunt){
         },
         clean: {
             init: {
-                src: ['build/']
+                src: ['_dist/<%= pkg.name %>-<%= pkg.version %>.zip', '_dist/<%= pkg.name %>-package-<%= pkg.version %>', '_dist/<%= pkg.name %>-package-<%= pkg.version %>.zip']
             },
             build: {
-                src: ['build/*', '!build/<%= pkg.name %>-<%= pkg.version %>.zip']
+                src: ['_dist/*', '!_dist/<%= pkg.name %>-<%= pkg.version %>.zip']
             }
         },
         autoprefixer: {
@@ -70,11 +70,12 @@ module.exports = function(grunt){
         concat: {
             release: {
                 src: [
-                    'js/src/nprogress.js',
+                    'js/src/animsition.js',
                     'js/src/fitvids.js',
-                    'js/src/photoswipe.js',
-                    'js/src/photoswipe-ui-default.js',
-                    'js/src/lity.js',
+                    'js/src/isotope.js',
+                    'js/src/images-loaded.js',
+                    'js/src/svg4everybody.js',
+                    'js/src/infinitescroll.js', 
                 ],
                 dest: 'js/combined-min.js'
             }
@@ -90,16 +91,6 @@ module.exports = function(grunt){
             }
         },
         replace: {
-            svgURL: {
-                src: [
-                    'build/inc/template-tags.php',
-                ],
-                overwrite: true,
-                replacements: [ {
-                    from: '$svg_url = get_bloginfo(\'template_directory\');',
-                    to: '//$svg_url = get_bloginfo(\'template_directory\');'
-                } ]
-            },
             styleVersion: {
                 src: [
                     'style.css',
@@ -152,7 +143,7 @@ module.exports = function(grunt){
             },
             mdMod: {
                 src: [
-                    'build/readme.txt',
+                    '_dist/readme.txt',
                 ],
                 overwrite: true,
                 replacements: [ {
@@ -162,7 +153,7 @@ module.exports = function(grunt){
             },
             mdMod2: {
                 src: [
-                    'build/readme.txt',
+                    '_dist/readme.txt',
                 ],
                 overwrite: true,
                 replacements: [ {
@@ -172,7 +163,7 @@ module.exports = function(grunt){
             },
             mdMod3: {
                 src: [
-                    'build/readme.txt',
+                    '_dist/readme.txt',
                 ],
                 overwrite: true,
                 replacements: [ {
@@ -182,7 +173,7 @@ module.exports = function(grunt){
             },
             mdMod4: {
                 src: [
-                    'build/readme.txt',
+                    '_dist/readme.txt',
                 ],
                 overwrite: true,
                 replacements: [ {
@@ -194,25 +185,36 @@ module.exports = function(grunt){
         copy: {
             readme: {
                 src: 'readme.md',
-                dest: 'build/readme.txt'
+                dest: '_dist/readme.txt'
             },
             build: {
                 expand: true,
-                src: ['**', '!node_modules/**', '!build/**', '!readme.md', '!gruntfile.js', '!Gruntfile.js', '!csscomb.json', '!sftp-config.json', '!package.json', '!<%= pkg.name %>.sublime-project', '!<%= pkg.name %>.sublime-workspace' ],
-                dest: 'build/'
+                src: ['**', '!node_modules/**', '!_dist/**', '!_dist/**', '!readme.md', '!gruntfile.js', '!Gruntfile.js', '!csscomb.json', '!sftp-config.json', '!package.json', '!.sublime-project', '!.sublime-workspace' ],
+                dest: '_dist/'
             }
         },
         compress: {
             build: {
                 options: {
-                    archive: 'build/<%= pkg.name %>-<%= pkg.version %>.zip'
+                    archive: '_dist/<%= pkg.name %>-<%= pkg.version %>.zip'
                 },
                 expand: true,
-                cwd: 'build/',
+                cwd: '_dist/',
                 src: ['**/*'],
                 dest: '<%= pkg.name %>/'
+            },
+            package: {
+                options: {
+                    archive: '_dist/<%= pkg.name %>-package-<%= pkg.version %>.zip'
+                },
+                expand: true,
+                cwd: '_dist/',
+                src: ['**/*'],
+                dest: '<%= pkg.name %>-package-<%= pkg.version %>/'
             }
         },
+
+
         
     });
 
@@ -248,8 +250,10 @@ module.exports = function(grunt){
         'replace:mdMod2',
         'replace:mdMod3',
         'replace:mdMod4',
-        'replace:svgURL',
         'compress:build',
         'clean:build',
+        'compress:package',
+        
+        
     ]);    
 };

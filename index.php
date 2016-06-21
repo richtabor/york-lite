@@ -14,43 +14,32 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
+<div id="projects" class="projects clearfix">
 
-    <main id="main" class="site-main" role="main">
+    <?php if ( have_posts() ) :
 
-        <div id="hfeed" class="hfeed">
+        // Start the loop.
+        while ( have_posts() ) : the_post(); 
+                
+            if ( has_post_thumbnail() ) :
+                
+                get_template_part( 'template-parts/portfolio-loop');
 
-        	<?php if ( have_posts() ) :
+            endif;
 
-        		// Start the loop.
-        		while ( have_posts() ) : the_post(); 
-        		 		
-        		    /*
-                     * Include the Post-Format-specific template for the content.
-                     * If you want to override this in a child theme, then include a file
-                     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                     */
-                    get_template_part( 'template-parts/content', get_post_format() );
+        // End the loop.
+        endwhile;
 
-        		// End the loop.
-        		endwhile;
+    // If no content, include the "No posts found" template.
+    else :
+        get_template_part( 'template-parts/content', 'none' );
+    endif;
+    ?>
 
-                /**
-                 * Previous/next page navigation or JetPack infinite scroll, if active.
-                 * The following function is located in inc/template-tags.php
-                 */
-                york_pagination();
-
-        	// If no content, include the "No posts found" template.
-        	else :
-        		get_template_part( 'template-parts/content', 'none' );
-        	endif;
-        	?>
-		
-        </div><!-- #hfeed -->
-
-    </main><!-- #main -->
-
-</div><!-- #primary -->
+    <div id="page_nav">
+        <?php next_posts_link(); ?>
+    </div>
+        
+</div><!-- .projects -->
 
 <?php get_footer();

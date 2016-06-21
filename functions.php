@@ -33,7 +33,7 @@
 /**
  * Set constant for version.
  */
-define( 'YORK_VERSION', '1.1.0' );
+define( 'YORK_VERSION', '1.0.0' );
 
 
 
@@ -42,7 +42,7 @@ define( 'YORK_VERSION', '1.1.0' );
  * If set the 'true', then serve standard theme files,
  * instead of minified .css and .js files.
  */
-define( 'YORK_DEBUG', false );
+define( 'YORK_DEBUG', true );
 
 
 
@@ -116,14 +116,14 @@ function york_setup() {
 	add_image_size( 'sml-thumbnail', 50, 50, true );
 	add_image_size( 'page_post-feat', 540, 9999 );
 	add_image_size( 'port-full', 9999, 9999, false  );
-	add_image_size( 'port-grid', 500, 9999 );
+	add_image_size( 'project-thumbnail', 9999, 9999 );
 
 
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'york' ),
-        'social' => esc_html__( 'Social Menu', 'york' ),
+        'footer' => esc_html__( 'Footer Menu', 'york' ),
 	) );
 
 
@@ -148,7 +148,7 @@ function york_setup() {
      * See: https://codex.wordpress.org/Post_Formats
      */
     add_theme_support( 'post-formats', array(
-        'video', 'image'
+        'image'
     ) );
 
 
@@ -196,14 +196,24 @@ add_action( 'after_setup_theme', 'york_content_width', 0 );
  */
 function york_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Theme Sidebar', 'york' ),
+		'name'          => esc_html__( 'Flyout', 'york' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Appears at the theme flyout sidebar.', 'york' ),
+		'description'   => esc_html__( 'Appears on the theme flyout sidebar.', 'york' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h6 class="widget-title">',
 		'after_title'   => '</h6>',
 	) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Footer', 'york' ),
+        'id'            => 'footer',
+        'description'   => esc_html__( 'Appears at the top of the site footer.', 'york' ),
+        'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s clearfix">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h6 class="widget-title">',
+        'after_title'   => '</h6>',
+    ) );
 }
 add_action( 'widgets_init', 'york_widgets_init' );
 
@@ -221,6 +231,7 @@ add_action( 'wp_head', 'york_javascript_detection', 0 );
 
 
 
+if ( ! function_exists( 'york_scripts' ) ) :
 /**
  * Enqueue scripts and styles.
  */
@@ -232,7 +243,7 @@ function york_scripts() {
 	/**
 	 * Check whether WP_DEBUG or SCRIPT_DEBUG or YORK_DEBUG is set to true. 
 	 * If so, we’ll load the unminified versions of the main theme stylesheet. If not, load the compressed and combined version.
-	 * This is also similar to how WordPress core does it. 
+	 * This is also similar to how WordPress core does it.
 	 * 
 	 * @link https://codex.wordpress.org/WP_DEBUG
 	 */
@@ -241,37 +252,39 @@ function york_scripts() {
 		wp_enqueue_style( 'york-style', get_stylesheet_uri() );
 	} else {
 		// Add the main minified stylesheet.
-		wp_enqueue_style('york-minified-style', get_template_directory_uri(). '/style-min.css', false, '1.0', 'all');
+		wp_enqueue_style('york-minified-style', get_template_directory_uri(). '/style-min.css', false, YORK_VERSION, 'all');
 	}
 
-	// Load the standard WordPress comments reply javascript.
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if ( is_archive() && is_search() && is_taxonomy() && is_blog() && is_page_template('template-portfolio.php') ) {
+		wp_enqueue_script( 'masonry');
 	}
-	
+
 	/**
 	 * Now let's check the same for the scripts.
 	 */
 	if ( WP_DEBUG || SCRIPT_DEBUG || YORK_DEBUG ) {
+        
+        // Load the ImagesLoaded javascript.
+        wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/js/src/images-loaded.js', array( 'jquery' ), YORK_VERSION, true );
 
-		// Load the NProgress progress bar loader javascript.
-		wp_enqueue_script( 'nprogress', get_template_directory_uri() . '/js/src/nprogress.js', array( 'jquery' ), YORK_VERSION, true );
+        // Load the Isotope script for the masonry layout.
+        wp_enqueue_script( 'isotope', get_template_directory_uri() . '/js/src/isotope.js', array( 'jquery' ), YORK_VERSION, true );
+
+        // Load the Infinite Scroll javascript.
+        wp_enqueue_script( 'infinitescroll', get_template_directory_uri() . '/js/src/infinitescroll.js', array( 'jquery' ), YORK_VERSION, true );
 
 		// Load the FitVids responsive video javascript.
 		wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/js/src/fitvids.js', array( 'jquery' ), YORK_VERSION, true );
 
-		// Load the Photoswipe script for singular portfolio lightboxes.
-		wp_enqueue_script( 'photoswipe', get_template_directory_uri() . '/js/src/photoswipe.js', array( 'jquery' ), YORK_VERSION, true );
-
-		// Load the default UI for the Photoswipe script.
-		wp_enqueue_script( 'photoswipe-ui', get_template_directory_uri() . '/js/src/photoswipe-ui-default.js', array( 'jquery' ), YORK_VERSION, true );
-
-		// Load the FitVids responsive video javascript.
-		wp_enqueue_script( 'lity', get_template_directory_uri() . '/js/src/lity.js', array( 'jquery' ), YORK_VERSION, true );
+        // Load the SVG script.
+        wp_enqueue_script( 'animsition', get_template_directory_uri() . '/js/src/animsition.js', array( 'jquery' ), YORK_VERSION, true );
 
         // Load the SVG script.
         wp_enqueue_script( 'svg4everybody', get_template_directory_uri() . '/js/src/svg4everybody.js', array( 'jquery' ), YORK_VERSION, true );
 
+        // Load the Infinite Scroll javascript.
+        wp_enqueue_script( 'infinitescroll', get_template_directory_uri() . '/js/src/infinitescroll.js', array( 'jquery' ), YORK_VERSION, true );
+        
 		// Load the custom theme javascript functions.
 		wp_enqueue_script( 'york-functions', get_template_directory_uri() . '/js/src/functions.js', array( 'jquery' ), YORK_VERSION, true );
 
@@ -280,7 +293,7 @@ function york_scripts() {
 
 	} else {
 		// Load the combined javascript library.
-		wp_enqueue_script( 'york-combined-scripts', get_template_directory_uri() . '/js/combined-min.js', array(), '20130115', true );
+		wp_enqueue_script( 'york-combined-scripts', get_template_directory_uri() . '/js/combined-min.js', array(), YORK_VERSION, true );
 		
 		// Load the minified javascript functions.
 		wp_enqueue_script( 'york-minified-functions', get_template_directory_uri() . '/js/functions-min.js', array( 'jquery' ), YORK_VERSION, true );
@@ -288,15 +301,9 @@ function york_scripts() {
         // Set the localization script handle variable for the minified funtions-min.js file.
         $functions_handle = 'york-minified-functions';
 	}
-
-    wp_localize_script( $functions_handle, 'site' , array(
-        'theme_path' => get_template_directory_uri(),
-        'ajaxurl'    => admin_url('admin-ajax.php')
-    ) );
-
-    
 }
 add_action( 'wp_enqueue_scripts', 'york_scripts' );
+endif;
 
 
 
@@ -310,11 +317,6 @@ function york_fonts_url() {
 	$fonts_url = '';
 	$fonts     = array();
 	$subsets   = '';
-
-	/* translators: If there are characters in your language that are not supported by Source Code Pro, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== esc_html_x( 'on', 'Inconsolata font: on or off', 'york' ) ) {
-		$fonts[] = 'Inconsolata';
-	}
 
     /* translators: If there are characters in your language that are not supported by Playfair Display, translate this to 'off'. Do not translate into your own language. */
     if ( 'off' !== esc_html_x( 'on', 'Playfair Display font: on or off', 'york' ) ) {
@@ -417,40 +419,6 @@ endif;
 
 
 
-if ( ! function_exists( 'york_load_ajax_content' ) ) :
-/**
- * Return the post content to the AJAX call. 
- * Create your own york_load_ajax_content() to override in a child theme. 
- */
-function york_load_ajax_content () {
-
-    $args = array(
-        'post_type'      => 'portfolio',
-        'posts_per_page' => '1',
-        'p' => $_POST['post_id']
-    );
-
-    $wp_query = new WP_Query( $args );
-
-    // Start the loop.
-    while($wp_query->have_posts()) : $wp_query->the_post();
-
-      //Retrieve the post content.
-      get_template_part( 'template-parts/portfolio-single' );
-
-    // End the loop.
-    endwhile;   
-
-    wp_reset_query(); wp_reset_postdata();
-         
-    exit;
-}
-add_action ( 'wp_ajax_nopriv_load-content', 'york_load_ajax_content' );
-add_action ( 'wp_ajax_load-content', 'york_load_ajax_content' );
-endif;
-
-
-
 /**
  * Convert HEX to RGB.
  *
@@ -475,77 +443,6 @@ function york_hex2rgb( $color ) {
 
     return array( 'red' => $r, 'green' => $g, 'blue' => $b );
 }
-
-
-
-if ( ! function_exists( 'york_comments' ) ) :
-/**
- * Define custom callback function for comment output.  
- * Based strongly on the output from Twenty Sixteen. 
- * 
- * @link https://codex.wordpress.org/Function_Reference/wp_list_comments
- * @link https://wordpress.org/themes/twentysixteen/
- *
- * Create your own york_comments() to override in a child theme.
- */
-function york_comments($comment, $args, $depth) {
-    
-    global $post;
-
-    $GLOBALS['comment'] = $comment;
-    extract($args, EXTR_SKIP);
-
-    if ( 'div' == $args['style'] ) {
-        $tag = 'div';
-        $add_below = 'comment';
-    } else {
-        $tag = 'li';
-        $add_below = 'div-comment';
-    }
-    ?>
-
-    <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
-    
-    <?php if ( 'div' != $args['style'] ) : ?>
-        <article id="div-comment-<?php comment_ID() ?>" class="comment-body">
-    <?php endif; ?>
-    
-        <footer class="comment-meta">
-            
-            <div class="comment-author vcard">
-                <div class="avatar-wrapper">
-                    <?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
-                </div>
-                
-                <div class="comment-metadata">
-                    <?php printf( __( '<b class="fn">%s</b> <span class="says">says:</span>', 'york' ), get_comment_author_link() ); ?>
-                
-                    <span class="comment-date">
-                        <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
-                        <?php /* translators: 1: date, 2: time */
-                            printf( __('%1$s at %2$s', 'york'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link(__('Edit', 'york'),'','');
-                        ?>
-                        <?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-
-                        <?php if ( $comment->comment_approved == '0' ) : ?>
-                            <span class="comment-awaiting-moderation"><?php esc_html_e( 'Awaiting moderation', 'york' ); ?></span>
-                        <?php endif; ?>
-                    </span>
-                </div>
-
-            </div>
-
-        </footer>
-
-        <div class="comment-content">
-            <?php comment_text(); ?>
-        </div>
-
-    <?php if ( 'div' != $args['style'] ) : ?>
-        </article>
-    <?php endif;
-}
-endif;
 
 
 
@@ -602,6 +499,8 @@ require get_template_directory() . '/inc/widgets/widget-flickr.php';
 require get_template_directory() . '/inc/widgets/widget-video.php';
 require get_template_directory() . '/inc/widgets/widget-portfolio-menu.php';
 require get_template_directory() . '/inc/widgets/widget-profile.php';
+require get_template_directory() . '/inc/widgets/widget-clients.php';
+
 
 
 /**

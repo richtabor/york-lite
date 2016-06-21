@@ -4,10 +4,9 @@
  *
  * @package York
  */
+ ?>
 
-?>
-
-<div class="projects clearfix">
+<div id="projects" class="projects clearfix">
 
 	<?php
 	//PULL PAGINATION FROM CUSTOMIZATION
@@ -46,16 +45,10 @@
 
 		endwhile; endif; wp_reset_postdata();
 
-	} //END else is_tax() 
- 
-    //Previous/next page navigation.
-    the_posts_pagination( array(
-        'prev_text'          => __( 'Previous', 'york' ),
-        'next_text'          => __( 'Next', 'york' ),
-        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'york' ) . ' </span>',
-        'mid_size'           => 0
-    ) ); 
-    ?>
+	} //END else is_tax()  ?>
+
+    <div id="page_nav">
+        <?php next_posts_link(); ?>
+    </div>
 
 </div><!-- .projects -->
-

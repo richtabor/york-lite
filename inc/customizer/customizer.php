@@ -23,6 +23,14 @@ function bean_customize_register( $wp_customize ) {
     $wp_customize->remove_control( 'site_logo_header_text');
 	$wp_customize->remove_control('background_color');
 
+
+
+    /**
+     * Add custom controls.
+     */
+    require get_template_directory() . '/inc/customizer/custom-controls/content.php';
+    require get_template_directory() . '/inc/customizer/custom-controls/range.php';
+
     
 
 	/**
@@ -55,6 +63,33 @@ function bean_customize_register( $wp_customize ) {
         'panel'                 => 'york_theme_options',
     ) );
 
+            // Upsell content.
+            $wp_customize->add_setting( 'york_pro_colors_content', array(
+                'default'               => '',
+                'sanitize_callback'     => 'bean_sanitize_nohtml',
+            ) );
+
+            $wp_customize->add_control( new Bean_Content_Control( $wp_customize, 'york_pro_colors_content', array(
+                'type'              => 'content',
+                'label'                 => esc_html__( 'Customize Colors', 'york' ),
+                 'description'          => sprintf( __( '<a target="_blank" href="%1$s" class="button button-primary">Upgrade to York Pro - $59</a>', 'york' ), esc_url( PRO_UPGRADE_URL ) ),
+                'section'               => 'york_pro_colors',
+                'input_attrs'           => array( 'content' => __( '<p>Upgrade to York Pro to customize the theme color pallete to your liking.</p>', 'york' ) 
+                ),
+            ) ) );
+
+            //PRO: Add main accent color setting and control.
+            $wp_customize->add_setting( 'theme_accent_color', array(
+                'default'               => '#52bad5',
+                'sanitize_callback'     => 'sanitize_hex_color',
+                'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'theme_accent_color', array(
+                'label'             => esc_html__( 'Accent Color', 'york' ),
+                'section'               => 'york_pro_colors',
+            ) ) );
+
             //PRO: Add main accent color setting and control.
             $wp_customize->add_setting( 'york_background_color', array(
                 'default'               => '#ffffff',
@@ -81,7 +116,7 @@ function bean_customize_register( $wp_customize ) {
 
             //PRO: Add main accent color setting and control.
             $wp_customize->add_setting( 'body_secondary_typography_color', array(
-                'default'               => '#969696',
+                'default'               => '#909090',
                 'sanitize_callback'     => 'sanitize_hex_color',
                 'transport'             => 'postMessage',
             ) );
@@ -103,18 +138,6 @@ function bean_customize_register( $wp_customize ) {
                 'section'               => 'york_pro_colors',
             ) ) );
 
-            //PRO: Add main accent color setting and control.
-            $wp_customize->add_setting( 'theme_accent_color', array(
-                'default'               => '#00bac7',
-                'sanitize_callback'     => 'sanitize_hex_color',
-                'transport'             => 'postMessage',
-            ) );
-
-            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'theme_accent_color', array(
-                'label'             => esc_html__( 'Accent Color', 'york' ),
-                'section'               => 'york_pro_colors',
-            ) ) );
-
 
 
     /**
@@ -124,6 +147,21 @@ function bean_customize_register( $wp_customize ) {
         'title'                 => esc_html__( 'Header', 'york' ),
         'panel'                 => 'york_theme_options',
     ) );
+
+            // Upsell content.
+            $wp_customize->add_setting( 'york_pro_header_content', array(
+                'default'               => '',
+                'sanitize_callback'     => 'bean_sanitize_nohtml',
+            ) );
+
+            $wp_customize->add_control( new Bean_Content_Control( $wp_customize, 'york_pro_header_content', array(
+                'type'              => 'content',
+                'label'                 => esc_html__( 'Extend the Header', 'york' ),
+                 'description'          => sprintf( __( '<a target="_blank" href="%1$s" class="button button-primary">Upgrade to York Pro - $59</a>', 'york' ), esc_url( PRO_UPGRADE_URL ) ),
+                'section'               => 'york_pro_header',
+                'input_attrs'           => array( 'content' => __( '<p>Upgrade to York Pro to add social navigational icons to your sidebar flyout and customize various colors throughout the header element.</p>', 'york' ) 
+                ),
+            ) ) );
 
             // Add the hire me badge selector setting and control.
             $wp_customize->add_setting( 'nav_social_icons', array(
@@ -153,7 +191,7 @@ function bean_customize_register( $wp_customize ) {
 
             //PRO: Add main accent color setting and control.
             $wp_customize->add_setting( 'york_sitetitlehover_color', array(
-                'default'               => '#00bac7',
+                'default'               => '#52bad5',
                 'sanitize_callback'     => 'sanitize_hex_color',
                 'transport'             => 'postMessage',
             ) );
@@ -177,7 +215,7 @@ function bean_customize_register( $wp_customize ) {
 
             //PRO: Add main accent color setting and control.
             $wp_customize->add_setting( 'york_navigationiconhover_color', array(
-                'default'               => '#000000',
+                'default'               => '#52bad5',
                 'sanitize_callback'     => 'sanitize_hex_color',
                 'transport'             => 'postMessage',
             ) );
@@ -209,44 +247,74 @@ function bean_customize_register( $wp_customize ) {
 		'panel'       					=> 'york_theme_options',
 	) );
 
-            // Add the portfolio loop selector setting and control.
-            $wp_customize->add_setting( 'york_portfolio_modal', array(
+            // Upsell content.
+            $wp_customize->add_setting( 'york_pro_portfolio_content', array(
+                'default'               => '',
+                'sanitize_callback'     => 'bean_sanitize_nohtml',
+            ) );
+
+            $wp_customize->add_control( new Bean_Content_Control( $wp_customize, 'york_pro_portfolio_content', array(
+                'type'              => 'content',
+                'label'                 => esc_html__( 'Enhance your Portfolio', 'york' ),
+                 'description'          => sprintf( __( '<a target="_blank" href="%1$s" class="button button-primary">Upgrade to York Pro - $59</a>', 'york' ), esc_url( PRO_UPGRADE_URL ) ),
+                'section'               => 'york_pro_portfolio',
+                'input_attrs'           => array( 'content' => __( '<p>Upgrade to York Pro to unlock the beautiful and swipeable lightbox image gallery, optimized lazy loading, post-to-post navigation, portfolio sharing and more!</p>', 'york' ) 
+                ),
+            ) ) );
+
+            // Add the portfolio lightbox selector setting and control.
+            $wp_customize->add_setting( 'york_portfolio_lightbox', array(
                 'default'               => FALSE,
                 'sanitize_callback'     => 'bean_sanitize_checkbox',
             ) );
 
-            $wp_customize->add_control( 'york_portfolio_modal', array(
+            $wp_customize->add_control( 'york_portfolio_lightbox', array(
                 'type'              => 'checkbox',
-                'label'                 => esc_html__( 'Single Portfolio Modal', 'york' ),
-                'description'           => esc_html__( 'Acrtive the portfolio modal, instead of linking to individual portfolio posts.', 'york' ),
+                'label'                 => esc_html__( 'Photoswipe Lightbox', 'york' ),
+                'description'           => esc_html__( 'Add a JavaScript image gallery to single views for mobile and desktop viewports, with touch gestures, zooming and optimized asset delivery.', 'york' ),
                 'section'           => 'york_pro_portfolio',
             ) );
 
-			// Add the portfolio loop selector setting and control.
-			$wp_customize->add_setting( 'portfolio_loop', array(
-				'default'           	=> FALSE,
-				'sanitize_callback' 	=> 'bean_sanitize_checkbox',
-			) );
+            // Add the portfolio lazy-loading selector setting and control.
+            $wp_customize->add_setting( 'york_portfolio_lazyload', array(
+                'default'               => FALSE,
+                'sanitize_callback'     => 'bean_sanitize_checkbox',
+            ) );
 
-			$wp_customize->add_control( 'portfolio_loop', array(
-				'type' 				=> 'checkbox',
-				'label'       			=> esc_html__( 'Single Portfolio Loop', 'york' ),
-				'description' 			=> esc_html__( 'Activate the portfolio loop on all portfolio posts, which contains a masonry grid of all posts.', 'york' ),
-				'section' 			=> 'york_pro_portfolio',
-			) );
+            $wp_customize->add_control( 'york_portfolio_lazyload', array(
+                'type'              => 'checkbox',
+                'label'                 => esc_html__( 'Portfolio Lazy Loading', 'york' ),
+                'description'           => esc_html__( 'Boosts performance by delaying the loading of images outside of the visible viewport.', 'york' ),
+                'section'           => 'york_pro_portfolio',
+            ) );
 
-			// Add the portfolio loop selector setting and control.
-			$wp_customize->add_setting( 'portfolio_loop_pages', array(
-				'default'           	=> FALSE,
-				'sanitize_callback' 	=> 'bean_sanitize_checkbox',
-			) );
+            // Add the portfolio social sharing selector setting and control.
+            $wp_customize->add_setting( 'york_social_sharing', array(
+                'default'               => FALSE,
+                'sanitize_callback'     => 'bean_sanitize_checkbox',
+                'transport'             => 'postMessage',
+            ) );
 
-			$wp_customize->add_control( 'portfolio_loop_pages', array(
-				'type' 				=> 'checkbox',
-				'label'       			=> esc_html__( 'Single Page Loop', 'york' ),
-				'description' 			=> esc_html__( 'Activate the portfolio loop on all standard WordPress pages, which contains a masonry grid of all posts.', 'york' ),
-				'section' 			=> 'york_pro_portfolio',
-			) );
+            $wp_customize->add_control( 'york_social_sharing', array(
+                'type'              => 'checkbox',
+                'label'                 => esc_html__( 'Portfolio Sharing', 'york' ),
+                'description'           => esc_html__( 'Add a social flyout menu on the singular portfolio views.', 'york' ),
+                'section'           => 'york_pro_portfolio',
+            ) );
+
+            // Add the portfolio post count selector setting and control.
+            $wp_customize->add_setting( 'portfolio_single_navigation', array(
+                'default'               => FALSE,
+                'sanitize_callback'     => 'bean_sanitize_number_intval',
+                'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'portfolio_single_navigation', array(
+                'type'                  => 'checkbox',
+                'label'                 => esc_html__( 'Portfolio Navigation', 'york' ),
+                'description'           => esc_html__( 'Enable the "Next" project post-to-post navigation element on single portfolio pages.', 'york' ),
+                'section'               => 'york_pro_portfolio',
+            ) );
 
 			// Add the portfolio post count selector setting and control.
 			$wp_customize->add_setting( 'portfolio_posts_count', array(
@@ -262,41 +330,47 @@ function bean_customize_register( $wp_customize ) {
 			) );
 
             //PRO: Add main accent color setting and control.
-            $wp_customize->add_setting( 'york_project_color', array(
-                'default'               => '#f6f6f6',
-                'sanitize_callback'     => 'sanitize_hex_color',
-                'transport'             => 'postMessage',
-            ) );
-
-            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_project_color', array(
-                'label'                 => esc_html__( 'Project', 'york' ),
-                'section'               => 'york_pro_portfolio',
-            ) ) );
-
-            //PRO: Add main accent color setting and control.
-            $wp_customize->add_setting( 'york_projecthover_color', array(
-                'default'               => '#f6f6f6',
-                'sanitize_callback'     => 'sanitize_hex_color',
-                'transport'             => 'postMessage',
-            ) );
-
-            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_projecthover_color', array(
-                'label'                 => esc_html__( 'Project Hover', 'york' ),
-                'section'               => 'york_pro_portfolio',
-            ) ) );
-
-            //PRO: Add main accent color setting and control.
-            $wp_customize->add_setting( 'york_project_modal', array(
+            $wp_customize->add_setting( 'york_overlay_color', array(
                 'default'               => '#ffffff',
                 'sanitize_callback'     => 'sanitize_hex_color',
                 'transport'             => 'postMessage',
             ) );
 
-            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_project_modal', array(
-                'label'                 => esc_html__( 'Project Modal', 'york' ),
+            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_overlay_color', array(
+                'label'                 => esc_html__( 'Overlay', 'york' ),
                 'section'               => 'york_pro_portfolio',
             ) ) );
-            
+
+            //PRO: Add main accent color setting and control.
+            $wp_customize->add_setting( 'york_overlay_text_color', array(
+                'default'               => '#000000',
+                'sanitize_callback'     => 'sanitize_hex_color',
+                'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_overlay_text_color', array(
+                'label'                 => esc_html__( 'Overlay Text', 'york' ),
+                'section'               => 'york_pro_portfolio',
+            ) ) );
+
+            // PRO: Add logo css filter setting and control.
+            $wp_customize->add_setting( 'css_filter', array( 
+                'default'           => 'none', 
+                'sanitize_callback'     => '',
+            ) );
+
+            //PRO: Add main accent color setting and control.
+            $wp_customize->add_setting( 'york_portfolio_social_color', array(
+                'default'               => '#000000',
+                'sanitize_callback'     => 'sanitize_hex_color',
+                'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_portfolio_social_color', array(
+                'label'                 => esc_html__( 'Social Share Color', 'york' ),
+                'section'               => 'york_pro_portfolio',
+            ) ) );
+
             // PRO: Add logo css filter setting and control.
             $wp_customize->add_setting( 'css_filter', array( 
                 'default'           => 'none', 
@@ -359,6 +433,21 @@ function bean_customize_register( $wp_customize ) {
 		'panel'       					=> 'york_theme_options',
 	) );
 
+            // Upsell content.
+            $wp_customize->add_setting( 'york_theme_options_footer_content', array(
+                'default'               => '',
+                'sanitize_callback'     => 'bean_sanitize_nohtml',
+            ) );
+
+            $wp_customize->add_control( new Bean_Content_Control( $wp_customize, 'york_theme_options_footer_content', array(
+                'type'              => 'content',
+                'label'                 => esc_html__( 'Add a Call to Action', 'york' ),
+                 'description'          => sprintf( __( '<a target="_blank" href="%1$s" class="button button-primary">Upgrade to York Pro - $59</a>', 'york' ), esc_url( PRO_UPGRADE_URL ) ),
+                'section'               => 'york_theme_options_footer',
+                'input_attrs'           => array( 'content' => __( '<p>Upgrade to York Pro to disable the "Powered by York" footer option and add a stunning global call to action on every page or post.<br><br>Check out the various call to action options below included in York Pro - they\'re amazing!</p>', 'york' ) 
+                ),
+            ) ) );
+
 			// Add the powered by York setting and control.
 			$wp_customize->add_setting( 'powered_by_york', array(
 				'default'           	=> TRUE,
@@ -372,73 +461,124 @@ function bean_customize_register( $wp_customize ) {
 			) );
 
 			// Add the powered by WordPress setting and control.
-			$wp_customize->add_setting( 'powered_by_wordpress', array(
+			$wp_customize->add_setting( 'york_footer_cta', array(
 				'default'           	=> FALSE,
 				'sanitize_callback' 	=> 'bean_sanitize_checkbox',
 			) );
 
-			$wp_customize->add_control( 'powered_by_wordpress', array(
+			$wp_customize->add_control( 'york_footer_cta', array(
 				'type' 				=> 'checkbox',
-				'label'       		=> esc_html__( 'A WordPress run site. Nice.', 'york' ),
+				'label'       		=> esc_html__( 'Footer Call to Action', 'york' ),
+                'description'       => esc_html__( 'Enable the footer call to action to display on all non-masonry pages. Add your text, link and select your settings from the options below.', 'york' ),
 				'section' 			=> 'york_theme_options_footer',
 			) );
 
-            // Add the hire me badge selector setting and control.
-            $wp_customize->add_setting( 'york_hireme_badge', array(
-                'default'               => FALSE,
-                'sanitize_callback'     => 'bean_sanitize_checkbox',
+            // Add the contact email address selector setting and control.
+            $wp_customize->add_setting( 'york_footer_cta_text1', array(
+                'default'               => '',
+                'sanitize_callback'    => 'bean_sanitize_nohtml',
                 'transport'             => 'postMessage',
             ) );
 
-            $wp_customize->add_control( 'york_hireme_badge', array(
-                'type'              => 'checkbox',
-                'label'             => esc_html__( 'Footer "Hire Me" Badge', 'york' ),
-                'section'           => 'york_theme_options_footer',
-            ) );
-
-            // Add the hire me badge text selector setting and control.
-            $wp_customize->add_setting( 'york_hireme_badge_text', array(
-                'sanitize_callback'     => 'bean_sanitize_nohtml',
-                'transport'             => 'postMessage',
-            ) );
-
-            $wp_customize->add_control( 'york_hireme_badge_text', array(
-                'type'                  => 'text',
+            $wp_customize->add_control( 'york_footer_cta_text1', array(
+                'type'              => 'text',
                 'label'                 => esc_html__( 'Text', 'york' ),
                 'description'           => esc_html__( 'Text:', 'york' ),
                 'section'               => 'york_theme_options_footer',
             ) );
 
-            // Add the hire me badge URL selector setting and control.
-            $wp_customize->add_setting( 'york_hireme_badge_url', array(
+            // Add the contact email address selector setting and control.
+            $wp_customize->add_setting( 'york_footer_cta_text2', array(
                 'default'               => '',
-                'sanitize_callback'     => 'esc_url_raw',
-                'transport'             => 'postMessage',
+                 'sanitize_callback'    => 'bean_sanitize_html',
+                 'transport'             => 'postMessage',
             ) );
 
-            $wp_customize->add_control( 'york_hireme_badge_url', array(
-                'type'              => 'text',
-                'label'                 => esc_html__( 'URL', 'york' ),
-                'description'           => esc_html__( 'URL:', 'york' ),
+            $wp_customize->add_control( 'york_footer_cta_text2', array(
+                'type'                  => 'text',
+                'section'               => 'york_theme_options_footer',
+            ) );
+
+            // Add the contact email address selector setting and control.
+            $wp_customize->add_setting( 'york_footer_cta_link', array(
+                'default'               => '',
+                 'sanitize_callback'    => 'bean_sanitize_html',
+                 'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'york_footer_cta_link', array(
+                'type'                  => 'url',
+                'label'                 => esc_html__( 'Link', 'york' ),
+                'description'           => esc_html__( 'Link:', 'york' ),
                 'section'               => 'york_theme_options_footer',
             ) );
 
             // Add the powered by WordPress setting and control.
-            $wp_customize->add_setting( 'york_hireme_badge_shake', array(
+            $wp_customize->add_setting( 'york_footer_cta_link_target', array(
                 'default'               => FALSE,
                 'sanitize_callback'     => 'bean_sanitize_checkbox',
                 'transport'             => 'postMessage',
             ) );
 
-            $wp_customize->add_control( 'york_hireme_badge_shake', array(
+            $wp_customize->add_control( 'york_footer_cta_link_target', array(
                 'type'              => 'checkbox',
-                'label'             => esc_html__( 'Shake Animation', 'york' ),
+                'label'             => esc_html__( 'Open link in a new window', 'york' ),
                 'section'           => 'york_theme_options_footer',
             ) );
 
+            // Add the powered by WordPress setting and control.
+            $wp_customize->add_setting( 'york_footer_cta_shapes', array(
+                'default'               => FALSE,
+                'sanitize_callback'     => 'bean_sanitize_checkbox',
+                'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'york_footer_cta_shapes', array(
+                'type'              => 'checkbox',
+                'label'             => esc_html__( 'Add shapes background', 'york' ),
+                'section'           => 'york_theme_options_footer',
+            ) );
+
+
+            //PRO: Add main accent color setting and control.
+            $wp_customize->add_setting( 'york_cta_background_color', array(
+                'default'               => '#1c1c1c',
+                'sanitize_callback'     => 'sanitize_hex_color',
+                'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_cta_background_color', array(
+                'label'                 => esc_html__( 'Background', 'york' ),
+                'section'               => 'york_theme_options_footer',
+            ) ) );
+
+            //PRO: Add main accent color setting and control.
+            $wp_customize->add_setting( 'york_cta_text_color', array(
+                'default'               => '#ffffff',
+                'sanitize_callback'     => 'sanitize_hex_color',
+                'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_cta_text_color', array(
+                'label'                 => esc_html__( 'Text', 'york' ),
+                'section'               => 'york_theme_options_footer',
+            ) ) );
+
+            //PRO: Add main accent color setting and control.
+            $wp_customize->add_setting( 'york_cta_shape_color', array(
+                'default'               => '#ffffff',
+                'sanitize_callback'     => 'sanitize_hex_color',
+                'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_cta_shape_color', array(
+                'label'                 => esc_html__( 'Shapes', 'york' ),
+                'section'               => 'york_theme_options_footer',
+            ) ) );
+
             //PRO: Add main accent color setting and control.
             $wp_customize->add_setting( 'york_footertext_color', array(
-                'default'               => '#969696',
+                'default'               => '#000000',
                 'sanitize_callback'     => 'sanitize_hex_color',
                 'transport'             => 'postMessage',
             ) );
@@ -449,14 +589,26 @@ function bean_customize_register( $wp_customize ) {
             ) ) );
 
             //PRO: Add main accent color setting and control.
+            $wp_customize->add_setting( 'york_footernav_a_color', array(
+                'default'               => '#909090',
+                'sanitize_callback'     => 'sanitize_hex_color',
+                'transport'             => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_footernav_a_color', array(
+                'label'                 => esc_html__( 'Footer Link', 'york' ),
+                'section'               => 'york_theme_options_footer',
+            ) ) );
+
+            //PRO: Add main accent color setting and control.
             $wp_customize->add_setting( 'york_footertexthover_color', array(
-                'default'               => '#00bac7',
+                'default'               => '#52bad5',
                 'sanitize_callback'     => 'sanitize_hex_color',
                 'transport'             => 'postMessage',
             ) );
 
             $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_footertexthover_color', array(
-                'label'                 => esc_html__( 'Footer Text Hover', 'york' ),
+                'label'                 => esc_html__( 'Footer Link Hover', 'york' ),
                 'section'               => 'york_theme_options_footer',
             ) ) );
 
@@ -472,17 +624,45 @@ function bean_customize_register( $wp_customize ) {
                 'section'               => 'york_theme_options_footer',
             ) ) );
 
-            //PRO: Add main accent color setting and control.
-            $wp_customize->add_setting( 'york_badge_color', array(
-                'default'               => '#00bac7',
-                'sanitize_callback'     => 'sanitize_hex_color',
-                'transport'             => 'postMessage',
-            ) );
 
-            $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_badge_color', array(
-                'label'                 => esc_html__( 'Hire Me Badge', 'york' ),
-                'section'               => 'york_theme_options_footer',
-            ) ) );
+
+    /**
+     * Add the 404 section.
+     */
+    $wp_customize->add_section( 'york_theme_options_404', array(
+        'title'                         => esc_html__( '404', 'york' ),
+        'panel'                         => 'york_theme_options',
+    ) );
+
+
+        // Upsell content.
+        $wp_customize->add_setting( 'york_theme_options_404_content', array(
+            'default'               => '',
+            'sanitize_callback'     => 'bean_sanitize_nohtml',
+        ) );
+
+        $wp_customize->add_control( new Bean_Content_Control( $wp_customize, 'york_theme_options_404_content', array(
+            'type'              => 'content',
+            'label'                 => esc_html__( 'Create a stunning 404 page', 'york' ),
+             'description'          => sprintf( __( '<a target="_blank" href="%1$s" class="button button-primary">Upgrade to York Pro - $59</a>', 'york' ), esc_url( PRO_UPGRADE_URL ) ),
+            'section'               => 'york_theme_options_404',
+            'input_attrs'           => array( 'content' => __( '<p>Want to add a gorgeous background image to your site\'s 404 template? Simply upgrade to York Pro to unlock it today!</p>', 'york' ) 
+            ),
+        ) ) );
+
+        // Add sharing default image uploader setting and control.
+        $wp_customize->add_setting( 'york_404_bg', array(
+            'sanitize_callback'     => 'bean_sanitize_image',
+            'default'               => '',
+        ) );
+
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'york_404_bg', array(
+              'label'                   => esc_html__( '404 Background', 'york' ),
+              'description'             => esc_html__( 'Upload a custom background image to use on the error 404 page.', 'york' ),
+              'section'                 => 'york_theme_options_404',
+              'settings'                => 'york_404_bg',
+        ) ) );
+
 
 
     /**
@@ -545,7 +725,6 @@ function bean_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'contact_button' )->transport  	  		= 'postMessage';	
 	$wp_customize->get_setting( 'contact_email' )->transport  	   		= 'postMessage';	
 	$wp_customize->get_setting( 'powered_by_york' )->transport  	   	= 'postMessage';
-	$wp_customize->get_setting( 'powered_by_wordpress' )->transport  	= 'postMessage';
 	
 }
 
@@ -560,8 +739,8 @@ add_action( 'customize_register', 'bean_customize_register', 11 );
  *
  * @return void
  */
-function plate_york_hireme_badge_callback( $control ) {
-     if ( $control->manager->get_setting('york_hireme_badge')->value() == true ) {
+function york_footer_cta_callback( $control ) {
+     if ( $control->manager->get_setting('york_footer_cta')->value() == true ) {
         return true;
      } else {
         return false;

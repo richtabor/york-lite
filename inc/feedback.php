@@ -154,9 +154,11 @@ class ThemeBeans_Request_Feedback {
             $time = $this->seconds_to_words( time() - get_site_option( $this->slug . '-activation-date' ) );
 
             echo '<div class="updated feedback-notice">
-                    <p><b>' . sprintf( esc_html__( 'How do you like %s?', 'york' ), $this->name ) . '</b> '.esc_html__( 'Write a review and get a 40% discount on your next ThemeBeans theme!', 'york' ).'</p>
-                    <p><a onclick="location.href=\'' . esc_url( $no_bug_url ) . '\';" class="button button-secondary" href="' . esc_url( 'https://themebeans.com/feedback/?themename='.$this->name.'&email='.$current_user->user_email.'&url='.$url.'' ) . '" target="_blank">' . esc_html__( 'Write a Review', 'york' ) . '</a></p>
-                    <a class="dismiss" href="' . esc_url( $no_bug_url ) . '"></a>
+                    <p><b>'. __( 'Instantly save 10% on York Pro!</b> Just add York Pro to your cart and we\'ll automagically apply your discount.', 'york' ) . '</p>
+                    <p>
+                    <a class="button button-secondary" href="' . esc_url( 'https://themebeans.com/themes/york/#upsell' ) . '" target="_blank">' . __( 'Learn More', 'york' ) . '</a>
+                     <a class="button button-primary" href="' . esc_url( PRO_UPGRADE_URL.'&discount=YORK_SAVE10' ) . '" target="_blank">' . __( 'Add to Cart - $59', 'york' ) . '</a>
+                    </p>
                 </div>';
         }
 
@@ -198,6 +200,6 @@ endif;
  */
 new ThemeBeans_Request_Feedback( array(
     'slug'        => 'york',
-    'name'        => 'york',
-    'time_limit'  => WEEK_IN_SECONDS,
+    'name'        => 'York',
+    'time_limit'  => DAY_IN_SECONDS,
 ) );

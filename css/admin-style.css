@@ -1,45 +1,218 @@
+
+/**
+ * Adds a "Home" badge to the Customizer widgets built for the Home template.
+ */
+
+#available-widgets .widget-tpl[class*="york_clients"] .widget:before,
+#available-widgets .widget-tpl[class*="york_profile"] .widget:before,
+#available-widgets .widget-tpl[class*="york_portfolio_menu"] .widget:before { 
+    background: #d54e21;
+    padding: 3px 8px 3px;
+    font-size: 10px;
+    border-radius: 3px;
+    content: 'York Pro';
+    color: #fff;
+    text-shadow: 0 -1px 1px #0085C5,1px 0 1px #0085C5,0 1px 1px #0085C5,-1px 0 1px #0085C5;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#customize-control-site_logo_width {
+    margin-bottom: 30px;
+}
+
+
+/**
+ * Adds extra styling to Plate widgets, so they're easily located.
+ */
+
+
+#widget-list .widget[id*="york_clients"] .widget-top h3:after,
+#widget-list .widget[id*="york_profile"] .widget-top h3:after,
+#widget-list .widget[id*="york_portfolio_menu"] .widget-top h3:after {
+    background: #0085ba;
+    padding: 6px 8px;
+    background: #EAEAEA;
+    text-shadow: none;
+    font-weight: 600;
+    font-size: 1em;
+    color: #d54e21;
+    content: 'York Pro';
+    border-radius: 2px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+
+
+
+#customize-control-york_pro_colors_content,
+#customize-control-york_pro_header_content,
+#customize-control-york_pro_portfolio_content,
+#customize-control-york_theme_options_footer_content,
+#customize-control-york_theme_options_404_content {
+    margin-bottom: 15px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+#customize-control-york_pro_colors_content .customize-control-title,
+#customize-control-york_pro_header_content .customize-control-title,
+#customize-control-york_pro_portfolio_content .customize-control-title,
+#customize-control-york_theme_options_footer_content .customize-control-title,
+#customize-control-york_theme_options_404_content .customize-control-title {
+    margin-bottom: -8px;
+}
+
+#customize-control-york_pro_colors_content .button,
+#customize-control-york_pro_header_content .button,
+#customize-control-york_pro_portfolio_content .button,
+#customize-control-york_theme_options_footer_content .button,
+#customize-control-york_theme_options_404_content .button {
+    text-align: center;
+    width: 100%;
+}
+
+#customize-control-york_404_bg,
+#customize-control-york_footer_cta,
 #customize-control-york_footertext_color,
+#customize-control-york_footernav_a_color,
+#customize-control-york_footertexthover_color,
+#customize-control-york_footersocial_color,
+#customize-control-york_footer_cta_text1,
+#customize-control-york_footer_cta_text2,
+#customize-control-york_footer_cta_link,
+#customize-control-york_footer_cta_link_target,
+#customize-control-york_footer_cta_shapes,
+#customize-control-york_cta_background_color,
+#customize-control-york_cta_text_color,
+#customize-control-york_cta_shape_color,
+#customize-control-powered_by_york,
+#customize-control-nav_social_icons,
+#customize-control-header_typography_color,
+#customize-control-body_secondary_typography_color,
+#customize-control-body_typography_color,
+#customize-control-york_background_color,
 #customize-control-york_sitetitle_color,
-#customize-control-york_project_color  {
+#customize-control-york_sitetitlehover_color,
+#customize-control-york_navigationicon_color,
+#customize-control-york_navigationiconhover_color,
+#customize-control-york_sidebarsocial_color,
+#customize-control-york_portfolio_lightbox,
+#customize-control-york_portfolio_lazyload,
+#customize-control-york_social_sharing,
+#customize-control-portfolio_single_navigation,
+#customize-control-york_overlay_color,
+#customize-control-york_overlay_text_color,
+#customize-control-york_portfolio_social_color,
+#customize-control-css_filter {
+    pointer-events: none !important;
+    opacity: .5;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); filter:gray; -webkit-filter:grayscale(100%);-moz-filter: grayscale(100%);-o-filter: grayscale(100%);}
+}
+
+._bean_portfolio_type_video span {
+    color: #000;
+}
+
+#side-sortables #portfolio-type.postbox .bean-meta-table ._bean_portfolio_type_video strong {
+    opacity: .5;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+#_bean_portfolio_type_video,
+._bean_portfolio_type_video {
+    pointer-events: none !important;
+}
+
+#_bean_portfolio_type_video {
+    opacity: .5;
+}
+
+#side-sortables #portfolio-type.postbox .bean-meta-table ._bean_portfolio_type_video span {
+    color: #d54e21;
+    pointer-events: none !important;
+}
+
+#customize-control-york_footer_cta_text1 {
+    margin-bottom: 2px;
+}
+
+#customize-control-york_footertext_color,
+#customize-control-york_overlay_color,
+#customize-control-york_sitetitle_color {
     border-top: 1px solid #ddd;
     padding-top: 20px;
     margin-top: 20px;
+}
+
+#customize-control-york_footertext_color {
+    margin-top: 16px;
 }
 
 #customize-control-york_sitetitle_color  {
     margin-top: 0;
 }
 
-#customize-control-york_hireme_badge_url .customize-control-title,
-#customize-control-york_hireme_badge_text .customize-control-title  {
+#customize-control-york_footer_cta_text1 .customize-control-title,
+#customize-control-york_footer_cta_text2 .customize-control-title,
+#customize-control-york_footer_cta_link .customize-control-title  {
     display: none;
 }
 
-#customize-control-york_hireme_badge_url.customize-control,
-#customize-control-york_hireme_badge_text.customize-control  {
+#customize-control-york_footer_cta_text1.customize-control,
+#customize-control-york_footer_cta_text2.customize-control,
+#customize-control-york_footer_cta_link.customize-control,
+#customize-control-york_footer_cta_link_target.customize-control,
+#customize-control-york_footer_cta_shapes.customize-control,
+#customize-control-york_cta_background_color.customize-control,
+#customize-control-york_cta_text_color.customize-control,
+#customize-control-york_cta_shape_color.customize-control {
     padding-left: 25px;
     width: calc(100% - 50px);
 }
 
-#customize-control-york_hireme_badge_shake {
-    padding-left: 25px;
-}
-
-#customize-control-york_hireme_badge_shake label {
-    margin-top: -10px;
+#customize-control-york_hireme_badge_shake label,
+#customize-control-york_footer_cta_link_target.customize-control label,
+#customize-control-york_footer_cta_shapes.customize-control label {
+    margin-top: -8px;
     font-size: 12px;
 }
 
-#customize-control-york_hireme_badge_url.customize-control .description,
-#customize-control-york_hireme_badge_text.customize-control .description {
+#customize-control-york_cta_background_color {
+    margin-top: 5px;
+}
+
+#customize-control-york_cta_shape_color,
+#customize-control-york_cta_text_color,
+#customize-control-york_cta_background_color {
+    margin-bottom: 5px;
+}
+
+#customize-control-york_cta_background_color .customize-control-title,
+#customize-control-york_cta_text_color .customize-control-title,
+#customize-control-york_cta_shape_color .customize-control-title {
+    font-size: 13px;
+    margin-bottom: 2px;
+    font-weight: normal;
+}
+
+#customize-control-york_footer_cta_text1.customize-control .description,
+#customize-control-york_footer_cta_text2.customize-control .description,
+#customize-control-york_footer_cta_link.customize-control .description {
     font-style: normal;
     margin-bottom: 2px;
 }
 
-#customize-control-york_hireme_badge_url.customize-control input,
-#customize-control-york_hireme_badge_text.customize-control input {
+#customize-control-york_footer_cta_text1.customize-control input,
+#customize-control-york_footer_cta_text2.customize-control input,
+#customize-control-york_footer_cta_link.customize-control input {
     width: 100%;
 }  
+
 
 /**
  * Adds custom styling for the widget media uploaders.
@@ -79,6 +252,50 @@
 .widget-media-upload {
     float: right;
     width: 48%;
+}
+
+
+/**
+ * Adds custom styling for the gallery media uploaders.
+ */
+
+
+.widget-media-container--grid img {
+    width: 29px;
+    height: 29px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.widget-media-container--grid ul li {
+    width: 100%;
+    display: block;
+    float: left;
+    border-bottom: 1px solid #eee;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.widget-media-container--grid ul li:first-child {
+    padding-top: 5px;
+}
+
+.widget-media-container--grid ul li .widget-no-image {
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    width: 28px;
+}
+
+.widget-media-container--grid .image-wrap {
+    width: 20%;
+    float: left;
+}
+
+.widget-media-container--grid .buttons-wrap {
+    width: 70%;
+    margin-left: 10%;
+    float: left;
 }
 
 
@@ -190,11 +407,11 @@
 }
 
 .feedback-notice.updated b {
-	color: #0073aa;
+	color: #d54e21;
 }
 
 .feedback-notice.updated .button {
-	margin-left: 10px;
+	margin: 0 5px;
 }
 
 .feedback-notice.updated .dismiss {
@@ -208,7 +425,7 @@
 
 .feedback-notice.updated b:before,
 .feedback-notice.updated .dismiss:before {
-	content: '\f335';
+	content: '\f155';
 	display: inline-block;
 	font: 400 20px/1 dashicons;
 	position: relative;
@@ -226,11 +443,11 @@
 }
 
 .feedback-notice.updated b:before {
-	content: '\f122';
+	content: '\f155';
 	border-radius: 100%;
-	background-color: #0073aa;
+	background-color: #d54e21;
 	font-size: 12px;
-	line-height: 22px;
+	line-height: 21px;
 	height: 22px;
 	width: 22px;
 	color: #fff;
@@ -456,12 +673,17 @@ li.customize-control.customize-control-range .ui-slider-handle:hover {
 }
 
 .bean-meta-table label span {
-	display: block; 
+    display: block;
 	color: #999; 
 	font-weight: normal;
 	font-size: 13px;
 	line-height: 20px; 
 	margin: 3px 0 0px 0;
+}
+
+
+#side-sortables .bean-meta-table label span {
+    display: inline-table;
 }
 
 .bean-meta-table input,

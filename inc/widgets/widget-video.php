@@ -1,12 +1,8 @@
 <?php
-/**
- * Widget Name: Bean Video Widget
- */
-
 // Register widget
-add_action('widgets_init', create_function('', 'return register_widget("Bean_Video_Widget");'));
+add_action('widgets_init', create_function('', 'return register_widget("York_Video_Widget");'));
 
-class Bean_Video_Widget extends WP_Widget 
+class York_Video_Widget extends WP_Widget 
 {
 	// Constructor
 	function __construct() {

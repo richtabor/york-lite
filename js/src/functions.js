@@ -6,86 +6,103 @@
 	"use strict";
 
 	var  
-        body = a("body"),
-		container = a(".projects"),
-        b       = a(".site-header"),
-		active = ("js--active"),
-		formContainer = a(".formContainer"),
-		o = a('.projects'),
-        j       = a("#site-search"),
+        body        = a("body"),
+		active        = ("js--active"),
+		projects =   a('#projects'),
         preload = ('js--preload'),
-		dur = 200;
+        loaded = ('js--loaded');
 
-    /* Adds SVG targets to the social navigation */ 
-    function social_svg()  {
-        var social = [
-        '500px', 
-        'bandsintown', 
-        'behance', 
-        'codepen', 
-        'dribbble', 
-        'dropbox',
-        'email', 
-        'facebook', 
-        'flickr', 
-        'foursquare', 
-        'github', 
-        'googleplay',
-        'google', 
-        'houzz', 
-        'instagram', 
-        'itunes', 
-        'linkedin',
-        'medium',
-        'meetup', 
-        'pinterest', 
-        'rdio', 
-        'reddit', 
-        'rss',
-        'smugmug',
-        'soundcloud', 
-        'spotify', 
-        'squarespace', 
-        'stumbleupon', 
-        'tumblr',
-        'twitch',
-        'twitter', 
-        'vevo', 
-        'vimeo', 
-        'vine', 
-        'vsco',
-        'yelp', 
-        'youtube',
-        ];  
+    /* Masonry for portfolio template */ 
+    function masonry() {
 
-        social.forEach(function(icon) {
-            a('a[href*="' + icon + '"] svg use').each(function() {
-                a(this).attr("xlink:href", a(this).attr("xlink:href") + '#' + icon + "-mask");
+        var container = projects.imagesLoaded( function() {
+            container.isotope({
+                // options
+                itemSelector: '.project',
+                layoutMode: 'masonry',
+                masonry: {
+                    columnWidth: 50
+                }
+            });
+        });
+
+        // Infinite Scroll
+        container.infinitescroll({
+
+            errorCallback : function(selector, msg) {
+                a('.cta').addClass(active);
+                a('.cta-spacer').addClass(active);
+            },
+
+            // selector for the paged navigation (it will be hidden)
+            navSelector  : "#page_nav",
+            // selector for the NEXT link (to page 2)
+            nextSelector : "#page_nav a",
+            // selector for all items you'll retrieve
+            itemSelector : ".project",
+            // animation: false,
+            // bufferPx : 1000,   
+            // finished message
+            loading : {
+                finishedMsg: 'No more pages to load.'
+                }
+            },
+
+            // Trigger Masonry as a callback
+            function( newElements ) {
+                // hide new items while they are loading
+                var newElems = a( newElements ).addClass("js--loading");
+
+                // ensure that images load before adding to masonry layout
+                newElems.imagesLoaded(function(){
+                    // show elems now they're ready
+                    
+                    newElems.each(function(a) {
+
+                        setTimeout(function() {
+                            newElems.eq(a).addClass("js--loaded");
+                            // newElems.animate({ opacity: 1 });
+                        }, 150 * a);
+                }),
+                    
+                container.isotope( 'appended', newElems, true );
             });
         });
     }
 
+    function i() {
+        projects.find(".project").each(function(b) {
+            var c = a(this),
+            d = Math.floor(300 * Math.random() + 101) * b;
+            setTimeout(function() {
+                c.addClass(active)
+            }, d)
+        })
+    }
+
+    function lineDraw() {
+         if (body.hasClass('error404')) {    
+          var path = document.querySelector('.animation-404 path');
+          var length = path.getTotalLength();
+          // Clear any previous transition
+          path.style.transition = path.style.WebkitTransition ='none';
+          // Set up the starting positions
+          path.style.strokeDasharray = length + ' ' + length;
+          path.style.strokeDashoffset = length;
+          // Trigger a layout so styles are calculated & the browser 
+          // picks up the starting position before animating
+          path.getBoundingClientRect();
+          // Define our transition
+          path.style.transition = path.style.WebkitTransition =
+            'stroke-dashoffset 6s ease-in-out';
+          // Go!
+          path.style.strokeDashoffset = '0';
+          //0 is the image fully animated, 988.01 is the starting point.
+        }
+    };
+
 	/* fitVids */
-	a("body").fitVids();
-
-	/* Loading Progress Bar */ 
-	NProgress.configure({
-	     minimum: .7,
-	     showSpinner: !1
-	}),
-		       
-	document.onreadystatechange = function () {
-		if (document.readyState == "interactive") {
-	    		NProgress.start();
-		}
-	}
-
-	var everythingLoaded = setInterval(function() {
-		if (/loaded|complete/.test(document.readyState)) {
-			clearInterval(everythingLoaded);
-			setTimeout(function(){NProgress.done()},1000);
-		}
-	}, 10);
+	body.fitVids();
 
     function scrollingDiv() {
         var 
@@ -107,111 +124,48 @@
 
 	/* Document Ready */
 	a(document).ready(function() {
+        i();
         scrollingDiv();
-        social_svg();
-        b();
 
-        var projects = a(".projects"),
-            k = document.getElementById("close-button"),
-            l = a(k),
-            m = !1,
-            p = ( a(".project"), a("#modal") ),
-            q = a("#modal-content"),
-            r = a("#loading"),
-            s = a(".post-edit-link");
-
-        function b() {
-            a(".video").fitVids();
-        }
-
-        function d() {
-            m = !0, body.addClass("modal-open"), p.animate({
-                scrollTop: 0
-            }, 300), p.addClass("modal--show"), r.addClass("loading--show"), q.addClass("modal-content--show")
-        }
-
-        function e() {
-            m = !1,
-            setTimeout(function() {
-                q.html(""), l.removeClass("button--close--show"), q.removeClass("modal-content--show"), body.removeClass("modal-open"), p.css("-webkit-overflow-scrolling", "auto"), p.removeClass("modal--show")
-            }, 400)
-        }
-
-        function f() {
-            r.removeClass("loading--show"), q.find(".type-portfolio").addClass("project--show"), l.addClass("button--close--show"), setTimeout(function() {
-                p.css("-webkit-overflow-scrolling", "touch")
-            }, 300)
-        }
-
-        function g() {
-            d(), setTimeout(function() {
-                q.find(".type-portfolio").removeClass("project--show"), setTimeout(function() {
-                    q.html("")
-                }, 400)
-            }, 300), l.removeClass("button--close--show"), r.addClass("loading--show")
-        }
-
-        function h(b) {
-            a.get(b, function(b) {
-                var c = a(b).find(".project");
-                 setTimeout(function() {
-                   f()
-                }, 200)
-            })
-        }
-
-        a( '#modal-close' ).on( 'click', function() {
-            e();
-        }), 
-
-        a( '#close-button' ).on( 'click', function() {
-            e();
+        a(".animsition").animsition({
+            inClass: 'fade-in-up-sm',
+            outClass: 'fade-out-up-sm',
+            inDuration: 800,
+            outDuration: 600,
+            linkElement: 'a:not([target="_blank"]):not(.lightbox-link):not(.input-control submit)',
+            loading: false,
+            unSupportCss: [
+            'animation-duration',
+            '-webkit-animation-duration',
+            '-o-animation-duration'
+            ],
         });
-
-        if( body.hasClass('modal-active') ) {
-            projects.on("click", ".project a", function(b) {
-
-                if( !a(this).hasClass('project--link_external') ) {
-                    b.preventDefault(), history.pushState(null, null, this.href), d(), h(a(this).attr("href"))
-                }
-                
-            });
-        };
-
-        /* Load posts via AJAX */
-        if( body.hasClass('modal-active') ) {
-            a(".project a").click(function(event) {
-                if( !a(this).hasClass('project--link_external') ) {
-
-                    event.preventDefault();
-
-                    a("#loading-body").show();
-                    var post_id = a(this).data("id");
-                    var ajaxURL = site.ajaxurl;
-
-                    a.ajax({
-                        type: 'POST',
-                        url: ajaxURL,
-                        data: {"action": "load-content", post_id: post_id },
-                        success: function(response) {
-                            a("#modal-content").html(response);
-                            a("#loading-body").hide();
-                        return false;
-                        }
-                    });
-                }
-            });
-        };
 
 	    /* Enable menu toggle for small screens */ 
         a( '.mobile-menu-toggle' ).on( 'click', function() {
-                body.toggleClass( 'nav-open' );
+            body.toggleClass( 'nav-open' );
         } );
 
         a( '#nav-close' ).on( 'click', function() {
-                body.toggleClass( 'nav-open' );
+            body.toggleClass( 'nav-open' );
         } );
-	}),
+
+        a('.subscribe-field').bind('focus blur', function () {
+            a(this).closest('.mc4wp-subscribe-wrapper').toggleClass('js--focus');
+        });
+
+        a(".subscribe-field").hover( function () {
+            a(this).closest('.mc4wp-subscribe-wrapper').toggleClass('js--hover');
+        });
+        
+	});
+
+    a(window).load(function() {
+        if (body.is('.page-template-template-portfolio-php, .search, .blog, .archive')) {
+            masonry();
+        }
+        lineDraw();
+    });
 
     /* Resize functions */ 
     a(window).resize(function(){

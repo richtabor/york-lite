@@ -72,7 +72,7 @@ function bean_create_meta_box( $post, $meta_box )
 						frame.toolbar.get('view').set({
 							insert: {
 								style: 'primary',
-								text: '<?php _e("Insert", "bean"); ?>',
+								text: '<?php _e("Insert", 'york'); ?>',
 
 								click: function() {
 									var models = frame.state().get('selection'),
@@ -120,13 +120,13 @@ function bean_create_meta_box( $post, $meta_box )
 						frame.toolbar.get('view').set({
 							insert: {
 								style: 'primary',
-								text: '<?php _e("Insert", "bean"); ?>',
+								text: '<?php _e("Insert", 'york'); ?>',
 
 								click: function() {
 									var models = frame.state().get('selection'),
 										    id = models.first().attributes.id;
 
-										this.el.innerHTML = '<?php _e("Saving...", "bean"); ?>';
+										this.el.innerHTML = '<?php _e("Saving...", 'york'); ?>';
 										
 										$.ajax({
 											type: 'POST',
@@ -182,21 +182,21 @@ function bean_create_meta_box( $post, $meta_box )
 						e.preventDefault();
 						//FIRST FRAME
 						var options = {
-							title: '<?php _e("Create Gallery", "bean"); ?>',
+							title: '<?php _e("Create Gallery", 'york'); ?>',
 							state: 'gallery-edit',
 							frame: 'post',
 							selection: selection
 						};
 						//IF FRAME IS THERE
 						if( frame || selection ) {
-							options['title'] = '<?php _e("Edit Gallery", "bean"); ?>';
+							options['title'] = '<?php _e("Edit Gallery", 'york'); ?>';
 						}
 
 						frame = wp.media(options).open();
 						
 						// CUSTOMIZE VIEWS
-						frame.menu.get('view').get('cancel').el.innerHTML = '<?php _e("Cancel", "bean"); ?>';
-						frame.menu.get('view').get('gallery-edit').el.innerHTML = '<?php _e("Edit Gallery", "bean"); ?>';
+						frame.menu.get('view').get('cancel').el.innerHTML = '<?php _e("Cancel", 'york'); ?>';
+						frame.menu.get('view').get('gallery-edit').el.innerHTML = '<?php _e("Edit Gallery", 'york'); ?>';
 						frame.content.get('view').sidebar.unset('gallery');
 
 						overrideGalleryInsert();
@@ -232,7 +232,7 @@ function bean_create_meta_box( $post, $meta_box )
     						frame.toolbar.get('view').set({
 								insert: {
 									style: 'primary',
-									text: '<?php _e("Save Gallery", "bean"); ?>',
+									text: '<?php _e("Save Gallery", 'york'); ?>',
 
 									click: function() {
 										var models = frame.state().get('library'),
@@ -242,7 +242,7 @@ function bean_create_meta_box( $post, $meta_box )
 										    ids += attachment.id + ','
 										});
 
-										this.el.innerHTML = '<?php _e("Saving...", "bean"); ?>';
+										this.el.innerHTML = '<?php _e("Saving...", 'york'); ?>';
 										
 										$.ajax({
 											type: 'POST',
@@ -376,7 +376,7 @@ function bean_create_meta_box( $post, $meta_box )
                 }
 
                 echo '<input type="hidden" name="bean_meta['. $field['id'] .']" value="off" />
-                <input type="checkbox" id="'. $field['id'] .'" name="bean_meta['. $field['id'] .']" value="on"'. $val .' /><span>'. __("Yes, please do", "bean") .'</span>';
+                <input type="checkbox" id="'. $field['id'] .'" name="bean_meta['. $field['id'] .']" value="on"'. $val .' /><span>'. __("Yes, please do", 'york') .'</span>';
 			    echo '</td>';
 			    break;
 		}

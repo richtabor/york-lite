@@ -38,7 +38,7 @@ $meta_box = array(
 			),	
 		array(  
 			'name' => esc_html__('Video','york'),
-			'desc' => esc_html__('','york'),
+			'desc' => esc_html__('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Available on York Pro','york'),
 			'id' => $prefix.'portfolio_type_video',
 			'type' => 'checkbox',
 			'std' => false 
@@ -62,6 +62,19 @@ $meta_box = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields'   => array(
+        array( 
+            'name' => esc_html__('Grid Thumbnail Size:', 'york'),
+            'desc' => esc_html__('Select the size of the project thumbnail.', 'york'),
+            'id' => $prefix.'portfolio_grid_size',
+            'type' => 'radio',
+            'std' => 'project-med',
+            'options' => array(
+                'project-sml'  => esc_html__('Small', 'york'),
+                'project-med'  => esc_html__('Medium', 'york'),
+                'project-lrg'  => esc_html__('Large', 'york'),
+                'project-xlg'  => esc_html__('Xtra-Large', 'york'),
+                )
+            ),
 		array( 
 			'name' => esc_html__('Gallery Images:','york'),
 			'desc' => esc_html__('Upload, reorder and caption the post gallery.','york'),
@@ -69,24 +82,6 @@ $meta_box = array(
 			'type' => 'images',
 			'std' => esc_html__('Browse & Upload', 'york')
 			),
-        
-        array( 
-            'name'     => esc_html__('Project Color', 'york'),
-            'desc'     => esc_html__('Modify the background color of this post in the portfolio grid. Defaults to the Customizer option.', 'york'),
-            'id'       => $prefix.'portfolio_color',
-            'type'     => 'color',
-            'val'      => '',
-            'std'      => ''
-            ),   
-        array( 
-            'name'     => esc_html__('Hover Project Color', 'york'),
-            'desc'     => esc_html__('Modify the hover background color of this post in the portfolio grid. Defaults to the Customizer option.', 'york'),
-            'id'       => $prefix.'portfolio_color_hover',
-            'type'     => 'color',
-            'val'      => '',
-            'std'      => ''
-            ), 
-
 		array(
 			'name' => esc_html__('Date:', 'york'),
 			'id' => $prefix.'portfolio_date',
@@ -151,66 +146,6 @@ $meta_box = array(
 			'std' => ''
 			),				
 	)
-);
-bean_add_meta_box( $meta_box );
- 
- 
- 
- 
-/*===================================================================*/
-/*  VIDEO POST FORMAT SETTINGS						   			          							
-/*===================================================================*/
-$meta_box = array(
-	'id' => 'bean-meta-box-portfolio-video',
-	'title' => esc_html__('Video Settings', 'york'),
-	'page' => 'portfolio',
-	'context' => 'normal',
-	'priority' => 'high',	
-	'fields' => array(
-		array(
-			'name' => esc_html__('Lightbox Embed URL:', 'york'),
-			'desc' => esc_html__('Insert your embeded URL to play in the blogroll grid pages.', 'york'),
-			'id' => $prefix . 'portfolio_embed_url',
-			'type' => 'text',
-			'std' => ''
-			),
-		array(
-			'name' => esc_html__('Embed 1:', 'york'),
-			'desc' => esc_html__('Insert your embeded code here.', 'york'),
-			'id' => $prefix . 'portfolio_embed_code',
-			'type' => 'textarea',
-			'std' => ''
-			),
-		array(
-			'name' => esc_html__('Embed 2:', 'york'),
-			'desc' => esc_html__('Insert your embeded code here.', 'york'),
-			'id' => $prefix . 'portfolio_embed_code_2',
-			'type' => 'textarea',
-			'std' => ''
-			),
-		array(
-			'name' => esc_html__('Embed 3:', 'york'),
-			'desc' => esc_html__('Insert your embeded code here.', 'york'),
-			'id' => $prefix . 'portfolio_embed_code_3',
-			'type' => 'textarea',
-			'std' => ''
-			),
-		array(
-			'name' => esc_html__('Embed 4:', 'york'),
-			'desc' => esc_html__('Insert your embeded code here.', 'york'),
-			'id' => $prefix . 'portfolio_embed_code_4',
-			'type' => 'textarea',
-			'std' => ''
-			),
-		array(
-			'name' => esc_html__('Video Shortcodes:', 'york'),
-			'desc' => esc_html__('Insert any <a target="blank" href="https://codex.wordpress.org/Video_Shortcode">video shortcodes</a> here.', 'york'),
-			'id' => $prefix . 'portfolio_video_shortcodes',
-			'type' => 'textarea',
-			'std' => ''
-			),		
-	),
-	
 );
 bean_add_meta_box( $meta_box );
 }

@@ -1,19 +1,19 @@
 <?php
 // Register widget
-add_action('widgets_init', create_function('', 'return register_widget("York_Profile");'));
+add_action('widgets_init', create_function('', 'return register_widget("York_Clients");'));
 
-class York_Profile extends WP_Widget {
+class York_Clients extends WP_Widget {
 
     protected $defaults;
-
+   
     // Constructor
     function __construct() {
         parent::__construct(
-            'york_profile', // Base ID
-            esc_html__( 'Profile', 'york' ), // Name
+            'york_clients', // Base ID
+            esc_html__( 'Clients', 'york-pro' ), // Name
             array( 
-                'classname' => 'widget--profile', // Classes
-                'description' => esc_html__( 'Displays a user profile.', 'york' ), 
+                'classname' => 'widget--clients', // Classes
+                'description' => esc_html__( 'Displays client social proof.', 'york-pro' ), 
                 'customize_selective_refresh' => true,
             ) // Args
         );
@@ -24,6 +24,9 @@ class York_Profile extends WP_Widget {
     // Display widget
     function widget( $args, $instance ) {
         extract( $args );
+
+        // Merge with defaults
+        $instance = wp_parse_args( (array) $instance, $this->defaults );
     }
     
     // Update widget
@@ -39,7 +42,7 @@ class York_Profile extends WP_Widget {
         // Merge with defaults
         $instance = wp_parse_args( (array) $instance, $this->defaults ); ?>
         
-        <p><?php esc_html_e('This widget is available on York Pro. Upgrade today to unlock this widget and many other great features.', 'york') ?></p>
+        <p><?php esc_html_e('This widget is available on York Pro. Upgrade today to display your client logos throughout your site.', 'york') ?></p>
         <p style="margin-bottom: 25px;">
         <?php echo sprintf( __( '<a target="_blank" href="%1$s" class="button button-secondary">Learn More</a>', 'york' ), esc_url( PRO_INFO_URL ) ); ?>
         <?php echo sprintf( __( '<a target="_blank" href="%1$s" class="button button-primary">Upgrade Now</a>', 'york' ), esc_url( PRO_UPGRADE_URL ) ); ?></p>

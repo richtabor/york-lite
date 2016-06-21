@@ -21,8 +21,6 @@ $portfolio_date = get_post_meta($post->ID, '_bean_portfolio_date', true);
 $portfolio_client = get_post_meta($post->ID, '_bean_portfolio_client', true); 
 $portfolio_role = get_post_meta($post->ID, '_bean_portfolio_role', true); 
 $portfolio_views = get_post_meta($post->ID, '_bean_portfolio_views', true); 
-$portfolio_cats = get_post_meta($post->ID, '_bean_portfolio_cats', true);
-$portfolio_tags = get_post_meta($post->ID, '_bean_portfolio_tags', true);
 $portfolio_permalink = get_post_meta($post->ID, '_bean_portfolio_permalink', true);
 $portfolio_url = get_post_meta($post->ID, '_bean_portfolio_url', true); 
 $portfolio_url_clean = str_replace("http://","",$portfolio_url);
@@ -80,22 +78,3 @@ $portfolio_url_clean = preg_replace('/\s+/', '', $portfolio_url_clean);
     <?php } ?>
 
 </div>
-
-<?php if ($portfolio_cats == 'on' OR $portfolio_tags == 'on' ) { ?>	
-
-	<div class="project-taxonomy">
-		<p>
-			<?php if ($portfolio_cats == 'on') { ?>	
-				<?php $terms = get_the_terms( $post->ID, 'portfolio_category' ); ?>
-				<?php if ( $terms && ! is_wp_error( $terms ) ) : ?>
-					<?php the_terms($post->ID, 'portfolio_category','', '&nbsp;&nbsp;', '&nbsp;&nbsp;'); ?>
-				<?php endif;?>
-			<?php } ?>
-
-			<?php if ($portfolio_tags == 'on') { ?>	
-					<?php the_terms($post->ID, 'portfolio_tag','', '&nbsp;&nbsp;&nbsp;', '&nbsp;&nbsp;'); ?>
-			<?php } ?>
-		</p>
-	</div>
-
-<?php } ?>
