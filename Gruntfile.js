@@ -189,7 +189,7 @@ module.exports = function(grunt){
             },
             build: {
                 expand: true,
-                src: ['**', '!node_modules/**', '!_dist/**', '!_dist/**', '!readme.md', '!gruntfile.js', '!Gruntfile.js', '!csscomb.json', '!sftp-config.json', '!package.json', '!.sublime-project', '!.sublime-workspace' ],
+                src: ['**', '!node_modules/**', '!_dist/**', '!_dist/**', '!readme.md', '!gruntfile.js', '!Gruntfile.js', '!csscomb.json', '!sftp-config.json', '!package.json', '!*.sublime-project', '!*.sublime-workspace' ],
                 dest: '_dist/'
             }
         },
@@ -252,7 +252,6 @@ module.exports = function(grunt){
         'replace:mdMod4',
         'compress:build',
         'clean:build',
-        'compress:package',
         
         
     ]);    

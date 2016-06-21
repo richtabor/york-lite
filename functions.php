@@ -42,7 +42,7 @@ define( 'YORK_VERSION', '1.0.0' );
  * If set the 'true', then serve standard theme files,
  * instead of minified .css and .js files.
  */
-define( 'YORK_DEBUG', true );
+define( 'YORK_DEBUG', false );
 
 
 
