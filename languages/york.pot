@@ -94,7 +94,8 @@ msgstr ""
 
 #: inc/customizer/customizer.php:75 inc/customizer/customizer.php:160
 #: inc/customizer/customizer.php:259 inc/customizer/customizer.php:445
-#: inc/customizer/customizer.php:647
+#: inc/customizer/customizer.php:647 inc/customizer/customizer.php:707
+#: inc/customizer/customizer.php:814
 msgid ""
 "<a target=\"_blank\" href=\"%1$s\" class=\"button button-primary\">Upgrade "
 "to York Pro - $59</a>"
@@ -184,7 +185,7 @@ msgid ""
 msgstr ""
 
 #: inc/customizer/customizer.php:273
-msgid "Photoswipe Lightbox"
+msgid "PhotoSwipe Lightbox"
 msgstr ""
 
 #: inc/customizer/customizer.php:274
@@ -369,21 +370,101 @@ msgstr ""
 msgid "Upload a custom background image to use on the error 404 page."
 msgstr ""
 
-#: inc/customizer/customizer.php:684
+#: inc/customizer/customizer.php:678
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer/customizer.php:679
+msgid ""
+"Customize various typographic options throughout the theme with the "
+"settings within this panel."
+msgstr ""
+
+#: inc/customizer/customizer.php:694
+msgid "Body"
+msgstr ""
+
+#: inc/customizer/customizer.php:706
+msgid "Customize Body Fonts"
+msgstr ""
+
+#: inc/customizer/customizer.php:709 inc/customizer/customizer.php:816
+msgid ""
+"<p>Upgrade to York Pro to add any Google font to your portfolio and "
+"customize the sizes, line heights and other typographic elements.</p>"
+msgstr ""
+
+#: inc/customizer/customizer.php:721 inc/customizer/customizer.php:828
+msgid "Font Family"
+msgstr ""
+
+#: inc/customizer/customizer.php:722
+msgid ""
+"Customize the default font styles of the theme. These settings will be "
+"overridden by the options set in the Headers typography panel."
+msgstr ""
+
+#: inc/customizer/customizer.php:736 inc/customizer/customizer.php:879
+msgid "Font Size"
+msgstr ""
+
+#: inc/customizer/customizer.php:753 inc/customizer/customizer.php:896
+msgid "Line Height"
+msgstr ""
+
+#: inc/customizer/customizer.php:770
+msgid "Letter Spacing"
+msgstr ""
+
+#: inc/customizer/customizer.php:787
+msgid "Word Spacing"
+msgstr ""
+
+#: inc/customizer/customizer.php:801
+msgid "Headers"
+msgstr ""
+
+#: inc/customizer/customizer.php:813
+msgid "Customize Header Fonts"
+msgstr ""
+
+#: inc/customizer/customizer.php:829
+msgid ""
+"Customize the default font styles of the theme hero entry titles. These "
+"settings will override the options set in the Body typography panel."
+msgstr ""
+
+#: inc/customizer/customizer.php:845
+msgid "Small Font Size"
+msgstr ""
+
+#: inc/customizer/customizer.php:862
+msgid "Small Line Height"
+msgstr ""
+
+#: inc/customizer/customizer.php:913
+msgid "Large Font Size"
+msgstr ""
+
+#: inc/customizer/customizer.php:930
+msgid "Large Line Height"
+msgstr ""
+
+#: inc/customizer/customizer.php:958
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer/customizer.php:697
+#: inc/customizer/customizer.php:971
 msgid "Logo Retina Width"
 msgstr ""
 
-#: inc/customizer/customizer.php:698
+#: inc/customizer/customizer.php:972
 msgid ""
 "This value should be equal to half of the logo image width (in px). For "
 "example, enter \"50\" for a logo that is 100px wide."
 msgstr ""
 
-#: inc/customizer/customizer.php:712
+#: inc/customizer/customizer.php:986
 msgid "Enable retina logo"
 msgstr ""
 
@@ -731,23 +812,23 @@ msgstr ""
 msgid "Video Embed Code:"
 msgstr ""
 
-#: template-parts/contact-form.php:66
+#: template-parts/contact-form.php:71
 msgid "Your message was sent. Thanks."
 msgstr ""
 
-#: template-parts/contact-form.php:74
+#: template-parts/contact-form.php:79
 msgid "An error occured. Try again."
 msgstr ""
 
-#: template-parts/contact-form.php:82
+#: template-parts/contact-form.php:87
 msgid "Name "
 msgstr ""
 
-#: template-parts/contact-form.php:87
+#: template-parts/contact-form.php:94
 msgid "Email "
 msgstr ""
 
-#: template-parts/contact-form.php:92
+#: template-parts/contact-form.php:101
 msgid "Message "
 msgstr ""
 
@@ -789,10 +870,11 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"York is a simple yet incredibly powerful portfolio WordPress theme for "
+"York is a free yet incredibly resourceful portfolio WordPress theme for "
 "creatives, freelancers and agencies alike. York features a modern offset "
 "grid-based layout, bold typography and a minimalistic style that allows you "
-"to create a timeless website."
+"to create a timeless website. This is the lite version of the powerful "
+"big-sister theme, York Pro."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -809,11 +891,6 @@ msgstr ""
 #. language.
 msgctxt "Playfair Display font: on or off"
 msgid "on"
-msgstr ""
-
-#: inc/template-tags.php:161 inc/template-tags.php:182
-msgctxt "Used between list items, there is a space after the comma."
-msgid "/&nbsp;&nbsp;"
 msgstr ""
 
 #: inc/template-tags.php:165

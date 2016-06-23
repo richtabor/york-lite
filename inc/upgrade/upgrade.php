@@ -111,7 +111,7 @@ class ThemeBeans_Pro_Upgrade {
 			'themebeans_pro_L10n',
 			array(
 				'themebeans_pro_url'		=> esc_url( PRO_UPGRADE_URL ),
-				'themebeans_pro_label'		=> esc_html__( 'Upgrade to '.PRO_NAME.' Pro', 'york' ),
+				'themebeans_pro_label'		=> esc_html__( 'Upgrade to '.PRO_NAME.' Pro - $59', 'york' ),
 				'themebeans_pro_minilabel'	=> esc_html__( 'Pro', 'york' ),
 			)
 		);

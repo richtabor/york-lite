@@ -223,6 +223,7 @@ function Bean_Customize_Variables() {
             body .project-meta p, 
             body .project-taxonomy,
             body .project-taxonomy a,
+            body .project-taxonomy a:before,
             body .project-meta p:before,
             body .widget_bean_tweets a.twitter-time-stamp  {
                 color: '.$body_secondary_typography_color.'!important; 

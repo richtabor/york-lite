@@ -270,7 +270,7 @@ function bean_customize_register( $wp_customize ) {
 
             $wp_customize->add_control( 'york_portfolio_lightbox', array(
                 'type'              => 'checkbox',
-                'label'                 => esc_html__( 'Photoswipe Lightbox', 'york' ),
+                'label'                 => esc_html__( 'PhotoSwipe Lightbox', 'york' ),
                 'description'           => esc_html__( 'Add a JavaScript image gallery to single views for mobile and desktop viewports, with touch gestures, zooming and optimized asset delivery.', 'york' ),
                 'section'           => 'york_pro_portfolio',
             ) );
@@ -662,6 +662,280 @@ function bean_customize_register( $wp_customize ) {
               'section'                 => 'york_theme_options_404',
               'settings'                => 'york_404_bg',
         ) ) );
+
+
+
+
+
+
+
+
+    /**
+     * Add the typography section.
+     */
+    $wp_customize->add_panel( 'york_pro_typography', array(
+        'priority'                      => 30,
+        'title'                         => esc_html__( 'Typography', 'york-pro' ),
+        'description'                   => esc_html__( 'Customize various typographic options throughout the theme with the settings within this panel.', 'york-pro' ),
+        'priority'                      => 30, //After the WP default "Site Identity" section.
+    ) );
+
+        /**
+         * Add the $fonts variables for typography choices.
+         */
+        $fonts = array(
+            'default' => 'Playfair Display',
+        );
+
+        /**
+         * Add the body typography section.
+         */
+        $wp_customize->add_section( 'york_pro_typography_body', array(
+                'title'                 => esc_html__( 'Body', 'york-pro' ),
+                'panel'                 => 'york_pro_typography',
+        ) );
+
+            // Upsell content.
+            $wp_customize->add_setting( 'york_pro_typography_body_content', array(
+                'default'               => '',
+                'sanitize_callback'     => 'bean_sanitize_nohtml',
+            ) );
+
+            $wp_customize->add_control( new Bean_Content_Control( $wp_customize, 'york_pro_typography_body_content', array(
+                'type'              => 'content',
+                'label'                 => esc_html__( 'Customize Body Fonts', 'york' ),
+                 'description'          => sprintf( __( '<a target="_blank" href="%1$s" class="button button-primary">Upgrade to York Pro - $59</a>', 'york' ), esc_url( PRO_UPGRADE_URL ) ),
+                'section'               => 'york_pro_typography_body',
+                'input_attrs'           => array( 'content' => __( '<p>Upgrade to York Pro to add any Google font to your portfolio and customize the sizes, line heights and other typographic elements.</p>', 'york' ) 
+                ),
+            ) ) );
+
+            // Add the body font fanily setting and control.
+            $wp_customize->add_setting( 'body_font_family', array(
+                'default'               => 'default',
+                'sanitize_callback'     => '',
+            ) );
+
+            $wp_customize->add_control( 'body_font_family', array(
+                    'type'          => 'select',
+                    'label'             => esc_html__( 'Font Family', 'york-pro' ),
+                    'description' => esc_html__( 'Customize the default font styles of the theme. These settings will be overridden by the options set in the Headers typography panel.', 'york-pro' ),
+                    'section'       => 'york_pro_typography_body',
+                    'choices'       => $fonts
+            ) );
+
+            // Add the body size setting and control.
+            $wp_customize->add_setting( 'body_font_size', array(
+                'default' => 19,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'body_font_size', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_body',
+                'label'       => esc_html__( 'Font Size', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 10,
+                    'max'   => 30,
+                    'step'  => 1,
+                ),
+            ) );
+
+            // Add the line height setting and control.
+            $wp_customize->add_setting( 'body_line_height', array(
+                'default' => 1.8,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'body_line_height', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_body',
+                'label'       => esc_html__( 'Line Height', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 1.3,
+                    'max'   => 3,
+                    'step'  => .1,
+                ),
+            ) );
+
+            // Add the letter spacing setting and control.
+            $wp_customize->add_setting( 'body_letter_spacing', array(
+                'default' => 0,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'body_letter_spacing', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_body',
+                'label'       => esc_html__( 'Letter Spacing', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 0,
+                    'max'   => 10,
+                    'step'  => 1,
+                ),
+            ) );
+
+            // Add the word spacing setting and control.
+            $wp_customize->add_setting( 'body_word_spacing', array(
+                'default' => 0,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'body_word_spacing', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_body',
+                'label'       => esc_html__( 'Word Spacing', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 0,
+                    'max'   => 10,
+                    'step'  => 1,
+                ),
+            ) );
+
+
+
+        /**
+         * Add the page titles typography section.
+         */
+        $wp_customize->add_section( 'york_pro_typography_pagetitles', array(
+                'title'                 => esc_html__( 'Headers', 'york-pro' ),
+                'panel'                 => 'york_pro_typography',
+        ) );
+
+            // Upsell content.
+            $wp_customize->add_setting( 'york_pro_typography_pagetitles_content', array(
+                'default'               => '',
+                'sanitize_callback'     => 'bean_sanitize_nohtml',
+            ) );
+
+            $wp_customize->add_control( new Bean_Content_Control( $wp_customize, 'york_pro_typography_pagetitles_content', array(
+                'type'              => 'content',
+                'label'                 => esc_html__( 'Customize Header Fonts', 'york' ),
+                 'description'          => sprintf( __( '<a target="_blank" href="%1$s" class="button button-primary">Upgrade to York Pro - $59</a>', 'york' ), esc_url( PRO_UPGRADE_URL ) ),
+                'section'               => 'york_pro_typography_pagetitles',
+                'input_attrs'           => array( 'content' => __( '<p>Upgrade to York Pro to add any Google font to your portfolio and customize the sizes, line heights and other typographic elements.</p>', 'york' ) 
+                ),
+            ) ) );
+
+            // Add the header font fanily setting and control.
+            $wp_customize->add_setting( 'pagetitle_font_family', array(
+                'default'               => 'default',
+                'sanitize_callback'     => '',
+            ) );
+
+            $wp_customize->add_control( 'pagetitle_font_family', array(
+                    'type'          => 'select',
+                    'label'         => esc_html__( 'Font Family', 'york-pro' ),
+                    'description'   => esc_html__( 'Customize the default font styles of the theme hero entry titles. These settings will override the options set in the Body typography panel.', 'york-pro' ),
+                    'section'       => 'york_pro_typography_pagetitles',
+                    'choices'       => $fonts
+            ) );
+
+
+
+            // Add the header size setting and control.
+            $wp_customize->add_setting( 'mobile_pagetitle_font_size', array(
+                'default' => 40,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'mobile_pagetitle_font_size', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_pagetitles',
+                'label'       => esc_html__( 'Small Font Size', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 16,
+                    'max'   => 60,
+                    'step'  => 1,
+                ),
+            ) );
+
+            // Add the header line height setting and control.
+            $wp_customize->add_setting( 'mobile_pagetitle_line_height', array(
+                'default' => 1.4,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'mobile_pagetitle_line_height', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_pagetitles',
+                'label'       => esc_html__( 'Small Line Height', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 1,
+                    'max'   => 3,
+                    'step'  => .1,
+                ),
+            ) );
+
+            // Add the header size setting and control.
+            $wp_customize->add_setting( 'pagetitle_font_size', array(
+                'default' => 4.75,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'pagetitle_font_size', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_pagetitles',
+                'label'       => esc_html__( 'Font Size', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 1,
+                    'max'   => 10,
+                    'step'  => .5,
+                ),
+            ) );
+
+            // Add the header line height setting and control.
+            $wp_customize->add_setting( 'pagetitle_line_height', array(
+                'default' => 1.4,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'pagetitle_line_height', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_pagetitles',
+                'label'       => esc_html__( 'Line Height', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 1.4,
+                    'max'   => 3,
+                    'step'  => .1,
+                ),
+            ) );
+
+            // Add the header size setting and control.
+            $wp_customize->add_setting( 'bigdesktop_font_size', array(
+                'default' => 90,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'bigdesktop_font_size', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_pagetitles',
+                'label'       => esc_html__( 'Large Font Size', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 20,
+                    'max'   => 120,
+                    'step'  => 1,
+                ),
+            ) );
+
+            // Add the header line height setting and control.
+            $wp_customize->add_setting( 'bigdesktop_pagetitle_line_height', array(
+                'default' => 1.4,
+                'transport' => 'postMessage',
+            ) );
+
+            $wp_customize->add_control( 'bigdesktop_pagetitle_line_height', array(
+                'type'        => 'range',
+                'section'     => 'york_pro_typography_pagetitles',
+                'label'       => esc_html__( 'Large Line Height', 'york-pro' ),
+                'input_attrs' => array(
+                    'min'   => 1.4,
+                    'max'   => 3,
+                    'step'  => .1,
+                ),
+            ) );
+
+
 
 
 

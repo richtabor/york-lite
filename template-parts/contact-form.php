@@ -16,7 +16,7 @@ if(isset($_POST['submitted'])) {
     
     if(trim($_POST['messageEmail']) === '')  {
         $hasError = true;
-    } else if (!eregi("^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}$", trim($_POST['messageEmail']))) {
+    } else if ( !is_email( trim($_POST['messageEmail']) ) ) {
         $hasError = true;
     } else {
         $email = trim($_POST['messageEmail']);
@@ -31,7 +31,9 @@ if(isset($_POST['submitted'])) {
             $content = trim($_POST['messageContent']);
         }
     }
-        
+    
+    do_action( 'bean_after_contactform_errors' ); 
+
     if(!isset($hasError)) {
         
         $site_name = get_bloginfo('name');
@@ -41,8 +43,11 @@ if(isset($_POST['submitted'])) {
             $contactEmail = get_option('admin_email');
         }
         
-        $subject = '['.$site_name.' Contact Form]';
-        $body = "Name: $name \n\nEmail: $email \n\nMessage: $content";
+        $subject_content = '['.$site_name.' Contact Form]';
+        $subject = apply_filters( 'bean_contactform_emailsubject', $subject_content ); 
+
+        $body_content = "Name: $name \n\nEmail: $email \n\nMessage: $content";
+        $body = apply_filters( 'bean_contactform_emailbody', $body_content ); 
     
         $headers = 'Reply-To: ' . $email;
         
@@ -63,7 +68,7 @@ if(isset($_POST['submitted'])) {
 if(isset($emailSent) && $emailSent == true ) : ?>
     
     <div class="contact-alert success">
-        <?php _e('Your message was sent. Thanks.', 'york') ?>    
+        <?php echo apply_filters( 'bean_contactform_success_msg', esc_html__('Your message was sent. Thanks.', 'york') ); ?>  
     </div>
 
 <?php endif;
@@ -71,7 +76,7 @@ if(isset($emailSent) && $emailSent == true ) : ?>
 if(isset($hasError) || isset($captchaError)) : ?>
 
     <div class="contact-alert fail">
-        <?php _e('An error occured. Try again.', 'york') ?>
+        <?php echo apply_filters( 'bean_contactform_error_msg', esc_html__('An error occured. Try again.', 'york') ); ?> 
     </div>
     
 <?php endif; ?>
@@ -82,20 +87,28 @@ if(isset($hasError) || isset($captchaError)) : ?>
         <label for="messageName"><?php esc_html_e('Name ', 'york'); ?></label>
         <input type="text" name="messageName" id="messageName" value="<?php if(isset($_POST['messageName'])) echo esc_html($_POST['messageName']);?>" class="required requiredField" required/> 
     </div>
+
+    <?php do_action( 'bean_after_contactform_namefield' ); ?>
     
     <div class="group email">   
         <label for="messageEmail"><?php esc_html_e('Email ', 'york');  ?></label>
         <input type="text" name="messageEmail" id="messageEmail" value="<?php if(isset($_POST['messageEmail']))  echo esc_html($_POST['messageEmail']);?>" class="required requiredField email" required/>
     </div>
 
+    <?php do_action( 'bean_after_contactform_emailfield' ); ?>
+
     <div class="group message last">
         <label for="messageContent"><?php esc_html_e('Message ', 'york'); ?></label>
         <textarea name="messageContent" id="messageContent" rows="20" cols="30" class="required requiredField" required><?php if(isset($_POST['messageContent'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['messageContent']); } else { echo esc_html($_POST['messageContent']); } } ?></textarea>
     </div>
     
+    <?php do_action( 'bean_after_contactform_allfields' ); ?>
+
     <div class="submit">
         <input type="hidden" name="submitted" id="submitted" value="true" />
         <button type="submit" class="button"><?php echo get_theme_mod('contact_button', 'Send');?></button>
     </div>
+
+    <?php do_action( 'bean_after_contactform_submit' ); ?>
 
 </form>

@@ -1,3 +1,7 @@
+#accordion-panel-york_pro_typography ul li .themebeans-pro-upgrade-link {
+    display: none !important;
+}
+
 
 /**
  * Adds a "Home" badge to the Customizer widgets built for the Home template.
@@ -52,7 +56,9 @@
 #customize-control-york_pro_header_content,
 #customize-control-york_pro_portfolio_content,
 #customize-control-york_theme_options_footer_content,
-#customize-control-york_theme_options_404_content {
+#customize-control-york_theme_options_404_content,
+#customize-control-york_pro_typography_body_content,
+#customize-control-york_pro_typography_pagetitles_content {
     margin-bottom: 15px;
     padding-bottom: 25px;
     border-bottom: 1px solid #ddd;
@@ -62,7 +68,9 @@
 #customize-control-york_pro_header_content .customize-control-title,
 #customize-control-york_pro_portfolio_content .customize-control-title,
 #customize-control-york_theme_options_footer_content .customize-control-title,
-#customize-control-york_theme_options_404_content .customize-control-title {
+#customize-control-york_theme_options_404_content .customize-control-title,
+#customize-control-york_pro_typography_body_content .customize-control-title,
+#customize-control-york_pro_typography_pagetitles_content .customize-control-title {
     margin-bottom: -8px;
 }
 
@@ -70,11 +78,25 @@
 #customize-control-york_pro_header_content .button,
 #customize-control-york_pro_portfolio_content .button,
 #customize-control-york_theme_options_footer_content .button,
-#customize-control-york_theme_options_404_content .button {
+#customize-control-york_theme_options_404_content .button,
+#customize-control-york_pro_typography_body_content .button,
+#customize-control-york_pro_typography_pagetitles_content .button {
     text-align: center;
     width: 100%;
 }
 
+#customize-control-mobile_pagetitle_font_size,
+#customize-control-mobile_pagetitle_line_height,
+#customize-control-bigdesktop_font_size,
+#customize-control-bigdesktop_pagetitle_line_height,
+#customize-control-body_font_size,
+#customize-control-body_line_height,
+#customize-control-body_letter_spacing,
+#customize-control-body_word_spacing,
+#customize-control-pagetitle_font_size,
+#customize-control-pagetitle_line_height,
+#customize-control-pagetitle_letter_spacing,
+#customize-control-pagetitle_word_spacing,
 #customize-control-york_404_bg,
 #customize-control-york_footer_cta,
 #customize-control-york_footertext_color,
@@ -112,6 +134,39 @@
     opacity: .5;
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); filter:gray; -webkit-filter:grayscale(100%);-moz-filter: grayscale(100%);-o-filter: grayscale(100%);}
 }
+
+
+/**
+ * Font styling.
+ */
+
+
+#customize-control-pagetitle_font_size,
+#customize-control-bigdesktop_font_size,
+#customize-control-mobile_pagetitle_font_size {
+    margin-bottom: 0;
+}
+
+#customize-control-body_font_family,
+#customize-control-pagetitle_font_family {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+.customize-control-range label span {
+    display: inline-block;
+}
+
+.customize-control-range input[type="range"] {
+    float: right;
+}
+
+
+/**
+ * Hide video format.
+ */
+
 
 ._bean_portfolio_type_video span {
     color: #000;

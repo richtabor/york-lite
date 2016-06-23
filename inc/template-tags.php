@@ -153,16 +153,16 @@ function york_entry_taxonomies() {
 
             $terms = get_the_terms( $post->ID, 'portfolio_category' );
             if ( $terms && ! is_wp_error( $terms ) ) :
-                the_terms($post->ID, 'portfolio_category','', '/&nbsp;&nbsp;', '/&nbsp;');
+                the_terms($post->ID, 'portfolio_category','', '', '');
             endif;
 
         else :
 
-            $categories_list = get_the_category_list( esc_html_x( '/&nbsp;&nbsp;', 'Used between list items, there is a space after the comma.', 'york' ) );
+            $categories_list = get_the_category_list( esc_html_x( '', 'Used between list items, there is a space after the comma.', 'york-pro' ) );
 
             if ( $categories_list && york_categorized_blog() ) {
                 printf( '<span class="screen-reader-text">%1$s</span>%2$s',
-                    esc_html_x( 'Categories', 'Used before category names.', 'york' ),
+                    esc_html_x( 'Categories', 'Used before category names.', 'york-pro' ),
                     $categories_list
                 );
             } 
@@ -175,15 +175,15 @@ function york_entry_taxonomies() {
 
         if ( 'portfolio' == get_post_type() ) :
 
-            the_terms($post->ID, 'portfolio_tag','', '/&nbsp;&nbsp;', '');
+            the_terms($post->ID, 'portfolio_tag','', '', '');
 
         else :
 
-            $tags_list = get_the_tag_list( '/&nbsp;&nbsp;', esc_html_x( '/&nbsp;&nbsp;', 'Used between list items, there is a space after the comma.', 'york' ) );
+            $tags_list = get_the_tag_list( '', esc_html_x( '', 'Used between list items, there is a space after the comma.', 'york-pro' ) );
 
             if ( $tags_list ) {
                 printf( '<span class="screen-reader-text">%1$s </span>%2$s',
-                    esc_html_x( 'Tags', 'Used before tag names.', 'york' ),
+                    esc_html_x( 'Tags', 'Used before tag names.', 'york-pro' ),
                     $tags_list
                 );
             }

@@ -3,7 +3,7 @@ Theme Name: York
 Theme URI: http://demo.themebeans.com/york
 Author: ThemeBeans
 Author URI: https://themebeans.com
-Description: York is a simple yet incredibly powerful portfolio WordPress theme for creatives, freelancers and agencies alike. York features a modern offset grid-based layout, bold typography and a minimalistic style that allows you to create a timeless website.
+Description: York is a free yet incredibly resourceful portfolio WordPress theme for creatives, freelancers and agencies alike. York features a modern offset grid-based layout, bold typography and a minimalistic style that allows you to create a timeless website. This is the lite version of the powerful big-sister theme, York Pro.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -38,7 +38,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  * 9.0 - Portfolio
  *    9.1 - Single Portfolio
  * 10.0 - Widgets
- * 11.0 - Plugins 
+ * 11.0 - Plugins
  *    11.1 - JetPack Contact Form
  *    11.2 - JetPack Sharing 
  *    11.3 - MailChimp for WordPress
@@ -741,8 +741,13 @@ textarea {
 	vertical-align: middle;
 	width: 100%;
 
+	-webkit-appearance: none;
 	-webkit-font-smoothing: subpixel-antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+textarea {
+	line-height: 30px;
 }
 
 input[type="text"]:focus,
@@ -776,6 +781,10 @@ textarea:focus {
 	color: #000;
 	outline: none;
 	z-index: 2;
+}
+
+select {
+	-webkit-appearance: none;
 }
 
 ::-webkit-input-placeholder {
@@ -2273,6 +2282,7 @@ p:empty {
 .project-meta {
 	font-size: 85%;
 	margin-top: 3vh;
+	text-transform: lowercase;
 }
 
 @media only screen and (min-width: 600px) {
@@ -2371,6 +2381,16 @@ p:empty {
 	margin-right: 10px;
 }
 
+.project-taxonomy a:before {
+	content: "/";
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.project-taxonomy a:first-of-type:before {
+	display: none;
+}
+
 /* Navigation */
 
 .single .navigation {
@@ -2404,13 +2424,13 @@ p:empty {
 	margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1920px) and (min-aspect-ratio: 1/1) and (min-width: 823px) {
+@media screen and (max-width: 1920px) and (min-width: 823px) {
 	.single .navigation a {
 		font-size: 4.75vw;
 	}
 }
 
-@media screen and (min-aspect-ratio: 1/1) and (min-width: 1920px) {
+@media screen and (min-width: 1920px) {
 	.single .navigation a {
 		font-size: 90px;
 	}
