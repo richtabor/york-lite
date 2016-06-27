@@ -31,10 +31,10 @@ module.exports = function(grunt){
         },
         clean: {
             init: {
-                src: ['_dist/<%= pkg.name %>-<%= pkg.version %>.zip', '_dist/<%= pkg.name %>-package-<%= pkg.version %>', '_dist/<%= pkg.name %>-package-<%= pkg.version %>.zip']
+                src: ['_dist/<%= pkg.name %>-<%= pkg.version %>.zip', '_dist/<%= pkg.name %>', '_dist/<%= pkg.name %>.zip']
             },
             build: {
-                src: ['_dist/*', '!_dist/<%= pkg.name %>-<%= pkg.version %>.zip']
+                src: ['_dist/*', '!_dist/<%= pkg.name %>.zip']
             }
         },
         autoprefixer: {
@@ -189,14 +189,14 @@ module.exports = function(grunt){
             },
             build: {
                 expand: true,
-                src: ['**', '!node_modules/**', '!_dist/**', '!_dist/**', '!readme.md', '!gruntfile.js', '!Gruntfile.js', '!csscomb.json', '!sftp-config.json', '!package.json', '!*.sublime-project', '!*.sublime-workspace' ],
+                src: ['**', '!node_modules/**', '!_dist/**', '!_dist/**', '!readme.md', '!gruntfile.js', '!Gruntfile.js', '!csscomb.json', '!sftp-config.json', '!package.json', '!york.sublime-project', '!york.sublime-workspace' ],
                 dest: '_dist/'
             }
         },
         compress: {
             build: {
                 options: {
-                    archive: '_dist/<%= pkg.name %>-<%= pkg.version %>.zip'
+                    archive: '_dist/<%= pkg.name %>.zip'
                 },
                 expand: true,
                 cwd: '_dist/',
@@ -205,12 +205,12 @@ module.exports = function(grunt){
             },
             package: {
                 options: {
-                    archive: '_dist/<%= pkg.name %>-package-<%= pkg.version %>.zip'
+                    archive: '_dist/<%= pkg.name %>.zip'
                 },
                 expand: true,
                 cwd: '_dist/',
                 src: ['**/*'],
-                dest: '<%= pkg.name %>-package-<%= pkg.version %>/'
+                dest: '<%= pkg.name %>/'
             }
         },
 
