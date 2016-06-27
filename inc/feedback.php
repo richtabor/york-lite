@@ -157,7 +157,7 @@ class ThemeBeans_Request_Feedback {
                     <p><b>'. __( 'Instantly save 10% on York Pro!</b> Just add York Pro to your cart and we\'ll automagically apply your discount.', 'york' ) . '</p>
                     <p>
                     <a class="button button-secondary" href="' . esc_url( 'https://themebeans.com/themes/york/#upsell' ) . '" target="_blank">' . __( 'Learn More', 'york' ) . '</a>
-                    <a class="button button-primary" href="' . esc_url( PRO_UPGRADE_URL.'&discount=YORK_SAVE10' ) . '" target="_blank">' . __( 'Add to Cart - $59', 'york' ) . '</a>
+                    <a class="button button-primary" href="' . esc_url( PRO_UPGRADE_URL.'&discount=YORK_DASH' ) . '" target="_blank">' . __( 'Add to Cart - $59', 'york' ) . '</a>
                     </p>
                 </div>';
         }
