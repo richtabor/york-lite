@@ -33,7 +33,7 @@
 /**
  * Set constant for version.
  */
-define( 'YORK_VERSION', '1.0.0' );
+define( 'YORK_VERSION', '1.0.1' );
 
 
 

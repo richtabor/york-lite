@@ -1,4 +1,9 @@
 ** York Changelog **
 
-5 June 2016 - Version 1.0.0
+07 July 2016 - Version 1.0.1
+     * Fixed footer navigation has_nav_menu
+     * Added portfolio archive post type variable
+     * Updated languages
+
+27 June 2016 - Version 1.0.0
      * Initial release
