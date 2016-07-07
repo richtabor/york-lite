@@ -7,12 +7,19 @@
  ?>
 
 <div id="projects" class="projects clearfix">
-
-	<?php
-	//PULL PAGINATION FROM CUSTOMIZATION
+   
+    <?php
+    // Check what post type this is.
+    if ( is_post_type_archive('portfolio') ) {
+        $post_type = 'portfolio';
+    } else {
+        $post_type = 'post';
+    }
+    
+	// Pull pagination count setting from the Customizer.
 	$portfolio_posts_count = get_theme_mod( 'portfolio_posts_count');
 
-	//PULL PAGINATION FROM READING SETTINGS
+	// Pull pagination from the reading settings.
 	$paged = 1; 
 	if ( get_query_var('paged') ) $paged = get_query_var('paged');
 	if ( get_query_var('page') ) $paged = get_query_var('page'); 
@@ -30,7 +37,7 @@
 	} else {
 
 		$args = array(
-			'post_type'      => 'portfolio',
+			'post_type'      => $post_type,
 			'order'		     => 'ASC',
 			'orderby'		 => 'menu_order',
 			'paged' 		 => $paged,

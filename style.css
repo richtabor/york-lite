@@ -372,9 +372,10 @@ h6 {
 	margin: 0 0 10px 0;
 }
 
+.entry-content h3,
 .entry-content h4,
 .entry-content h5 {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 
 em,
@@ -767,7 +768,8 @@ input[type="email"]:hover,
 input[type="url"]:hover,
 input[type="password"]:hover,
 input[type="search"]:hover,
-textarea:focus {
+textarea:hover,
+body .contact-form select:hover {
 	border-color: #aaa;
 	outline: none;
 }
@@ -1932,7 +1934,7 @@ p:empty {
 
 .bean-contact-form {
 	margin-bottom: 30px;
-	margin-top: 10%;
+	margin-top: 7%;
 }
 
 .bean-contact-form .group {
@@ -2966,11 +2968,18 @@ body .contact-form input[type="email"] {
 }
 
 body .contact-form select {
-	background-color: rgba(0, 0, 0, 0.05);
-	border: none !important;
+	background: url(images/select.svg) no-repeat 99% 11px;
+	background-color: #fff;
+	background-size: 26px 26px;
+	border: 2px solid #d8d8d8;
+	border-radius: 3px;
+	cursor: pointer;
 	font-size: 15px;
 	height: 44px;
-	outline: none;
+	outline: 0;
+	padding-left: 14px;
+	-webkit-transition: border-color 150ms cubic-bezier(0.645, 0.045, 0.355, 1), color 150ms cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 300ms cubic-bezier(0.68, -0.20, 0.115, 1.1);
+	transition: border-color 150ms cubic-bezier(0.645, 0.045, 0.355, 1), color 150ms cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 300ms cubic-bezier(0.68, -0.20, 0.115, 1.1);
 }
 
 body .contact-form label {
