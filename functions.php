@@ -33,7 +33,7 @@
 /**
  * Set constant for version.
  */
-define( 'YORK_VERSION', '1.0.1' );
+define( 'YORK_VERSION', '1.0.2' );
 
 
 
@@ -241,18 +241,18 @@ function york_scripts() {
 	wp_enqueue_style( 'york-fonts', york_fonts_url(), array(), null );
 
 	/**
-	 * Check whether WP_DEBUG or SCRIPT_DEBUG or YORK_DEBUG is set to true. 
+	 * Check whether SCRIPT_DEBUG or YORK_DEBUG is set to true. 
 	 * If so, we’ll load the unminified versions of the main theme stylesheet. If not, load the compressed and combined version.
 	 * This is also similar to how WordPress core does it.
 	 * 
 	 * @link https://codex.wordpress.org/WP_DEBUG
 	 */
-	if ( WP_DEBUG || SCRIPT_DEBUG || YORK_DEBUG || is_child_theme() ) {
-		// Add the main stylesheet.
-		wp_enqueue_style( 'york-style', get_stylesheet_uri() );
+	if ( SCRIPT_DEBUG || YORK_DEBUG || is_child_theme() ) {
+        // Add the main stylesheet.
+		wp_enqueue_style( 'york-style', get_stylesheet_uri() ); 
 	} else {
-		// Add the main minified stylesheet.
-		wp_enqueue_style('york-minified-style', get_template_directory_uri(). '/style-min.css', false, YORK_VERSION, 'all');
+        // Add the main minified stylesheet.
+		wp_enqueue_style('york-minified-style', get_template_directory_uri(). '/style-min.css', false, YORK_VERSION, 'all'); 
 	}
 
 	if ( is_archive() && is_search() && is_taxonomy() && is_blog() && is_page_template('template-portfolio.php') ) {
@@ -262,43 +262,24 @@ function york_scripts() {
 	/**
 	 * Now let's check the same for the scripts.
 	 */
-	if ( WP_DEBUG || SCRIPT_DEBUG || YORK_DEBUG ) {
-        
-        // Load the ImagesLoaded javascript.
+	if ( SCRIPT_DEBUG || YORK_DEBUG ) {
+        // Add the javascript files.
         wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/js/src/images-loaded.js', array( 'jquery' ), YORK_VERSION, true );
-
-        // Load the Isotope script for the masonry layout.
         wp_enqueue_script( 'isotope', get_template_directory_uri() . '/js/src/isotope.js', array( 'jquery' ), YORK_VERSION, true );
-
-        // Load the Infinite Scroll javascript.
         wp_enqueue_script( 'infinitescroll', get_template_directory_uri() . '/js/src/infinitescroll.js', array( 'jquery' ), YORK_VERSION, true );
-
-		// Load the FitVids responsive video javascript.
 		wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/js/src/fitvids.js', array( 'jquery' ), YORK_VERSION, true );
-
-        // Load the SVG script.
         wp_enqueue_script( 'animsition', get_template_directory_uri() . '/js/src/animsition.js', array( 'jquery' ), YORK_VERSION, true );
-
-        // Load the SVG script.
         wp_enqueue_script( 'svg4everybody', get_template_directory_uri() . '/js/src/svg4everybody.js', array( 'jquery' ), YORK_VERSION, true );
-
-        // Load the Infinite Scroll javascript.
         wp_enqueue_script( 'infinitescroll', get_template_directory_uri() . '/js/src/infinitescroll.js', array( 'jquery' ), YORK_VERSION, true );
-        
-		// Load the custom theme javascript functions.
 		wp_enqueue_script( 'york-functions', get_template_directory_uri() . '/js/src/functions.js', array( 'jquery' ), YORK_VERSION, true );
 
-        // Set the localization script handle variable for the non-minified funtions.js file.
         $functions_handle = 'york-functions';
 
 	} else {
-		// Load the combined javascript library.
+        // Add the main minified javascript.
 		wp_enqueue_script( 'york-combined-scripts', get_template_directory_uri() . '/js/combined-min.js', array(), YORK_VERSION, true );
-		
-		// Load the minified javascript functions.
 		wp_enqueue_script( 'york-minified-functions', get_template_directory_uri() . '/js/functions-min.js', array( 'jquery' ), YORK_VERSION, true );
-
-        // Set the localization script handle variable for the minified funtions-min.js file.
+        
         $functions_handle = 'york-minified-functions';
 	}
 }

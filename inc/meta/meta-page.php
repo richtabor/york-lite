@@ -5,9 +5,7 @@
  * Corresponding meta functions are located in framework/metaboxes.php
  *
  *  
- * @package WordPress
- * @subpackage York
- * @author ThemeBeans
+ * @package York
  */
  
 add_action('add_meta_boxes', 'bean_metabox_page');

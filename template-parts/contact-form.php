@@ -84,21 +84,21 @@ if(isset($hasError) || isset($captchaError)) : ?>
 <form xid="contact-form" class="bean-contact-form" method="post" id="contact-form" >
     
     <div class="group name">
-        <label for="messageName"><?php esc_html_e('Name ', 'york'); ?></label>
+        <label for="messageName"><?php echo apply_filters( 'bean_contactform_name_label', esc_html__('Name', 'york') ); ?></label>
         <input type="text" name="messageName" id="messageName" value="<?php if(isset($_POST['messageName'])) echo esc_html($_POST['messageName']);?>" class="required requiredField" required/> 
     </div>
 
     <?php do_action( 'bean_after_contactform_namefield' ); ?>
     
     <div class="group email">   
-        <label for="messageEmail"><?php esc_html_e('Email ', 'york');  ?></label>
+        <label for="messageEmail"><?php echo apply_filters( 'bean_contactform_email_label', esc_html__('Email', 'york') ); ?></label>
         <input type="text" name="messageEmail" id="messageEmail" value="<?php if(isset($_POST['messageEmail']))  echo esc_html($_POST['messageEmail']);?>" class="required requiredField email" required/>
     </div>
 
     <?php do_action( 'bean_after_contactform_emailfield' ); ?>
 
     <div class="group message last">
-        <label for="messageContent"><?php esc_html_e('Message ', 'york'); ?></label>
+        <label for="messageContent"><?php echo apply_filters( 'bean_contactform_message_label', esc_html__('Message', 'york') ); ?></label>
         <textarea name="messageContent" id="messageContent" rows="20" cols="30" class="required requiredField" required><?php if(isset($_POST['messageContent'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['messageContent']); } else { echo esc_html($_POST['messageContent']); } } ?></textarea>
     </div>
     

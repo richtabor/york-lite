@@ -4,7 +4,7 @@
  *
  * Prevents York from running on WordPress versions prior to 4.2,
  * since this theme is not meant to be backward compatible beyond that and
- * relies on many newer functions and yorkup changes introduced in 4.2.
+ * relies on many newer functions and markup changes introduced in 4.2.
  *
  * @package York
  */

@@ -9,11 +9,10 @@
 <div id="projects" class="projects clearfix">
    
     <?php
-    // Check what post type this is.
-    if ( is_post_type_archive('portfolio') ) {
-        $post_type = 'portfolio';
-    } else {
+    if ( is_archive('post') OR is_category() OR is_tag() ) {
         $post_type = 'post';
+    } else {
+        $post_type = 'portfolio';
     }
     
 	// Pull pagination count setting from the Customizer.

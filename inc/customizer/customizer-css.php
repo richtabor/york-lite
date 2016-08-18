@@ -355,7 +355,7 @@ function Bean_Customize_Variables() {
 			$final_output = preg_replace('#/\*.*?\*/#s', '', $customizer_final_output);
 			$final_output = preg_replace('/\s*([{}|:;,])\s+/', '$1', $final_output);
 			$final_output = preg_replace('/\s\s+(.*)/', '$1', $final_output);
-			echo $final_output;
+			echo balanceTags( $final_output );
 			?>
 		</style>
 
