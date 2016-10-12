@@ -99,16 +99,16 @@ function york_mce_before_init_insert_formats( $init_array ) {
     $style_formats = array(  
         // Each array child is a format with it's own settings
         array(  
-            'title' => 'Highlight',  
-            'inline' => 'span',
-            'classes' => 'yorkup--highlight',
-            'wrapper' => false,
+            'title'     => esc_html__( 'Highlight', 'york' ),  
+            'inline'    => 'span',
+            'classes'   => 'yorkup--highlight',
+            'wrapper'   => false,
         ),
         array(  
-            'title' => 'Button',  
-            'inline' => 'span',
-            'classes' => 'button',
-            'wrapper' => false,
+            'title'     => esc_html__( 'Button', 'york' ),   
+            'inline'    => 'span',
+            'classes'   => 'button',
+            'wrapper'   => false,
         ),
     );  
     // Insert the array, JSON ENCODED, into 'style_formats'

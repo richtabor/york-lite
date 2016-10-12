@@ -443,6 +443,20 @@ add_filter( 'widget_tag_cloud_args', 'york_widget_tag_cloud_args' );
 
 
 
+if ( ! function_exists( 'york_pingback_header' ) ) :
+/**
+ * Add a pingback url auto-discovery header for singularly identifiable articles.
+ */
+function york_pingback_header() {
+    if ( is_singular() && pings_open() ) {
+        echo '<link rel="pingback" href="', bloginfo( 'pingback_url' ), '">';
+    }
+}
+add_action( 'wp_head', 'york_pingback_header' );
+endif;
+
+
+
 /**
  * Admin specific functions.
  */
