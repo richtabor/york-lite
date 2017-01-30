@@ -27,7 +27,7 @@
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">&copy; <?php echo date("Y") ?> <?php bloginfo( 'name' ); ?></a>
                     </span>
             
-                    <span class="site-theme <?php echo esc_html($visibility); ?>">
+                    <span class="site-theme">
                         <a href="https://themebeans.com/themes/york-pro/" class="powered-by-york"><?php printf( esc_html__( '%s by %s', 'york' ), 'York', 'ThemeBeans' ); ?></a>
                     </span>
 

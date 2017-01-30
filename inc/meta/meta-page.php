@@ -8,8 +8,8 @@
  * @package York
  */
  
-add_action('add_meta_boxes', 'bean_metabox_page');
-function bean_metabox_page(){
+add_action('add_meta_boxes', 'york_metabox_page');
+function york_metabox_page(){
 
 $prefix = '_bean_';
 
@@ -25,7 +25,7 @@ $meta_box = array(
             'desc' => esc_html__('Add a header tagline to this page.', 'york'),
             'id' => $prefix . 'entry_header',
             'type' => 'textarea',
-            'std' => ''
+            'std' => 'Rich is an idea maker, a visionary, a creative genius — his mantra is turning nothing into something.'
             ),
     )
 );

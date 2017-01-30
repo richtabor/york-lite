@@ -20,6 +20,13 @@ if( is_admin() ) {
 
 
 /**
+ * Load TGM.
+ */
+require_once get_template_directory() . '/inc/plugins/plugins.php';
+
+
+
+/**
  * Pro upgrade functions.
  * Warning: Don't just remove or delete these lines below.
  * You will get errors. 
@@ -117,6 +124,4 @@ function york_mce_before_init_insert_formats( $init_array ) {
     return $init_array;  
 } 
 // Attach callback to 'tiny_mce_before_init'
-add_filter( 'tiny_mce_before_init', 'york_mce_before_init_insert_formats' );  
-
-
+add_filter( 'tiny_mce_before_init', 'york_mce_before_init_insert_formats' );

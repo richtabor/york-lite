@@ -14,7 +14,7 @@
 /**
  * Set constant for version.
  */
-define( 'YORK_VERSION', '1.0.2' );
+define( 'YORK_VERSION', '1.1.0' );
 
 
 
@@ -23,7 +23,9 @@ define( 'YORK_VERSION', '1.0.2' );
  * If set the 'true', then serve standard theme files,
  * instead of minified .css and .js files.
  */
-define( 'YORK_DEBUG', true );
+if ( ! defined( 'YORK_DEBUG' ) ) {
+    define( 'YORK_DEBUG', true );
+}
 
 
 
@@ -45,8 +47,6 @@ if ( version_compare( $GLOBALS['wp_version'], '4.2', '<' ) ) {
  */
 if ( ! function_exists( 'york_setup' ) ) :
 function york_setup() {
-	
-
 
 	/*
 	 * Make theme available for translation.
@@ -56,12 +56,10 @@ function york_setup() {
 	 */
 	load_theme_textdomain( 'york', get_template_directory() . '/languages' );
 	
-
-
-	// Add default posts and comments RSS feed links to head.
+	/*
+     * Add default posts and comments RSS feed links to head.
+     */
 	add_theme_support( 'automatic-feed-links' );
-	
-
 
 	/*
 	 * Let WordPress manage the document title.
@@ -70,8 +68,6 @@ function york_setup() {
 	 * provide it for us.
 	 */
 	add_theme_support( 'title-tag' );
-	
-
 
 	/**
 	 * Filter York's custom-background support argument.
@@ -85,8 +81,6 @@ function york_setup() {
 	);
 	add_theme_support( 'custom-background', $args );
 
-
-
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
@@ -99,15 +93,13 @@ function york_setup() {
 	add_image_size( 'port-full', 9999, 9999, false  );
 	add_image_size( 'project-thumbnail', 9999, 9999 );
 
-
-
-	// This theme uses wp_nav_menu() in two locations.
+	/*
+     * This theme uses wp_nav_menu() in the following locations.
+     */
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'york' ),
         'footer' => esc_html__( 'Footer Menu', 'york' ),
 	) );
-
-
 
 	/*
 	 * Switch default core yorkup for search form, comment form, and comments
@@ -120,8 +112,6 @@ function york_setup() {
 		'gallery',
 		'caption',
 	) );
-	
-	
 
 	/*
      * Enable support for Post Formats.
@@ -132,15 +122,11 @@ function york_setup() {
         'image'
     ) );
 
-
-
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'css/editor-style.css' ) );
-
-
+	add_editor_style( array( 'css/editor-style.css', york_fonts_url() ) );
 
     /*
      * Enable support for Customizer Selective Refresh.
@@ -148,11 +134,75 @@ function york_setup() {
      */
     add_theme_support( 'customize-selective-refresh-widgets' );
 
+    /*
+     * Define starter content for the theme.
+     * See: https://make.wordpress.org/core/2016/11/30/starter-content-for-themes-in-4-7/
+     */
+    add_theme_support( 'starter-content', array(
+        'widgets' => array(
+            'sidebar-1' => array(
+                'profile_widget' => [
+                    'text', [
+                        'title' => _x( 'Hi. I\'m York Lite', 'Theme starter content', 'york' ),
+                        'text' => _x( 'A beautifully focused & inherently portfolio WordPress theme by ThemeBeans.', 'Theme starter content', 'york' ),
+                    ]
+                ],
+                'categories'
+            ),
+        ),
 
+        'options' => array(
+            'show_on_front' => 'page',
+            'page_on_front' => '{{home}}',
+            'page_for_posts' => '{{blog}}',
+        ),
 
+        'nav_menus' => array(
+            'primary' => array(
+                'name' => __( 'Primary Menu', 'york' ),
+                'items' => array(
+                    'page_home',
+                    'page_about',
+                    'page_contact',
+                ),
+            ),
+            'footer' => array(
+                'name' => __( 'Footer Menu', 'york' ),
+                'items' => array(
+                    'page_home',
+                    'page_about',
+                    'page_contact',
+                ),
+            ),
+        ),
+
+    ) );
 }
-endif; // york_setup
+endif;
 add_action( 'after_setup_theme', 'york_setup' );
+
+
+
+/**
+ * Checks to see if we're on the homepage or not.
+ */
+function york_is_frontpage() {
+    return ( is_front_page() && ! is_home() );
+}
+
+
+
+/**
+ * Use front-page.php when Front page displays is set to a static page.
+ *
+ * @param string $template front-page.php.
+ *
+ * @return string The template to be used: blank if is_home() is true (defaults to index.php), else $template.
+ */
+function york_front_page_template( $template ) {
+    return is_home() ? '' : $template;
+}
+add_filter( 'frontpage_template',  'york_front_page_template' );
 
 
 
@@ -208,7 +258,7 @@ add_action( 'widgets_init', 'york_widgets_init' );
 function york_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
-add_action( 'wp_head', 'york_javascript_detection', 0 );
+add_action( 'wp_enqueue_scripts', 'york_javascript_detection', 0 );
 
 
 
@@ -233,18 +283,18 @@ function york_scripts() {
 		wp_enqueue_style( 'york-style', get_stylesheet_uri() ); 
 	} else {
         // Add the main minified stylesheet.
-		wp_enqueue_style('york-minified-style', get_template_directory_uri(). '/style-min.css', false, YORK_VERSION, 'all'); 
+		wp_enqueue_style('york-style', get_template_directory_uri(). '/style-min.css', false, YORK_VERSION, 'all'); 
 	}
 
-	if ( is_archive() && is_search() && is_taxonomy() && is_blog() && is_page_template('template-portfolio.php') ) {
-		wp_enqueue_script( 'masonry');
-	}
+	// Conditionally load the masonry.
+    if ( york_is_frontpage() || ( is_home() && is_front_page() ) ) {
+        wp_enqueue_script( 'masonry');
+    }
 
 	/**
 	 * Now let's check the same for the scripts.
 	 */
 	if ( SCRIPT_DEBUG || YORK_DEBUG ) {
-        // Add the javascript files.
         wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/js/src/images-loaded.js', array( 'jquery' ), YORK_VERSION, true );
         wp_enqueue_script( 'isotope', get_template_directory_uri() . '/js/src/isotope.js', array( 'jquery' ), YORK_VERSION, true );
         wp_enqueue_script( 'infinitescroll', get_template_directory_uri() . '/js/src/infinitescroll.js', array( 'jquery' ), YORK_VERSION, true );
@@ -295,6 +345,55 @@ function york_fonts_url() {
 	return $fonts_url;
 }
 endif;
+
+
+
+/**
+ * Add preconnect for Google Fonts.
+ *
+ * @param  array  $urls           URLs to print for resource hints.
+ * @param  string $relation_type  The relation type the URLs are printed.
+ * @return array  $urls           URLs to print for resource hints.
+ */
+function york_resource_hints( $urls, $relation_type ) {
+    if ( wp_style_is( 'york-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+        $urls[] = array(
+            'href' => 'https://fonts.gstatic.com',
+            'crossorigin',
+        );
+    }
+
+    return $urls;
+}
+add_filter( 'wp_resource_hints', 'york_resource_hints', 10, 2 );
+
+
+
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @param array $classes Classes for the body element.
+ * @return array
+ */
+function york_body_classes( $classes ) {
+    global $post;
+    
+    // Adds a class to the body.
+    $classes[] = 'clearfix';
+
+    // Adds a class of post-thumbnail to pages with post thumbnails for hero areas.
+    if ( is_customize_preview() ) {
+        $classes[] = 'is-customize-preview';
+    }
+
+    // Add class on front page.
+    if ( is_front_page() && 'posts' !== get_option( 'show_on_front' ) ) {
+        $classes[] = 'york-front-page';
+    }
+
+    return $classes;
+}
+add_filter( 'body_class', 'york_body_classes' );
 
 
 
@@ -476,13 +575,3 @@ require get_template_directory() . '/inc/widgets/widget-video.php';
 require get_template_directory() . '/inc/widgets/widget-portfolio-menu.php';
 require get_template_directory() . '/inc/widgets/widget-profile.php';
 require get_template_directory() . '/inc/widgets/widget-clients.php';
-
-
-
-/**
- * Theme Welcome Screen
- * @todo Add this welcome screen section.
- */
-// if ( is_admin() ) {
-// 	require get_template_directory() . '/inc/welcome/welcome-screen.php';
-// }

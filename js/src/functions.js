@@ -70,16 +70,6 @@
         });
     }
 
-    function i() {
-        projects.find(".project").each(function(b) {
-            var c = a(this),
-            d = Math.floor(300 * Math.random() + 101) * b;
-            setTimeout(function() {
-                c.addClass(active)
-            }, d)
-        })
-    }
-
     function lineDraw() {
          if (body.hasClass('error404')) {    
           var path = document.querySelector('.animation-404 path');
@@ -124,7 +114,7 @@
 
 	/* Document Ready */
 	a(document).ready(function() {
-        i();
+
         scrollingDiv();
 
         a(".animsition").animsition({

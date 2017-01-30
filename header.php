@@ -17,7 +17,6 @@
 <body <?php body_class( 'clearfix ' ); ?>>
     
     <div hidden><?php get_template_part( 'images/sprite.svg' ); ?></div>
-    <div hidden><?php get_template_part( 'images/social.svg' ); ?></div>
     
     <?php
     if ( !is_404() ) : ?>
@@ -43,42 +42,49 @@
             </header><!-- .site-header -->
             
             <?php 
-            /*
-             * Create a hero entry header, if it's added in the page template.
-             */
-            $entry_header = get_post_meta($post->ID, '_bean_entry_header', true); 
-            
-            $content = $post->post_content;
+            if ( is_singular( 'page' ) ) :
+                /*
+                 * Create a hero entry header, if it's added in the page template.
+                 */
+                $entry_header = get_post_meta($post->ID, '_bean_entry_header', true); 
+                
+                $content = $post->post_content;
 
-            $visibility = ( $entry_header ) ? '' : 'has_no_header' ?>
+                $visibility = ( $entry_header ) ? '' : 'has_no_header';
 
-        	<div id="content" class="site-content animsition <?php echo esc_html($visibility); ?> clearfix">
+            else :
+                $entry_header   = false;
+                $visibility     = 'has_no_header';
+            endif; 
+            ?>
 
-            <?php
-            if ( $entry_header ) : ?>
+                <div id="content" class="site-content animsition <?php echo esc_html($visibility); ?> clearfix">
 
-                <header class="hero entry-header">
+                <?php
+                if ( $entry_header ) : ?>
 
-                    <div class="hero-wrapper">
+                    <header class="hero entry-header">
 
-                        <h1 class="entry-title"><?php echo balancetags( $entry_header ); ?></h1>
+                        <div class="hero-wrapper">
 
-                        <?php
-                        if ( is_page_template('template-portfolio.php') ) :
-                            if ($content) : 
+                            <h1 class="entry-title cd-headline letters type"><?php echo balancetags( $entry_header ); ?></h1>
 
-                                while ( have_posts() ) : the_post();
-                                    echo'<div class="entry-content">';
-                                        the_content();
-                                    echo'</div>';
-                               endwhile; 
-                            endif; 
-                        endif; ?>
+                            <?php
+                            if ( is_page_template('template-portfolio.php') ) :
+                                if ($content) : 
 
-                    </div>
+                                    while ( have_posts() ) : the_post();
+                                        echo'<div class="entry-content">';
+                                            the_content();
+                                        echo'</div>';
+                                   endwhile; 
+                                endif; 
+                            endif; ?>
 
-                </header>
+                        </div>
 
-            <?php endif; 
+                    </header>
 
-    endif; 
+                <?php 
+            endif; 
+        endif; 

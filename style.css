@@ -4,7 +4,7 @@ Theme URI: http://demo.themebeans.com/york
 Author: ThemeBeans
 Author URI: https://themebeans.com
 Description: York is a free yet incredibly resourceful portfolio WordPress theme for creatives, freelancers and agencies alike. York features a modern offset grid-based layout, bold typography and a minimalistic style that allows you to create a timeless website. This is the lite version of the powerful big-sister theme, York Pro.
-Version: 1.0.2
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: post-formats, theme-options, translation-ready, custom-menu, white, microformats
@@ -376,6 +376,10 @@ h6 {
 .entry-content h4,
 .entry-content h5 {
 	margin-bottom: 20px;
+}
+
+.cd-words-wrapper b {
+	font-weight: normal;
 }
 
 em,
@@ -1340,15 +1344,19 @@ a:active {
 		padding-top: 20vh;
 	}
 
-	.page-template-template-portfolio-php .blog,
-	.page-template-template-portfolio-php .hero {
+	.home .blog,
+	.home .hero,
+	.york-front-page .blog,
+	.york-front-page .hero {
 		padding-bottom: calc(20vh - 60px);
 	}
 }
 
 @media (min-width: 1400px) {
-	.page-template-template-portfolio-php .blog,
-	.page-template-template-portfolio-php .hero {
+	.home .blog,
+	.home .hero,
+	.york-front-page .blog,
+	.york-front-page .hero {
 		padding-bottom: calc(20vh - 100px);
 	}
 }
@@ -1534,7 +1542,8 @@ h1.site-logo-link {
 }
 
 @media (max-width: 601px) {
-	.page-template-template-portfolio-php .site-footer {
+	.york-front-page .site-footer,
+	.home .site-footer {
 		border: none;
 	}
 }
@@ -2119,13 +2128,11 @@ p:empty {
 }
 
 .project-inner {
-	opacity: 0;
 	position: relative;
 }
 
 .project.js--active .project-inner {
 	bottom: 0 !important;
-	opacity: 1;
 }
 
 .project figure {
