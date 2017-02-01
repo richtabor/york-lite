@@ -1,6 +1,6 @@
 ** York Changelog **
 
-31 January 2016 - Version 1.1.0
+1 February 2016 - Version 1.1.0
     New:
         * Added TGMPA support, for improved onboarding
         * Added theme starter content for a better onboarding experience
