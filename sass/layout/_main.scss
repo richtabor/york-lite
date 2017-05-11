@@ -1,0 +1,25 @@
+.site {
+	background: $color--background-body;
+	z-index: 1;
+}
+
+.site-content {
+	padding: 0 4%;
+}
+
+.page .site-content.site-content--no-header {
+	padding-top: 12%;
+
+	@media (min-width: 600px) {
+		padding-top: 170px;
+	}
+}
+
+.type-page {
+	margin-bottom: 60px;
+
+	@media screen and (min-width: 600px) {
+		margin-bottom: 10vw;
+		max-width: 800px;
+	}
+}

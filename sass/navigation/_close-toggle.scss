@@ -1,0 +1,31 @@
+.close-toggle {
+	opacity: 0;
+	position: absolute;
+	right: 17px;
+	top: 17px;
+	visibility: hidden;
+	z-index: 99999;
+	transition: 500ms opacity cubic-bezier(0.3, -0.55, 0.1, 1.1);
+
+	.admin-bar & {
+		top: 62px;
+
+		@media screen and (max-width: 600px) {
+			top: 62px;
+		}
+		@media screen and (max-width: 782px) {
+			top: 76px;
+		}
+	}
+
+	@media (max-width: 1024px) {
+		& {
+			opacity: 1 !important;
+			visibility: visible;
+		}
+	}
+
+	.nav-open & span:nth-child(3) {
+		top: 18px;
+	}
+}

@@ -1,0 +1,30 @@
+.icon--wordpress,
+.icon--snapchat-ghost {
+	transform: scale(1) !important;
+}
+
+.svg-fallback {
+	display: none;
+}
+
+.no-svg .svg-fallback {
+	display: inline-block;
+}
+
+/* Social Menu fallbacks */
+
+.no-svg .social-navigation a {
+	background: transparent;
+	height: auto;
+	width: auto;
+}
+
+/* Show screen reader text in some cases */
+.no-svg .social-navigation li a .screen-reader-text {
+	clip: auto;
+	font-size: 16px;
+	font-weight: 400;
+	height: auto;
+	position: relative;
+	width: auto;
+}

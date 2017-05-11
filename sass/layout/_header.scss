@@ -1,0 +1,47 @@
+.site-header {
+	@include clearfix();
+	padding: 40px 4% 0 4%;
+	z-index: 999;
+
+	@media (min-width: 600px) {
+		left: 0;
+		padding: 40px 4% 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+	.admin-bar & {
+		top: 32px;
+
+		@media (max-width: 782px) {
+			top: 46px;
+		}
+	}
+
+	&--left,
+	&--right {
+		float: left;
+		@media (min-width: 768px) {
+			float: left;
+			width: 50%;
+		}
+	}
+
+	&--left {
+		pointer-events: auto;
+		text-align: left;
+		width: 70%;
+	}
+
+	&--right {
+		text-align: right;
+		width: 30%;
+	}
+
+	.site-logo-link {
+		display: inline-block;
+		font-size: 30px;
+		margin: 0;
+	}
+}

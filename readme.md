@@ -1,9 +1,9 @@
 # York #
 
 Contributors: Rich Tabor of ThemeBeans.com
-Requires at least: WordPress 4.4
-Tested up to: WordPress 4.5.1
-Version: 1.1.0
+Requires at least: WordPress 4.7
+Tested up to: WordPress 4.7
+Version: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: white, dark, light, one-column, two-columns, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, sticky-post, threaded-comments, translation-ready

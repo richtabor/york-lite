@@ -1,0 +1,49 @@
+.mc4wp-subscribe-wrapper {
+	margin: 25px auto;
+	max-width: 360px;
+	position: relative;
+
+	@media (min-width: 600px) {
+		width: 100%;
+	}
+
+	select {
+		display: none;
+	}
+}
+
+.mc4wp-form-fields input {
+	padding-right: 50px;
+}
+
+.mc4wp-form-success input {
+	border-color: $color--success;
+}
+
+.mc4wp-form-error input {
+	border-color: $color--error;
+}
+
+.mc4wp-form-fields input[type="submit"] {
+	width: 50px;
+}
+
+.mc4wp-alert {
+	color: $color--error;
+	font-size: 14px;
+	line-height: 1.3em;
+}
+
+.mc4wp-error {
+	color: $color--error;
+	font-size: 14px;
+}
+
+.mc4wp-response .mc4wp-alert {
+	margin-top: -35px;
+}
+
+.mc4wp-response p {
+	font-size: 14px;
+	margin-bottom: 40px;
+}

@@ -1,0 +1,224 @@
+.nav-open {
+	height: 100%;
+	overflow: hidden;
+}
+
+.sidebar {
+	background-color: $white;
+	height: 100%;
+	left: 0;
+	max-width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	transform: translatex(-100%);
+	opacity: 0;
+	transition: transform 900ms cubic-bezier(0.80, 0, 0.07, 1), opacity 300ms cubic-bezier(0.33,0,0.2,1) 300ms;
+	width: 100%;
+	z-index: 99998;
+	will-change: transform, opacity;
+	box-shadow: 0 10px 100px rgba(0, 0, 0, 0.03), 0 15px 55px rgba(0, 0, 0, 0.06), 0 5px 35px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar .button {
+	font-size: 14px;
+	padding: 7px 18px 8px;
+}
+
+@media (min-width: 500px) {
+	.sidebar.no-widget-area {
+		max-width: 500px;
+	}
+}
+
+@media (min-width: 768px) {
+	.sidebar {
+		max-width: 900px;
+		overflow-y: hidden;
+	}
+}
+
+.sidebar .widget-title {
+	margin-bottom: 30px;
+}
+
+.nav-open .sidebar {
+	opacity: 1;
+	pointer-events: auto;
+	pointer-events: auto;
+    transform: translateX(0);
+    transition: transform 900ms cubic-bezier(0.80, 0, 0.07, 1), opacity 100ms cubic-bezier(0.33,0,0.2,1) 100ms;
+	-webkit-overflow-scrolling: touch;
+}
+
+.sidebar--section {
+	box-sizing: border-box;
+	display: block;
+	float: left;
+	height: auto;
+	overflow: hidden;
+	padding: 100px 12%;
+	position: relative;
+	text-align: center;
+	transition: padding 100ms 0ms ease-in-out;
+	vertical-align: top;
+	width: 100%;
+	z-index: 1110;
+	
+}
+
+.sidebar--section.js--scroll {
+	overflow: scroll;
+	padding-bottom: 5%;
+	padding-top: 5%;
+}
+
+.sidebar--section:nth-child(2) {
+	border-right: none;
+	border-top: solid 1px #f0f0f0;
+}
+
+@media (min-width: 768px) {
+	.sidebar--section {
+		border-right: none;
+		display: table;
+		vertical-align: middle;
+		height: 100%;
+		padding-left: 100px;
+		padding-right: 100px;
+		vertical-align: middle;
+		width: 100%;
+
+		.has-widget-area & {
+			width: 50%;
+		}
+	}
+
+	
+
+	.sidebar--section:nth-child(2) {
+		border-top: none;
+	}
+
+	.sidebar.widget-area .sidebar--section {
+		border-left: 0;
+		width: 100%;
+	}
+
+	.sidebar--section.widget-area  {
+		border-left: solid 1px #f0f0f0;
+	}
+}
+
+.nav-open .sidebar--section {
+	-webkit-overflow-scrolling: touch;
+}
+
+.sidebar--section-inner {
+	opacity: 1;
+	position: relative;
+	// top: 50%;
+	// transform: translatey(-50%);
+	transition: opacity 100ms 0ms ease-in-out;
+	will-change: opacity;
+	@media (min-width: 768px) {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.js--scroll .sidebar--section-inner {
+	top: auto;
+	transform: translatey(0);
+}
+
+.nav-open .sidebar--section-inner {
+	-webkit-overflow-scrolling: touch;
+}
+
+@media screen and (max-width: 600px) {
+	.admin-bar .sidebar--section-inner {
+		top: 46px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.sidebar--section-inner {
+		top: auto;
+		transform: translatey(0);
+	}
+}
+
+.main-navigation {
+	display: block;
+	position: relative;
+	z-index: 1000;
+}
+
+.main-navigation ul {
+	display: inline-block;
+
+	ul {
+		display: none;
+	}
+}
+
+.main-navigation ul,
+.main-navigation li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.main-navigation li {
+	padding: 0.65em 0;
+	-webkit-backface-visibility: hidden;
+}
+
+.main-navigation a {
+	box-shadow: 0 0 0 #fff !important;
+	color: $black;
+	font-size: 32px;
+}
+
+.nav-close-overlay {
+	display: none;
+}
+
+@media screen and (min-width: 500px) {
+	.nav-close-overlay {
+		background: rgba(0,0,0,0.15);
+		bottom: 0;
+		cursor: pointer;
+		cursor: url(assets/images/close.ico), default;
+		cursor: -webkit-image-set( url( assets/images/close.ico ) 1x, url( assets/images/close@2x.ico ) 2x), default;
+		display: block;
+		left: 0;
+		opacity: 0;
+		position: fixed;
+		right: 0;
+		top: -100px;
+		transition: opacity 400ms ease-in-out 1ms, visibility 1ms linear 502ms, background 500ms ease-in-out 2ms;
+		visibility: hidden;
+		z-index: 9998;
+	}
+
+	.modal-open .nav-close-overlay {
+		background: rgba(0,0,0,0);
+	}
+
+	.nav-open .nav-close-overlay,
+	.modal-open .nav-close-overlay {
+		opacity: 1;
+		transition: opacity 600ms ease-in-out 2ms, visibility 1ms linear, background 400ms ease-in-out 2ms;
+		visibility: visible;
+	}
+}
+
+.sidebar ul li a,
+.sidebar .widget--profile p a {
+	box-shadow: 0 1px 0 0 currentColor;
+}

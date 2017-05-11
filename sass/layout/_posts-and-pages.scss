@@ -1,0 +1,119 @@
+.entry-media {
+	margin-bottom: 40px;
+}
+
+@media screen and (min-width: 600px) {
+	.entry-media {
+		margin-bottom: 4%;
+	}
+}
+
+.entry-content ol {
+	list-style-type: disc;
+}
+
+.entry-content ol {
+	list-style-type: decimal;
+}
+
+.entry-content ul ul,
+.entry-content ul ol,
+.entry-content ol li ul,
+.entry-content ul li ol,
+.entry-content ul li ul,
+.entry-content ol li ol {
+	margin: 0 0 0 13px;
+	margin: 0 0 0 1.3rem;
+}
+
+.entry-content form ul {
+	margin: 0!important;
+}
+
+.entry-content form li {
+	list-style: none;
+}
+
+.entry-content .bean-one-third ul {
+	list-style: none;
+	margin-left: 0;
+}
+
+.entry-content iframe {
+	margin: 8% 0 6%!important;
+}
+
+.bypostauthor {
+	text-transform: normal;
+}
+
+.single-attachment .entry-content h1 {
+	margin-bottom: 0;
+}
+
+.single-attachment .entry-content {
+	margin: 20px 0 50px;
+}
+
+.post-password-required input[type="password"] {
+	margin-top: 10px;
+}
+
+.post-password-required input[type="submit"] {
+	display: none;
+}
+
+.post-password-required label {
+	display: none;
+}
+
+p:empty {
+	display: none;
+}
+
+.bean-alert,
+.bean-panel-body,
+.bean-tab-content,
+.bean-tabs > li > a,
+.bean-panel-title > a {
+	text-align: left;
+}
+
+.bean-tabs > li {
+	margin-bottom: 2px;
+}
+
+.sticky {
+	color: inherit;
+}
+
+.more-link {
+	text-transform: capitalize;
+}
+
+/* Search */
+.search-form {
+	position: relative;
+}
+
+.search .page-content {
+	padding-top: 5px;
+}
+
+.search .page-content input[type="search"].search-field {
+	width: calc(100% - 21%);
+}
+
+.search .page-content input[type="submit"] {
+	bottom: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20%;
+}
+
+.search .page-title {
+	text-align: center;
+}

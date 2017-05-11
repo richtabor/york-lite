@@ -2,363 +2,349 @@
 /**
  * Enqueues front-end CSS for Customizer options.
  *
- * @package York
+ * @package @@pkg.name
+ * @version @@pkg.version
+ * @author  @@pkg.author
+ * @license @@pkg.license
  */
 
-if ( !function_exists('Bean_Customize_Variables') ) {
+/**
+ * Set the Custom CSS via Customizer options.
+ */
+function york_customizer_css() {
 
-function Bean_Customize_Variables() {
+	$theme_accent_color 		= get_theme_mod( 'theme_accent_color', '#ff5c5c' );
+	$background_color 			= get_theme_mod( 'york_background_color', '#ffffff' );
+	$sitetitle_color 			= get_theme_mod( 'york_sitetitle_color', '#000000' );
+	$sitetitlehover_color 		= get_theme_mod( 'york_sitetitlehover_color', '#ff5c5c' );
+	$navigationicon_color 		= get_theme_mod( 'york_navigationicon_color', '#000000' );
+	$navigationiconhover_color 	= get_theme_mod( 'york_navigationiconhover_color', '#000000' );
+	$footertext_color 			= get_theme_mod( 'york_footertext_color', '#000000' );
+	$footernav_a_color 			= get_theme_mod( 'york_footernav_a_color', '#909090' );
+	$footertexthover_color 		= get_theme_mod( 'york_footertexthover_color', '#ff5c5c' );
+	$footersocial_color 		= get_theme_mod( 'york_footersocial_color', '#000000' );
+	$sidebarsocial_color 		= get_theme_mod( 'york_sidebarsocial_color', '#000000' );
+	$overlay_color 				= get_theme_mod( 'york_overlay_color', '#000000' );
+	$overlay_text_color 		= get_theme_mod( 'york_overlay_text_color', '#ffffff' );
 
-		// Colors
-		$theme_accent_color = get_theme_mod('theme_accent_color', '#52bad5');
-        $background_color = get_theme_mod('york_background_color', '#ffffff'); 
-        $sitetitle_color = get_theme_mod('york_sitetitle_color', '#000000');
-        $sitetitlehover_color = get_theme_mod('york_sitetitlehover_color', '#52bad5');
-        $navigationicon_color = get_theme_mod('york_navigationicon_color', '#000000');
-        $navigationiconhover_color = get_theme_mod('york_navigationiconhover_color', '#000000');
-        $footertext_color = get_theme_mod('york_footertext_color', '#000000');
-        $footernav_a_color = get_theme_mod('york_footernav_a_color', '#909090');
-        $footertexthover_color = get_theme_mod('york_footertexthover_color', '#52bad5');
-        $footersocial_color = get_theme_mod('york_footersocial_color', '#000000');
-        $sidebarsocial_color = get_theme_mod('york_sidebarsocial_color', '#000000');
-        $cta_background_color = get_theme_mod('york_cta_background_color', '#1c1c1c');
-        $cta_text_color = get_theme_mod('york_cta_text_color', '#ffffff');
-        $cta_shape_color = get_theme_mod('york_cta_shape_color', '#ffffff');
-        $overlay_color = get_theme_mod('york_overlay_color', '#000000');
-        $overlay_text_color = get_theme_mod('york_overlay_text_color', '#ffffff');
-        $cta_shape_color_rgb = york_hex2rgb( $cta_shape_color );
-        $portfolio_social_color = get_theme_mod('york_portfolio_social_color', '#000000');
+	// Convert main text hex color to rgba.
+	$theme_accent_color_rgb = york_hex2rgb( $theme_accent_color );
 
-        // Convert main text hex color to rgba.
-        $theme_accent_color_rgb = york_hex2rgb( $theme_accent_color );
+	// If the rgba values are empty return early.
+	if ( empty( $theme_accent_color_rgb ) ) {
+		return;
+	}
 
-        //If the rgba values are empty return early.
-        if ( empty ( $theme_accent_color_rgb ) ) {
-            return;
-        }
+	$rgb_10_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.075)', $theme_accent_color_rgb );
+	$rgb_50_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.25)', $theme_accent_color_rgb );
 
-        $rgb_10_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.075)', $theme_accent_color_rgb );
-        $rgb_50_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.25)', $theme_accent_color_rgb );
-        $rgb_15_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.15)', $cta_shape_color_rgb );
+	$body_typography_color = get_theme_mod( 'body_typography_color', '#000' );
+	$header_typography_color = get_theme_mod( 'header_typography_color', '#000' );
+	$body_secondary_typography_color = get_theme_mod( 'body_secondary_typography_color', '#909090' );
 
-		$body_typography_color = get_theme_mod('body_typography_color', '#000');
-		$header_typography_color = get_theme_mod('header_typography_color', '#000'); 
-        $body_secondary_typography_color = get_theme_mod('body_secondary_typography_color', '#909090');
-        
-        $body_font_family = get_theme_mod('body_font_family', 'Karla'); 
-		$body_font_size = get_theme_mod('body_font_size', '15');
-		$body_line_height = get_theme_mod('body_line_height', '26');
+	$body_font_family = get_theme_mod( 'body_font_family', 'Playfair Display' );
+	$body_font_size = get_theme_mod( 'body_font_size', '18' );
+	$body_line_height = get_theme_mod( 'body_line_height', '1.8' );
+	$body_letter_spacing = get_theme_mod( 'body_letter_spacing', '0' );
+	$body_word_spacing = get_theme_mod( 'body_word_spacing', '0' );
 
-		$pagetitle_font_family = get_theme_mod('pagetitle_font_family', 'Karla');
-		$pagetitle_font_size = get_theme_mod('pagetitle_font_size', '26');
-		$pagetitle_line_height = get_theme_mod('pagetitle_line_height', '26');
-		?>
+	$pagetitle_font_family = get_theme_mod( 'pagetitle_font_family', 'Playfair Display' );
+	$pagetitle_font_size = get_theme_mod( 'pagetitle_font_size', '4.75' );
+	$pagetitle_line_height = get_theme_mod( 'pagetitle_line_height', '1.4' );
 
-		<style>
+	$mobile_pagetitle_font_size = get_theme_mod( 'mobile_pagetitle_font_size', '40' );
+	$mobile_pagetitle_line_height = get_theme_mod( 'mobile_pagetitle_line_height', '1.4' );
 
-			<?php
-			$customizations = 
-			'
-        
-            body .share-toggle + label {
-                background:'.$portfolio_social_color.';
-            }   
+	$bigdesktop_pagetitle_font_size = get_theme_mod( 'bigdesktop_font_size', '90' );
+	$bigdesktop_pagetitle_line_height = get_theme_mod( 'bigdesktop_line_height', '1.4' );
 
-            body .share-menu-item svg {
-                fill:'.$portfolio_social_color.';
-            }   
+	$pagetitle_letter_spacing = get_theme_mod( 'pagetitle_letter_spacing', '0' );
+	$pagetitle_word_spacing = get_theme_mod( 'pagetitle_word_spacing', '0' );
 
-            body .project .overlay {
-                background:'.$overlay_color.';
-            }
+	$css =
+	'
+	body { 
+		font-family: '. esc_attr( $body_font_family ) .' !important; 
+		font-size: '. esc_attr( $body_font_size ) .'px !important; 
+	}
 
-            body .project .overlay h3 {
-                color:'.$overlay_text_color.';
-            }
+	body #content {
+		line-height: '. esc_attr( $body_line_height ) .'em !important; 
+	}
 
-            body .lightbox-play svg {
-                fill:'.$overlay_text_color.';
-            }
+	body #content p {
+		letter-spacing: '. esc_attr( $body_letter_spacing ) .'px !important; 
+		word-spacing: '. esc_attr( $body_word_spacing ) .'px !important;
+	}
+	
+	body .hero .entry-title, 
+	body .project-caption,
+	body.single .navigation a { 
+		font-family: '. esc_attr( $pagetitle_font_family ) .' !important; 
+		font-size: '. esc_attr( $mobile_pagetitle_font_size ) .'px !important;              
+	}
 
-            body .cta {
-                background:'.$cta_background_color.' !important;
-            }
+	@media screen and (max-width: 1920px) and (min-width: 823px) {
+		body .hero .entry-title, 
+		body .project-caption,
+		body.single .navigation a { 
+			font-size: '. esc_attr( $pagetitle_font_size ) .'vw !important; 
+			line-height: '. esc_attr( $pagetitle_line_height ) .'em !important; 
+		}
+	}
 
-            body .cta h2 {
-                color:'.$cta_text_color.' !important;
-            }
+	@media screen and (min-width: 1920px) {
+		body .hero .entry-title, 
+		body .project-caption,
+		body.single .navigation a {
+			font-size: '. esc_attr( $bigdesktop_pagetitle_font_size ) .'px !important; 
+			line-height: '. esc_attr( $bigdesktop_pagetitle_line_height ) .'em !important; 
+		}
+	}
+	
+	body .project .overlay {
+		background:'. esc_attr( $overlay_color ) .';
+	}
 
-            body .cta h2 i {
-                border-color:'.$rgb_15_opacity.' !important;   
-            }
+	body .project .overlay h3 {
+		color:'. esc_attr( $overlay_text_color ) .';
+	}
 
-            body .cta svg {
-                fill:'.$cta_shape_color.' !important;
-            }
+	body .lightbox-play svg {
+		fill:'. esc_attr( $overlay_text_color ) .';
+	}
 
-            body, 
-            body .site {
-                background-color:'.$background_color.' !important;
-            }
+	body, 
+	body .site {
+		background-color:'. esc_attr( $background_color ) .' !important;
+	}
+	
+	body h1.site-logo-link {
+		color: '. esc_attr( $sitetitle_color ) .' ;
+		border-color: '. esc_attr( $sitetitle_color ) .' ;
+	}
 
-            body .cta a:after {
-                border-color: '.$background_color.';
-            }
+	body h1.site-logo-link:hover,
+	body h1.site-logo-link:focus {
+		border-color: '. esc_attr( $sitetitlehover_color ) .' ;
+	}
+	
+	body h1.site-logo-link a:hover {
+		color: '. esc_attr( $sitetitlehover_color ) .'!important;
+		border-color: '. esc_attr( $sitetitlehover_color ) .'!important;
+	}
 
-            body .cd-words-wrapper.selected b {
-                color: '.$background_color.';
-            }
-            
-            body h1.site-logo-link {
-                color: '.$sitetitle_color.' ;
-                border-color: '.$sitetitle_color.' ;
-            }
+	body .mobile-menu-toggle span {
+		background:'. esc_attr( $navigationicon_color ) .';
+	}
 
-            body h1.site-logo-link:hover,
-            body h1.site-logo-link:focus {
-                border-color: '.$sitetitlehover_color.' ;
-            }
-            
-            body h1.site-logo-link a:hover {
-                color: '.$sitetitlehover_color.'!important;
-                border-color: '.$sitetitlehover_color.'!important;
-            }
+	body .mobile-menu-toggle:hover span,
+	body.nav-open .mobile-menu-toggle span {
+		background-color:'. esc_attr( $navigationiconhover_color ) .';
+	}
 
-            body .mobile-menu-toggle span {
-                background:'.$navigationicon_color.';
-            }
+	body .site-footer {
+		color:'. esc_attr( $footertext_color ) .';
+	}
 
-            body .mobile-menu-toggle:hover span,
-            body.nav-open .mobile-menu-toggle span {
-                background-color:'.$navigationiconhover_color.';
-            }
+	body .site-footer .footer-navigation a {
+		color:'. esc_attr( $footernav_a_color ) .';
+	}
 
-            body .site-footer {
-                color:'.$footertext_color.';
-            }
+	body #colophon.site-footer span a:hover {
+		color:'. esc_attr( $footertexthover_color ) .';
+	}
 
-            body .site-footer .footer-navigation a {
-                color:'.$footernav_a_color.';
-            }
+	body .site-footer .social-navigation svg { 
+		fill:'. esc_attr( $footersocial_color ) .'; 
+	}
 
-            body #colophon.site-footer span a:hover {
-                color:'.$footertexthover_color.';
-            }
+	body #content a:hover,
+	body #content a:focus {
+		color:'. esc_attr( $theme_accent_color ) .'!important;
+		border-color:'. esc_attr( $theme_accent_color ) .'!important;
+	}
 
-            body .site-footer .social-navigation svg { 
-                fill:'.$footersocial_color.'; 
-            }
+	body button,
+	body .button,
+	body button[disabled]:hover,
+	body button[disabled]:focus,
+	body input[type="button"],
+	body input[type="button"][disabled]:hover,
+	body input[type="button"][disabled]:focus,
+	body input[type="reset"],
+	body input[type="reset"][disabled]:hover,
+	body input[type="reset"][disabled]:focus,
+	body input[type="submit"],
+	body input[type="submit"][disabled]:hover,
+	body input[type="submit"][disabled]:focus {
+		background-color:'. esc_attr( $theme_accent_color ) .';
+	}
 
-            body #content a:hover,
-            body #content a:focus {
-                color:'.$theme_accent_color.'!important;
-                border-color:'.$theme_accent_color.'!important;
-            }
+	article .yorkup--highlight {
+		background-image: linear-gradient(to bottom, '. esc_attr( $rgb_10_opacity ) .', '. esc_attr( $rgb_10_opacity ) .');
+	}
 
-            body .js--focus .input-control::before {
-                background:'.$theme_accent_color.';
-            }
+	body.single-portfolio .navigation a:hover {
+		color:'. esc_attr( $theme_accent_color ) .' !important;
+		border-color:'. esc_attr( $theme_accent_color ) .' !important;
+	}
+	
+	body,
+	body.single,
+	body.page,
+	body.home,
+	body.blog,
+	body button,
+	body input,
+	body select,
+	body textarea,
+	p a:hover {
+		color: '. esc_attr( $body_typography_color ) .'; 
+	}
 
-            body .js--focus .input-control::after {
-                border-color:'.$theme_accent_color.';
-            }
+	body #content a:hover,
+	body .main-navigation a:hover {
+		color: '. esc_attr( $theme_accent_color ) .'; 
+	}
+	
+	body blockquote {
+		border-color: '. esc_attr( $body_typography_color ) .'; 
+	}
 
-            body button,
-            body .button,
-            body button[disabled]:hover,
-            body button[disabled]:focus,
-            body input[type="button"],
-            body input[type="button"][disabled]:hover,
-            body input[type="button"][disabled]:focus,
-            body input[type="reset"],
-            body input[type="reset"][disabled]:hover,
-            body input[type="reset"][disabled]:focus,
-            body input[type="submit"],
-            body input[type="submit"][disabled]:hover,
-            body input[type="submit"][disabled]:focus {
-                background-color:'.$theme_accent_color.';
-            }
+	body .tagcloud > a,
+	body .tagcloud > a:hover,
+	body .post-meta a:hover,
+	body .project-meta a:hover {
+		color: '. esc_attr( $body_typography_color ) .'!important; 
+	}
+	
+	body .cat-links, 
+	body .cat-links a,
+	body .entry-meta,
+	body .entry-meta a,
+	body .post-meta a, 
+	body .post-meta span, 
+	body .post-meta span:before,
+	body .project-meta p, 
+	body .project-taxonomy,
+	body .project-taxonomy a,
+	body .project-taxonomy a:before,
+	body .project-meta p:before,
+	body .widget_bean_tweets a.twitter-time-stamp  {
+		color: '. esc_attr( $body_secondary_typography_color ) .'!important; 
+	}
 
-            article .yorkup--highlight {
-                background-image: linear-gradient(to bottom, '.$rgb_10_opacity.', '.$rgb_10_opacity.');
-            }
+	body blockquote cite,
+	body blockquote small {
+		color: '. esc_attr( $body_secondary_typography_color ) .';
+	}
 
-            body.single-portfolio .navigation a:hover {
-                color:'.$theme_accent_color.' !important;
-                border-color:'.$theme_accent_color.' !important;
-            }
-            
-            body,
-            body.single,
-            body.page,
-            body.home,
-            body.blog,
-            body button,
-            body input,
-            body select,
-            body textarea,
-            p a:hover {
-                color: '.$body_typography_color.'; 
-            }
+	body h1,
+	body h2,
+	body h3,
+	body h4,
+	body h5,
+	body .project-caption,
+	body .main-navigation a {
+		color: '. esc_attr( $header_typography_color ) .'; 
+	}
 
-            body #content a:hover,
-            body .main-navigation a:hover {
-                color: '.$theme_accent_color.'; 
-            }
-            
-            body blockquote {
-                border-color: '.$body_typography_color.'; 
-            }
+	body.single .navigation a {
+		color: '. esc_attr( $header_typography_color ) .' !important; 
+	}
+	
+	@media (min-width: 600px) {
+		body .cd-words-wrapper::after,
+		body .cd-words-wrapper.selected {
+			background-color: '. esc_attr( $header_typography_color ) .'; 
+		}
+	}
 
-            body .tagcloud > a,
-            body .tagcloud > a:hover,
-            body .post-meta a:hover,
-            body .project-meta a:hover {
-                color: '.$body_typography_color.'!important; 
-            }
+	body .sidebar .social-navigation svg { 
+		fill:'. esc_attr( $sidebarsocial_color ) .'; 
+	}
 
-            body .post-meta a, 
-            body .post-meta span, 
-            body .post-meta span:before,
-            body .project-meta p, 
-            body .project-taxonomy,
-            body .project-taxonomy a,
-            body .project-taxonomy a:before,
-            body .project-meta p:before,
-            body .widget_bean_tweets a.twitter-time-stamp  {
-                color: '.$body_secondary_typography_color.'!important; 
-            }
+	a:hover,
+	a:focus,
+	body .site-footer a:hover, 
+	body .header .project-filter a:hover,
+	body .header .main-navigation a:hover,
+	body .header .project-filter a.active, 
+	.logo_text:hover,
+	.current-menu-item a, 
+	.page-links a span:not(.page-links-title):hover,
+	.page-links span:not(.page-links-title) { color:'. esc_attr( $theme_accent_color ) .'; }
 
-            body blockquote cite,
-            body blockquote small {
-                color: '.$body_secondary_typography_color.';
-            }
+	.cats,
+	h1 a:hover, 
+	.logo a h1:hover,
+	.tagcloud a:hover,
+	.entry-meta a:hover,
+	.header-alt a:hover,
+	.post-after a:hover,
+	.bean-tabs > li.active > a,
+	.bean-panel-title > a:hover,
+	.archives-list ul li a:hover,
+	.bean-tabs > li.active > a:hover,
+	.bean-tabs > li.active > a:focus,
+	.bean-pricing-table .pricing-column li.info:hover { 
+		color:'. esc_attr( $theme_accent_color ) .'!important; 
+	}
 
-            body h1,
-            body h2,
-            body h3,
-            body h4,
-            body h5,
-            body .project-caption,
-            body .main-navigation a {
-                color: '.$header_typography_color.'; 
-            }
+	body .type-post .post-content blockquote::before {
+		color:'. esc_attr( $theme_accent_color ) .';
+	}
 
-            body.single .navigation a {
-                color: '.$header_typography_color.' !important; 
-            }
+	body button:hover,
+	body button:focus,
+	body .button:hover,
+	body .button:focus,
+	body input[type="button"]:hover,
+	body input[type="button"]:focus,
+	body input[type="reset"]:hover,
+	body input[type="reset"]:focus,
+	body input[type="submit"]:hover,
+	body input[type="submit"]:focus {
+		border-color:'. esc_attr( $theme_accent_color ) .'; 
+	}
 
-            body .cd-words-wrapper::after,
-            body .cd-words-wrapper.selected {
-                background-color: '.$header_typography_color.'; 
-            }
+	button:hover,
+	button:focus,
+	.button:hover,
+	.button:focus,
+	input[type="button"]:hover,
+	input[type="button"]:focus,
+	input[type="reset"]:hover,
+	input[type="reset"]:focus,
+	input[type="submit"]:hover,
+	input[type="submit"]:focus,
+	.bean-btn,
+	.tagcloud a,
+	nav a h1:hover, 
+	div.jp-play-bar,
+	div.jp-volume-bar-value,
+	.bean-direction-nav a:hover,
+	.bean-pricing-table .table-mast,
+	.entry-categories a:hover, 
+	.bean-contact-form .bar:before { 
+		background-color:'. esc_attr( $theme_accent_color ) .'; 
+	}
 
-            body .sidebar .social-navigation svg { 
-                fill:'.$sidebarsocial_color.'; 
-            }
+	.bean-btn { border: 1px solid '. esc_attr( $theme_accent_color ) .'!important; }
+	.bean-quote { background-color:'. esc_attr( $theme_accent_color ) .'!important; }
+	';
 
-			a:hover,
-			a:focus,
-			body .site-footer a:hover, 
-			body .header .project-filter a:hover,
-			body .header .main-navigation a:hover,
-			body .header .project-filter a.active, 
-			.logo_text:hover,
-			.current-menu-item a, 
-			.page-links a span:not(.page-links-title):hover,
-			.page-links span:not(.page-links-title) { color:'.$theme_accent_color.'; }
+	/**
+	 * Combine the values from above and minifiy them.
+	 */
+	$css_minified = $css;
 
-			.cats,
-			h1 a:hover, 
-			.logo a h1:hover,
-			.tagcloud a:hover,
-			.entry-meta a:hover,
-			.header-alt a:hover,
-			.post-after a:hover,
-			.bean-tabs > li.active > a,
-			.bean-panel-title > a:hover,
-			.archives-list ul li a:hover,
-			.bean-tabs > li.active > a:hover,
-			.bean-tabs > li.active > a:focus,
-			.bean-pricing-table .pricing-column li.info:hover { 
-				color:'.$theme_accent_color.'!important; 
-			}
+	$css_minified = preg_replace( '#/\*.*?\*/#s', '', $css_minified );
+	$css_minified = preg_replace( '/\s*([{}|:;,])\s+/', '$1', $css_minified );
+	$css_minified = preg_replace( '/\s\s+(.*)/', '$1', $css_minified );
 
-			body button:hover,
-			body button:focus,
-			body .button:hover,
-			body .button:focus,
-			body input[type="button"]:hover,
-			body input[type="button"]:focus,
-			body input[type="reset"]:hover,
-			body input[type="reset"]:focus,
-			body input[type="submit"]:hover,
-			body input[type="submit"]:focus {
-				border-color:'.$theme_accent_color.'; 
-			}
+	wp_add_inline_style( 'york-style', wp_strip_all_tags( $css_minified ) );
 
-            body input[type="text"]:focus,
-            body input[type="email"]:focus,
-            body input[type="url"]:focus,
-            body input[type="password"]:focus,
-            body input[type="search"]:focus,
-            body textarea:focus {
-                border-color:'.$theme_accent_color.'; 
-            }
-
-			button:hover,
-			button:focus,
-			.button:hover,
-			.button:focus,
-			input[type="button"]:hover,
-			input[type="button"]:focus,
-			input[type="reset"]:hover,
-			input[type="reset"]:focus,
-			input[type="submit"]:hover,
-			input[type="submit"]:focus,
-			.bean-btn,
-			.tagcloud a,
-			nav a h1:hover, 
-			div.jp-play-bar,
-			div.jp-volume-bar-value,
-			.bean-direction-nav a:hover,
-			.bean-pricing-table .table-mast,
-			.entry-categories a:hover, 
-			.bean-contact-form .bar:before { 
-				background-color:'.$theme_accent_color.'; 
-			}
-
-			.bean-btn { border: 1px solid '.$theme_accent_color.'!important; }
-			.bean-quote { background-color:'.$theme_accent_color.'!important; }
-			';  
-
-			$css_filter_style = get_theme_mod( 'css_filter' );
-			if( $css_filter_style != '' ) {
-				switch ( $css_filter_style ) {
-					case 'none':
-					break;
-					case 'grayscale':
-					echo '.project .project-inner { filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); filter:gray; -webkit-filter:grayscale(100%);-moz-filter: grayscale(100%);-o-filter: grayscale(100%);}';
-					break;
-					case 'sepia':
-					echo '.project .project-inner { -webkit-filter: sepia(30%); }';
-					break;    
-				}
-			}
-
-
-			/**
-			 * Combine the values from above and minifiy them.
-			 */
-			$customizer_final_output =  $customizations ;
-
-			$final_output = preg_replace('#/\*.*?\*/#s', '', $customizer_final_output);
-			$final_output = preg_replace('/\s*([{}|:;,])\s+/', '$1', $final_output);
-			$final_output = preg_replace('/\s\s+(.*)/', '$1', $final_output);
-			echo balanceTags( $final_output );
-			?>
-		</style>
-
-<?php } 
-add_action( 'wp_head', 'Bean_Customize_Variables', 1 );
 }
+add_action( 'wp_enqueue_scripts', 'york_customizer_css' );

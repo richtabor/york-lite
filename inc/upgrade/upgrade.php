@@ -2,10 +2,11 @@
 /**
  * Contains the Pro upgrade notification class.
  *
- * @subpackage inc/upgrade
+ * @package @@pkg.name
+ * @version @@pkg.version
+ * @author  @@pkg.author
+ * @license @@pkg.license
  */
-
-
 
 class ThemeBeans_Pro_Upgrade {
 
@@ -42,7 +43,7 @@ class ThemeBeans_Pro_Upgrade {
 	public function pro_notification_admin_notice() {
 		?>
 			<div class="updated notice is-dismissible">
-				<p><?php echo sprintf( esc_html__( 'Thanks for choosing %1$s! Did you know that there\'s a "Pro" version of %1$s with some astonishingly neat features? %2$sClick here to learn more about %1$s Pro &rarr;%2$s', 'york' ), esc_html( PRO_NAME ), '<a href="' . esc_url( PRO_INFO_URL ) . '">', '</a>' ); ?></p>
+				<p><?php echo sprintf( esc_html__( 'Thanks for choosing %1$s! Did you know that there\'s a "Pro" version of %1$s with some astonishingly neat features? %2$sClick here to learn more about %1$s Pro &rarr;%2$s', 'charmed' ), esc_html( YORK_PRO_NAME ), '<a href="' . esc_url( YORK_INFO_URL ) . '">', '</a>' ); ?></p>
 			</div>
 		<?php
 	}
@@ -54,7 +55,7 @@ class ThemeBeans_Pro_Upgrade {
 	 * @see  add_theme_page()
 	 */
 	public function pro_upgrade_register_menu() {
-		add_dashboard_page( 'Buy '.esc_html( PRO_NAME ).' Pro', 'Buy '.esc_html( PRO_NAME ).' Pro - $59', 'read', 'pro-upgrade', array( $this, 'pro_upgrade_redirect' ) );
+		add_dashboard_page( 'Buy '.esc_html( YORK_PRO_NAME ).' Pro', ''.esc_html( YORK_PRO_NAME ).' Pro - $59', 'read', 'pro-upgrade', array( $this, 'pro_upgrade_redirect' ) );
 	}
 
 
@@ -70,7 +71,7 @@ class ThemeBeans_Pro_Upgrade {
 		?>
 		    <script type="text/javascript">
 		        //<![CDATA[
-		            window.location.replace("<?php echo PRO_UPGRADE_URL; ?>");
+		            window.location.replace("<?php echo YORK_UPGRADE_URL; ?>");
 		        //]]>
 		    </script>
 		<?php
@@ -86,10 +87,10 @@ class ThemeBeans_Pro_Upgrade {
 	 * @return      string
 	 */
 	public function themebeans_pro_footer_notice( $footer_text ) {
-			$rate_text = sprintf( __( '<a href="%1$s" target="_blank">Learn more about %2$s Pro</a> or <a href="%3$s" target="_blank">upgrade your theme now</a>.', 'york' ),
-				esc_html( PRO_INFO_URL ),
-				esc_html( PRO_NAME ),
-				esc_html( PRO_UPGRADE_URL )
+			$rate_text = sprintf( __( '<a href="%1$s" target="_blank">Learn more about %2$s Pro</a> or <a href="%3$s" target="_blank">upgrade your theme now</a>.', 'charmed' ),
+				esc_html( YORK_INFO_URL ),
+				esc_html( YORK_PRO_NAME ),
+				esc_html( YORK_UPGRADE_URL )
 			);
 
 			return str_replace( '</span>', '', $footer_text ) . ' | ' . $rate_text . '</span>';
@@ -110,9 +111,9 @@ class ThemeBeans_Pro_Upgrade {
 			'pro-customizer-upsell',
 			'themebeans_pro_L10n',
 			array(
-				'themebeans_pro_url'		=> esc_url( PRO_UPGRADE_URL ),
-				'themebeans_pro_label'		=> esc_html__( 'Upgrade to '.PRO_NAME.' Pro - $59', 'york' ),
-				'themebeans_pro_minilabel'	=> esc_html__( 'Pro', 'york' ),
+				'themebeans_pro_url'		=> esc_url( YORK_UPGRADE_URL ),
+				'themebeans_pro_label'		=> esc_html__( 'Upgrade to '.YORK_PRO_NAME.' Pro', 'charmed' ),
+				'themebeans_pro_minilabel'	=> esc_html__( 'Pro', 'charmed' ),
 			)
 		);
 	}

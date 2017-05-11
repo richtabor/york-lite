@@ -1,0 +1,17 @@
+a {
+	color: inherit;
+	text-decoration: none;
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+.entry-content a {
+	box-shadow: 0 1px 0 0 currentColor;
+
+	&:hover {
+		color: $black;
+	}
+}

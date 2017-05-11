@@ -1,0 +1,42 @@
+.btn,
+button,
+.button,
+.btn[type="submit"],
+.button[type="submit"],
+input[type="reset"],
+input[type="submit"] {
+	appearance: none;
+	background: $black;
+	border: none;
+	border-radius: 3px;
+	box-shadow: 0 0 0;
+	color: $white;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 1;
+	padding: 12px 20px;
+	position: relative;
+	text-decoration: none;
+
+	&:hover {
+		color: $white;
+		opacity: 0.85;
+		outline: none;
+	}
+
+	&:focus {
+		outline: 1px dotted $color--outline-button;
+		outline-offset: -4px;
+	}
+
+	&:active {
+		transform: translate(0, 1px);
+	}
+
+	a {
+		box-shadow: 0 0 0;
+		color: $white;
+	}
+}

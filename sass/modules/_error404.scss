@@ -1,0 +1,157 @@
+.error404 .site {
+	align-items: center;
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+}
+
+.error404 .site-content {
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
+.svg--404 {
+	height: 100%;
+	left: 0;
+	padding-top: 7.5%;
+	position: absolute;
+	top: 0;
+	width: 90%;
+
+	g {
+		animation: levitate 3s infinite ease-in-out;
+	}
+
+	.st0 {
+		fill: $black;
+	}
+
+	.st1 {
+		fill: $white;
+	}
+
+	.st2 {
+		fill: none;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+		stroke-width: 3;
+	}
+
+	.st3 {
+		fill: $black;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+		stroke-width: 3;
+	}
+
+	.st4 {
+		fill: $white;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+		stroke-width: 3;
+	}
+
+	.st5 {
+		fill: none;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+		stroke-width: 3;
+	}
+
+	.st6 {
+		fill: none;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+		stroke-width: 4;
+	}
+
+	.st7 {
+		fill: $white;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+		stroke-width: 2;
+	}
+
+	.st8 {
+		fill: $black;
+	}
+
+	.st9 {
+		fill: $black;
+	}
+
+	.st10 {
+		fill: none;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+		stroke-width: 2;
+	}
+
+	.st11 {
+		fill: $white;
+	}
+
+	.st12 {
+		fill: $white;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+		stroke-width: 3;
+	}
+
+	.st13 {
+		fill: $white;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+		stroke-width: 3;
+	}
+
+	.st14 {
+		fill: none;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+	}
+
+	.st15 {
+		fill: none;
+		stroke: $black;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-miterlimit: 10;
+	}
+
+	#number--4 {
+		animation-delay: 0s;
+		animation-duration: 3s;
+	}
+
+	#number--4-2 {
+		animation-delay: 1s;
+		animation-duration: 3s;
+	}
+
+	#number--0 {
+		animation-delay: 0.5s;
+		animation-duration: 3s;
+	}
+}

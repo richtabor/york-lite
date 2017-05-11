@@ -9,37 +9,36 @@
  *
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
- * @package York
+ * @package @@pkg.name
+ * @version @@pkg.version
+ * @author  @@pkg.author
+ * @license @@pkg.license
  */
 
 get_header(); ?>
 
-<div id="projects" class="projects clearfix">
+<div id="posts" class="posts clearfix">
 
-    <?php if ( have_posts() ) :
+	<?php
+	if ( have_posts() ) :
 
-        // Start the loop.
-        while ( have_posts() ) : the_post(); 
-                
-            if ( has_post_thumbnail() ) :
-                
-                get_template_part( 'template-parts/portfolio-loop');
+		/* Start the Loop */
+		while ( have_posts() ) : the_post();
 
-            endif;
+			/*
+			 * Include the Post-Format-specific template for the content.
+			 * If you want to override this in a child theme, then include a file
+			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+			 */
+			get_template_part( 'components/post/content', get_post_format() );
 
-        // End the loop.
-        endwhile;
+		endwhile;
 
-    // If no content, include the "No posts found" template.
-    else :
-        get_template_part( 'template-parts/content', 'none' );
-    endif;
-    ?>
+	else :
+		get_template_part( 'components/content', 'none' );
+	endif;
+	?>
 
-    <div id="page_nav">
-        <?php next_posts_link(); ?>
-    </div>
-        
 </div><!-- .projects -->
 
 <?php get_footer();

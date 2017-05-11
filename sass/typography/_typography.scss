@@ -1,0 +1,26 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $black;
+	font-family: "Playfair Display", HelveticaNeue, Helvetica, Tahoma, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	line-height: 30px;
+	@media (min-width: 768px) {
+		font-size: 19px;
+		line-height: 1.9em;
+	}
+}
+
+body {
+	-webkit-overflow-scrolling: touch;
+	-webkit-text-size-adjust: none;
+	text-rendering: optimizeLegibility;
+	word-wrap: break-word;
+}
+
+@import "headings";
+
+@import "copy";

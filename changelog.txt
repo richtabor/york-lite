@@ -1,34 +1,4 @@
 ** York Changelog **
 
-1 February 2016 - Version 1.1.0
-    New:
-        * Added TGMPA support, for improved onboarding
-        * Added theme starter content for a better onboarding experience
-        * Improved performance by adding resource hints to browsers for pre-fetching, pre-rendering and pre-connecting for Google fonts
-        * Removed the Portfolio template in lieu of front-page.php. It's not necessary to have both, and this improves oboarding
-   
-   Fixes & Updates:
-        * Improved loading animations
-        * Updated languages
-
-
-23 December 2016 - Version 1.0.3
-    Fixes & Updates:
-        * Minor footer undefined variable fix
-
-
-08 July 2016 - Version 1.0.2
-    Fixes & Updates:    
-        * Fixed portfolio template view
-
-
-07 July 2016 - Version 1.0.1
-    Fixes & Updates:
-        * Fixed footer navigation has_nav_menu
-        * Added portfolio archive post type variable
-        * Updated languages
-
-
-27 June 2016 - Version 1.0.0
-    Fixes & Updates:
+1 June 2017 - Version 1.0.0
         * Initial release

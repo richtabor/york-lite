@@ -1,0 +1,37 @@
+// Text meant only for screen readers.
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+	color: $white;
+	display: none;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 0;
+	word-wrap: normal;
+
+	&:focus {
+		@include font-size(16px);
+		background-color: $color--background-screen;
+		border-radius: 3px;
+		clip: auto;
+		color: $color--text-screen;
+		display: block;
+		font-weight: bold;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 0.9375rem;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000;
+	}
+}
+
+//Do not show the outline on the skip link target.
+#content[tabindex="-1"] {
+	&:focus {
+		outline: 0;
+	}
+}
