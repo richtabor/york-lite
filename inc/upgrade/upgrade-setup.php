@@ -27,5 +27,5 @@ if ( ! defined( 'YORK_PRO_NAME' ) ) :
 	 * Set constant for the name of the upgradeable theme.
 	 * We use this just in case the theme name is modified.
 	 */
-	define( 'YORK_PRO_NAME', 'York' );
+	define( 'YORK_PRO_NAME', 'York Pro' );
 endif;

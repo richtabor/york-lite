@@ -442,23 +442,12 @@ gulp.task('zip-theme', ['variables'], function() {
     .pipe( gulp.dest( distDestination ) );
 });
 
-gulp.task('move-to-demo', ['zip-theme'], function(){
-   return gulp.src('./_dist/'+slug+'/**')
-  .pipe( gulp.dest( demoDestination ) );
-});
-
-gulp.task('clean-dist', ['move-to-demo'], function () {
+gulp.task('clean-dist', function () {
     return gulp.src('./_dist/'+slug+'/', {read: false} )
    .pipe(cleaner());
 });
 
-gulp.task('zip-package', ['clean-dist'], function() {
-    return gulp.src( './_dist/**' )
-    .pipe( zip( slug + '-package.zip' ) )
-    .pipe( gulp.dest( distDestination ) );
-});
-
-gulp.task('copy_variables_zip-theme', ['copy', 'readme', 'clean-readme.md', 'variables', 'zip-theme', 'move-to-demo', 'clean-dist', 'zip-package'], function() { });
+gulp.task('copy_variables_zip-theme', ['copy', 'readme', 'clean-readme.md', 'variables', 'zip-theme', 'clean-dist' ], function() { });
 
 gulp.task( 'notification--build', function () {
     return gulp.src( '' )
