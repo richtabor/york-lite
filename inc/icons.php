@@ -80,7 +80,7 @@ function york_get_svg( $args = array() ) {
 
 	// Use absolute path in the Customizer so that icons show up in there.
 	if ( is_customize_preview() ) {
-		$svg .= '<use xlink:href="' . get_theme_file_path( '/assets/images/sprite.svg#icon-' . esc_html( $args['icon'] ) ) . '"></use>';
+		$svg .= '<use xlink:href="' . get_theme_file_uri( '/assets/images/sprite.svg#icon-' . esc_html( $args['icon'] ) ) . '"></use>';
 	} else {
 		$svg .= '<use xlink:href="#icon-' . esc_html( $args['icon'] ) . '"></use>';
 	}

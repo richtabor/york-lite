@@ -39,7 +39,7 @@ $portfolio_tags = get_post_meta( $post->ID, '_bean_portfolio_tags', true ); ?>
 			<?php the_content(); ?>
 		</div>
 	
-		<?php get_template_part( 'components/portfolio-meta' ); ?>
+		<?php get_template_part( 'components/portfolio/portfolio-meta' ); ?>
 		
 	</div>
 

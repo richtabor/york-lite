@@ -13,6 +13,12 @@
 			$( '.site-logo-link a' ).html( newval );
 		} );
 	} );
+	
+	wp.customize( 'site_logo_width', function( value ) {
+        value.bind( function( newval ) {
+            $('.custom-logo-link img').css('width', newval );
+        } );
+    } );
 
     wp.customize( 'york_background_color', function( value ) {
         value.bind( function( newval ) {

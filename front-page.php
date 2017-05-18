@@ -13,6 +13,6 @@
 
 get_header();
 
-get_template_part( 'components/portfolio' );
+get_template_part( 'components/portfolio/portfolio' );
 
 get_footer();

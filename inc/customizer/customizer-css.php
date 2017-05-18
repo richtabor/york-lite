@@ -26,6 +26,7 @@ function york_customizer_css() {
 	$sidebarsocial_color 		= get_theme_mod( 'york_sidebarsocial_color', '#000000' );
 	$overlay_color 				= get_theme_mod( 'york_overlay_color', '#000000' );
 	$overlay_text_color 		= get_theme_mod( 'york_overlay_text_color', '#ffffff' );
+	$site_logo_width 			= get_theme_mod( 'site_logo_width', '90' );
 
 	// Convert main text hex color to rgba.
 	$theme_accent_color_rgb = york_hex2rgb( $theme_accent_color );
@@ -119,6 +120,10 @@ function york_customizer_css() {
 		background-color:'. esc_attr( $background_color ) .' !important;
 	}
 	
+	.custom-logo-link img {
+		width: '. esc_attr( $site_logo_width ) .'px;
+	}
+
 	body h1.site-logo-link {
 		color: '. esc_attr( $sitetitle_color ) .' ;
 		border-color: '. esc_attr( $sitetitle_color ) .' ;

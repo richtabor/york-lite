@@ -272,59 +272,25 @@ function york_customize_register( $wp_customize ) {
 				'section'               => 'york_theme_options_footer',
 			) ) );
 
-	/**
-	 * JetPack Site Logo feaure support
-	 * Check to see if JetPack Site Logo module is added.
-	 * For more information on the JetPack site logo:
-	 *
-	 * @see http://jetpack.me/support/site-logo/
-	 */
-	if ( ! function_exists( 'jetpack_the_site_logo' ) ) {
+	$wp_customize->add_setting( 'site_logo_width', array(
+		'default'               => '90',
+		'transport'             => 'postMessage',
+		'sanitize_callback'     => 'york_sanitize_nohtml',
+	) );
 
-		$wp_customize->add_setting( 'site_logo', array(
-			'sanitize_callback'     => 'york_sanitize_image',
-			'default'               => '',
-		) );
-
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'site_logo', array(
-			  'label'                   => esc_html__( 'Logo', '@@textdomain' ),
-			  'section'                 => 'title_tagline',
-			  'settings'                => 'site_logo',
-		) ) );
-
-		$wp_customize->add_setting( 'site_logo_width', array(
-			'default'               => '',
-			'sanitize_callback'     => 'york_sanitize_nohtml',
-		) );
-
-		$wp_customize->add_control( 'site_logo_width', array(
-			'type'              => 'text',
-			'label'                 => esc_html__( 'Logo Retina Width', '@@textdomain' ),
-			'description'           => esc_html__( 'This value should be equal to half of the logo image width (in px). For example, enter "50" for a logo that is 100px wide.', '@@textdomain' ),
-			'section'               => 'title_tagline',
-		) );
-
-	} else {
-
-		$wp_customize->add_setting( 'retina_logo', array(
-			'default'               => false,
-			'sanitize_callback'     => 'york_sanitize_checkbox',
-		) );
-
-		$wp_customize->add_control( 'retina_logo', array(
-			'type'                  => 'checkbox',
-			'label'                 => esc_html__( 'Enable retina logo', '@@textdomain' ),
-			'description'           => '',
-			'section'               => 'title_tagline',
-		) );
-	}
+	$wp_customize->add_control( 'site_logo_width', array(
+		'type'              => 'text',
+		'label'                 => esc_html__( 'Logo Retina Width', '@@textdomain' ),
+		'description'           => esc_html__( 'This value should be equal to half of the logo image width (in px). For example, enter "50" for a logo that is 100px wide.', '@@textdomain' ),
+		'section'               => 'title_tagline',
+		'priority' 				=> 9,
+	) );
 
 	/**
 	 * Set transports for the Customizer.
 	 */
 
-	$wp_customize->get_setting( 'blogname' )->transport            		= 'postMessage';
-	$wp_customize->get_setting( 'site_logo' )->transport 		   		= 'refresh';
+	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 }
 
 add_action( 'customize_register', 'york_customize_register', 11 );

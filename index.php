@@ -34,6 +34,17 @@ get_header(); ?>
 
 		endwhile;
 
+		/*
+		 * The posts pagination outputs a set of page numbers with links to the previous and next pages of posts.
+		 *
+		 * @link https://codex.wordpress.org/Function_Reference/the_posts_pagination
+		 */
+		the_posts_pagination( array(
+			'prev_text' => york_get_svg( array( 'icon' => 'left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', '@@textdomain' ) . '</span>',
+			'next_text' => '<span class="screen-reader-text">' . __( 'Next page', '@@textdomain' ) . '</span>' . york_get_svg( array( 'icon' => 'right' ) ),
+			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', '@@textdomain' ) . ' </span>',
+		) );
+
 	else :
 		get_template_part( 'components/content', 'none' );
 	endif;

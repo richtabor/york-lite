@@ -60,19 +60,19 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: components/portfolio-meta.php:44
+#: components/portfolio/portfolio-meta.php:44
 msgid "Role: "
 msgstr ""
 
-#: components/portfolio-meta.php:50
+#: components/portfolio/portfolio-meta.php:50
 msgid "Client: "
 msgstr ""
 
-#: components/portfolio-meta.php:63
+#: components/portfolio/portfolio-meta.php:63
 msgid "URL: "
 msgstr ""
 
-#: components/portfolio-meta.php:69
+#: components/portfolio/portfolio-meta.php:69
 msgid "Views: "
 msgstr ""
 
@@ -104,82 +104,82 @@ msgstr ""
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:157, functions.php:331, inc/template-tags.php:93
+#: functions.php:157, functions.php:351, inc/template-tags.php:93
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:259
+#: functions.php:279
 msgctxt "Theme starter content"
 msgid "Logo"
 msgstr ""
 
-#: functions.php:275
+#: functions.php:295
 msgctxt "Theme starter content"
 msgid "A WordPress theme by ThemeBeans"
 msgstr ""
 
-#: functions.php:297
+#: functions.php:317
 msgid "Primary"
 msgstr ""
 
-#: functions.php:313, functions.php:477, inc/customizer/customizer.php:233
+#: functions.php:333, functions.php:497, inc/customizer/customizer.php:233
 msgid "Footer"
 msgstr ""
 
-#: functions.php:457
+#: functions.php:477
 msgid "Flyout"
 msgstr ""
 
-#: functions.php:461
+#: functions.php:481
 msgid "Appears on the theme flyout sidebar."
 msgstr ""
 
-#: functions.php:481
+#: functions.php:501
 msgid "Appears at the top of the site footer."
 msgstr ""
 
-#: functions.php:637
+#: functions.php:657
 msgid "Write a comment . . ."
 msgstr ""
 
-#: functions.php:639
+#: functions.php:659
 msgid "Name"
 msgstr ""
 
-#: functions.php:641
+#: functions.php:661
 msgid "email@address.com"
 msgstr ""
 
-#: functions.php:687
+#: functions.php:707
 msgctxt "Playfair Display font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:895
+#: functions.php:915
 msgid "Password:"
 msgstr ""
 
-#: functions.php:895
+#: functions.php:915
 msgid "Enter password & press enter..."
 msgstr ""
 
-#: functions.php:895
+#: functions.php:915
 msgid "Submit"
 msgstr ""
 
-#: functions.php:1171
+#: functions.php:1191
 msgid "<cite class=\"fn\">%s</cite> "
 msgstr ""
 
-#: functions.php:1179
+#: functions.php:1199
 msgid " %1$s at %2$s"
 msgstr ""
 
-#: functions.php:1179, inc/widgets/widget-clients.php:141
+#: functions.php:1199, inc/widgets/widget-clients.php:141
 msgid "Edit"
 msgstr ""
 
-#: functions.php:1189
+#: functions.php:1209
 msgid "Awaiting Moderation"
 msgstr ""
 
@@ -291,20 +291,12 @@ msgstr ""
 msgid "Footer Link Hover"
 msgstr ""
 
-#: inc/customizer/customizer.php:290
-msgid "Logo"
-msgstr ""
-
-#: inc/customizer/customizer.php:302
+#: inc/customizer/customizer.php:283
 msgid "Logo Retina Width"
 msgstr ""
 
-#: inc/customizer/customizer.php:303
+#: inc/customizer/customizer.php:284
 msgid "This value should be equal to half of the logo image width (in px). For example, enter \"50\" for a logo that is 100px wide."
-msgstr ""
-
-#: inc/customizer/customizer.php:316
-msgid "Enable retina logo"
 msgstr ""
 
 #: inc/icons.php:34
@@ -858,7 +850,7 @@ msgctxt "Used before publish date."
 msgid "Posted on"
 msgstr ""
 
-#: inc/template-tags.php:342
+#: inc/template-tags.php:324
 msgid "Tagged: %1$s"
 msgstr ""
 
@@ -970,6 +962,14 @@ msgstr ""
 msgid "Video Embed Code:"
 msgstr ""
 
-#: page.php:41
+#: index.php:43
+msgid "Previous page"
+msgstr ""
+
+#: index.php:44
+msgid "Next page"
+msgstr ""
+
+#: index.php:45, page.php:41
 msgid "Page"
 msgstr ""

@@ -114,6 +114,16 @@ if ( ! function_exists( 'york_setup' ) ) :
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		/*
+		 * Enable support for the WordPress default Theme Logo
+		 * See: https://codex.wordpress.org/Theme_Logo
+		 */
+		add_theme_support( 'custom-logo', array(
+			'height'      => 100,
+			'width'       => 400,
+			'flex-width' => true,
+		) );
+
+		/*
 		 * Define starter content for the theme.
 		 * See: https://make.wordpress.org/core/2016/11/30/starter-content-for-themes-in-4-7/
 		 */
