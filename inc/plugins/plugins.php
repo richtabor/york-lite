@@ -27,7 +27,7 @@ function york_register_required_plugins() {
 		array(
 			'name'         => esc_html__( 'Portfolio Post Type', '@@textdomain' ),
 			'slug'         => 'portfolio-post-type',
-			'required'     => true,
+			'required'     => false,
 		),
 		array(
 			'name'         => esc_html__( 'Simple Custom Post Order', '@@textdomain' ),

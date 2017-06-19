@@ -449,7 +449,7 @@ if ( ! function_exists( 'york_protected_form' ) ) :
 		$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
 
 		$o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
-		<label for="' . $label . '">' . __( 'Password:', '@@textdomain' ) . ' </label><input name="post_password" placeholder="' . __( 'Enter password & press enter...', '@@textdomain' ) . '" type="password" placeholder=""/><input type="submit" name="Submit" value="' . esc_attr__( 'Submit', '@@textdomain' ) . '" />
+		<label for="' . $label . '">' . __( 'Password:', '@@textdomain' ) . ' </label><input name="post_password" placeholder="' . esc_html__( 'Enter password & press enter...', '@@textdomain' ) . '" type="password" placeholder=""/><input type="submit" name="Submit" value="' . esc_attr__( 'Submit', '@@textdomain' ) . '" />
 		</form>
 		';
 
@@ -458,50 +458,6 @@ if ( ! function_exists( 'york_protected_form' ) ) :
 
 	add_filter( 'the_password_form', 'york_protected_form' );
 
-endif;
-
-if ( ! function_exists( 'york_get_post_views' ) ) :
-	/**
-	 * Loop by post view count.
-	 * Create your own york_get_post_views() to override in a child theme.
-	 *
-	 * @param  array $id The post id.
-	 */
-	function york_get_post_views( $id ) {
-		$count_key = 'post_views_count';
-		$count = get_post_meta( $id, $count_key, true );
-
-		if ( '' === $count ) {
-			delete_post_meta( $id, $count_key );
-			add_post_meta( $id, $count_key, '0' );
-
-			return '0';
-		}
-
-		return $count;
-	}
-endif;
-
-if ( ! function_exists( 'york_set_post_views' ) ) :
-	/**
-	 * Output the view count.
-	 * Create your own york_set_post_views() to override in a child theme.
-	 *
-	 * @param  array $id The post id.
-	 */
-	function york_set_post_views( $id ) {
-		$count_key = 'post_views_count';
-		$count = get_post_meta( $id, $count_key, true );
-
-		if ( '' === $count ) {
-			$count = 0;
-			delete_post_meta( $id, $count_key );
-			add_post_meta( $id, $count_key, '0' );
-		} else {
-			$count++;
-			update_post_meta( $id, $count_key, $count );
-		}
-	}
 endif;
 
 /**
@@ -656,9 +612,3 @@ require get_theme_file_path( '/inc/plugins/plugins.php' );
  * SVG icons functions and filters.
  */
 require get_theme_file_path( '/inc/icons.php' );
-
-/**
- * Add Widgets.
- */
-require get_theme_file_path( '/inc/widgets/widget-flickr.php' );
-require get_theme_file_path( '/inc/widgets/widget-portfolio-menu.php' );

@@ -8,9 +8,6 @@
  * @license @@pkg.license
  */
 
-// Log the view counts.
-york_set_post_views( get_the_ID() );
-
 /*
  * Set variables for the content below.
  */

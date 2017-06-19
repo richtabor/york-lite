@@ -55,13 +55,6 @@ if ( ! function_exists( 'york_metabox_portfolio' ) ) :
 					'std' => false,
 					),
 				array(
-					'name' => esc_html__( 'Views:', '@@textdomain' ),
-					'id' => $prefix.'portfolio_views',
-					'type' => 'checkbox',
-					'desc' => esc_html__( 'Display the view count.', '@@textdomain' ),
-					'std' => false,
-					),
-				array(
 					'name' => esc_html__( 'Categories:', '@@textdomain' ),
 					'id' => $prefix.'portfolio_cats',
 					'type' => 'checkbox',

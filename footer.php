@@ -29,11 +29,11 @@ if ( ! is_404() ) : ?>
 				<div class="site-info">
 					
 					<span class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">&copy; <?php echo esc_html( date_i18n( __( 'Y','@@textdomain' ) ) ); ?> <?php bloginfo( 'name' ); ?></a>
 					</span>
 				
 					<span class="site-theme">
-						<a href="https://themebeans.com/themes/york/" class="powered-by-york"><?php printf( esc_html__( '%s by %s', '@@textdomain' ), 'York', 'ThemeBeans' ); ?></a>
+						<a href="https://themebeans.com/themes/york-pro/" class="powered-by-york"><?php printf( esc_html__( '%s by %s', '@@textdomain' ), 'York', 'ThemeBeans' ); ?></a>
 					</span>
 
 				</div>
