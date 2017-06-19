@@ -76,18 +76,6 @@ msgstr ""
 msgid "Views: "
 msgstr ""
 
-#: components/portfolio/single.php:57
-msgid "Next post:"
-msgstr ""
-
-#: components/portfolio/single.php:58
-msgid "Previous post:"
-msgstr ""
-
-#: components/portfolio/single.php:58
-msgid "Previous"
-msgstr ""
-
 #: components/post/content.php:50, page.php:37
 msgid "Pages:"
 msgstr ""
@@ -122,7 +110,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: functions.php:333, functions.php:497, inc/customizer/customizer.php:233
+#: functions.php:333, functions.php:497, inc/customizer/customizer.php:220
 msgid "Footer"
 msgstr ""
 
@@ -138,48 +126,48 @@ msgstr ""
 msgid "Appears at the top of the site footer."
 msgstr ""
 
-#: functions.php:657
+#: functions.php:645
 msgid "Write a comment . . ."
 msgstr ""
 
-#: functions.php:659
+#: functions.php:647
 msgid "Name"
 msgstr ""
 
-#: functions.php:661
+#: functions.php:649
 msgid "email@address.com"
 msgstr ""
 
-#: functions.php:707
+#: functions.php:695
 msgctxt "Playfair Display font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:915
+#: functions.php:903
 msgid "Password:"
 msgstr ""
 
-#: functions.php:915
+#: functions.php:903
 msgid "Enter password & press enter..."
 msgstr ""
 
-#: functions.php:915
+#: functions.php:903
 msgid "Submit"
 msgstr ""
 
-#: functions.php:1191
+#: functions.php:1179
 msgid "<cite class=\"fn\">%s</cite> "
 msgstr ""
 
-#: functions.php:1199
+#: functions.php:1187
 msgid " %1$s at %2$s"
 msgstr ""
 
-#: functions.php:1199, inc/widgets/widget-clients.php:141
+#: functions.php:1187
 msgid "Edit"
 msgstr ""
 
-#: functions.php:1209
+#: functions.php:1197
 msgid "Awaiting Moderation"
 msgstr ""
 
@@ -247,7 +235,7 @@ msgstr ""
 msgid "Navigation Icon Hover"
 msgstr ""
 
-#: inc/customizer/customizer.php:170, inc/customizer/customizer.php:271
+#: inc/customizer/customizer.php:170, inc/customizer/customizer.php:258
 msgid "Social Icons"
 msgstr ""
 
@@ -255,47 +243,39 @@ msgstr ""
 msgid "Portfolio"
 msgstr ""
 
-#: inc/customizer/customizer.php:190
-msgid "Portfolio Navigation"
-msgstr ""
-
-#: inc/customizer/customizer.php:191
-msgid "Enable the \"Next\" project post-to-post navigation element on single portfolio pages."
-msgstr ""
-
-#: inc/customizer/customizer.php:202
+#: inc/customizer/customizer.php:189
 msgid "Portfolio Count"
 msgstr ""
 
-#: inc/customizer/customizer.php:203
+#: inc/customizer/customizer.php:190
 msgid "Set the number of posts to display on the portfolio template. Use \"-1\" to load them all."
 msgstr ""
 
-#: inc/customizer/customizer.php:214
+#: inc/customizer/customizer.php:201
 msgid "Overlay"
 msgstr ""
 
-#: inc/customizer/customizer.php:225
+#: inc/customizer/customizer.php:212
 msgid "Overlay Text"
 msgstr ""
 
-#: inc/customizer/customizer.php:238
+#: inc/customizer/customizer.php:225
 msgid "Footer Text"
 msgstr ""
 
-#: inc/customizer/customizer.php:249
+#: inc/customizer/customizer.php:236
 msgid "Footer Link"
 msgstr ""
 
-#: inc/customizer/customizer.php:260
+#: inc/customizer/customizer.php:247
 msgid "Footer Link Hover"
 msgstr ""
 
-#: inc/customizer/customizer.php:283
+#: inc/customizer/customizer.php:270
 msgid "Logo Retina Width"
 msgstr ""
 
-#: inc/customizer/customizer.php:284
+#: inc/customizer/customizer.php:271
 msgid "This value should be equal to half of the logo image width (in px). For example, enter \"50\" for a logo that is 100px wide."
 msgstr ""
 
@@ -862,18 +842,6 @@ msgstr ""
 msgid "Pro"
 msgstr ""
 
-#: inc/widgets/widget-clients.php:35
-msgid "Clients"
-msgstr ""
-
-#: inc/widgets/widget-clients.php:38
-msgid "Displays client social proof."
-msgstr ""
-
-#: inc/widgets/widget-clients.php:140
-msgid "Add"
-msgstr ""
-
 #: inc/widgets/widget-flickr.php:26
 msgid "Flickr Photos"
 msgstr ""
@@ -906,7 +874,7 @@ msgstr ""
 msgid "A custom loop of portfolio posts."
 msgstr ""
 
-#: inc/widgets/widget-portfolio-menu.php:181, inc/widgets/widget-profile.php:134, inc/widgets/widget-video.php:124
+#: inc/widgets/widget-portfolio-menu.php:181
 msgid "Title:"
 msgstr ""
 
@@ -924,42 +892,6 @@ msgstr ""
 
 #: inc/widgets/widget-portfolio-menu.php:198
 msgid "Random"
-msgstr ""
-
-#: inc/widgets/widget-profile.php:35
-msgid "Profile"
-msgstr ""
-
-#: inc/widgets/widget-profile.php:38
-msgid "Displays a user profile."
-msgstr ""
-
-#: inc/widgets/widget-profile.php:139
-msgid "Description:"
-msgstr ""
-
-#: inc/widgets/widget-profile.php:151
-msgid "No avatar selected"
-msgstr ""
-
-#: inc/widgets/widget-profile.php:156
-msgid "Change Avatar"
-msgstr ""
-
-#: inc/widgets/widget-profile.php:156
-msgid "Select Image"
-msgstr ""
-
-#: inc/widgets/widget-video.php:35
-msgid "Embedded Video"
-msgstr ""
-
-#: inc/widgets/widget-video.php:38
-msgid "Displays embedded video content."
-msgstr ""
-
-#: inc/widgets/widget-video.php:133
-msgid "Video Embed Code:"
 msgstr ""
 
 #: index.php:43

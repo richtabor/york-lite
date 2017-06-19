@@ -327,13 +327,13 @@ if ( ! function_exists( 'york_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! class_exists( 'AvaClassMobileNavigationWalker' ) ) :
+if ( ! class_exists( 'YorkClassMobileNavigationWalker' ) ) :
 	/**
 	 * Determine whether blog/site has more than one category.
 	 *
 	 * @return bool True of there is more than one category, false otherwise.
 	 */
-	class AvaClassMobileNavigationWalker extends Walker_Nav_Menu {
+	class YorkClassMobileNavigationWalker extends Walker_Nav_Menu {
 
 
 		function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {

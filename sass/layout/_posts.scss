@@ -1,14 +1,22 @@
 .single-post,
-.is-page-with-comments:not(.single-portfolio) {
+.single-portfolio,
+.is-page-with-comments:not(.single-portfolio):not(.archive):not(.blog) {
 	.site-footer {
 		border-top: 0;
 		margin-top: 0;
 	}
 }
 
+.no-results,
+.not-found {
+	@media (min-width: 768px) {
+		padding-top: 4vw;
+	}
+}
 
-
-
+.search .type-team,
+.search .type-portfolio,
+.search .type-page,
 .type-post {
 	margin: 0 auto;
 	max-width: 760px;
@@ -69,49 +77,49 @@
 		}
 	}
 
-	// .single-post & blockquote {
-	// 	border: none;
-	// 	display: block;
-	// 	font-size: 23px;
-	// 	line-height: 1.7;
-	// 	margin: 50px 0;
-	// 	padding: 0;
+	.single-post & blockquote {
+		border: none;
+		display: block;
+		font-size: 23px;
+		line-height: 1.7;
+		margin: 50px 0;
+		padding: 0;
 
-	// 	@media only screen and (min-width: 768px) {
-	// 		float: right;
-	// 		font-size: 23px;
-	// 		line-height: 1.7;
-	// 		margin-left: 60px;
-	// 		margin-right: 0;
-	// 		width: 380px;
-	// 	}
+		@media only screen and (min-width: 768px) {
+			float: right;
+			font-size: 23px;
+			line-height: 1.7;
+			margin-left: 60px;
+			margin-right: 0;
+			width: 380px;
+		}
 
-	// 	@media only screen and (min-width: 900px) {
-	// 		font-size: 25px;
-	// 		line-height: 1.8;
-	// 		margin-left: 90px;
-	// 		margin-right: -10%;
-	// 	}
+		@media only screen and (min-width: 900px) {
+			font-size: 25px;
+			line-height: 1.8;
+			margin-left: 90px;
+			margin-right: -10%;
+		}
 
-	// 	@media only screen and (min-width: 1100px) {
-	// 		font-size: 28px;
-	// 		line-height: 1.7;
-	// 		margin-left: 100px;
-	// 		margin-right: -20%;
-	// 	}
+		@media only screen and (min-width: 1100px) {
+			font-size: 28px;
+			line-height: 1.7;
+			margin-left: 100px;
+			margin-right: -20%;
+		}
 
-	// 	&::before {
-	// 		@media only screen and (min-width: 768px) {
-	// 			content: "\201C";
-	// 			display: block;
-	// 			font-size: 80px;
-	// 			height: 0;
-	// 			left: -50px;
-	// 			position: relative;
-	// 			top: -40px;
-	// 		}
-	// 	}
-	// }
+		&::before {
+			@media only screen and (min-width: 768px) {
+				content: "\201C";
+				display: block;
+				font-size: 80px;
+				height: 0;
+				left: -50px;
+				position: relative;
+				top: -40px;
+			}
+		}
+	}
 
 	.cat-links {
 		margin-bottom: 3vh;
@@ -120,5 +128,18 @@
 		@media only screen and (min-width: 600px) {
 			margin-bottom: 1.5vw;
 		}
+	}
+}
+
+.search .type-team,
+.search .type-portfolio {
+	.entry-media {
+		text-align: center;
+	}
+}
+
+.search .type-page {
+	.entry-meta {
+		display: none;
 	}
 }

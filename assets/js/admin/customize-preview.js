@@ -133,16 +133,6 @@
         } );
     } );
 
-    wp.customize( 'portfolio_single_navigation', function( value ) {
-        value.bind( function( newval ) {
-            if ( true === newval ) {
-                $( '.project-navigation' ).removeClass( 'hidden' );
-            } else {
-                $( '.project-navigation' ).addClass( 'hidden' );
-            }
-        } );
-    } );
-
     wp.customize( 'york_overlay_color', function( value ) {
         value.bind( function( newval ) {
             var style, el;

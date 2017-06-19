@@ -46,17 +46,3 @@ $portfolio_tags = get_post_meta( $post->ID, '_bean_portfolio_tags', true ); ?>
 	<?php york_gallery( $post->ID, 'york-portfolio-full' ); ?>
 
 </article>
-
-<?php if ( get_theme_mod( 'portfolio_single_navigation', true ) || is_customize_preview() ) :
-
-	$visibility = ( false === get_theme_mod( 'portfolio_single_navigation', true ) ) ? 'hidden' : ''; ?>
-	
-	<div class="project-navigation <?php echo esc_attr( $visibility ); ?>">
-		<?php
-		the_post_navigation( array(
-			'next_text' => '<span class="meta-nav" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__( 'Next post:', '@@textdomain' ) . ' %title</span><span class="post-title">Next</span>',
-			'prev_text' => '<span class="meta-nav" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__( 'Previous post:', '@@textdomain' ) . ' %title</span><span class="post-title">' . esc_html__( 'Previous', '@@textdomain' ) . '</span>',
-		) ); ?>
-	</div>
-	
-<?php endif;

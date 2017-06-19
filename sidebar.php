@@ -33,7 +33,7 @@ $is_active = ( ! is_active_sidebar( 'sidebar-1' ) ) ? 'no-widget-area' : 'has-wi
 						'depth'         => '2',
 						'link_before' => '<span>',
 						'link_after' => '</span>',
-						'walker' => new AvaClassMobileNavigationWalker(),
+						'walker' => new YorkClassMobileNavigationWalker(),
 					) ); ?>
 				</nav><!-- .main-navigation -->
 			<?php endif; ?>

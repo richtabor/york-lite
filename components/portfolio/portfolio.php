@@ -13,12 +13,6 @@
 <div id="projects" class="projects clearfix">
 
 	<?php
-	if ( is_archive( 'post' ) or is_category() or is_tag() ) {
-		$post_type = 'post';
-	} else {
-		$post_type = 'portfolio';
-	}
-
 	// Pull pagination count setting from the Customizer.
 	$portfolio_posts_count = get_theme_mod( 'portfolio_posts_count', -1 );
 
@@ -33,35 +27,30 @@
 		$paged = get_query_var( 'page' );
 	} ?>
 
-	<?php if ( is_tax() ) { ?>
+	<?php if ( is_tax() ) {
 
-		<?php global $query_string; ?>
+		global $query_string;
 
-		<?php query_posts( '{$query_string}&posts_per_page=25' ); ?>
-		
-		<?php
+		query_posts( "{$query_string}&posts_per_page=-1" );
+
 		if ( have_posts() ) :
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			while ( have_posts() ) :
 
-				if ( has_post_thumbnail() ) :
+				the_post();
 
-					get_template_part( 'components/portfolio/portfolio-loop' );
-
-				endif;
+				get_template_part( 'components/portfolio/portfolio-loop' );
 
 			endwhile;
 		endif;
-		?>
 
-		<?php wp_reset_postdata(); ?>
+		wp_reset_postdata(); ?>
 
 	<?php } else { ?>
 
 		<?php
 		$args = apply_filters( 'york_portfolio_args', array(
-			'post_type'      => $post_type,
+			'post_type'      => 'portfolio',
 			'order'		     => 'ASC',
 			'orderby'		 => 'menu_order',
 			'paged' 		 => $paged++,
@@ -94,3 +83,4 @@
 	</div>
 
 </div>
+

@@ -179,19 +179,6 @@ function york_customize_register( $wp_customize ) {
 		'panel'       					=> 'york_theme_options',
 	) );
 
-			$wp_customize->add_setting( 'portfolio_single_navigation', array(
-				'default'               => true,
-				'sanitize_callback'     => 'york_sanitize_number_intval',
-				'transport'             => 'postMessage',
-			) );
-
-			$wp_customize->add_control( 'portfolio_single_navigation', array(
-				'type'                  => 'checkbox',
-				'label'                 => esc_html__( 'Portfolio Navigation', '@@textdomain' ),
-				'description'           => esc_html__( 'Enable the "Next" project post-to-post navigation element on single portfolio pages.', '@@textdomain' ),
-				'section'               => 'york_pro_portfolio',
-			) );
-
 			$wp_customize->add_setting( 'portfolio_posts_count', array(
 				'default'           	=> '-1',
 				'sanitize_callback' 	=> 'york_sanitize_number_intval',

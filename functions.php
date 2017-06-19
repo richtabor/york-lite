@@ -294,12 +294,6 @@ if ( ! function_exists( 'york_scripts' ) ) :
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		// Conditionally load the masonry.
-		if ( york_is_frontpage() || ( is_home() && is_front_page() ) ) {
-			wp_enqueue_script( 'masonry' );
-			wp_enqueue_script( 'imagesloaded' );
-		}
-
 		/**
 		 * Now let's check the same for the scripts.
 		 */
@@ -313,13 +307,13 @@ if ( ! function_exists( 'york_scripts' ) ) :
 			wp_enqueue_script( 'infinitescroll', get_theme_file_uri( '/assets/js/vendors/infinitescroll.js' ), array( 'jquery' ), '@@pkg.version', true );
 
 			// Custom scripts.
-			wp_enqueue_script( 'york-global', get_theme_file_uri( '/assets/js/custom/global.js' ), array( 'jquery' ), '@@pkg.version', true );
+			wp_enqueue_script( 'york-global', get_theme_file_uri( '/assets/js/custom/global.js' ), array( 'jquery', 'masonry', 'imagesloaded' ), '@@pkg.version', true );
 
 			$translation_handle = 'york-global'; // Variable for wp_localize_script.
 
 		} else {
 			wp_enqueue_script( 'york-vendors-min', get_theme_file_uri( '/assets/js/vendors.min.js' ), array( 'jquery' ), '@@pkg.version', true );
-			wp_enqueue_script( 'york-custom-min', get_theme_file_uri( '/assets/js/custom.min.js' ), array( 'jquery' ), '@@pkg.version', true );
+			wp_enqueue_script( 'york-custom-min', get_theme_file_uri( '/assets/js/custom.min.js' ), array( 'jquery', 'masonry', 'imagesloaded' ), '@@pkg.version', true );
 
 			$translation_handle = 'york-custom-min'; // Variable for wp_localize_script for minified javascript.
 		}
@@ -667,7 +661,4 @@ require get_theme_file_path( '/inc/icons.php' );
  * Add Widgets.
  */
 require get_theme_file_path( '/inc/widgets/widget-flickr.php' );
-require get_theme_file_path( '/inc/widgets/widget-video.php' );
 require get_theme_file_path( '/inc/widgets/widget-portfolio-menu.php' );
-require get_theme_file_path( '/inc/widgets/widget-profile.php' );
-require get_theme_file_path( '/inc/widgets/widget-clients.php' );
