@@ -55,7 +55,7 @@ endif;
 if ( ! function_exists( 'york_entry_date' ) ) :
 	/**
 	 * Print HTML with date information for current post.
-	 * Create your own york_entry_meta() to override in a child theme.
+	 * Create your own york_entry_date() to override in a child theme.
 	 */
 	function york_entry_date() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -65,9 +65,9 @@ if ( ! function_exists( 'york_entry_date' ) ) :
 		}
 
 		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
+			esc_attr( get_the_date( get_option( 'date_format' ) ) ),
 			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_attr( get_the_modified_date( get_option( 'date_format' ) ) ),
 			esc_html( get_the_modified_date() )
 		);
 

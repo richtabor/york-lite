@@ -72,6 +72,6 @@ imagesLoaded, Copyright 2017 Metafizzy
 License: MIT
 Source: https://imagesloaded.desandro.com
 
-Bundled header image, Copyright Alvin Engler
-License: CC0 1.0 Universal (CC0 1.0)
-Source: https://unsplash.com/@englr?photo=bIhpiQA009k
+TGMPA, Copyright (c) 2011, Thomas Griffin
+License: GPLv2
+Source: http://tgmpluginactivation.com

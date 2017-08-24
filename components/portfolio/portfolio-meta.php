@@ -34,7 +34,7 @@ $portfolio_url_clean 	= preg_replace( '/\s+/', '', $portfolio_url_clean );
 
 	<?php if ( 'on' === $portfolio_date ) { ?> 
 		<p class="published">
-			<span><?php the_time( 'M Y' ); ?></span>
+			<span><?php the_time( get_option( 'date_format' ) ); ?></span>
 		</p>	
 	<?php } ?>
 

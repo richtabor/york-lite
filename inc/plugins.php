@@ -29,11 +29,6 @@ function york_register_required_plugins() {
 			'slug'         => 'portfolio-post-type',
 			'required'     => false,
 		),
-		array(
-			'name'         => esc_html__( 'Simple Custom Post Order', '@@textdomain' ),
-			'slug'         => 'simple-custom-post-order',
-			'required'     => false,
-		),
 	);
 
 	/*

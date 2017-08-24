@@ -603,7 +603,7 @@ require get_theme_file_path( '/inc/jetpack.php' );
 /**
  * Load TGM.
  */
-require get_theme_file_path( '/inc/plugins/plugins.php' );
+require get_theme_file_path( '/inc/plugins.php' );
 
 /**
  * SVG icons functions and filters.
