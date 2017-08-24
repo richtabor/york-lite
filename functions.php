@@ -580,7 +580,6 @@ require get_theme_file_path( '/inc/admin.php' );
  */
 if ( is_admin() ) {
 	require get_theme_file_path( '/inc/meta/meta.php' );
-	require get_theme_file_path( '/inc/meta/meta-page.php' );
 	require get_theme_file_path( '/inc/meta/meta-portfolio.php' );
 }
 

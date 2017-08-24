@@ -44,47 +44,21 @@
 			</div>
 
 		</header><!-- .site-header -->
-		
-		<?php
-		if ( is_singular( 'page' ) ) :
-			/*
-			 * Create a hero entry header, if it's added in the page template.
-			 */
-			$entry_header   = get_post_meta( $post->ID, '_bean_entry_header', true );
-			$content        = $post->post_content;
-			$visibility     = ( $entry_header ) ? '' : 'site-content--no-header';
-		else :
-			$entry_header   = false;
-			$visibility     = 'site-content--no-header';
-		endif;
-		?>
-
-		<div id="content" class="site-content animsition <?php echo esc_attr( $visibility ); ?> clearfix">
-
-			<?php if ( $entry_header ) : ?>
+	
+		<div id="content" class="site-content animsition clearfix">
+			
+			<?php if ( is_singular( 'page' ) ) : ?>
 
 				<header class="hero entry-header">
 
 					<div class="hero-wrapper">
-						
-						<?php
-	                    $allowed_html_array = array(
-	                        'span' => array(
-	                            'class' => array(),
-	                        ),
-	                        'b' => array(
-	                            'class' => array(),
-	                        ),
-	                        'i' => array(),
-	                        'em' => array(),
-	                        'strong' => array(),
-	                    ); ?>
 
-						<h1 class="entry-title cd-headline letters type"><?php echo wp_kses( $entry_header , $allowed_html_array ); ?></h1>
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 					</div>
 
 				</header>
 
-			<?php endif;
-endif;
+			<?php endif; ?>
+
+<?php endif;
