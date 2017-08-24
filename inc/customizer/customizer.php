@@ -26,17 +26,32 @@ function york_customize_register( $wp_customize ) {
 	/**
 	 * Add custom controls.
 	 */
-	require get_parent_theme_file_path( '/inc/customizer/custom-controls/content.php' );
-	require get_parent_theme_file_path( '/inc/customizer/custom-controls/range.php' );
+	require get_parent_theme_file_path( '/inc/customizer/custom-controls/upgrade.php' );
 
 	/**
 	 * Top-Level Customizer sections and panels.
 	 */
 	$wp_customize->add_panel( 'york_theme_options', array(
-		'title' 						=> esc_html__( 'Theme Options', '@@textdomain' ),
-		'description' 					=> esc_html__( 'Customize various options throughout the theme with the settings within this panel.', '@@textdomain' ),
-		'priority' 					    => 30,
+		'title' 	=> esc_html__( 'Theme Options', '@@textdomain' ),
+		'description' 	=> esc_html__( 'Customize various options throughout the theme with the settings within this panel.', '@@textdomain' ),
+		'priority' 	=> 30,
 	) );
+
+	/**
+	 * Add the theme upgrade section.
+	 *
+	 * @see https://github.com/justintadlock/trt-customizer-pro
+	 */
+
+	$wp_customize->register_section_type( 'York_Upgrade_Theme_Control' );
+
+	$wp_customize->add_section( new York_Upgrade_Theme_Control( $wp_customize, 'example_1', array(
+		'type'                  => 'upgrade-theme',
+		'title'    		=> esc_html__( 'Upgrade to York Pro', '@@textdomain' ),
+		'pro_text' 		=> esc_html__( 'Go Pro', '@@textdomain' ),
+		'pro_url'  		=> 'https://themebeans.com/checkout?edd_action=add_to_cart&download_id=105665',
+		'priority' 		=> 9999,
+	) ) );
 
 	/**
 	 * Theme Customizer Sections.
@@ -289,3 +304,11 @@ function york_customize_preview_js() {
 	wp_enqueue_script( 'york-customize-preview', get_theme_file_uri( '/assets/js/admin/customize-preview.js' ), array( 'customize-preview' ), '@@pkg.version', true );
 }
 add_action( 'customize_preview_init', 'york_customize_preview_js' );
+
+/**
+ * Load dynamic logic for the customizer controls area.
+ */
+function york_customize_panel_js() {
+	wp_enqueue_script( 'york-customize-controls', get_theme_file_uri( '/assets/js/admin/customize-controls.js' ), array(), '@@pkg.version', true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'york_customize_panel_js' );

@@ -9,14 +9,6 @@
  */
 
 /**
- * Pro upgrade functions.
- * Warning: Don't just remove or delete these lines below.
- * You will get errors.
- */
-require get_parent_theme_file_path( '/inc/upgrade/upgrade-setup.php' );
-require get_parent_theme_file_path( '/inc/upgrade/upgrade.php' );
-
-/**
  * Register and enqueue a custom stylesheet in the WordPress admin.
  */
 function york_enqueue_admin_style() {

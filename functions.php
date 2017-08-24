@@ -590,8 +590,6 @@ if ( is_admin() ) {
 require get_theme_file_path( '/inc/customizer/customizer.php' );
 require get_theme_file_path( '/inc/customizer/customizer-css.php' );
 require get_theme_file_path( '/inc/customizer/sanitization.php' );
-require get_theme_file_path( '/inc/customizer/fonts.php' );
-require get_theme_file_path( '/inc/customizer/fonts-library.php' );
 
 /**
  * Custom template tags for this theme.
