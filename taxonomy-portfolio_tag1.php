@@ -14,8 +14,4 @@
  * @license @@pkg.license
  */
 
-get_header();
-
-get_template_part( 'components/portfolio/portfolio' );
-
-get_footer();
+get_template_part( 'archive-portfolio' );

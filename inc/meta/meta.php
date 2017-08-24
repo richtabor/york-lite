@@ -156,7 +156,7 @@ function york_create_meta_box( $post, $meta_box ) {
 											ids += attachment.id + ','
 										});
 
-										this.el.innerHTML = '<?php esc_html_e( 'Saving...', '@@textdomain' ); ?>';
+										this.el.innerHTML = '<?php esc_html_e( 'Saving&hellip;', '@@textdomain' ); ?>';
 										
 										$.ajax({
 											type: 'POST',

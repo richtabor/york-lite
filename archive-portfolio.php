@@ -1,11 +1,12 @@
 <?php
 /**
- * The template for displaying the default portfolio archive view
+ * The template for displaying portfolio archives
  *
  * Used to display archive-type pages for portfolio posts.
  * If you'd like to further customize these taxonomy views, you may create a
- * new template file for each specific one. This file has taxonomy-portfolio_category.php
- * and taxonomy-portfolio_tag.php pointing to it.
+ * new template file for each specific one.
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @package @@pkg.name
  * @version @@pkg.version
@@ -13,8 +14,27 @@
  * @license @@pkg.license
  */
 
-get_header();
+get_header(); ?>
 
-get_template_part( 'components/portfolio/portfolio' );
+<div id="projects" class="projects clearfix">
 
-get_footer();
+	<?php if ( have_posts() ) :
+
+		/* Start the Loop */
+		while ( have_posts() ) : the_post();
+
+			get_template_part( 'components/portfolio/portfolio-loop' );
+
+		endwhile; ?>
+
+		<div id="page_nav">
+			<?php next_posts_link(); ?>
+		</div>
+
+	<?php else :
+		get_template_part( 'components/content', 'none' );
+	endif; ?>
+
+</div>
+
+<?php get_footer();

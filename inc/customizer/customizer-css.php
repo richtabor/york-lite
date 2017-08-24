@@ -13,31 +13,31 @@
  */
 function york_customizer_css() {
 
-	$theme_accent_color 		= get_theme_mod( 'theme_accent_color', '#ff5c5c' );
+	$accent_color 		= get_theme_mod( 'accent_color', '#ff5c5c' );
 	$background_color 			= get_theme_mod( 'york_background_color', '#ffffff' );
 	$sitetitle_color 			= get_theme_mod( 'york_sitetitle_color', '#000000' );
 	$sitetitlehover_color 		= get_theme_mod( 'york_sitetitlehover_color', '#ff5c5c' );
 	$navigationicon_color 		= get_theme_mod( 'york_navigationicon_color', '#000000' );
 	$navigationiconhover_color 	= get_theme_mod( 'york_navigationiconhover_color', '#000000' );
 	$footertext_color 			= get_theme_mod( 'york_footertext_color', '#000000' );
-	$footernav_a_color 			= get_theme_mod( 'york_footernav_a_color', '#909090' );
-	$footertexthover_color 		= get_theme_mod( 'york_footertexthover_color', '#ff5c5c' );
-	$footersocial_color 		= get_theme_mod( 'york_footersocial_color', '#000000' );
+	$footernav_a_color 			= get_theme_mod( 'footer_nav_color', '#909090' );
+	$footertexthover_color 		= get_theme_mod( 'footer_text_hover_color', '#ff5c5c' );
+	$footersocial_color 		= get_theme_mod( 'footer_social_color', '#000000' );
 	$sidebarsocial_color 		= get_theme_mod( 'york_sidebarsocial_color', '#000000' );
-	$overlay_color 				= get_theme_mod( 'york_overlay_color', '#000000' );
-	$overlay_text_color 		= get_theme_mod( 'york_overlay_text_color', '#ffffff' );
+	$overlay_color 				= get_theme_mod( 'overlay_color', '#000000' );
+	$overlay_text_color 		= get_theme_mod( 'overlay_text_color', '#ffffff' );
 	$site_logo_width 			= get_theme_mod( 'site_logo_width', '90' );
 
 	// Convert main text hex color to rgba.
-	$theme_accent_color_rgb = york_hex2rgb( $theme_accent_color );
+	$accent_color_rgb = york_hex2rgb( $accent_color );
 
 	// If the rgba values are empty return early.
-	if ( empty( $theme_accent_color_rgb ) ) {
+	if ( empty( $accent_color_rgb ) ) {
 		return;
 	}
 
-	$rgb_10_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.075)', $theme_accent_color_rgb );
-	$rgb_50_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.25)', $theme_accent_color_rgb );
+	$rgb_10_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.075)', $accent_color_rgb );
+	$rgb_50_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.25)', $accent_color_rgb );
 
 	$body_typography_color = get_theme_mod( 'body_typography_color', '#000' );
 	$header_typography_color = get_theme_mod( 'header_typography_color', '#000' );
@@ -166,8 +166,8 @@ function york_customizer_css() {
 
 	body #content a:hover,
 	body #content a:focus {
-		color:'. esc_attr( $theme_accent_color ) .'!important;
-		border-color:'. esc_attr( $theme_accent_color ) .'!important;
+		color:'. esc_attr( $accent_color ) .'!important;
+		border-color:'. esc_attr( $accent_color ) .'!important;
 	}
 
 	body button,
@@ -183,7 +183,7 @@ function york_customizer_css() {
 	body input[type="submit"],
 	body input[type="submit"][disabled]:hover,
 	body input[type="submit"][disabled]:focus {
-		background-color:'. esc_attr( $theme_accent_color ) .';
+		background-color:'. esc_attr( $accent_color ) .';
 	}
 
 	article .yorkup--highlight {
@@ -191,8 +191,8 @@ function york_customizer_css() {
 	}
 
 	body.single-portfolio .navigation a:hover {
-		color:'. esc_attr( $theme_accent_color ) .' !important;
-		border-color:'. esc_attr( $theme_accent_color ) .' !important;
+		color:'. esc_attr( $accent_color ) .' !important;
+		border-color:'. esc_attr( $accent_color ) .' !important;
 	}
 	
 	body,
@@ -210,7 +210,7 @@ function york_customizer_css() {
 
 	body #content a:hover,
 	body .main-navigation a:hover {
-		color: '. esc_attr( $theme_accent_color ) .'; 
+		color: '. esc_attr( $accent_color ) .'; 
 	}
 	
 	body blockquote {
@@ -279,7 +279,7 @@ function york_customizer_css() {
 	.logo_text:hover,
 	.current-menu-item a, 
 	.page-links a span:not(.page-links-title):hover,
-	.page-links span:not(.page-links-title) { color:'. esc_attr( $theme_accent_color ) .'; }
+	.page-links span:not(.page-links-title) { color:'. esc_attr( $accent_color ) .'; }
 
 	.cats,
 	h1 a:hover, 
@@ -294,11 +294,11 @@ function york_customizer_css() {
 	.bean-tabs > li.active > a:hover,
 	.bean-tabs > li.active > a:focus,
 	.bean-pricing-table .pricing-column li.info:hover { 
-		color:'. esc_attr( $theme_accent_color ) .'!important; 
+		color:'. esc_attr( $accent_color ) .'!important; 
 	}
 
 	body .type-post .post-content blockquote::before {
-		color:'. esc_attr( $theme_accent_color ) .';
+		color:'. esc_attr( $accent_color ) .';
 	}
 
 	body button:hover,
@@ -311,7 +311,7 @@ function york_customizer_css() {
 	body input[type="reset"]:focus,
 	body input[type="submit"]:hover,
 	body input[type="submit"]:focus {
-		border-color:'. esc_attr( $theme_accent_color ) .'; 
+		border-color:'. esc_attr( $accent_color ) .'; 
 	}
 
 	button:hover,
@@ -333,11 +333,11 @@ function york_customizer_css() {
 	.bean-pricing-table .table-mast,
 	.entry-categories a:hover, 
 	.bean-contact-form .bar:before { 
-		background-color:'. esc_attr( $theme_accent_color ) .'; 
+		background-color:'. esc_attr( $accent_color ) .'; 
 	}
 
-	.bean-btn { border: 1px solid '. esc_attr( $theme_accent_color ) .'!important; }
-	.bean-quote { background-color:'. esc_attr( $theme_accent_color ) .'!important; }
+	.bean-btn { border: 1px solid '. esc_attr( $accent_color ) .'!important; }
+	.bean-quote { background-color:'. esc_attr( $accent_color ) .'!important; }
 	';
 
 	/**

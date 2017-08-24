@@ -16,14 +16,6 @@
 function york_customize_register( $wp_customize ) {
 
 	/**
-	 * Remove unnecessary controls.
-	 */
-	$wp_customize->remove_section( 'colors' );
-	$wp_customize->remove_section( 'background_image' );
-	$wp_customize->remove_control( 'site_logo_header_text' );
-	$wp_customize->remove_control( 'background_color' );
-
-	/**
 	 * Add custom controls.
 	 */
 	require get_parent_theme_file_path( '/inc/customizer/custom-controls/upgrade.php' );
@@ -53,6 +45,87 @@ function york_customize_register( $wp_customize ) {
 		'priority' 		=> 9999,
 	) ) );
 
+
+	/**
+	 * Colors.
+	 */
+	$wp_customize->add_setting( 'york_background_color', array(
+		'default'               => '#ffffff',
+		'sanitize_callback'     => 'sanitize_hex_color',
+		'transport'             => 'postMessage',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_background_color', array(
+		'label'                 => esc_html__( 'Background', '@@textdomain' ),
+		'section'               => 'colors',
+	) ) );
+
+	$wp_customize->add_setting( 'body_typography_color', array(
+		'default'               => '#000000',
+		'sanitize_callback'     => 'sanitize_hex_color',
+		'transport'             => 'postMessage',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_typography_color', array(
+		'label'             => esc_html__( 'Text Color', '@@textdomain' ),
+		'section'               => 'colors',
+	) ) );
+
+	$wp_customize->add_setting( 'body_secondary_typography_color', array(
+		'default'               => '#909090',
+		'sanitize_callback'     => 'sanitize_hex_color',
+		'transport'             => 'postMessage',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_secondary_typography_color', array(
+		'label'             => esc_html__( 'Secondary Text Color', '@@textdomain' ),
+		'section'               => 'colors',
+	) ) );
+
+	$wp_customize->add_setting( 'header_typography_color', array(
+		'default'               => '#000000',
+		'sanitize_callback'     => 'sanitize_hex_color',
+		'transport'             => 'postMessage',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_typography_color', array(
+		'label'             => esc_html__( 'Header Color', '@@textdomain' ),
+		'section'               => 'colors',
+	) ) );
+
+	$wp_customize->add_setting( 'accent_color', array(
+		'default'               => '#ff5c5c',
+		'sanitize_callback'     => 'sanitize_hex_color',
+		'transport'             => 'postMessage',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_color', array(
+		'label'             => esc_html__( 'Accent Color', '@@textdomain' ),
+		'section'               => 'colors',
+	) ) );
+
+	$wp_customize->add_setting( 'overlay_color', array(
+		'default'               => '#ffffff',
+		'sanitize_callback'     => 'sanitize_hex_color',
+		'transport'             => 'postMessage',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'overlay_color', array(
+		'label'                 => esc_html__( 'Overlay', '@@textdomain' ),
+		'section'               => 'york_portfolio',
+	) ) );
+
+	$wp_customize->add_setting( 'overlay_text_color', array(
+		'default'               => '#000000',
+		'sanitize_callback'     => 'sanitize_hex_color',
+		'transport'             => 'postMessage',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'overlay_text_color', array(
+		'label'                 => esc_html__( 'Overlay Text', '@@textdomain' ),
+		'section'               => 'york_portfolio',
+	) ) );
+
 	/**
 	 * Theme Customizer Sections.
 	 * For more information on Theme Customizer settings and default sections:
@@ -61,223 +134,118 @@ function york_customize_register( $wp_customize ) {
 	 */
 
 	/**
-	 * Add the colors section.
-	 */
-	$wp_customize->add_section( 'york_pro_colors', array(
-		'title'                 => esc_html__( 'Colors', '@@textdomain' ),
-		'panel'                 => 'york_theme_options',
-	) );
-
-			$wp_customize->add_setting( 'york_background_color', array(
-				'default'               => '#ffffff',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
-
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_background_color', array(
-				'label'                 => esc_html__( 'Background', '@@textdomain' ),
-				'section'               => 'york_pro_colors',
-			) ) );
-
-			$wp_customize->add_setting( 'body_typography_color', array(
-				'default'               => '#000000',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
-
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_typography_color', array(
-				'label'             => esc_html__( 'Text Color', '@@textdomain' ),
-				'section'               => 'york_pro_colors',
-			) ) );
-
-			$wp_customize->add_setting( 'body_secondary_typography_color', array(
-				'default'               => '#909090',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
-
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_secondary_typography_color', array(
-				'label'             => esc_html__( 'Secondary Text Color', '@@textdomain' ),
-				'section'               => 'york_pro_colors',
-			) ) );
-
-			$wp_customize->add_setting( 'header_typography_color', array(
-				'default'               => '#000000',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
-
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_typography_color', array(
-				'label'             => esc_html__( 'Header Color', '@@textdomain' ),
-				'section'               => 'york_pro_colors',
-			) ) );
-
-			$wp_customize->add_setting( 'theme_accent_color', array(
-				'default'               => '#ff5c5c',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
-
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'theme_accent_color', array(
-				'label'             => esc_html__( 'Accent Color', '@@textdomain' ),
-				'section'               => 'york_pro_colors',
-			) ) );
-
-	/**
 	 * Add the header section.
 	 */
-	$wp_customize->add_section( 'york_pro_header', array(
+	$wp_customize->add_section( 'york_header', array(
 		'title'                 => esc_html__( 'Header', '@@textdomain' ),
 		'panel'                 => 'york_theme_options',
 	) );
 
-			$wp_customize->add_setting( 'york_sitetitle_color', array(
-				'default'               => '#000000',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
+		$wp_customize->add_setting( 'york_sitetitle_color', array(
+			'default'               => '#000000',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_sitetitle_color', array(
-				'label'                 => esc_html__( 'Site Title', '@@textdomain' ),
-				'section'               => 'york_pro_header',
-			) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_sitetitle_color', array(
+			'label'                 => esc_html__( 'Site Title', '@@textdomain' ),
+			'section'               => 'york_header',
+		) ) );
 
-			$wp_customize->add_setting( 'york_sitetitlehover_color', array(
-				'default'               => '#ff5c5c',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
+		$wp_customize->add_setting( 'york_sitetitlehover_color', array(
+			'default'               => '#ff5c5c',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_sitetitlehover_color', array(
-				'label'                 => esc_html__( 'Site Title Hover', '@@textdomain' ),
-				'section'               => 'york_pro_header',
-			) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_sitetitlehover_color', array(
+			'label'                 => esc_html__( 'Site Title Hover', '@@textdomain' ),
+			'section'               => 'york_header',
+		) ) );
 
-			$wp_customize->add_setting( 'york_navigationicon_color', array(
-				'default'               => '#000000',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
+		$wp_customize->add_setting( 'york_navigationicon_color', array(
+			'default'               => '#000000',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_navigationicon_color', array(
-				'label'                 => esc_html__( 'Navigation Icon', '@@textdomain' ),
-				'section'               => 'york_pro_header',
-			) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_navigationicon_color', array(
+			'label'                 => esc_html__( 'Navigation Icon', '@@textdomain' ),
+			'section'               => 'york_header',
+		) ) );
 
-			$wp_customize->add_setting( 'york_navigationiconhover_color', array(
-				'default'               => '#ff5c5c',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
+		$wp_customize->add_setting( 'york_navigationiconhover_color', array(
+			'default'               => '#ff5c5c',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_navigationiconhover_color', array(
-				'label'                 => esc_html__( 'Navigation Icon Hover', '@@textdomain' ),
-				'section'               => 'york_pro_header',
-			) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_navigationiconhover_color', array(
+			'label'                 => esc_html__( 'Navigation Icon Hover', '@@textdomain' ),
+			'section'               => 'york_header',
+		) ) );
 
-			$wp_customize->add_setting( 'york_sidebarsocial_color', array(
-				'default'               => '#000000',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
+		$wp_customize->add_setting( 'york_sidebarsocial_color', array(
+			'default'               => '#000000',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_sidebarsocial_color', array(
-				'label'                 => esc_html__( 'Social Icons', '@@textdomain' ),
-				'section'               => 'york_pro_header',
-			) ) );
-
-	/**
-	 * Add the portfolio section.
-	 */
-	$wp_customize->add_section( 'york_pro_portfolio', array(
-		'title' 						=> esc_html__( 'Portfolio', '@@textdomain' ),
-		'panel'       					=> 'york_theme_options',
-	) );
-
-			$wp_customize->add_setting( 'portfolio_posts_count', array(
-				'default'           	=> '-1',
-				'sanitize_callback' 	=> 'york_sanitize_number_intval',
-			) );
-
-			$wp_customize->add_control( 'portfolio_posts_count', array(
-				'type' 				    => 'number',
-				'label' 				=> esc_html__( 'Portfolio Count', '@@textdomain' ),
-				'description' 			=> esc_html__( 'Set the number of posts to display on the portfolio template. Use "-1" to load them all.', '@@textdomain' ),
-				'section'				=> 'york_pro_portfolio',
-			) );
-
-			$wp_customize->add_setting( 'york_overlay_color', array(
-				'default'               => '#ffffff',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
-
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_overlay_color', array(
-				'label'                 => esc_html__( 'Overlay', '@@textdomain' ),
-				'section'               => 'york_pro_portfolio',
-			) ) );
-
-			$wp_customize->add_setting( 'york_overlay_text_color', array(
-				'default'               => '#000000',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
-
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_overlay_text_color', array(
-				'label'                 => esc_html__( 'Overlay Text', '@@textdomain' ),
-				'section'               => 'york_pro_portfolio',
-			) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_sidebarsocial_color', array(
+			'label'                 => esc_html__( 'Social Icons', '@@textdomain' ),
+			'section'               => 'york_header',
+		) ) );
 
 	/**
 	 * Add the footer section.
 	 */
-	$wp_customize->add_section( 'york_theme_options_footer', array(
-		'title' 						=> esc_html__( 'Footer', '@@textdomain' ),
-		'panel'       					=> 'york_theme_options',
+	$wp_customize->add_section( 'york_footer', array(
+		'title' 				=> esc_html__( 'Footer', '@@textdomain' ),
+		'panel'       				=> 'york_theme_options',
 	) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_footertext_color', array(
-				'label'                 => esc_html__( 'Footer Text', '@@textdomain' ),
-				'section'               => 'york_theme_options_footer',
-			) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_footertext_color', array(
+			'label'                 => esc_html__( 'Footer Text', '@@textdomain' ),
+			'section'               => 'york_footer',
+		) ) );
 
-			$wp_customize->add_setting( 'york_footernav_a_color', array(
-				'default'               => '#909090',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
+		$wp_customize->add_setting( 'footer_nav_color', array(
+			'default'               => '#909090',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_footernav_a_color', array(
-				'label'                 => esc_html__( 'Footer Link', '@@textdomain' ),
-				'section'               => 'york_theme_options_footer',
-			) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_nav_color', array(
+			'label'                 => esc_html__( 'Footer Link', '@@textdomain' ),
+			'section'               => 'york_footer',
+		) ) );
 
-			$wp_customize->add_setting( 'york_footertexthover_color', array(
-				'default'               => '#ff5c5c',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
+		$wp_customize->add_setting( 'footer_text_hover_color', array(
+			'default'               => '#ff5c5c',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_footertexthover_color', array(
-				'label'                 => esc_html__( 'Footer Link Hover', '@@textdomain' ),
-				'section'               => 'york_theme_options_footer',
-			) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_text_hover_color', array(
+			'label'                 => esc_html__( 'Footer Link Hover', '@@textdomain' ),
+			'section'               => 'york_footer',
+		) ) );
 
-			$wp_customize->add_setting( 'york_footersocial_color', array(
-				'default'               => '#000000',
-				'sanitize_callback'     => 'sanitize_hex_color',
-				'transport'             => 'postMessage',
-			) );
+		$wp_customize->add_setting( 'footer_social_color', array(
+			'default'               => '#000000',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_footersocial_color', array(
-				'label'                 => esc_html__( 'Social Icons', '@@textdomain' ),
-				'section'               => 'york_theme_options_footer',
-			) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_social_color', array(
+			'label'                 => esc_html__( 'Social Icons', '@@textdomain' ),
+			'section'               => 'york_footer',
+		) ) );
 
 	$wp_customize->add_setting( 'site_logo_width', array(
 		'default'               => '90',
 		'transport'             => 'postMessage',
-		'sanitize_callback'     => 'york_sanitize_nohtml',
+		'sanitize_callback'     => 'absint',
 	) );
 
 	$wp_customize->add_control( 'site_logo_width', array(
@@ -285,7 +253,7 @@ function york_customize_register( $wp_customize ) {
 		'label'                 => esc_html__( 'Logo Retina Width', '@@textdomain' ),
 		'description'           => esc_html__( 'This value should be equal to half of the logo image width (in px). For example, enter "50" for a logo that is 100px wide.', '@@textdomain' ),
 		'section'               => 'title_tagline',
-		'priority' 				=> 9,
+		'priority' 		=> 9,
 	) );
 
 	/**

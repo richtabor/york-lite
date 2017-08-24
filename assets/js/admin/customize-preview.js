@@ -106,13 +106,13 @@
         } );
     } );
 
-    wp.customize( 'york_footernav_a_color', function( value ) {
+    wp.customize( 'footer_nav_color', function( value ) {
         value.bind( function( newval ) {
             $('body .site-footer .footer-navigation a').css('color', newval );
         } );
     } );
 
-    wp.customize( 'york_footertexthover_color', function( value ) {
+    wp.customize( 'footer_text_hover_color', function( value ) {
         value.bind( function( newval ) {
             var style, el;
             style = '<style class="site-footer-a-hover">body #colophon.site-footer span a:hover, body .site-footer .footer-navigation a:hover { color: ' + newval + '; }</style>';
@@ -127,13 +127,13 @@
         } );
     } );
 
-    wp.customize( 'york_footersocial_color', function( value ) {
+    wp.customize( 'footer_social_color', function( value ) {
         value.bind( function( newval ) {
             $('body .site-footer .social-navigation svg').css('fill', newval );
         } );
     } );
 
-    wp.customize( 'york_overlay_color', function( value ) {
+    wp.customize( 'overlay_color', function( value ) {
         value.bind( function( newval ) {
             var style, el;
             style = '<style class="project-overlay-color">body .project .overlay { background: ' + newval + '!important; }</style>';
@@ -148,7 +148,7 @@
         } );
     } );
 
-    wp.customize( 'york_overlay_text_color', function( value ) {
+    wp.customize( 'overlay_text_color', function( value ) {
         value.bind( function( newval ) {
             var style, el;
             style = '<style class="project-overlay-text-color">body .project .overlay h3 { color: ' + newval + '!important; } body .lightbox-play svg { fill: ' + newval + '!important; } </style>';

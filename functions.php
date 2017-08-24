@@ -449,7 +449,7 @@ if ( ! function_exists( 'york_protected_form' ) ) :
 		$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
 
 		$o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
-		<label for="' . $label . '">' . __( 'Password:', '@@textdomain' ) . ' </label><input name="post_password" placeholder="' . esc_html__( 'Enter password & press enter...', '@@textdomain' ) . '" type="password" placeholder=""/><input type="submit" name="Submit" value="' . esc_attr__( 'Submit', '@@textdomain' ) . '" />
+		<label for="' . esc_attr__( $label ) . '">' . __( 'Password:', '@@textdomain' ) . ' </label><input name="post_password" placeholder="' . esc_html__( 'Enter password & press enter&hellip;', '@@textdomain' ) . '" type="password" placeholder=""/><input type="submit" name="Submit" value="' . esc_attr__( 'Submit', '@@textdomain' ) . '" />
 		</form>
 		';
 

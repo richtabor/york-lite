@@ -6,10 +6,10 @@
 	"use strict";
 
 	var  
-    body        = a("body"),
+    	body        = a("body"),
 	active      = ("js--active"),
 	projects    = a('#projects'),
-    loaded      = ('js--loaded');
+    	loaded      = ('js--loaded');
 
     /**
      * Test if inline SVGs are supported.
@@ -71,52 +71,52 @@
 	/* fitVids */
 	body.fitVids();
 
-    function scrollingDiv() {
-        var 
-        $window = a(window),
-        windowHeight    = a(window).height(),
-        sidebarSection  = a(".sidebar--section"),
-        scroll          = ("js--scroll");
+	function scrollingDiv() {
+		var 
+		$window = a(window),
+		windowHeight    = a(window).height(),
+		sidebarSection  = a(".sidebar--section"),
+		scroll          = ("js--scroll");
 
-        if($window.width() > 768) {
-            sidebarSection.children().each(function(){
-                if ( windowHeight < a(this).innerHeight() ) {
-                    a(this).parent().addClass(scroll);
-                } else {
-                    a(this).parent().removeClass(scroll);
-                }
-            });
-        }
-    }
+		if($window.width() > 768) {
+		    sidebarSection.children().each(function(){
+		        if ( windowHeight < a(this).innerHeight() ) {
+		            a(this).parent().addClass(scroll);
+		        } else {
+		            a(this).parent().removeClass(scroll);
+		        }
+		    });
+		}
+	}
 
-    function mobile_dropdowns() {
-        var navigationHolder = a('.main-navigation');
-        var dropdownOpener = a('.main-navigation .mobile-navigation--arrow, main-navigation h6, .main-navigation a.york-mobile-no-link');
-        var animationSpeed = 200;
+	function mobile_dropdowns() {
+		var navigationHolder = a('.main-navigation');
+		var dropdownOpener = a('.main-navigation .mobile-navigation--arrow, main-navigation h6, .main-navigation a.york-mobile-no-link');
+		var animationSpeed = 200;
 
-        if(dropdownOpener.length) {
-            dropdownOpener.each(function() {
-                a(this).on('tap click', function(e) {
-                    var dropdownToOpen = a(this).nextAll('ul').first();
+		if(dropdownOpener.length) {
+		    dropdownOpener.each(function() {
+		        a(this).on('tap click', function(e) {
+		            var dropdownToOpen = a(this).nextAll('ul').first();
 
-                    if(dropdownToOpen.length) {
-                        e.preventDefault();
-                        e.stopPropagation();
+		            if(dropdownToOpen.length) {
+		                e.preventDefault();
+		                e.stopPropagation();
 
-                        var openerParent = a(this).parent('li');
-                        if(dropdownToOpen.is(':visible')) {
-                            dropdownToOpen.slideUp(animationSpeed);
-                            openerParent.removeClass('york-opened');
-                        } else {
-                            dropdownToOpen.slideDown(animationSpeed);
-                            openerParent.addClass('york-opened');
-                        }
-                    }
+		                var openerParent = a(this).parent('li');
+		                if(dropdownToOpen.is(':visible')) {
+		                    dropdownToOpen.slideUp(animationSpeed);
+		                    openerParent.removeClass('york-opened');
+		                } else {
+		                    dropdownToOpen.slideDown(animationSpeed);
+		                    openerParent.addClass('york-opened');
+		                }
+		            }
 
-                });
-            });
-        }
-    }
+		        });
+		    });
+		}
+	}
 
 	/* Document Ready */
 	a(document).ready(function() {

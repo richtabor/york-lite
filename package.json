@@ -6,8 +6,9 @@
   "downloadid": "105665",
   "description": "York Lite is a simple yet incredibly powerful portfolio WordPress theme for creatives, freelancers and agencies alike. York features a modern offset grid-based layout, bold typography and a minimalistic style that allows you to create a timeless website.",  
   "theme_uri": "https://themebeans.com/themes/york-pro",
-  "author": "ThemeBeans <hello@themebeans.com>",
+  "author": "Rich Tabor of ThemeBeans <hello@themebeans.com>",
   "author_uri": "https://themebeans.com",
   "author_shop": "ThemeBeans",
-  "license": "http://www.gnu.org/licenses/gpl-2.0.html GNU Public License"
+  "license": "http://www.gnu.org/licenses/gpl-3.0.html GNU Public License",
+  "copyright": "Copyright (c) 2017, ThemeBeans of Inventionn LLC"
 }

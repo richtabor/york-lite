@@ -94,17 +94,3 @@ if ( ! function_exists( 'york_scroll_render' ) ) :
 		}
 	}
 endif;
-
-if ( ! function_exists( 'york_remove_infinitescroll_css' ) ) :
-	/**
-	 * Let's remove unnessary CSS loading.
-	 */
-	function york_remove_infinitescroll_css() {
-		wp_deregister_style( 'the-neverending-homepage' );
-	}
-
-	add_action( 'wp_print_styles', 'york_remove_infinitescroll_css' );
-
-	// Make sure Jetpack doesn't concatenate all its CSS.
-	add_filter( 'jetpack_implode_frontend_css', '__return_false' );
-endif;
