@@ -40,9 +40,9 @@ get_header(); ?>
 		 * @link https://codex.wordpress.org/Function_Reference/the_posts_pagination
 		 */
 		the_posts_pagination( array(
-			'prev_text' => york_get_svg( array( 'icon' => 'left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', '@@textdomain' ) . '</span>',
-			'next_text' => '<span class="screen-reader-text">' . __( 'Next page', '@@textdomain' ) . '</span>' . york_get_svg( array( 'icon' => 'right' ) ),
-			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', '@@textdomain' ) . ' </span>',
+			'prev_text' => york_get_svg( array( 'icon' => 'left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'york-lite' ) . '</span>',
+			'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'york-lite' ) . '</span>' . york_get_svg( array( 'icon' => 'right' ) ),
+			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'york-lite' ) . ' </span>',
 		) );
 
 	else :

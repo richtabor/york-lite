@@ -10,7 +10,7 @@ var slugUppercase           = slug.toUpperCase();
 var projectURL              = 'http://demo.dev/york';
 
 // Translation related.
-var text_domain             = '@@textdomain';
+var text_domain             = 'york-lite';
 var destFile                = slug+'.pot';
 var packageName             = project;
 var bugReport               = pkg.author_uri;

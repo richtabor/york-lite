@@ -24,8 +24,8 @@ function york_customize_register( $wp_customize ) {
 	 * Top-Level Customizer sections and panels.
 	 */
 	$wp_customize->add_panel( 'york_theme_options', array(
-		'title' 	=> esc_html__( 'Theme Options', '@@textdomain' ),
-		'description' 	=> esc_html__( 'Customize various options throughout the theme with the settings within this panel.', '@@textdomain' ),
+		'title' 	=> esc_html__( 'Theme Options', 'york-lite' ),
+		'description' 	=> esc_html__( 'Customize various options throughout the theme with the settings within this panel.', 'york-lite' ),
 		'priority' 	=> 30,
 	) );
 
@@ -39,8 +39,8 @@ function york_customize_register( $wp_customize ) {
 
 	$wp_customize->add_section( new York_Upgrade_Theme_Control( $wp_customize, 'example_1', array(
 		'type'                  => 'upgrade-theme',
-		'title'    		=> esc_html__( 'Upgrade to York Pro', '@@textdomain' ),
-		'pro_text' 		=> esc_html__( 'Go Pro', '@@textdomain' ),
+		'title'    		=> esc_html__( 'Upgrade to York Pro', 'york-lite' ),
+		'pro_text' 		=> esc_html__( 'Go Pro', 'york-lite' ),
 		'pro_url'  		=> 'https://themebeans.com/checkout?edd_action=add_to_cart&download_id=105665',
 		'priority' 		=> 9999,
 	) ) );
@@ -56,7 +56,7 @@ function york_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_background_color', array(
-		'label'                 => esc_html__( 'Background', '@@textdomain' ),
+		'label'                 => esc_html__( 'Background', 'york-lite' ),
 		'section'               => 'colors',
 	) ) );
 
@@ -67,7 +67,7 @@ function york_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_typography_color', array(
-		'label'             => esc_html__( 'Text Color', '@@textdomain' ),
+		'label'             => esc_html__( 'Text Color', 'york-lite' ),
 		'section'               => 'colors',
 	) ) );
 
@@ -78,7 +78,7 @@ function york_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_secondary_typography_color', array(
-		'label'             => esc_html__( 'Secondary Text Color', '@@textdomain' ),
+		'label'             => esc_html__( 'Secondary Text Color', 'york-lite' ),
 		'section'               => 'colors',
 	) ) );
 
@@ -89,7 +89,7 @@ function york_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_typography_color', array(
-		'label'             => esc_html__( 'Header Color', '@@textdomain' ),
+		'label'             => esc_html__( 'Header Color', 'york-lite' ),
 		'section'               => 'colors',
 	) ) );
 
@@ -100,7 +100,7 @@ function york_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_color', array(
-		'label'             => esc_html__( 'Accent Color', '@@textdomain' ),
+		'label'             => esc_html__( 'Accent Color', 'york-lite' ),
 		'section'               => 'colors',
 	) ) );
 
@@ -111,7 +111,7 @@ function york_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'overlay_color', array(
-		'label'                 => esc_html__( 'Overlay', '@@textdomain' ),
+		'label'                 => esc_html__( 'Overlay', 'york-lite' ),
 		'section'               => 'york_portfolio',
 	) ) );
 
@@ -122,7 +122,7 @@ function york_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'overlay_text_color', array(
-		'label'                 => esc_html__( 'Overlay Text', '@@textdomain' ),
+		'label'                 => esc_html__( 'Overlay Text', 'york-lite' ),
 		'section'               => 'york_portfolio',
 	) ) );
 
@@ -137,7 +137,7 @@ function york_customize_register( $wp_customize ) {
 	 * Add the header section.
 	 */
 	$wp_customize->add_section( 'york_header', array(
-		'title'                 => esc_html__( 'Header', '@@textdomain' ),
+		'title'                 => esc_html__( 'Header', 'york-lite' ),
 		'panel'                 => 'york_theme_options',
 	) );
 
@@ -148,7 +148,7 @@ function york_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_sitetitle_color', array(
-			'label'                 => esc_html__( 'Site Title', '@@textdomain' ),
+			'label'                 => esc_html__( 'Site Title', 'york-lite' ),
 			'section'               => 'york_header',
 		) ) );
 
@@ -159,7 +159,7 @@ function york_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_sitetitlehover_color', array(
-			'label'                 => esc_html__( 'Site Title Hover', '@@textdomain' ),
+			'label'                 => esc_html__( 'Site Title Hover', 'york-lite' ),
 			'section'               => 'york_header',
 		) ) );
 
@@ -170,7 +170,7 @@ function york_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_navigationicon_color', array(
-			'label'                 => esc_html__( 'Navigation Icon', '@@textdomain' ),
+			'label'                 => esc_html__( 'Navigation Icon', 'york-lite' ),
 			'section'               => 'york_header',
 		) ) );
 
@@ -181,7 +181,7 @@ function york_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_navigationiconhover_color', array(
-			'label'                 => esc_html__( 'Navigation Icon Hover', '@@textdomain' ),
+			'label'                 => esc_html__( 'Navigation Icon Hover', 'york-lite' ),
 			'section'               => 'york_header',
 		) ) );
 
@@ -192,7 +192,7 @@ function york_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_sidebarsocial_color', array(
-			'label'                 => esc_html__( 'Social Icons', '@@textdomain' ),
+			'label'                 => esc_html__( 'Social Icons', 'york-lite' ),
 			'section'               => 'york_header',
 		) ) );
 
@@ -200,12 +200,12 @@ function york_customize_register( $wp_customize ) {
 	 * Add the footer section.
 	 */
 	$wp_customize->add_section( 'york_footer', array(
-		'title' 				=> esc_html__( 'Footer', '@@textdomain' ),
+		'title' 				=> esc_html__( 'Footer', 'york-lite' ),
 		'panel'       				=> 'york_theme_options',
 	) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_footertext_color', array(
-			'label'                 => esc_html__( 'Footer Text', '@@textdomain' ),
+			'label'                 => esc_html__( 'Footer Text', 'york-lite' ),
 			'section'               => 'york_footer',
 		) ) );
 
@@ -216,7 +216,7 @@ function york_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_nav_color', array(
-			'label'                 => esc_html__( 'Footer Link', '@@textdomain' ),
+			'label'                 => esc_html__( 'Footer Link', 'york-lite' ),
 			'section'               => 'york_footer',
 		) ) );
 
@@ -227,7 +227,7 @@ function york_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_text_hover_color', array(
-			'label'                 => esc_html__( 'Footer Link Hover', '@@textdomain' ),
+			'label'                 => esc_html__( 'Footer Link Hover', 'york-lite' ),
 			'section'               => 'york_footer',
 		) ) );
 
@@ -238,7 +238,7 @@ function york_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_social_color', array(
-			'label'                 => esc_html__( 'Social Icons', '@@textdomain' ),
+			'label'                 => esc_html__( 'Social Icons', 'york-lite' ),
 			'section'               => 'york_footer',
 		) ) );
 
@@ -250,8 +250,8 @@ function york_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'site_logo_width', array(
 		'type'              => 'text',
-		'label'                 => esc_html__( 'Logo Retina Width', '@@textdomain' ),
-		'description'           => esc_html__( 'This value should be equal to half of the logo image width (in px). For example, enter "50" for a logo that is 100px wide.', '@@textdomain' ),
+		'label'                 => esc_html__( 'Logo Retina Width', 'york-lite' ),
+		'description'           => esc_html__( 'This value should be equal to half of the logo image width (in px). For example, enter "50" for a logo that is 100px wide.', 'york-lite' ),
 		'section'               => 'title_tagline',
 		'priority' 		=> 9,
 	) );

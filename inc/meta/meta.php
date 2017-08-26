@@ -73,7 +73,7 @@ function york_create_meta_box( $post, $meta_box ) {
 						frame.toolbar.get('view').set({
 							insert: {
 								style: 'primary',
-								text: '<?php esc_js( 'Insert', '@@textdomain' ); ?>',
+								text: '<?php esc_js( 'Insert', 'york-lite' ); ?>',
 								click: function() {
 									var models = frame.state().get('selection'),
 									url = models.first().attributes.url;
@@ -99,20 +99,20 @@ function york_create_meta_box( $post, $meta_box ) {
 						e.preventDefault();
 
 						var options = {
-							title: '<?php esc_html_e( 'Create Gallery', '@@textdomain' ); ?>',
+							title: '<?php esc_html_e( 'Create Gallery', 'york-lite' ); ?>',
 							state: 'gallery-edit',
 							frame: 'post',
 							selection: selection
 						};
 
 						if( frame || selection ) {
-							options['title'] = '<?php esc_html_e( 'Edit Gallery', '@@textdomain' ); ?>';
+							options['title'] = '<?php esc_html_e( 'Edit Gallery', 'york-lite' ); ?>';
 						}
 
 						frame = wp.media(options).open();
 						
-						frame.menu.get('view').get('cancel').el.innerHTML = '<?php esc_html_e( 'Cancel', '@@textdomain' ); ?>';
-						frame.menu.get('view').get('gallery-edit').el.innerHTML = '<?php esc_html_e( 'Edit Gallery', '@@textdomain' ); ?>';
+						frame.menu.get('view').get('cancel').el.innerHTML = '<?php esc_html_e( 'Cancel', 'york-lite' ); ?>';
+						frame.menu.get('view').get('gallery-edit').el.innerHTML = '<?php esc_html_e( 'Edit Gallery', 'york-lite' ); ?>';
 						frame.content.get('view').sidebar.unset('gallery');
 
 						overrideGalleryInsert();
@@ -146,7 +146,7 @@ function york_create_meta_box( $post, $meta_box ) {
 							frame.toolbar.get('view').set({
 								insert: {
 									style: 'primary',
-									text: '<?php esc_html_e( 'Save Gallery', '@@textdomain' ); ?>',
+									text: '<?php esc_html_e( 'Save Gallery', 'york-lite' ); ?>',
 
 									click: function() {
 										var models = frame.state().get('library'),
@@ -156,7 +156,7 @@ function york_create_meta_box( $post, $meta_box ) {
 											ids += attachment.id + ','
 										});
 
-										this.el.innerHTML = '<?php esc_html_e( 'Saving&hellip;', '@@textdomain' ); ?>';
+										this.el.innerHTML = '<?php esc_html_e( 'Saving&hellip;', 'york-lite' ); ?>';
 										
 										$.ajax({
 											type: 'POST',
@@ -219,9 +219,9 @@ function york_create_meta_box( $post, $meta_box ) {
 				<?php
 				$meta = get_post_meta( $post->ID, '_bean_image_ids', true );
 				$thumbnail_output = '';
-				$button_text = ($meta) ? esc_html__('Edit Gallery', '@@textdomain') : $field['std'];
+				$button_text = ($meta) ? esc_html__('Edit Gallery', 'york-lite') : $field['std'];
 				if( $meta ) {
-					$field['std'] = esc_html__('Edit Gallery', '@@textdomain');
+					$field['std'] = esc_html__('Edit Gallery', 'york-lite');
 					$thumbs = explode(',', $meta);
 					$thumbnail_output = '';
 					foreach( $thumbs as $thumb ) {
@@ -285,7 +285,7 @@ function york_create_meta_box( $post, $meta_box ) {
 				}
 
 				echo '<input type="hidden" name="york_meta['. $field['id'] .']" value="off" />
-				<input type="checkbox" id="'. $field['id'] .'" name="york_meta['. $field['id'] .']" value="on"'. $val .' /><span>'. esc_html__('Yes, please do', '@@textdomain') .'</span>';
+				<input type="checkbox" id="'. $field['id'] .'" name="york_meta['. $field['id'] .']" value="on"'. $val .' /><span>'. esc_html__('Yes, please do', 'york-lite') .'</span>';
 				echo '</td>';
 				break;
 		}

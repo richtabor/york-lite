@@ -28,17 +28,6 @@ function york_customizer_css() {
 	$overlay_text_color 		= get_theme_mod( 'overlay_text_color', '#ffffff' );
 	$site_logo_width 			= get_theme_mod( 'site_logo_width', '90' );
 
-	// Convert main text hex color to rgba.
-	$accent_color_rgb = york_hex2rgb( $accent_color );
-
-	// If the rgba values are empty return early.
-	if ( empty( $accent_color_rgb ) ) {
-		return;
-	}
-
-	$rgb_10_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.075)', $accent_color_rgb );
-	$rgb_50_opacity  = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.25)', $accent_color_rgb );
-
 	$body_typography_color = get_theme_mod( 'body_typography_color', '#000' );
 	$header_typography_color = get_theme_mod( 'header_typography_color', '#000' );
 	$body_secondary_typography_color = get_theme_mod( 'body_secondary_typography_color', '#909090' );
@@ -184,10 +173,6 @@ function york_customizer_css() {
 	body input[type="submit"][disabled]:hover,
 	body input[type="submit"][disabled]:focus {
 		background-color:'. esc_attr( $accent_color ) .';
-	}
-
-	article .yorkup--highlight {
-		background-image: linear-gradient(to bottom, '. esc_attr( $rgb_10_opacity ) .', '. esc_attr( $rgb_10_opacity ) .');
 	}
 
 	body.single-portfolio .navigation a:hover {

@@ -32,9 +32,9 @@ if ( ! function_exists( 'york_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on York, use a find and replace
-		 * to change '@@textdomain' to the name of your theme in all the template files
+		 * to change 'york-lite' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( '@@textdomain', get_parent_theme_file_path( '/languages' ) );
+		load_theme_textdomain( 'york-lite', get_parent_theme_file_path( '/languages' ) );
 
 		/*
 		 * Add default posts and comments RSS feed links to head.
@@ -74,9 +74,9 @@ if ( ! function_exists( 'york_setup' ) ) :
 		 * This theme uses wp_nav_menu() in the following locations.
 		 */
 		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary Menu', '@@textdomain' ),
-			'footer'  => esc_html__( 'Footer Menu', '@@textdomain' ),
-			'social'  => esc_html__( 'Social Menu', '@@textdomain' ),
+			'primary' => esc_html__( 'Primary Menu', 'york-lite' ),
+			'footer'  => esc_html__( 'Footer Menu', 'york-lite' ),
+			'social'  => esc_html__( 'Social Menu', 'york-lite' ),
 		) );
 
 		/*
@@ -137,7 +137,7 @@ if ( ! function_exists( 'york_setup' ) ) :
 
 			'attachments' => array(
 				'logo' => array(
-					'post_title' => _x( 'Logo', 'Theme starter content', '@@textdomain' ),
+					'post_title' => _x( 'Logo', 'Theme starter content', 'york-lite' ),
 					'file' => 'inc/customizer/images/logo.png',
 				),
 			),
@@ -145,7 +145,7 @@ if ( ! function_exists( 'york_setup' ) ) :
 			'options' => array(
 				'show_on_front' => 'page',
 				'page_on_front' => '{{home}}',
-				'blogdescription' => _x( 'A WordPress theme by ThemeBeans', 'Theme starter content', '@@textdomain' ),
+				'blogdescription' => _x( 'A WordPress theme by ThemeBeans', 'Theme starter content', 'york-lite' ),
 				'page_for_posts' => '{{blog}}',
 			),
 
@@ -156,7 +156,7 @@ if ( ! function_exists( 'york_setup' ) ) :
 			'nav_menus' => array(
 
 				'primary' => array(
-					'name' => esc_html__( 'Primary', '@@textdomain' ),
+					'name' => esc_html__( 'Primary', 'york-lite' ),
 					'items' => array(
 						'page_home',
 						'page_about',
@@ -164,7 +164,7 @@ if ( ! function_exists( 'york_setup' ) ) :
 				),
 
 				'footer' => array(
-					'name' => esc_html__( 'Footer', '@@textdomain' ),
+					'name' => esc_html__( 'Footer', 'york-lite' ),
 					'items' => array(
 						'page_home',
 						'page_about',
@@ -173,7 +173,7 @@ if ( ! function_exists( 'york_setup' ) ) :
 				),
 
 				'social' => array(
-					'name' => esc_html__( 'Social Menu', '@@textdomain' ),
+					'name' => esc_html__( 'Social Menu', 'york-lite' ),
 					'items' => array(
 						'link_twitter',
 						'link_instagram',
@@ -236,9 +236,9 @@ add_action( 'after_setup_theme', 'york_content_width', 0 );
  */
 function york_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Flyout', '@@textdomain' ),
+		'name'          => esc_html__( 'Flyout', 'york-lite' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Appears on the theme flyout sidebar.', '@@textdomain' ),
+		'description'   => esc_html__( 'Appears on the theme flyout sidebar.', 'york-lite' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h6 class="widget-title">',
@@ -246,9 +246,9 @@ function york_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer', '@@textdomain' ),
+		'name'          => esc_html__( 'Footer', 'york-lite' ),
 		'id'            => 'footer',
-		'description'   => esc_html__( 'Appears at the top of the site footer.', '@@textdomain' ),
+		'description'   => esc_html__( 'Appears at the top of the site footer.', 'york-lite' ),
 		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s clearfix">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h6 class="widget-title">',
@@ -307,9 +307,9 @@ if ( ! function_exists( 'york_scripts' ) ) :
 			wp_enqueue_script( 'infinitescroll', get_theme_file_uri( '/assets/js/vendors/infinitescroll.js' ), array( 'jquery' ), '@@pkg.version', true );
 
 			// Custom scripts.
-			wp_enqueue_script( 'york-global', get_theme_file_uri( '/assets/js/custom/global.js' ), array( 'jquery', 'masonry', 'imagesloaded' ), '@@pkg.version', true );
+			wp_enqueue_script( 'york-custom', get_theme_file_uri( '/assets/js/custom/custom.js' ), array( 'jquery', 'masonry', 'imagesloaded' ), '@@pkg.version', true );
 
-			$translation_handle = 'york-global'; // Variable for wp_localize_script.
+			$translation_handle = 'york-custom'; // Variable for wp_localize_script.
 
 		} else {
 			wp_enqueue_script( 'york-vendors-min', get_theme_file_uri( '/assets/js/vendors.min.js' ), array( 'jquery' ), '@@pkg.version', true );
@@ -320,9 +320,9 @@ if ( ! function_exists( 'york_scripts' ) ) :
 
 		// Translations in the custom functions.
 		$translation_array = array(
-			'york_comment' => esc_html__( 'Write a comment . . .', '@@textdomain' ),
-			'york_author'  => esc_html__( 'Name', '@@textdomain' ),
-			'york_email'   => esc_html__( 'email@address.com', '@@textdomain' ),
+			'york_comment' => esc_html__( 'Write a comment . . .', 'york-lite' ),
+			'york_author'  => esc_html__( 'Name', 'york-lite' ),
+			'york_email'   => esc_html__( 'email@address.com', 'york-lite' ),
 		);
 
 		wp_localize_script( $translation_handle, 'york_translation', $translation_array );
@@ -345,7 +345,7 @@ if ( ! function_exists( 'york_fonts_url' ) ) :
 		$subsets   = '';
 
 		/* translators: If there are characters in your language that are not supported by Playfair Display, translate this to 'off'. Do not translate into your own language. */
-		if ( 'off' !== esc_html_x( 'on', 'Playfair Display font: on or off', '@@textdomain' ) ) {
+		if ( 'off' !== esc_html_x( 'on', 'Playfair Display font: on or off', 'york-lite' ) ) {
 			$fonts[] = 'Playfair Display';
 		}
 
@@ -449,7 +449,7 @@ if ( ! function_exists( 'york_protected_form' ) ) :
 		$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
 
 		$o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
-		<label for="' . esc_attr__( $label ) . '">' . __( 'Password:', '@@textdomain' ) . ' </label><input name="post_password" placeholder="' . esc_html__( 'Enter password & press enter&hellip;', '@@textdomain' ) . '" type="password" placeholder=""/><input type="submit" name="Submit" value="' . esc_attr__( 'Submit', '@@textdomain' ) . '" />
+		<label for="' . esc_attr__( $label ) . '">' . __( 'Password:', 'york-lite' ) . ' </label><input name="post_password" placeholder="' . esc_html__( 'Enter password & press enter&hellip;', 'york-lite' ) . '" type="password" placeholder=""/><input type="submit" name="Submit" value="' . esc_attr__( 'Submit', 'york-lite' ) . '" />
 		</form>
 		';
 
@@ -543,16 +543,16 @@ if ( ! function_exists( 'york_comments' ) ) :
 
 				<div class="comment-author vcard">
 					<?php echo get_avatar( $comment, $size = '76' ); ?>
-					<?php printf( wp_kses( __( '<cite class="fn">%s</cite> ', '@@textdomain' ), $allowed_html_array ), get_comment_author_link() ) ?></span>
+					<?php printf( wp_kses( __( '<cite class="fn">%s</cite> ', 'york-lite' ), $allowed_html_array ), get_comment_author_link() ) ?></span>
 				</div>
 
 				<p class="comment-meta commentmetadata subtext">
-					<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( esc_html__(' %1$s at %2$s', '@@textdomain'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link( esc_html__( 'Edit', '@@textdomain'),' &middot; ','' ); ?><?php comment_reply_link( array_merge( $args, array('before' => ' &middot; ', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ) ?>
+					<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( esc_html__(' %1$s at %2$s', 'york-lite'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link( esc_html__( 'Edit', 'york-lite'),' &middot; ','' ); ?><?php comment_reply_link( array_merge( $args, array('before' => ' &middot; ', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ) ?>
 				</p>
 
 				<div class="comment-body">
 					<?php if ( $comment->comment_approved === '0' ) : ?>
-						<span class="moderation"><?php esc_html_e('Awaiting Moderation', '@@textdomain') ?></span>
+						<span class="moderation"><?php esc_html_e('Awaiting Moderation', 'york-lite') ?></span>
 					<?php endif; ?>
 				<?php comment_text() ?>
 				</div>
@@ -599,11 +599,6 @@ require get_theme_file_path( '/inc/template-tags.php' );
  * Load Jetpack compatibility file.
  */
 require get_theme_file_path( '/inc/jetpack.php' );
-
-/**
- * Load TGM.
- */
-require get_theme_file_path( '/inc/plugins.php' );
 
 /**
  * SVG icons functions and filters.

@@ -40,13 +40,13 @@ $portfolio_url_clean 	= preg_replace( '/\s+/', '', $portfolio_url_clean );
 
 	<?php if ( $portfolio_role ) { ?>
 		<p class="role">
-			<?php echo esc_html__( 'Role: ', '@@textdomain' ); ?><span><?php echo esc_html( $portfolio_role ); ?></span>
+			<?php echo esc_html__( 'Role: ', 'york-lite' ); ?><span><?php echo esc_html( $portfolio_role ); ?></span>
 		</p>
 	<?php } ?>
 
 	<?php if ( $portfolio_client ) { ?>
 		<p class="client">
-			<?php echo esc_html__( 'Client: ', '@@textdomain' ); ?>
+			<?php echo esc_html__( 'Client: ', 'york-lite' ); ?>
 			<span>
 			<?php if ( $portfolio_url ) { ?>
 				<a href="<?php echo esc_url( $portfolio_url ); ?>" target="blank"><?php echo esc_html( $portfolio_client ); ?></a>
@@ -59,7 +59,7 @@ $portfolio_url_clean 	= preg_replace( '/\s+/', '', $portfolio_url_clean );
 
 	<?php if ( $portfolio_url && ! $portfolio_client ) { ?>
 		<p class="url">
-			<?php echo esc_html__( 'URL: ', '@@textdomain' ); ?><span><a href="<?php echo esc_url( $portfolio_url ); ?>" target="blank"><?php echo esc_html( $portfolio_url_clean ); ?></a></span>
+			<?php echo esc_html__( 'URL: ', 'york-lite' ); ?><span><a href="<?php echo esc_url( $portfolio_url ); ?>" target="blank"><?php echo esc_html( $portfolio_url_clean ); ?></a></span>
 		</p>
 	<?php } ?>
 

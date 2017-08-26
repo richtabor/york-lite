@@ -21,11 +21,11 @@ if ( ! function_exists( 'york_entry_meta' ) ) :
 
 		if ( 'post' === get_post_type() ) {
 
-			printf( _x( '<span class="days-ago">%s ago </span>', '%s = human-readable time difference', '@@textdomain' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+			printf( _x( '<span class="days-ago">%s ago </span>', '%s = human-readable time difference', 'york-lite' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
 
 			printf( '<span class="byline"><span class="author vcard"><span class="screen-reader-text">%1$s</span> %2$s <a class="url fn n" href="%3$s">%4$s </a></span></span> ',
-				esc_html_x( 'Author', 'Used before post author name.', '@@textdomain' ),
-				esc_html( 'By', '@@textdomain' ),
+				esc_html_x( 'Author', 'Used before post author name.', 'york-lite' ),
+				esc_html( 'By', 'york-lite' ),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 				esc_html( get_the_author() )
 			);
@@ -72,7 +72,7 @@ if ( ! function_exists( 'york_entry_date' ) ) :
 		);
 
 		printf( '<span class="posted-on"><span class="screen-reader-text">%1$s</span><a href="%2$s" rel="bookmark">%3$s</a></span>',
-			esc_html_x( 'Posted on', 'Used before publish date.', '@@textdomain' ),
+			esc_html_x( 'Posted on', 'Used before publish date.', 'york-lite' ),
 			esc_url( get_permalink() ),
 			$time_string
 		);
@@ -90,7 +90,7 @@ if ( ! function_exists( 'york_social_navigation' ) ) :
 		 */
 		if ( has_nav_menu( 'social' ) ) : ?>
 
-			<nav class="social-navigation" aria-label="<?php esc_attr_e( 'Social Menu', '@@textdomain' ); ?>">
+			<nav class="social-navigation" aria-label="<?php esc_attr_e( 'Social Menu', 'york-lite' ); ?>">
 				
 				<?php
 					wp_nav_menu( array(
@@ -321,7 +321,7 @@ if ( ! function_exists( 'york_entry_footer' ) ) :
 			}
 
 			if ( $tags_list ) {
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', '@@textdomain' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'york-lite' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 	}

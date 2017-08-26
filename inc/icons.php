@@ -31,12 +31,12 @@ add_action( 'wp_footer', 'york_include_svg_icons', 9999 );
 function york_get_svg( $args = array() ) {
 	// Make sure $args are an array.
 	if ( empty( $args ) ) {
-		return __( 'Please define default parameters in the form of an array.', '@@textdomain' );
+		return __( 'Please define default parameters in the form of an array.', 'york-lite' );
 	}
 
 	// Define an icon.
 	if ( false === array_key_exists( 'icon', $args ) ) {
-		return __( 'Please define an SVG icon filename.', '@@textdomain' );
+		return __( 'Please define an SVG icon filename.', 'york-lite' );
 	}
 
 	// Set defaults.

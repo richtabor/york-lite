@@ -29,17 +29,18 @@ if ( ! is_404() ) : ?>
 				<div class="site-info">
 					
 					<span class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">&copy; <?php echo esc_html( date_i18n( __( 'Y','@@textdomain' ) ) ); ?> <?php bloginfo( 'name' ); ?></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">&copy; <?php echo esc_html( date_i18n( __( 'Y','york-lite' ) ) ); ?> <?php bloginfo( 'name' ); ?></a>
 					</span>
 				
 					<span class="site-theme">
-						<a href="https://themebeans.com/themes/york-pro/" class="powered-by-york"><?php printf( esc_html__( '%s by %s', '@@textdomain' ), 'York', 'ThemeBeans' ); ?></a>
+						<?php /* translators: 1: theme, 2: designer */ ?>
+						<a href="https://themebeans.com/themes/york-pro/" class="powered-by-york"><?php printf( esc_html__( '%1$s by %2$s', 'york-lite' ), 'York', 'ThemeBeans' ); ?></a>
 					</span>
 
 				</div>
 
 				<?php if ( has_nav_menu( 'footer' ) ) : ?>
-					<nav id="footer-navigation" class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer Menu', '@@textdomain' ); ?>">
+					<nav id="footer-navigation" class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'york-lite' ); ?>">
 						<?php wp_nav_menu( array(
 							'theme_location' => 'footer',
 							'menu_class'     => 'footer-menu',
