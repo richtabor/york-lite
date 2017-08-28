@@ -3,6 +3,12 @@
 	font-size: 90%;
 	line-height: 1.7;
 	margin-bottom: 15%;
+
+	&-title {
+		@include font-smoothing;
+		font-family: $font__heading;
+		font-weight: 400;
+	}
 }
 
 @media (min-width: 500px) {

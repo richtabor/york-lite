@@ -7,6 +7,11 @@
 		padding-top: 20vh;
 	}
 
+	&.entry-header {
+		padding-bottom: 0;
+
+	}
+
 	.home & {
 
 		@media (min-width: 600px) {

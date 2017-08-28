@@ -33,13 +33,11 @@
 
 			<div class="site-header--right"> 
 
-				<?php if ( has_nav_menu( 'primary' ) ) : ?>
-					<div class="hamburger hamburger--spin mobile-menu-toggle">
-						<div class="hamburger-box">
-							<div class="hamburger-inner"></div>
-						</div>
+				<div class="hamburger hamburger--spin mobile-menu-toggle">
+					<div class="hamburger-box">
+						<div class="hamburger-inner"></div>
 					</div>
-				<?php endif; ?> 
+				</div>
 
 			</div>
 

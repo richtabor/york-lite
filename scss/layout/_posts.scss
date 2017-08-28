@@ -28,7 +28,7 @@
 
 		@media (min-width: 768px) {
 			@include font-size(50px);
-			line-height: 1.9em;
+			line-height: 1.7em;
 		}
 	}
 
@@ -44,6 +44,8 @@
 
 	.cat-links,
 	.entry-meta {
+		font-size: $font-size__meta;
+		font-family: $font__heading;
 		display: inline-block;
 		margin-top: 3vh;
 

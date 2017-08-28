@@ -80,17 +80,6 @@ function york_customize_register( $wp_customize ) {
 	/**
 	 * Colors.
 	 */
-	$wp_customize->add_setting( 'york_background_color', array(
-		'default'               => '#ffffff',
-		'sanitize_callback'     => 'sanitize_hex_color',
-		'transport'             => 'postMessage',
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_background_color', array(
-		'label'                 => esc_html__( 'Background', 'york-lite' ),
-		'section'               => 'colors',
-	) ) );
-
 	$wp_customize->add_setting( 'body_typography_color', array(
 		'default'               => '#000000',
 		'sanitize_callback'     => 'sanitize_hex_color',
