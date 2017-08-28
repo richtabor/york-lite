@@ -1,0 +1,27 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $black;
+	font-family: $font__main;
+	font-size: 17px;
+	font-weight: normal;
+	line-height: 30px;
+
+	@media (min-width: 768px) {
+		font-size: 19px;
+		line-height: 1.8em;
+	}
+}
+
+body {
+	-webkit-overflow-scrolling: touch;
+	-webkit-text-size-adjust: none;
+	text-rendering: optimizeLegibility;
+	word-wrap: break-word;
+}
+
+@import "headings";
+
+@import "copy";

@@ -15,10 +15,19 @@
  */
 function york_customize_register( $wp_customize ) {
 
+	$wp_customize->get_setting( 'blogname' )->transport          = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport   = 'postMessage';
+
+	$wp_customize->selective_refresh->add_partial( 'blogname', array(
+		'selector' => '.site-title a',
+		'render_callback' => 'york_customize_partial_blogname',
+	) );
+
 	/**
 	 * Add custom controls.
 	 */
-	require get_parent_theme_file_path( '/inc/customizer/custom-controls/upgrade.php' );
+	include get_parent_theme_file_path( '/inc/customizer/class-york-range-control.php' );
+	include get_parent_theme_file_path( '/inc/customizer/class-york-upgrade-control.php' );
 
 	/**
 	 * Top-Level Customizer sections and panels.
@@ -35,16 +44,38 @@ function york_customize_register( $wp_customize ) {
 	 * @see https://github.com/justintadlock/trt-customizer-pro
 	 */
 
-	$wp_customize->register_section_type( 'York_Upgrade_Theme_Control' );
+	$wp_customize->register_section_type( 'York_Upgrade_Control' );
 
-	$wp_customize->add_section( new York_Upgrade_Theme_Control( $wp_customize, 'example_1', array(
+	$wp_customize->add_section( new York_Upgrade_Control( $wp_customize, 'theme_upgrade', array(
 		'type'                  => 'upgrade-theme',
 		'title'    		=> esc_html__( 'Upgrade to York Pro', 'york-lite' ),
 		'pro_text' 		=> esc_html__( 'Go Pro', 'york-lite' ),
-		'pro_url'  		=> 'https://themebeans.com/checkout?edd_action=add_to_cart&download_id=105665',
+		'pro_url'  		=> 'https://themebeans.com/checkout?edd_action=add_to_cart%26download_id=105665',
 		'priority' 		=> 9999,
 	) ) );
 
+	/**
+	 * Add the site logo max-width option to the Site Identity section.
+	 */
+	$wp_customize->add_setting( 'custom_logo_max_width', array(
+		'default'               => '90',
+		'transport'             => 'postMessage',
+		'sanitize_callback'     => 'absint',
+	) );
+
+	$wp_customize->add_control( new York_Range_Control( $wp_customize, 'custom_logo_max_width', array(
+		'default'               => '90',
+		'type'                  => 'custom-range',
+		'label'                 => esc_html__( 'Logo Max Width', 'york-lite' ),
+		'description'           => 'px',
+		'section'               => 'title_tagline',
+		'priority'              => 9,
+		'input_attrs'           => array(
+			'min'               => 0,
+			'max'               => 300,
+			'step'              => 2,
+		),
+	) ) );
 
 	/**
 	 * Colors.
@@ -204,7 +235,7 @@ function york_customize_register( $wp_customize ) {
 		'panel'       				=> 'york_theme_options',
 	) );
 
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'york_footertext_color', array(
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_text_color', array(
 			'label'                 => esc_html__( 'Footer Text', 'york-lite' ),
 			'section'               => 'york_footer',
 		) ) );
@@ -242,20 +273,6 @@ function york_customize_register( $wp_customize ) {
 			'section'               => 'york_footer',
 		) ) );
 
-	$wp_customize->add_setting( 'site_logo_width', array(
-		'default'               => '90',
-		'transport'             => 'postMessage',
-		'sanitize_callback'     => 'absint',
-	) );
-
-	$wp_customize->add_control( 'site_logo_width', array(
-		'type'              => 'text',
-		'label'                 => esc_html__( 'Logo Retina Width', 'york-lite' ),
-		'description'           => esc_html__( 'This value should be equal to half of the logo image width (in px). For example, enter "50" for a logo that is 100px wide.', 'york-lite' ),
-		'section'               => 'title_tagline',
-		'priority' 		=> 9,
-	) );
-
 	/**
 	 * Set transports for the Customizer.
 	 */
@@ -269,14 +286,26 @@ add_action( 'customize_register', 'york_customize_register', 11 );
  * Binds JS handlers to make the Customizer preview reload changes asynchronously.
  */
 function york_customize_preview_js() {
-	wp_enqueue_script( 'york-customize-preview', get_theme_file_uri( '/assets/js/admin/customize-preview.js' ), array( 'customize-preview' ), '@@pkg.version', true );
+	wp_enqueue_script( 'york-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview' ), '@@pkg.version', true );
 }
 add_action( 'customize_preview_init', 'york_customize_preview_js' );
 
 /**
- * Load dynamic logic for the customizer controls area.
+ * Register scripts and styles for the controls.
  */
-function york_customize_panel_js() {
-	wp_enqueue_script( 'york-customize-controls', get_theme_file_uri( '/assets/js/admin/customize-controls.js' ), array(), '@@pkg.version', true );
+function york_customize_panel_scripts() {
+	wp_enqueue_script( 'york-customize-controls', get_theme_file_uri( '/assets/js/customize-controls.js' ), array( 'customize-controls' ), '@@pkg.version', true );
+	wp_enqueue_style( 'york-customize-controls', get_theme_file_uri( '/assets/css/customize-controls.css' ), '@@pkg.version', true );
 }
-add_action( 'customize_controls_enqueue_scripts', 'york_customize_panel_js' );
+add_action( 'customize_controls_enqueue_scripts', 'york_customize_panel_scripts' );
+
+/**
+ * Render the site title for the selective refresh partial.
+ *
+ * @see york_customize_register()
+ *
+ * @return void
+ */
+function york_customize_partial_blogname() {
+	bloginfo( 'name' );
+}

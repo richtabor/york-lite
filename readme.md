@@ -52,10 +52,6 @@ normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
 License: MIT
 Source: https://necolas.github.io/normalize.css/
 
-Animsition, Copyright (c) 2013-2015 blivesta
-Licenses: MIT
-Source: https://github.com/blivesta/animsition
-
 FitVids, Copyright 2013, Chris Coyier
 License: WTFPL
 Source: https://github.com/davatron5000/FitVids.js

@@ -30,19 +30,16 @@ $is_active = ( ! is_active_sidebar( 'sidebar-1' ) ) ? 'no-widget-area' : 'has-wi
 					<?php wp_nav_menu( array(
 						'theme_location' => 'primary',
 						'menu_class'     => 'primary-menu',
-						'depth'         => '2',
-						'link_before' => '<span>',
-						'link_after' => '</span>',
-						'walker' => new YorkClassMobileNavigationWalker(),
+						'depth'          => '2',
 					) ); ?>
-				</nav><!-- .main-navigation -->
+				</nav>
 			<?php endif; ?>
 
 		</div>
 
 	</div>
 
-	<?php if ( is_active_sidebar( 'sidebar-1' )  ) : ?>
+	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 		<div class="sidebar--section widget-area">
 			<div class="sidebar--section-inner">
 				<?php dynamic_sidebar( 'sidebar-1' ); ?>

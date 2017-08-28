@@ -12,6 +12,8 @@
 
 <div id="projects" class="projects clearfix">
 
+	<div class="grid-sizer"></div>
+
 	<?php
 	$args = apply_filters( 'york_portfolio_args', array(
 		'post_type' => 'portfolio',

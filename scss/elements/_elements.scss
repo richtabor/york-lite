@@ -1,0 +1,113 @@
+html {
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+}
+
+*,
+*::before,
+*::after {
+	// Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+	box-sizing: inherit;
+}
+
+body {
+	background: $color--background-body; // Fallback for when there is no custom background color defined.
+	height: 100%;
+	width: 100%;
+}
+
+q,
+blockquote {
+	quotes: "" "";
+
+	&::before,
+	&::after {
+		content: "";
+	}
+}
+
+hr {
+	background-color: $color--background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+@import "lists";
+
+img {
+	height: auto; // Make sure images are scaled correctly.
+	max-width: 100%; // Adhere to container width. 
+	vertical-align: middle;
+}
+
+@import "tables";
+
+.hidden {
+	@include hide();
+	display: none;
+}
+
+.flex__center {
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+	max-width: 100%;
+	min-width: 0;
+}
+
+.flex__justify-end {
+	justify-content: flex-end;
+}
+
+.flex__justify-center {
+	justify-content: center;
+}
+
+.style__italic {
+	font-style: italic;
+}
+
+.style__bold {
+	font-weight: bold;
+}
+
+.style__bold-italic {
+	font-style: italic;
+	font-weight: bold;
+}
+
+.transform__uppercase {
+	text-transform: uppercase;
+}
+
+.transform__lowercase {
+	text-transform: lowercase;
+}
+
+.transform__capitalize {
+	text-transform: capitalize;
+}
+
+#sprite {
+	@include hide;
+}
+
+@-ms-viewport {
+	width: device-width;
+}
+
+@viewport {
+	width: device-width;
+}
+
+/*--------------------------------------------------------------
+#  Buttons
+--------------------------------------------------------------*/
+@import "buttons";
+
+/*--------------------------------------------------------------
+# Fields
+--------------------------------------------------------------*/
+@import "fields";

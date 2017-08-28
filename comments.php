@@ -37,12 +37,15 @@ if ( post_password_required() ) {
 						esc_html_e( 'One Comment', 'york-lite' );
 					} else {
 						printf(
-							/* translators: 1: number of comments */
-							_nx(
-								'%1$s Comment',
-								'%1$s Comments',
-								$comments_number,
-								'york-lite'
+							esc_html(
+								/* translators: 1: number of comments */
+								_nx(
+									'%s Comment',
+									'%s Comments',
+									$comments_number,
+									'number of comments',
+									'york-lite'
+								)
 							),
 							esc_html( number_format_i18n( $comments_number ) )
 						);
@@ -52,9 +55,9 @@ if ( post_password_required() ) {
 			
 			<?php else : ?>
 			
-			<h5 class="comments-title">
-				<?php esc_html_e( 'Leave a Comment', 'york-lite' ); ?>
-			</h5>
+				<h5 class="comments-title">
+					<?php esc_html_e( 'Leave a Comment', 'york-lite' ); ?>
+				</h5>
 
 			<?php endif; ?>
 
@@ -63,36 +66,25 @@ if ( post_password_required() ) {
 			<?php if ( have_comments() ) : ?>
 			
 				<div id="comments-list" class="comments">
-					<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-					<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-						<h2 class="screen-reader-text"><?php esc_html_e( 'Comment Navigation', 'york-lite' ); ?></h2>
-						<div class="nav-links">
-							<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'york-lite' ) ); ?></div>
-							<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'york-lite' ) ); ?></div>
-						</div><!-- .nav-links -->
-					</nav><!-- #comment-nav-above -->
-					<?php endif; // Check for comment navigation. ?>
 
 					<ol class="commentlist block comment-list">
 						<?php
 							wp_list_comments( array(
-								'style'      => 'ol',
-								'short_ping' => true,
-								'callback' => 'york_comments',
+								'avatar_size' => 100,
+								'style'       => 'ol',
+								'short_ping'  => true,
 							) );
 						?>
 					</ol><!-- .comment-list -->
 
 					<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-					<nav id="comment-nav-below" class="navigation comment-navigation">
-						<h2 class="screen-reader-text"><?php esc_html_e( 'Comment Navigation', 'york-lite' ); ?></h2>
-						<div class="nav-links">
-
-							<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'york-lite' ) ); ?></div>
-							<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'york-lite' ) ); ?></div>
-
-						</div><!-- .nav-links -->
-					</nav><!-- #comment-nav-below -->
+						<nav id="comment-nav-below" class="navigation comment-navigation">
+							<h2 class="screen-reader-text"><?php esc_html_e( 'Comment Navigation', 'york-lite' ); ?></h2>
+							<div class="nav-links">
+								<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'york-lite' ) ); ?></div>
+								<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'york-lite' ) ); ?></div>
+							</div><!-- .nav-links -->
+						</nav><!-- #comment-nav-below -->
 					<?php
 					endif; // Check for comment navigation. ?>
 

@@ -16,9 +16,9 @@ if ( ! is_404() ) : ?>
 			
 			<?php get_sidebar(); ?>
 
-			<footer id="colophon" class="site-footer animsition">
+			<footer id="colophon" class="site-footer">
 				
-				<?php if ( is_active_sidebar( 'footer' )  ) : ?>
+				<?php if ( is_active_sidebar( 'footer' ) ) : ?>
 					<div class="footer-sidebar widget-area">
 						<?php dynamic_sidebar( 'footer' ); ?>
 					</div>
@@ -29,7 +29,7 @@ if ( ! is_404() ) : ?>
 				<div class="site-info">
 					
 					<span class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">&copy; <?php echo esc_html( date_i18n( __( 'Y','york-lite' ) ) ); ?> <?php bloginfo( 'name' ); ?></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">&copy; <?php echo esc_html( date_i18n( __( 'Y', 'york-lite' ) ) ); ?> <?php bloginfo( 'name' ); ?></a>
 					</span>
 				
 					<span class="site-theme">

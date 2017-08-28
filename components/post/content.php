@@ -17,8 +17,14 @@
 	<header class="entry-header">
 		
 		<?php
-		if ( is_sticky() && is_home() ) :
-			echo wp_kses( york_get_svg( array( 'icon' => 'sticky' ) ), york_svg_allowed_html() );
+		if ( is_sticky() ) :
+			echo wp_kses(
+				york_get_svg(
+					array(
+						'icon' => 'sticky',
+					)
+				),
+			york_svg_allowed_html() );
 		endif;
 
 		york_entry_categories();
@@ -30,7 +36,7 @@
 		endif;
 		?>
 
-		<?php york_entry_meta(); ?>
+		<?php york_posted_on(); ?>
 
 	</header>
 

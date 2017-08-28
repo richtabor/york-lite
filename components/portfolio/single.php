@@ -8,12 +8,7 @@
  * @license @@pkg.license
  */
 
-/*
- * Set variables for the content below.
- */
-$portfolio_cats = get_post_meta( $post->ID, '_bean_portfolio_cats', true );
-$portfolio_tags = get_post_meta( $post->ID, '_bean_portfolio_tags', true ); ?>
-
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
 
 	<div class="hero">
@@ -22,24 +17,22 @@ $portfolio_tags = get_post_meta( $post->ID, '_bean_portfolio_tags', true ); ?>
 		
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-			<?php if ( 'on' === $portfolio_cats or 'on' === $portfolio_tags ) { ?> 
+			<div class="entry-meta">
 
-				<div class="project-taxonomy">
-					<p><?php york_entry_taxonomies(); ?></p>
-				</div>
+				<?php the_time( get_option( 'date_format' ) ); ?>
 
-			<?php } ?>
+				<?php york_portfolio_categories(); ?>
+
+				<?php the_meta(); ?>
+
+			</div>
 
 		</header>
 
-		<div class="project-description entry-content">
+		<div class="entry-content">
 			<?php the_content(); ?>
 		</div>
-	
-		<?php get_template_part( 'components/portfolio/portfolio-meta' ); ?>
-		
-	</div>
 
-	<?php york_gallery( $post->ID, 'york-portfolio-full' ); ?>
+	</div>
 
 </article>

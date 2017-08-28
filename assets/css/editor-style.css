@@ -1,4 +1,57 @@
 /*
-Theme Name: York
+Theme Name: York Lite
 Description: Used to style the TinyMCE editor.
 */
+
+
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Body
+ * 2.0 - Typography
+ * 3.0 - Elements
+ * 4.0 - Alignment
+ * 5.0 - Caption
+ * 6.0 - Galleries
+ * 7.0 - Media Elements
+ * 8.0 - RTL
+ */
+
+/**
+ * 1.0 - Body
+ */
+
+body {
+	background-color: #fff;
+	color: #000;
+	margin: 20px 40px;
+	max-width: 580px;
+}
+
+/**
+ * 2.0 - Typography
+ */
+
+body,
+button,
+input,
+select,
+textarea {
+	font-family: "Playfair Display", "Georgia", helvetica, arial, sans-serif;
+/*	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.66;*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+/*	clear: both;
+	line-height: 1.4;
+	margin: 0 0 0.75em;
+	padding: 1.5em 0 0;*/
+}

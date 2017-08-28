@@ -10,29 +10,64 @@
  * @license @@pkg.license
  */
 
-if ( ! function_exists( 'york_entry_meta' ) ) :
+if ( ! function_exists( 'york_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the author and comments.
-	 * Create your own york_entry_meta() to override in a child theme.
+	 * Based on the function from Twenty Seventeen.
 	 */
-	function york_entry_meta() {
+	function york_posted_on() {
 
-		echo '<div class="entry-meta">';
+		// Get the author name; wrap it in a link.
+		$byline = sprintf(
+			/* translators: %s: post author */
+			__( 'by %s', 'york-lite' ),
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a></span>'
+		);
 
-		if ( 'post' === get_post_type() ) {
+		$allowed_html = array(
+			'time' => array(
+				'class' => array(),
+				'datetime' => array(),
+			),
+			'span' => array(
+				'class' => array(),
+			),
+			'a' => array(
+				'class' => array(),
+				'href' => array(),
+			),
+		);
 
-			printf( _x( '<span class="days-ago">%s ago </span>', '%s = human-readable time difference', 'york-lite' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+		// Finally, let's write all of this to the page.
+		echo '<div class="entry-meta"><span class="posted-on">' . wp_kses( york_time_link(), $allowed_html ) . '</span><span class="byline"> ' . wp_kses( $byline, $allowed_html ) . '</span></div>';
 
-			printf( '<span class="byline"><span class="author vcard"><span class="screen-reader-text">%1$s</span> %2$s <a class="url fn n" href="%3$s">%4$s </a></span></span> ',
-				esc_html_x( 'Author', 'Used before post author name.', 'york-lite' ),
-				esc_html( 'By', 'york-lite' ),
-				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-				esc_html( get_the_author() )
-			);
+	}
+endif;
+
+if ( ! function_exists( 'york_time_link' ) ) :
+	/**
+	 * Gets a nicely formatted string for the published date.
+	 * Based on the function from Twenty Seventeen.
+	 */
+	function york_time_link() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		echo '</div>';
+		$time_string = sprintf( $time_string,
+			get_the_date( DATE_W3C ),
+			get_the_date(),
+			get_the_modified_date( DATE_W3C ),
+			get_the_modified_date()
+		);
 
+		// Wrap the time string in a link, and preface it with 'Posted on'.
+		return sprintf(
+			/* translators: %s: post date */
+			__( '<span class="screen-reader-text">Posted on</span> %s', 'york-lite' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		);
 	}
 endif;
 
@@ -49,33 +84,6 @@ if ( ! function_exists( 'york_entry_categories' ) ) :
 				printf( '<span class="cat-links">%1$s</span><br>', $categories_list ); // WPCS: XSS OK.
 			}
 		}
-	}
-endif;
-
-if ( ! function_exists( 'york_entry_date' ) ) :
-	/**
-	 * Print HTML with date information for current post.
-	 * Create your own york_entry_date() to override in a child theme.
-	 */
-	function york_entry_date() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-		}
-
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( get_option( 'date_format' ) ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( get_option( 'date_format' ) ) ),
-			esc_html( get_the_modified_date() )
-		);
-
-		printf( '<span class="posted-on"><span class="screen-reader-text">%1$s</span><a href="%2$s" rel="bookmark">%3$s</a></span>',
-			esc_html_x( 'Posted on', 'Used before publish date.', 'york-lite' ),
-			esc_url( get_permalink() ),
-			$time_string
-		);
 	}
 endif;
 
@@ -117,113 +125,38 @@ if ( ! function_exists( 'york_site_logo' ) ) :
 	 * If not, there's a fallback of site_logo in the Theme Customizer.
 	 */
 	function york_site_logo() {
-		if ( function_exists( 'the_custom_logo' ) ) {
-			the_custom_logo();
-		} else { ?>
-			<h1 class="site-logo-link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+
+		if ( has_custom_logo() ) {
+
+			echo '<div class="site-logo" itemscope itemtype="http://schema.org/Organization">';
+				the_custom_logo();
+			echo '</div>'; ?>
+
+		<?php } else { ?>
+			<h1 class="site-title" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
 		<?php }
 	}
 
-	add_filter( 'get_custom_logo' , function( $html ) {
-		if ( empty( $html ) ) {
-			$html = '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home" class="custom-logo-link"><img src="' . get_theme_file_uri( '/assets/images/logo.png' ) . '"></a>';
-		}
-		return $html;
-	});
-
 endif;
 
-if ( ! function_exists( 'york_gallery' ) ) :
+if ( ! function_exists( 'york_portfolio_categories' ) ) :
 	/**
-	 * Return the portfolio and post galleries.
-	 *
-	 * Checks if there are images uploaded to the post or portfolio post and outputs them.
-	 * Create your own york_gallery() to override in a child theme.
-	 *
-	 * @param  string $postid The post id.
-	 * @param  array  $imagesize The size of the thumbnails.
+	 * Print HTML with category for current post.
+	 * Create your own york_portfolio_categories() to override in a child theme.
 	 */
-	function york_gallery( $postid, $imagesize ) {
-
-		$thumb_id 			= get_post_thumbnail_id( $postid );
-		$image_ids_raw  	= get_post_meta( $postid, '_bean_image_ids', true );
-
-		wp_reset_postdata();
-
-		if ( '' !== $image_ids_raw ) {
-			$image_ids = explode( ',' , $image_ids_raw );
-			$post_parent = null;
-		} else {
-			$image_ids = '';
-			$post_parent = $postid;
-		}
-
-		$i = 1;
-
-		$args = array(
-			'exclude' 		 => $thumb_id,
-			'include' 		 => $image_ids,
-			'orderby' 		 => 'post__in',
-			'order' 		 => 'ASC',
-			'post_type' 	 => 'attachment',
-			'post_parent' 	 => $post_parent,
-			'post_mime_type' => 'image',
-			'post_status' 	 => null,
-			);
-
-		$attachments = get_posts( $args ); ?>
-			
-		<div class="project-assets">
-
-			<div itemscope itemtype="http://schema.org/ImageGallery">
-				
-				<?php
-				if ( ! empty( $attachments ) ) {
-
-					if ( ! post_password_required() ) {
-
-						foreach ( $attachments as $attachment ) {
-
-							$alt = ( ! empty( $attachment->post_content ) ) ? $attachment->post_content : $attachment->post_title;
-							$src = wp_get_attachment_image_src( $attachment->ID, $imagesize ); ?>
-
-							<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-								<?php echo '<img src="'.esc_url( $src[0] ).'"/>'; ?>
-							</figure>
-
-							<?php
-						}
-					}
-				} ?>
-
-			</div>
-		</div>	
-	<?php
-	}
-endif;
-
-if ( ! function_exists( 'york_entry_taxonomies' ) ) :
-	/**
-	 * Print HTML with category and tags for current post.
-	 * Create your own york_entry_taxonomies() to override in a child theme.
-	 */
-	function york_entry_taxonomies() {
+	function york_portfolio_categories() {
 
 		global $post;
 
-		$portfolio_cats = get_post_meta( $post->ID, '_bean_portfolio_cats', true );
-		$portfolio_tags = get_post_meta( $post->ID, '_bean_portfolio_tags', true );
+		$terms = get_the_terms( $post->ID, 'portfolio_category' );
 
-		if ( 'on' === $portfolio_cats ) :
-			$terms = get_the_terms( $post->ID, 'portfolio_category' );
+		if ( $terms && ! is_wp_error( $terms ) ) :
 
-			if ( $terms && ! is_wp_error( $terms ) ) :
+			echo '<div class="entry-categories">';
+
 				the_terms( $post->ID, 'portfolio_category','', '', '' );
-			endif;
-		endif;
 
-		if ( 'on' === $portfolio_tags ) :
-			the_terms( $post->ID, 'portfolio_tag','', '', '' );
+			echo '</div>';
 		endif;
 	}
 endif;
@@ -243,20 +176,22 @@ if ( ! function_exists( 'york_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( '' !== get_the_post_thumbnail() ) {
+		if ( '' !== get_the_post_thumbnail() ) { ?>
 
-			echo '<div class="entry-media">';
+			<div class="entry-media">
+				
+				<?php if ( is_singular() ) :
+					the_post_thumbnail( 'page_post-feat' );
+				else : ?>
+					<a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>" aria-hidden="true">
+						<?php the_post_thumbnail( 'page_post-feat' );  ?>
+					</a>
+					<?php
+				endif; ?>
 
-			if ( is_singular() ) :
-				the_post_thumbnail( 'page_post-feat' );
-			else : ?>
-				<a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>" aria-hidden="true">
-					<?php the_post_thumbnail( 'page_post-feat', array( 'alt' => the_title_attribute( 'echo=0' ) ) );  ?>
-				</a>
-				<?php
-			endif;
+			</div>
 
-			echo '</div>';
+			<?php
 		}
 	}
 endif;
@@ -312,7 +247,7 @@ if ( ! function_exists( 'york_entry_footer' ) ) :
 	 */
 	function york_entry_footer() {
 		// Hide category and tag text for pages.
-		if ( is_singular() && 'post' == get_post_type() ) {
+		if ( is_singular() && 'post' === get_post_type() ) {
 
 			$tags_list = get_the_tag_list( '', ', ' );
 
@@ -321,101 +256,9 @@ if ( ! function_exists( 'york_entry_footer' ) ) :
 			}
 
 			if ( $tags_list ) {
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'york-lite' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				/* Translators: number of comments */
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %s', 'york-lite' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
-		}
-	}
-endif;
-
-if ( ! class_exists( 'YorkClassMobileNavigationWalker' ) ) :
-	/**
-	 * Determine whether blog/site has more than one category.
-	 *
-	 * @return bool True of there is more than one category, false otherwise.
-	 */
-	class YorkClassMobileNavigationWalker extends Walker_Nav_Menu {
-
-
-		function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
-			$id_field = $this->db_fields['id'];
-			if ( is_object( $args[0] ) ) {
-				$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
-			}
-			return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-		}
-
-		function start_lvl( &$output, $depth = 0, $args = array() ) {
-			$indent = str_repeat( "\t", $depth );
-			$output .= "\n" . $indent  .'<ul class="sub_menu">' . "\n";
-		}
-
-		function end_lvl( &$output, $depth = 0, $args = array() ) {
-			$indent = str_repeat( "\t", $depth );
-			$output .= "$indent</ul>\n";
-		}
-
-		function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-
-			$sub = '';
-			$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // Code indent.
-
-			if ( $depth >= 0 && $args->has_children ) :
-				$sub = ' has_sub';
-			endif;
-
-			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-			$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
-
-			$anchor = '';
-			if ( '' !== $item->anchor ) {
-				$anchor = '#'.esc_attr( $item->anchor );
-			}
-
-			$active = '';
-			if ( '' === $item->anchor && ( ( 0 === $item->current && $depth ) || ( 0 === $item->current_item_ancestor && $depth ) ) ) :
-				$active = 'york-active-item';
-			endif;
-
-			$output .= $indent . '<li id="mobile-menu-item-'. $item->ID . '" class="' . $class_names . ' ' . $active . $sub .'">';
-
-			$current_a = '';
-
-			// Attributes.
-			$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-			$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target ) .'"' : '';
-			$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn ) .'"' : '';
-			$attributes .= ' href="'   . esc_attr( $item->url ) .$anchor.'"';
-
-			if ( ( 0 === $item->current && $depth ) || ( 0 === $item->current_item_ancestor && $depth ) ) :
-				$current_a .= ' current ';
-			endif;
-			if ( esc_attr( $item->url ) === '#' ) {
-				$current_a .= ' york-mobile-no-link';
-			}
-
-			$attributes .= ' class="'. $current_a . '"';
-			$item_output = $args->before;
-			if ( '' === $item->hide ) {
-				if ( '' === $item->nolink ) {
-					$item_output .= '<a'. $attributes .'>';
-				} else {
-					$item_output .= '<h6>';
-				}
-				$item_output .= $args->link_before .apply_filters( 'the_title', $item->title, $item->ID );
-				$item_output .= $args->link_after;
-				if ( '' === $item->nolink ) {
-					$item_output .= '</a>';
-				} else {
-					$item_output .= '</h6>';
-				}
-
-				if ( $args->has_children ) {
-					$item_output .= '<span class="mobile-navigation--arrow"></span>';
-				}
-			}
-			$item_output .= $args->after;
-
-			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
 	}
 endif;

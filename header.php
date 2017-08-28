@@ -23,7 +23,7 @@
 
 <?php if ( ! is_404() ) : ?>
 
-	<div id="page" class="hfeed site clearfix">
+	<div id="page" class="site clearfix">
 
 		<header id="masthead" class="site-header clearfix"> 
 				
@@ -45,7 +45,7 @@
 
 		</header><!-- .site-header -->
 	
-		<div id="content" class="site-content animsition clearfix">
+		<div id="content" class="site-content clearfix">
 			
 			<?php if ( is_singular( 'page' ) ) : ?>
 

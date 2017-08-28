@@ -1,4 +1,0 @@
-** York Changelog **
-
-1 July 2017 - Version 1.0.0
-        * Initial release

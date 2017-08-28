@@ -31,7 +31,9 @@ add_action( 'after_switch_theme', 'york_switch_theme' );
  * this theme on WordPress versions prior to 4.7.
  */
 function york_upgrade_notice() {
-	$message = sprintf( esc_html__( '@@pkg.name requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'york-lite' ), $GLOBALS['wp_version'] );
+
+	/* translators: installed WordPress version */
+	$message = sprintf( esc_html__( 'York Lite requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'york-lite' ), $GLOBALS['wp_version'] );
 	printf( '<div class="error"><p>%s</p></div>', esc_html( $message ) );
 }
 
@@ -39,7 +41,9 @@ function york_upgrade_notice() {
  * Prevent the Customizer from being loaded on WordPress versions prior to 4.7.
  */
 function york_customize() {
-	wp_die( sprintf( esc_html__( '@@pkg.name requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'york-lite' ), esc_html( $GLOBALS['wp_version'] ) ), '', array(
+
+	/* translators: installed WordPress version */
+	wp_die( sprintf( esc_html__( 'York Lite requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'york-lite' ), esc_html( $GLOBALS['wp_version'] ) ), '', array(
 		'back_link' => true,
 	) );
 }
@@ -49,8 +53,10 @@ add_action( 'load-customize.php', 'york_customize' );
  * Prevent the Theme Preview from being loaded on WordPress versions prior to 4.7.
  */
 function york_preview() {
+
 	if ( isset( $_GET['preview'] ) ) {
-		wp_die( sprintf( esc_html__( '@@pkg.name requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'york-lite' ), esc_html( $GLOBALS['wp_version'] ) ) );
+		/* translators: installed WordPress version */
+		wp_die( sprintf( esc_html__( 'York Lite requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'york-lite' ), esc_html( $GLOBALS['wp_version'] ) ) );
 	}
 }
 add_action( 'template_redirect', 'york_preview' );

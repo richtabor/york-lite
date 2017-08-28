@@ -18,12 +18,18 @@ get_header(); ?>
 
 <div id="projects" class="projects clearfix">
 
+	<div class="grid-sizer"></div>
+
 	<?php if ( have_posts() ) :
 
 		/* Start the Loop */
 		while ( have_posts() ) : the_post();
 
-			get_template_part( 'components/portfolio/portfolio-loop' );
+			if ( has_post_thumbnail() ) :
+
+				get_template_part( 'components/portfolio/portfolio-loop' );
+
+			endif;
 
 		endwhile; ?>
 

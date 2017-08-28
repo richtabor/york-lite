@@ -13,85 +13,27 @@
  */
 function york_customizer_css() {
 
-	$accent_color 		= get_theme_mod( 'accent_color', '#ff5c5c' );
+	$accent_color 				= get_theme_mod( 'accent_color', '#ff5c5c' );
 	$background_color 			= get_theme_mod( 'york_background_color', '#ffffff' );
 	$sitetitle_color 			= get_theme_mod( 'york_sitetitle_color', '#000000' );
-	$sitetitlehover_color 		= get_theme_mod( 'york_sitetitlehover_color', '#ff5c5c' );
-	$navigationicon_color 		= get_theme_mod( 'york_navigationicon_color', '#000000' );
-	$navigationiconhover_color 	= get_theme_mod( 'york_navigationiconhover_color', '#000000' );
-	$footertext_color 			= get_theme_mod( 'york_footertext_color', '#000000' );
+	$sitetitlehover_color 			= get_theme_mod( 'york_sitetitlehover_color', '#ff5c5c' );
+	$navigationicon_color 			= get_theme_mod( 'york_navigationicon_color', '#000000' );
+	$navigationiconhover_color 		= get_theme_mod( 'york_navigationiconhover_color', '#000000' );
+	$footertext_color 			= get_theme_mod( 'footer_text_color', '#000000' );
 	$footernav_a_color 			= get_theme_mod( 'footer_nav_color', '#909090' );
-	$footertexthover_color 		= get_theme_mod( 'footer_text_hover_color', '#ff5c5c' );
-	$footersocial_color 		= get_theme_mod( 'footer_social_color', '#000000' );
-	$sidebarsocial_color 		= get_theme_mod( 'york_sidebarsocial_color', '#000000' );
+	$footertexthover_color 			= get_theme_mod( 'footer_text_hover_color', '#ff5c5c' );
+	$footersocial_color 			= get_theme_mod( 'footer_social_color', '#000000' );
+	$sidebarsocial_color 			= get_theme_mod( 'york_sidebarsocial_color', '#000000' );
 	$overlay_color 				= get_theme_mod( 'overlay_color', '#000000' );
-	$overlay_text_color 		= get_theme_mod( 'overlay_text_color', '#ffffff' );
-	$site_logo_width 			= get_theme_mod( 'site_logo_width', '90' );
+	$overlay_text_color 			= get_theme_mod( 'overlay_text_color', '#ffffff' );
+	$site_logo_width 			= get_theme_mod( 'custom_logo_max_width', '90' );
 
-	$body_typography_color = get_theme_mod( 'body_typography_color', '#000' );
-	$header_typography_color = get_theme_mod( 'header_typography_color', '#000' );
-	$body_secondary_typography_color = get_theme_mod( 'body_secondary_typography_color', '#909090' );
-
-	$body_font_family = get_theme_mod( 'body_font_family', 'Playfair Display' );
-	$body_font_size = get_theme_mod( 'body_font_size', '18' );
-	$body_line_height = get_theme_mod( 'body_line_height', '1.8' );
-	$body_letter_spacing = get_theme_mod( 'body_letter_spacing', '0' );
-	$body_word_spacing = get_theme_mod( 'body_word_spacing', '0' );
-
-	$pagetitle_font_family = get_theme_mod( 'pagetitle_font_family', 'Playfair Display' );
-	$pagetitle_font_size = get_theme_mod( 'pagetitle_font_size', '4.75' );
-	$pagetitle_line_height = get_theme_mod( 'pagetitle_line_height', '1.4' );
-
-	$mobile_pagetitle_font_size = get_theme_mod( 'mobile_pagetitle_font_size', '40' );
-	$mobile_pagetitle_line_height = get_theme_mod( 'mobile_pagetitle_line_height', '1.4' );
-
-	$bigdesktop_pagetitle_font_size = get_theme_mod( 'bigdesktop_font_size', '90' );
-	$bigdesktop_pagetitle_line_height = get_theme_mod( 'bigdesktop_line_height', '1.4' );
-
-	$pagetitle_letter_spacing = get_theme_mod( 'pagetitle_letter_spacing', '0' );
-	$pagetitle_word_spacing = get_theme_mod( 'pagetitle_word_spacing', '0' );
+	$body_typography_color 			= get_theme_mod( 'body_typography_color', '#000' );
+	$header_typography_color 		= get_theme_mod( 'header_typography_color', '#000' );
+	$body_secondary_typography_color 	= get_theme_mod( 'body_secondary_typography_color', '#909090' );
 
 	$css =
 	'
-	body { 
-		font-family: '. esc_attr( $body_font_family ) .' !important; 
-		font-size: '. esc_attr( $body_font_size ) .'px !important; 
-	}
-
-	body #content {
-		line-height: '. esc_attr( $body_line_height ) .'em !important; 
-	}
-
-	body #content p {
-		letter-spacing: '. esc_attr( $body_letter_spacing ) .'px !important; 
-		word-spacing: '. esc_attr( $body_word_spacing ) .'px !important;
-	}
-	
-	body .hero .entry-title, 
-	body .project-caption,
-	body.single .navigation a { 
-		font-family: '. esc_attr( $pagetitle_font_family ) .' !important; 
-		font-size: '. esc_attr( $mobile_pagetitle_font_size ) .'px !important;              
-	}
-
-	@media screen and (max-width: 1920px) and (min-width: 823px) {
-		body .hero .entry-title, 
-		body .project-caption,
-		body.single .navigation a { 
-			font-size: '. esc_attr( $pagetitle_font_size ) .'vw !important; 
-			line-height: '. esc_attr( $pagetitle_line_height ) .'em !important; 
-		}
-	}
-
-	@media screen and (min-width: 1920px) {
-		body .hero .entry-title, 
-		body .project-caption,
-		body.single .navigation a {
-			font-size: '. esc_attr( $bigdesktop_pagetitle_font_size ) .'px !important; 
-			line-height: '. esc_attr( $bigdesktop_pagetitle_line_height ) .'em !important; 
-		}
-	}
-	
 	body .project .overlay {
 		background:'. esc_attr( $overlay_color ) .';
 	}
@@ -109,21 +51,21 @@ function york_customizer_css() {
 		background-color:'. esc_attr( $background_color ) .' !important;
 	}
 	
-	.custom-logo-link img {
+	body .custom-logo-link img {
 		width: '. esc_attr( $site_logo_width ) .'px;
 	}
 
-	body h1.site-logo-link {
+	body h1.site-title {
 		color: '. esc_attr( $sitetitle_color ) .' ;
 		border-color: '. esc_attr( $sitetitle_color ) .' ;
 	}
 
-	body h1.site-logo-link:hover,
-	body h1.site-logo-link:focus {
+	body h1.site-title:hover,
+	body h1.site-title:focus {
 		border-color: '. esc_attr( $sitetitlehover_color ) .' ;
 	}
 	
-	body h1.site-logo-link a:hover {
+	body h1.site-title a:hover {
 		color: '. esc_attr( $sitetitlehover_color ) .'!important;
 		border-color: '. esc_attr( $sitetitlehover_color ) .'!important;
 	}
@@ -316,7 +258,6 @@ function york_customizer_css() {
 	div.jp-volume-bar-value,
 	.bean-direction-nav a:hover,
 	.bean-pricing-table .table-mast,
-	.entry-categories a:hover, 
 	.bean-contact-form .bar:before { 
 		background-color:'. esc_attr( $accent_color ) .'; 
 	}

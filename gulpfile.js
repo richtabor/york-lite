@@ -19,7 +19,7 @@ var team                    = pkg.author_shop;
 var translatePath           = './languages';
 
 // Style related.
-var styleSRC                = './sass/style.scss'; // Path to main .scss file.
+var styleSRC                = './scss/style.scss'; // Path to main .scss file.
 var styleDestination        = './'; // Path to place the compiled CSS file.
 var cssFiles                = './**/*.css'; // Path to main .scss file.
 
@@ -29,22 +29,22 @@ var jsVendorDestination     = './assets/js/'; // Path to place the compiled JS v
 var jsVendorFile            = 'vendors'; // Compiled JS vendors file name.
 
 // JS Custom related.
-var jsCustomSRC             = './assets/js/custom/*.js'; // Path to JS custom scripts folder.
+var jsCustomSRC             = './assets/js/global.js'; // Path to JS custom scripts folder.
 var jsCustomDestination     = './assets/js/'; // Path to place the compiled JS custom scripts file.
-var jsCustomFile            = 'custom'; // Compiled JS custom file name.
+var jsCustomFile            = 'global'; // Compiled JS custom file name.
 
 // Images related.
 var imagesSRC               = './assets/images/src/**/*.{png,jpg,gif,svg}'; // Source folder of images which should be optimized.
 var imagesDestination       = './assets/images/'; // Destination folder of optimized images. Must be different from the imagesSRC folder.
 
 // Watch files paths.
-var styleWatchFiles         = './sass/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
+var styleWatchFiles         = './scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 var vendorJSWatchFiles      = './assets/js/vendors/**/*.js'; // Path to all vendor JS files.
 var customJSWatchFiles      = ['./assets/js/custom/**/*.js', '!_dist/assets/js/custom/**/*.js', '!_demo/assets/js/custom/**/*.js' ];
 var projectPHPWatchFiles    = ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*.php', '!_demo', '!_demo/**','!_demo/**/*.php'];
 
 // Build _dist contents.
-var distBuildFiles          = ['./**', '!sass', '!sass/**', '!_dist', '!_dist/**', '!_demo', '!_demo/**', '!node_module/', '!node_modules/**', '!*.json', '!*.map', '!*.xml', '!gulpfile.js', '!*.sublime-project', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.DS_Store', '!*.gitignore', '!TODO', '!*.git', '!*.DS_Store'];
+var distBuildFiles          = ['./**', '!scss', '!scss/**', '!_dist', '!_dist/**', '!_demo', '!_demo/**', '!node_module/', '!node_modules/**', '!*.json', '!*.map', '!*.xml', '!gulpfile.js', '!*.sublime-project', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.DS_Store', '!*.gitignore', '!TODO', '!*.git', '!*.DS_Store'];
 var distDestination         = './_dist/';
 
 // Build /slug/ contents within the _dist folder 
@@ -217,16 +217,6 @@ gulp.task( 'browser-sync', function() {
 
         .pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
 
-        .pipe( rename( { suffix: '.min' } ) )
-        .pipe( minifycss( {
-            maxLineLen: 10
-        }))
-        .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-        .pipe( gulp.dest( styleDestination ) )
-
-        .pipe( filter( '**/*.css' ) ) // Filtering stream to only css files
-        .pipe( browserSync.stream() )// Reloads style.min.css if that is enqueued.
-
         .pipe( notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) );
  });
 
@@ -243,69 +233,11 @@ gulp.task('rtl', function () {
 
 
 
-
 gulp.task('csscomb', function() {
   return gulp.src('style.css')
     .pipe( csscomb() )
     .pipe( gulp.dest( './' ) );
 });
-
-
-
-
- /**
-  * Task: `vendorJS`.
-  *
-  * Concatenate and uglify vendor JS scripts.
-  *
-  * This task does the following:
-  *         1. Gets the source folder for JS vendor files
-  *         2. Concatenates all the files and generates vendors.js
-  *         3. Renames the JS file with suffix .min.js
-  *         4. Uglifes/Minifies the JS file and generates vendors.min.js
-  */
- gulp.task( 'vendorsJs', function() {
-    gulp.src( jsVendorSRC )
-        .pipe( concat( jsVendorFile + '.min.js' ) )
-        .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-        .pipe( gulp.dest( jsVendorDestination ) )
-        .pipe( rename( {
-            basename: jsVendorFile,
-            suffix: '.min'
-        }))
-        // .pipe( uglify() )
-        .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-        .pipe( gulp.dest( jsVendorDestination ) )
-        .pipe( notify( { message: 'TASK: "vendorsJs" Completed! 💯', onLast: true } ) );
- });
-
-
- /**
-  * Task: `customJS`.
-  *
-  * Concatenate and uglify custom JS scripts.
-  *
-  * This task does the following:
-  *         1. Gets the source folder for JS custom files
-  *         2. Concatenates all the files and generates custom.js
-  *         3. Renames the JS file with suffix .min.js
-  *         4. Uglifes/Minifies the JS file and generates custom.min.js
-  */
- gulp.task( 'customJS', function() {
-    gulp.src( jsCustomSRC )
-        .pipe( concat( jsCustomFile + '.min.js' ) )
-        .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-        .pipe( gulp.dest( jsCustomDestination ) )
-        .pipe( rename( {
-            basename: jsCustomFile,
-            suffix: '.min'
-        }))
-        .pipe( uglify() )
-        .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-        .pipe( gulp.dest( jsCustomDestination ) )
-        .pipe( notify( { message: 'TASK: "customJs" Completed! 💯', onLast: true } ) );
- });
-
 
 
  /**
@@ -340,13 +272,10 @@ gulp.task('csscomb', function() {
   *
   * Watches for file changes and runs specific tasks.
   */
- gulp.task( 'default', ['clear','styles', 'vendorsJs', 'customJS', 'images' ,'browser-sync'], function () {
- // gulp.task( 'default', ['styles', 'vendorsJs', 'customJS', 'images', 'browser-sync'], function () {    
-    gulp.watch( projectPHPWatchFiles, reload ); // Reload on PHP file changes.
-    gulp.watch( styleWatchFiles, [ 'styles' ] ); // Reload on SCSS file changes.
-    gulp.watch( vendorJSWatchFiles, [ 'vendorsJs', reload ] ); // Reload on vendorsJs file changes.
-    gulp.watch( customJSWatchFiles, [ 'customJS', reload ] ); // Reload on customJS file changes.
- });
+gulp.task( 'default', ['clear','styles', 'images' ,'browser-sync' ], function () {
+	gulp.watch( projectPHPWatchFiles, reload ); // Reload on PHP file changes.
+	gulp.watch( styleWatchFiles, [ 'styles' ] ); // Reload on SCSS file changes.
+});
 
 
 
@@ -502,5 +431,5 @@ gulp.task('css_variables', function () {
 
 
 gulp.task('build', function(callback) {
-  runSequence( 'clear', 'clean', ['styles', 'css_variables', 'vendorsJs', 'customJS', 'translate', 'images'], 'copy_variables_zip-theme', 'notification--build', callback);
+  runSequence( 'clear', 'clean', ['styles', 'css_variables', 'customJS', 'translate', 'images'], 'copy_variables_zip-theme', 'notification--build', callback);
 });
