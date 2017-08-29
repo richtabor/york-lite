@@ -1,9 +1,13 @@
+.comment-content {
+	padding: 0;
+}
+
 .comments-area {
 	font-size: 17px;
 	line-height: 1.7;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 38em;
+	max-width: 700px;
 	padding: 0 4%;
 	@media only screen and (min-width: 768px) {
 	    padding: 0;
@@ -20,6 +24,7 @@
 	padding-bottom: 45px;
 	margin: 80px -4% 0;
 	width: calc(100% + 8%);
+
 	@media only screen and (min-width: 768px) {
 	    margin: 5vw -4% 0;
 	    padding-top: 80px;
@@ -43,10 +48,6 @@
 		padding: 0;
 	}
 
-	.comment-list > li:last-child .comment-body p:last-of-type {
-		margin-bottom: 0;
-	}
-
 	&-title {
 		margin-bottom: 30px;
 		margin-top: 0;
@@ -67,6 +68,7 @@
 		width: 30px;
 		height: 30px;
 		margin: 8px 10px 0 0 !important;
+
 		@media only screen and (min-width: 514px) {
 			width: 36px;
 			height: 36px;
@@ -76,20 +78,27 @@
 
 	&-meta,
 	&-author {
-		display: block;
 		color: rgba(0, 0, 0, 0.5);
-		font-style: normal;
+		display: block;
 		font-size: 13px;
 		margin: 0 0 10px;
+
 		@media only screen and (min-width: 514px) {
 			font-size: 16px; 
 		}
 
 		a {
 			color: rgba(0, 0, 0, 0.5);
+
 			&:hover {
 				color: $black;
 			}
+		}
+
+		b {
+			font-weight: normal;
+			-moz-osx-font-smoothing: inherit;
+			-webkit-font-smoothing: inherit;
 		}
 	}
 
@@ -113,30 +122,27 @@
 		display: none;
 	}
 
+	&-content {
+		margin-left: 50px;
+	}
+
 	&-content a {
 		word-wrap: break-word;
 	}
 
-	.moderation {
-		@include hide();
-	}
-
 	&-body {
 		clear: both;
+
 		@media only screen and (min-width: 514px) {
 			margin: 0 0 0 50px;      
-		}
-		
-		p {
-			margin-bottom: 0;
-			@media screen and (max-width: 768px) {
-				font-size: 16px;
-				line-height: 1.6;
-			}
 		}
 
 		.pingback & {
 			margin-left: 0;
+		}
+
+		p {
+			margin-bottom: 15px;
 		}
 	}
 }
@@ -152,13 +158,6 @@
 	}
 }
 
-.logged-in-as,
-.comment-reply-title,
-.page .comment-reply-title,
-#cancel-comment-reply-link {
-	@include hide();
-}
-
 .pinglist {
 	float: left;
 }
@@ -166,10 +165,6 @@
 .bypostauthor {
 	display: block;
 }
-
-// .page .comment-form {
-// 	margin-bottom: 50px;
-// }
 
 .comment-form {
 	margin-bottom: -110px;

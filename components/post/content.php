@@ -18,54 +18,48 @@
 		
 		<?php
 		if ( is_sticky() ) :
-			echo wp_kses(
-				york_get_svg(
-					array(
-						'icon' => 'sticky',
-					)
-				),
-			york_svg_allowed_html() );
+			echo wp_kses( york_get_svg( array( 'icon' => 'sticky' ) ), york_svg_allowed_html() );
 		endif;
 
-		york_entry_categories();
+		if ( 'post' === get_post_type() ) {
+			york_entry_categories();
+		}
 
-		if ( is_single() ) :
+		if ( is_single() ) {
 			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
+		} elseif ( is_front_page() && is_home() ) {
+			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+		} else {
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-		?>
+		}
 
-		<?php york_posted_on(); ?>
+		if ( 'post' === get_post_type() ) {
+			york_posted_on();
+		} ?>
 
 	</header>
 
 	<?php york_post_thumbnail(); ?>
 
-	<div class="post-content">
+	<div class="entry-content">
 
-		<?php if ( is_single() && has_excerpt() ) : ?>
-			<?php printf( '<h2 class="entry-excerpt">%1s</h2>', esc_html( get_the_excerpt() ) ); ?>
-		<?php endif; ?>
-		
-		<div class="entry-content">
-			<?php
-				the_content( '' );
+		<?php
+		/* translators: %s: Name of current post */
+		the_content( sprintf(
+			__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'york-lite' ),
+			get_the_title()
+		) );
 
-				wp_link_pages( array(
-					'before'      => '<div class="page-links">' . __( 'Pages:', 'york-lite' ),
-					'after'       => '</div>',
-					'link_before' => '<span class="page-number">',
-					'link_after'  => '</span>',
-				) );
-			?>
+		wp_link_pages( array(
+			'before'      => '<div class="page-links">' . __( 'Pages:', 'york-lite' ),
+			'after'       => '</div>',
+			'link_before' => '<span class="page-number">',
+			'link_after'  => '</span>',
+		) );
+		?>
 
-		</div>
-
-		<?php if ( is_singular( 'post' ) ) :  ?>
-			<?php get_template_part( 'components/post/biography' ); ?>
-		<?php endif; ?>
+		<?php york_entry_footer(); ?>
 
 	</div>
 
-</article>
+</article><!-- #post-## -->

@@ -64,7 +64,11 @@ function york_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+
+	add_image_size( 'york-featured-image', 9999, 9999, false );
+
 	add_image_size( 'york-portfolio-full', 9999, 9999, false );
+
 	add_image_size( 'york-portfolio-thumbnail', 9999, 9999 );
 
 	/*
@@ -237,8 +241,8 @@ function york_widgets_init() {
 		'description'   => esc_html__( 'Appears on the theme flyout sidebar.', 'york-lite' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h6 class="widget-title">',
-		'after_title'   => '</h6>',
+		'before_title'  => '<h5 class="widget-title">',
+		'after_title'   => '</h5>',
 	) );
 
 	register_sidebar( array(
@@ -247,8 +251,8 @@ function york_widgets_init() {
 		'description'   => esc_html__( 'Appears at the top of the site footer.', 'york-lite' ),
 		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s clearfix">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h6 class="widget-title">',
-		'after_title'   => '</h6>',
+		'before_title'  => '<h5 class="widget-title">',
+		'after_title'   => '</h5>',
 	) );
 }
 add_action( 'widgets_init', 'york_widgets_init' );
@@ -281,6 +285,7 @@ function york_scripts() {
 
 	// Scripts.
 	wp_enqueue_script( 'york-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery', 'masonry', 'imagesloaded' ), '@@pkg.version', true );
+	wp_enqueue_script( 'york-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '@@pkg.version', true );
 
 	// Translations in the custom functions.
 	$translation_array = array(
@@ -306,12 +311,25 @@ function york_fonts_url() {
 	 * supported by Playfair Display, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$playfair_display = _x( 'on', 'Playfair Display font: on or off', 'york-lite' );
+	$playfair_display = esc_html_x( 'on', 'Playfair Display font: on or off', 'york-lite' );
 
-	if ( 'off' !== $playfair_display ) {
+	/*
+	 * Translators: If there are characters in your language that are not
+	 * supported by Lora, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$lora = esc_html_x( 'on', 'Lora font: on or off', 'york-lite' );
+
+	if ( 'off' !== $playfair_display && 'off' !== $lora ) {
 		$font_families = array();
 
-		$font_families[] = 'Playfair Display:400,400i,700,700i';
+		if ( 'off' !== $playfair_display ) {
+			$font_families[] = 'Playfair Display:400,400i,700,700i';
+		}
+
+		if ( 'off' !== $lora ) {
+			$font_families[] = 'Lora:400,400i,700,700i';
+		}
 
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),

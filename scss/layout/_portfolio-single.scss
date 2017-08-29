@@ -10,8 +10,12 @@
 		}
 
 		.entry-meta {
-			font-size: $font-size__meta;
+			font-size: $font-size__meta-mobile;
 			margin-bottom: 33px;
+
+			@media (min-width: 600px) {
+				font-size: $font-size__meta;
+			}
 
 			ul,
 			li {

@@ -11,7 +11,8 @@
 	active	 	= ( 'js--active' ),
 	loaded		= ( 'js--loaded' ),
 	focus	 	= ( 'js--focus' ),
-	open	 	= ( 'nav-open' );
+	open	 	= ( 'nav-open' ),
+	finished	= ( 'nav-finished' );
 
 	/**
 	 * Test if inline SVGs are supported.
@@ -87,6 +88,10 @@
 		/* Enable menu toggle for small screens */
 		$( '.mobile-menu-toggle' ).on( 'click', function() {
 			body.toggleClass( open );
+
+			setTimeout(function() {
+	        		body.toggleClass( finished );
+	        	}, 400);
 		} );
 
 		$( '#nav-close' ).on( 'click', function() {

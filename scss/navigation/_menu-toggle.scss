@@ -1,31 +1,43 @@
 .hamburger {
 	padding: 15px;
 	display: inline-block;
-		cursor: pointer;
+	cursor: pointer;
 	font: inherit;
 	color: inherit;
 	text-transform: none;
 	background-color: transparent;
 	border: 0;
 	margin: 0;
-	height: 53px;
-	top: 5px;
+	top: -5px;
 	right: -15px;
 	position: relative;
 	overflow: visible;
-	transition: 500ms opacity cubic-bezier(0.3, -0.55, 0.1, 1.1);
-
+	transition: 500ms opacity cubic-bezier(0.3, -0.55, 0.1, 1.1), 0ms visibility ease 500ms;
 
 	@media (max-width: 1024px) {
 		.nav-open & {
 			opacity: 0;
+
+			&:hover {
+				opacity: 0;
+			}
 		}
+	}
+
+	&:hover {
+		opacity: 0.6 !important; 
+	}
+
+	.nav-finished .site-header--right & {
+
+		@media (max-width: 1024px) {
+			display: none;
+		}
+
 	}
 }
 
-.hamburger:hover {
-	opacity: 0.7; 
-}
+
 
 .hamburger-box {
 	width: 32px;
@@ -38,14 +50,17 @@
 	display: block;
 	top: 50%; 
 }
-.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
 	width: 32px;
 	height: 2px;
 	right: 0;
 	background-color: $black;
 	position: absolute;
 	transition-property: transform;
-	transition-duration: 0.15s;
+	transition-duration: 0.25s;
 	transition-timing-function: ease; 
 }
 
@@ -64,9 +79,7 @@
 	width: 25px;
 }
 
-
 @media (min-width: 900px) {
-
 	.hamburger-inner {
 		transition: all 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19); 
 	}
@@ -78,28 +91,24 @@
 	.hamburger-inner::after {
 		transition: bottom 0.1s 0.35s ease-in, transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19), width 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19); 
 	}
-
 }
 
 .nav-open .hamburger-inner {
 	transform: rotate(225deg);
 	width: 26px;
-	transition-delay: 0.22s;
-	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); 
+	// transition-delay: 0.22s; 
 }
 
 .nav-open .hamburger-inner::before {
 	top: 0;
 	opacity: 0;
 	width: 26px;
-	transition: top 0.1s ease-out, width 0.1s ease-out, opacity 0.1s 0.22s ease-out; 
 }
 
 .nav-open .hamburger-inner::after {
 	bottom: 0;
 	width: 26px;
 	transform: rotate(-90deg);
-	transition: bottom 0.1s ease-out, width 0.1s ease-out, transform 0.22s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 

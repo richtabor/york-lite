@@ -1,6 +1,14 @@
-.icon--wordpress,
-.icon--snapchat-ghost {
+#sprite {
+	@include hide;
+}
+
+.icon-wordpress,
+.icon-snapchat-ghost {
 	transform: scale(1) !important;
+}
+
+.icon-chain {
+	transform: scale(.9) !important;
 }
 
 .svg-fallback {

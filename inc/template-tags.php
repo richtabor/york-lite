@@ -81,7 +81,7 @@ if ( ! function_exists( 'york_entry_categories' ) ) :
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( '&nbsp;&middot;&nbsp;' );
 			if ( $categories_list && york_categorized_blog() ) {
-				printf( '<span class="cat-links">%1$s</span><br>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">%1$s</span>', $categories_list ); // WPCS: XSS OK.
 			}
 		}
 	}
@@ -181,10 +181,12 @@ if ( ! function_exists( 'york_post_thumbnail' ) ) :
 			<div class="entry-media">
 				
 				<?php if ( is_singular() ) :
-					the_post_thumbnail( 'page_post-feat' );
+					the_post_thumbnail( 'york-featured-image' );
 				else : ?>
 					<a class="post-thumbnail" href="<?php esc_url( the_permalink() ); ?>" aria-hidden="true">
-						<?php the_post_thumbnail( 'page_post-feat' );  ?>
+						<figure class="post-thumbnail__inner">
+							<?php the_post_thumbnail( 'york-featured-image' );  ?>
+						</figure>
 					</a>
 					<?php
 				endif; ?>

@@ -25,6 +25,8 @@
 
 	<div id="page" class="site clearfix">
 
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'york-lite' ); ?></a>
+
 		<header id="masthead" class="site-header clearfix"> 
 				
 			<div class="site-header--left">
@@ -33,7 +35,7 @@
 
 			<div class="site-header--right"> 
 
-				<div class="hamburger hamburger--spin mobile-menu-toggle">
+				<div class="hamburger mobile-menu-toggle">
 					<div class="hamburger-box">
 						<div class="hamburger-inner"></div>
 					</div>
@@ -45,7 +47,7 @@
 	
 		<div id="content" class="site-content clearfix">
 			
-			<?php if ( is_singular( 'page' ) ) : ?>
+			<?php if ( york_is_frontpage() ) : ?>
 
 				<header class="hero entry-header">
 

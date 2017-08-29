@@ -1,0 +1,25 @@
+.search-form {
+	position: relative;
+}
+
+.search .page-content {
+	padding-top: 5px;
+}
+
+.search .page-content input[type="search"].search-field {
+	width: calc(100% - 21%);
+}
+
+.search .page-content input[type="submit"] {
+	bottom: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20%;
+}
+
+.search .page-title {
+	text-align: center;
+}

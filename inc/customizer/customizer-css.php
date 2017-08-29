@@ -13,7 +13,7 @@
  */
 function york_customizer_css() {
 
-	$accent_color 				= get_theme_mod( 'accent_color', '#ff5c5c' );
+	$accent_color 				= get_theme_mod( 'accent_color', '#218799' );
 	$overlay_color 				= get_theme_mod( 'overlay_color', '#000000' );
 	$overlay_text_color 			= get_theme_mod( 'overlay_text_color', '#ffffff' );
 	$site_logo_width 			= get_theme_mod( 'custom_logo_max_width', '90' );
@@ -77,10 +77,6 @@ function york_customizer_css() {
 	.post-after a:hover,
 	.archives-list ul li a:hover { 
 		color:'. esc_attr( $accent_color ) .' !important; 
-	}
-
-	body .type-post .post-content blockquote::before {
-		color:'. esc_attr( $accent_color ) .';
 	}
 
 	body button:hover,

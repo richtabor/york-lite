@@ -15,7 +15,7 @@ $is_active = ( ! is_active_sidebar( 'sidebar-1' ) ) ? 'no-widget-area' : 'has-wi
 
 <aside id="secondary" class="sidebar <?php echo esc_attr( $is_active ); ?>">
 	
-	<div class="hamburger hamburger--spin mobile-menu-toggle close-toggle">
+	<div class="hamburger mobile-menu-toggle close-toggle">
 		<div class="hamburger-box">
 			<div class="hamburger-inner"></div>
 		</div>

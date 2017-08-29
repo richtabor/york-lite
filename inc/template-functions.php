@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom template tags for this theme.
+ * Additional features to allow styling of the templates.
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
@@ -32,16 +32,6 @@ function york_body_classes( $classes ) {
 		$classes[] = 'york-front-page';
 	}
 
-	/*
-	 * If comments are open or we have at least one comment, load up the comment template.
-	 *
-	 * @link https://codex.wordpress.org/Function_Reference/comments_open/
-	 * @link https://codex.wordpress.org/Template_Tags/get_comments_number/
-	 */
-	if ( comments_open() || get_comments_number() ) :
-		$classes[] = 'is-page-with-comments';
-	endif;
-
 	return $classes;
 }
 add_filter( 'body_class', 'york_body_classes' );
@@ -60,6 +50,7 @@ function york_is_frontpage() {
  * @return string
  */
 function york_add_a_menu( $args ) {
+
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}

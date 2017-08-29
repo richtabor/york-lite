@@ -17,16 +17,6 @@ body {
 	width: 100%;
 }
 
-q,
-blockquote {
-	quotes: "" "";
-
-	&::before,
-	&::after {
-		content: "";
-	}
-}
-
 hr {
 	background-color: $color--background-hr;
 	border: 0;
@@ -47,51 +37,6 @@ img {
 .hidden {
 	@include hide();
 	display: none;
-}
-
-.flex__center {
-	align-items: center;
-	display: flex;
-	flex: 1 1 auto;
-	max-width: 100%;
-	min-width: 0;
-}
-
-.flex__justify-end {
-	justify-content: flex-end;
-}
-
-.flex__justify-center {
-	justify-content: center;
-}
-
-.style__italic {
-	font-style: italic;
-}
-
-.style__bold {
-	font-weight: bold;
-}
-
-.style__bold-italic {
-	font-style: italic;
-	font-weight: bold;
-}
-
-.transform__uppercase {
-	text-transform: uppercase;
-}
-
-.transform__lowercase {
-	text-transform: lowercase;
-}
-
-.transform__capitalize {
-	text-transform: capitalize;
-}
-
-#sprite {
-	@include hide;
 }
 
 @-ms-viewport {

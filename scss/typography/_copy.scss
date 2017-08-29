@@ -3,16 +3,14 @@ cite {
 	font-style: italic;
 }
 
+b,
 strong {
+	@include font-smoothing;
 	font-weight: bold;
 }
 
 p {
 	margin: 0 0 30px;
-}
-
-.entry-content p:last-of-type {
-	margin-bottom: 0;
 }
 
 dfn,
@@ -23,44 +21,35 @@ i {
 }
 
 blockquote {
+ 	@include font-smoothing;
+ 	@include font-size(24px);
 	border: none;
 	quotes: none;
-	border-left: 3px solid $black;
+	font-style: italic;
+	line-height: 1.8;
 	font-weight: normal;
 	margin: 35px 0;
-	margin-left: -10px;
-	padding-bottom: 3px;
-	padding-left: 20px;
-	text-align: left;
-}
+	color: $gray;
 
-@media screen and (min-width: 500px) {
-	blockquote {
-		margin-left: -20px;
+	@media (min-width: 600px) {
+		margin-left: 50px;
+	}
+
+	& > p:last-child {
+		margin-bottom: 0;
+	}
+
+
+	cite {
+		@include font-size(20px);
+		display: block;
+		font-style: normal;
+		margin-top: 5px;
 	}
 }
 
 q {
 	quotes: "“" "”" "‘" "’";
-}
-
-blockquote::before,
-blockquote::after,
-q::before,
-q::after {
-	content: "";
-}
-
-blockquote > p:last-child {
-	margin-bottom: 0;
-}
-
-blockquote cite,
-blockquote small {
-	display: block;
-	font-size: 13px;
-	font-style: normal;
-	margin-top: 3px;
 }
 
 address {
@@ -79,7 +68,6 @@ pre {
 
 pre {
 	background-color: $color--background-pre;
-	border-radius: 5px;
 	clear: both;
 	display: block;
 	font-size: 14px;
@@ -88,6 +76,15 @@ pre {
 	padding: 40px;
 	white-space: pre-wrap;
 	word-wrap: break-word;
+}
+
+code {
+	@include font-size(15px);
+	padding: 3px 10px;
+	position: relative;
+	top: -1px;
+	border-radius: 3px;
+	background-color: $color--background-pre;
 }
 
 abbr,
