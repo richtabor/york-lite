@@ -26,31 +26,31 @@ printf( '<article class="project %1s" >', esc_attr( $size_class ) );
 
 			echo '</div>';
 
-		echo '</div>';
+		echo '</div>'; ?>
 
-		printf( '<figure>' );
+		<?php
 
-			/*
-			 * Let's check if there's an external url included on the back end.
-			 * If there is, that will be assigned as the $portfolio_url variable, if not,
-			 * the post permalink will be assigned.
-			 */
-			$external_url = get_post_meta( $post->ID, '_bean_portfolio_external_url', true );
-			$portfolio_url = ( $external_url ) === true ? $external_url : get_the_permalink();
-			$portfolio_url_class = ( $external_url ) === true ? 'class=project-link project-link_external' : '';
-			$portfolio_url_target = ( $external_url ) === true ? '_blank' : '_self';
+		/*
+		 * Let's check if there's an external url included on the back end.
+		 * If there is, that will be assigned as the $portfolio_url variable, if not,
+		 * the post permalink will be assigned.
+		 */
+		$external_url = get_post_meta( $post->ID, '_bean_portfolio_external_url', true );
+		$portfolio_url = ( $external_url ) === true ? $external_url : get_the_permalink();
+		$portfolio_url_class = ( $external_url ) === true ? 'class=project-link project-link_external' : '';
+		$portfolio_url_target = ( $external_url ) === true ? '_blank' : '_self';
 
-			printf( '<a href="%1s" data-id="%2$s" %3$s target="%4$s" class="project-link"></a>',
-				esc_url( $portfolio_url ),
-				esc_html( get_the_ID() ),
-				esc_html( $portfolio_url_class ),
-				esc_html( $portfolio_url_target )
-			);
+		printf( '<a href="%1s" data-id="%2$s" %3$s target="%4$s" class="project-link"></a>',
+			esc_url( $portfolio_url ),
+			esc_html( get_the_ID() ),
+			esc_html( $portfolio_url_class ),
+			esc_html( $portfolio_url_target )
+		);
 
-		  	the_post_thumbnail( 'york-portfolio-thumbnail' );
+		the_post_thumbnail( 'york-portfolio-thumbnail' ); ?>
 
-			echo '</figure>';
+		</figure>
 
-		echo '</div>';
+	</div>
 
-	echo '</article>';
+</article>

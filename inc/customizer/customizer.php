@@ -49,8 +49,8 @@ function york_customize_register( $wp_customize ) {
 	$wp_customize->add_section( new York_Upgrade_Control( $wp_customize, 'theme_upgrade', array(
 		'type'                  => 'upgrade-theme',
 		'title'    		=> esc_html__( 'Upgrade to York Pro', 'york-lite' ),
-		'pro_text' 		=> esc_html__( 'Go Pro', 'york-lite' ),
-		'pro_url'  		=> 'https://themebeans.com/checkout?edd_action=add_to_cart%26download_id=105665',
+		'pro_text' 		=> esc_html__( 'Learn More', 'york-lite' ),
+		'pro_url'  		=> 'https://themebeans.com/themes/york-pro',
 		'priority' 		=> 9999,
 	) ) );
 
@@ -77,41 +77,30 @@ function york_customize_register( $wp_customize ) {
 		),
 	) ) );
 
-	/**
-	 * Colors.
-	 */
-	$wp_customize->add_setting( 'accent_color', array(
-		'default'               => '#218799',
-		'sanitize_callback'     => 'sanitize_hex_color',
-		'transport'             => 'postMessage',
-	) );
+	// Let's only use the front-page.php file if the Portfolio Post Type is present.
+	if ( post_type_exists( 'portfolio' ) ) {
+		$wp_customize->add_setting( 'overlay_color', array(
+			'default'               => '#000000',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_color', array(
-		'label'             => esc_html__( 'Accent Color', 'york-lite' ),
-		'section'               => 'colors',
-	) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'overlay_color', array(
+			'label'                 => esc_html__( 'Portfolio Overlay', 'york-lite' ),
+			'section'               => 'colors',
+		) ) );
 
-	$wp_customize->add_setting( 'overlay_color', array(
-		'default'               => '#ffffff',
-		'sanitize_callback'     => 'sanitize_hex_color',
-		'transport'             => 'postMessage',
-	) );
+		$wp_customize->add_setting( 'overlay_text_color', array(
+			'default'               => '#ffffff',
+			'sanitize_callback'     => 'sanitize_hex_color',
+			'transport'             => 'postMessage',
+		) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'overlay_color', array(
-		'label'                 => esc_html__( 'Overlay', 'york-lite' ),
-		'section'               => 'york_portfolio',
-	) ) );
-
-	$wp_customize->add_setting( 'overlay_text_color', array(
-		'default'               => '#000000',
-		'sanitize_callback'     => 'sanitize_hex_color',
-		'transport'             => 'postMessage',
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'overlay_text_color', array(
-		'label'                 => esc_html__( 'Overlay Text', 'york-lite' ),
-		'section'               => 'york_portfolio',
-	) ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'overlay_text_color', array(
+			'label'                 => esc_html__( 'Portfolio Overlay Text', 'york-lite' ),
+			'section'               => 'colors',
+		) ) );
+	}
 }
 
 add_action( 'customize_register', 'york_customize_register', 11 );

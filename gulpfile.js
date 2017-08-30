@@ -196,6 +196,10 @@ gulp.task( 'browser-sync', function() {
               replacement: pkg.version
             },
             {
+            match: 'pkg.license',
+            replacement: pkg.license
+        	},
+            {
               match: 'pkg.theme_uri',
               replacement: pkg.theme_uri
             },
@@ -305,18 +309,18 @@ gulp.task('copy', function () {
     .pipe( copy( themeDestination ) );
 });
 
-gulp.task('readme', ['copy'], function() {
-    return gulp.src('./_dist/'+slug+'/readme.md')
-    .pipe( rename( './_dist/'+slug+'/readme.txt' ) )
-    .pipe(gulp.dest( './' ));
-});
+// gulp.task('readme', ['copy'], function() {
+//     return gulp.src('./_dist/'+slug+'/readme.md')
+//     .pipe( rename( './_dist/'+slug+'/readme.txt' ) )
+//     .pipe(gulp.dest( './' ));
+// });
 
-gulp.task('clean-readme.md', ['readme'], function () {
-    return gulp.src('./_dist/'+slug+'/readme.md', {read: false} ) 
-   .pipe(cleaner());
-});
+// gulp.task('clean-readme.md', ['readme'], function () {
+//     return gulp.src('./_dist/'+slug+'/readme.md', {read: false} ) 
+//    .pipe(cleaner());
+// });
 
-gulp.task('variables', ['clean-readme.md'], function () {
+gulp.task('variables', ['copy'], function () {
     return gulp.src( themeBuildFiles )
     .pipe(replace({
         patterns: [
@@ -376,7 +380,7 @@ gulp.task('clean-dist', function () {
    .pipe(cleaner());
 });
 
-gulp.task('copy_variables_zip-theme', ['copy', 'readme', 'clean-readme.md', 'variables', 'zip-theme', 'clean-dist' ], function() { });
+gulp.task('copy_variables_zip-theme', ['copy', 'variables', 'zip-theme', 'clean-dist' ], function() { });
 
 gulp.task( 'notification--build', function () {
     return gulp.src( '' )
@@ -431,5 +435,5 @@ gulp.task('css_variables', function () {
 
 
 gulp.task('build', function(callback) {
-  runSequence( 'clear', 'clean', ['styles', 'css_variables', 'customJS', 'translate', 'images'], 'copy_variables_zip-theme', 'notification--build', callback);
+  runSequence( 'clear', 'clean', ['styles', 'css_variables', 'translate', 'images'], 'copy_variables_zip-theme', 'notification--build', callback);
 });

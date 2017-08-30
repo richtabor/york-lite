@@ -75,7 +75,7 @@
 
 		/* Enable menu toggle for small screens */
 		$( '.mobile-menu-toggle' ).on( 'click', function() {
-			if( body.hasClass( open ) ) {
+			if ( body.hasClass( open ) ) {
 				body.removeClass( open );
 				setTimeout(function() {
 					body.removeClass( finished );
@@ -83,8 +83,8 @@
 			} else {
 				body.addClass( open );
 				setTimeout(function() {
-	        			body.removeClass( finished );
-	        		}, 600);
+					body.removeClass( finished );
+				}, 600);
 			}
 		} );
 

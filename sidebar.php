@@ -30,7 +30,6 @@ $is_active = ( ! is_active_sidebar( 'sidebar-1' ) ) ? 'no-widget-area' : 'has-wi
 					'theme_location' => 'primary',
 					'menu_class'     => 'primary-menu',
 					'depth'          => '2',
-					'fallback_cb'    => 'york_add_a_menu',
 				) ); ?>
 			</nav>
 

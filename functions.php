@@ -9,7 +9,7 @@
  * @author  @@pkg.author
  * @license @@pkg.license
  */
-add_filter( 'jetpack_development_mode', '__return_true' );
+
 /**
  * York Lite only works in WordPress 4.7 or later.
  */
@@ -383,7 +383,7 @@ add_action( 'wp_head', 'york_pingback_header' );
  * @param string $link Link to single post/page.
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
-function liam_excerpt_more( $link ) {
+function york_excerpt_more( $link ) {
 	if ( is_admin() ) {
 		return $link;
 	}
@@ -395,7 +395,7 @@ function liam_excerpt_more( $link ) {
 	);
 	return ' &hellip; ' . $link;
 }
-add_filter( 'excerpt_more', 'liam_excerpt_more' );
+add_filter( 'excerpt_more', 'york_excerpt_more' );
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
@@ -404,7 +404,7 @@ add_filter( 'excerpt_more', 'liam_excerpt_more' );
  * @param string $link Link to single post/page.
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
-function modify_read_more_link() {
+function york_modify_read_more_link() {
 
 	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
 		esc_url( get_permalink( get_the_ID() ) ),
@@ -413,7 +413,7 @@ function modify_read_more_link() {
 	);
 	return $link;
 }
-add_filter( 'the_content_more_link', 'modify_read_more_link' );
+add_filter( 'the_content_more_link', 'york_modify_read_more_link' );
 
 /**
  * Custom template tags for this theme.
@@ -423,7 +423,7 @@ require get_theme_file_path( '/inc/template-tags.php' );
 /**
  * Additional features to allow styling of the templates.
  */
-require get_parent_theme_file_path( '/inc/template-functions.php' );
+require get_theme_file_path( '/inc/template-functions.php' );
 
 /**
  * Customizer additions.

@@ -42,36 +42,3 @@ add_filter( 'body_class', 'york_body_classes' );
 function york_is_frontpage() {
 	return ( is_front_page() && ! is_home() );
 }
-
-/**
- * Menu fallback.
- *
- * @param  array $args Arguments.
- * @return string
- */
-function york_add_a_menu( $args ) {
-
-	if ( ! current_user_can( 'manage_options' ) ) {
-		return;
-	}
-
-	extract( $args );
-
-	$link = $link_before . '<a class="add-a-menu" href="' .admin_url( 'nav-menus.php' ) . '">' . $before . 'Add a menu' . $after . '</a>' . $link_after;
-
-	if ( false !== stripos( $items_wrap, '<ul' ) || false !== stripos( $items_wrap, '<ol' ) ) {
-		$link = "<li>$link</li>";
-	}
-
-	$output = sprintf( $items_wrap, $menu_id, $menu_class, $link );
-
-	if ( ! empty( $container ) ) {
-		$output  = "<$container class='$container_class' id='$container_id'>$output</$container>";
-	}
-
-	if ( $echo ) {
-		echo $output;
-	}
-
-	return $output;
-}

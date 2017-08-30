@@ -44,8 +44,8 @@
 	<div class="entry-content">
 
 		<?php
-		/* translators: %s: Name of current post */
 		the_content( sprintf(
+			/* translators: %s: Name of current post */
 			__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'york-lite' ),
 			get_the_title()
 		) );

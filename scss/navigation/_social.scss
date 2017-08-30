@@ -17,6 +17,18 @@
 	margin-right: 0;
 }
 
+.social-navigation {
+
+	.customize-partial-edit-shortcut button {
+		top: -3px;
+		left: -38px;
+	}
+
+	.customize-partial-edit-shortcut button svg {
+		position: relative;
+	}
+}
+
 .social-navigation ul li a {
 	border-radius: 50%;
 	box-shadow: 0 0 0;
