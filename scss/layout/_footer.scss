@@ -35,6 +35,13 @@
 			}
 		}
 	}
+	
+	.site-info {
+
+		a {
+			transition: 200ms color cubic-bezier(0.3, -0.55, 0.1, 1.1);
+		}
+	}
 
 	.site-info span {
 		display: block;
@@ -49,15 +56,12 @@
 	}
 }
 
-
-
 @media (min-width: 600px) {
 	.footer-sidebar .widget {
 		margin: 0 auto 9vw;
 		max-width: 40vw;
 	}
 }
-
 
 @media (min-width: 600px) {
 	.footer-navigation li {

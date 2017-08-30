@@ -28,87 +28,63 @@ function york_customizer_css() {
 		color:'. esc_attr( $overlay_text_color ) .';
 	}
 
-	body .lightbox-play svg {
-		fill:'. esc_attr( $overlay_text_color ) .';
-	}
-	
 	body .custom-logo-link img {
 		width: '. esc_attr( $site_logo_width ) .'px;
 	}
 
-	body #content a:hover,
-	body #content a:focus {
-		color:'. esc_attr( $accent_color ) .'!important;
-		border-color:'. esc_attr( $accent_color ) .'!important;
-	}
+	// body #content a:hover,
+	// body #content a:focus,
+	// body .main-navigation a:hover {
+	// 	color:'. esc_attr( $accent_color ) .'!important;
+	// 	border-color:'. esc_attr( $accent_color ) .'!important;
+	// }
+	
+	// body .site-footer a:hover, 
+	// body .header .main-navigation a:hover,
+	// .current-menu-item a, 
+	// .page-links a span:not(.page-links-title):hover { color:'. esc_attr( $accent_color ) .'; }
 
-	body button,
-	body .button,
-	body input[type="button"],
-	body input[type="reset"],
-	body input[type="submit"] {
-		background-color:'. esc_attr( $accent_color ) .';
-	}
+	// .cats,
+	// h1 a:hover, 
+	// .logo a h1:hover,
+	// .tagcloud a:hover,
+	// .entry-meta a:hover,
+	// .header-alt a:hover,
+	// .post-after a:hover,
+	// .archives-list ul li a:hover { 
+	// 	color:'. esc_attr( $accent_color ) .' !important; 
+	// }
 
-	body.single-portfolio .navigation a:hover {
-		color:'. esc_attr( $accent_color ) .' !important;
-		border-color:'. esc_attr( $accent_color ) .' !important;
-	}
+	// body button:hover,
+	// body button:focus,
+	// body .button:hover,
+	// body .button:focus,
+	// body input[type="button"]:hover,
+	// body input[type="button"]:focus,
+	// body input[type="reset"]:hover,
+	// body input[type="reset"]:focus,
+	// body input[type="submit"]:hover,
+	// body input[type="submit"]:focus {
+	// 	border-color:'. esc_attr( $accent_color ) .'; 
+	// }
 
-	body #content a:hover,
-	body .main-navigation a:hover {
-		color: '. esc_attr( $accent_color ) .'; 
-	}
-
-	a:hover,
-	a:focus,
-	body .site-footer a:hover, 
-	body .header .main-navigation a:hover,
-	.current-menu-item a, 
-	.page-links a span:not(.page-links-title):hover,
-	.page-links span:not(.page-links-title) { color:'. esc_attr( $accent_color ) .'; }
-
-	.cats,
-	h1 a:hover, 
-	.logo a h1:hover,
-	.tagcloud a:hover,
-	.entry-meta a:hover,
-	.header-alt a:hover,
-	.post-after a:hover,
-	.archives-list ul li a:hover { 
-		color:'. esc_attr( $accent_color ) .' !important; 
-	}
-
-	body button:hover,
-	body button:focus,
-	body .button:hover,
-	body .button:focus,
-	body input[type="button"]:hover,
-	body input[type="button"]:focus,
-	body input[type="reset"]:hover,
-	body input[type="reset"]:focus,
-	body input[type="submit"]:hover,
-	body input[type="submit"]:focus {
-		border-color:'. esc_attr( $accent_color ) .'; 
-	}
-
-	button:hover,
-	button:focus,
-	.button:hover,
-	.button:focus,
-	input[type="button"]:hover,
-	input[type="button"]:focus,
-	input[type="reset"]:hover,
-	input[type="reset"]:focus,
-	input[type="submit"]:hover,
-	input[type="submit"]:focus,
-	.bean-btn,
-	.tagcloud a,
-	nav a h1:hover, 
-	div.jp-play-bar,
-	div.jp-volume-bar-value { 
-		background-color:'. esc_attr( $accent_color ) .'; 
-	}
+	// button:hover,
+	// button:focus,
+	// .button:hover,
+	// .button:focus,
+	// input[type="button"]:hover,
+	// input[type="button"]:focus,
+	// input[type="reset"]:hover,
+	// input[type="reset"]:focus,
+	// input[type="submit"]:hover,
+	// input[type="submit"]:focus,
+	// .bean-btn,
+	// .tagcloud a,
+	// nav a h1:hover, 
+	// div.jp-play-bar,
+	// div.jp-volume-bar-value { 
+	// 	background-color:'. esc_attr( $accent_color ) .'; 
+	// }
 	';
 
 	/**

@@ -73,25 +73,19 @@
 			body.removeClass( open );
 		} );
 
-		/* Comments */
-		$( '#respond #comment, #respond #email, #respond #author, #respond #submit' ).bind( 'focus blur', function () {
-			$( '.comment-form' ).toggleClass( focus );
-			$( '.comment-form-author' ).toggleClass( focus );
-			$( '.comment-form-email' ).toggleClass( focus );
-			$( '#respond .form-submit' ).toggleClass( focus );
-		});
-
-		$( '#commentform textarea#comment' ).attr( 'placeholder', york_translation.york_comment );
-		$( '#commentform input#author' ).attr( 'placeholder', york_translation.york_author );
-		$( '#commentform input#email' ).attr( 'placeholder', york_translation.york_email );
-
 		/* Enable menu toggle for small screens */
 		$( '.mobile-menu-toggle' ).on( 'click', function() {
-			body.toggleClass( open );
-
-			setTimeout(function() {
-	        		body.toggleClass( finished );
-	        	}, 400);
+			if( body.hasClass( open ) ) {
+				body.removeClass( open );
+				setTimeout(function() {
+					body.removeClass( finished );
+				}, 300);
+			} else {
+				body.addClass( open );
+				setTimeout(function() {
+	        			body.removeClass( finished );
+	        		}, 600);
+			}
 		} );
 
 		$( '#nav-close' ).on( 'click', function() {

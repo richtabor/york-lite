@@ -25,19 +25,17 @@
 	}
 
 	&:hover {
-		opacity: 0.6 !important; 
+		opacity: 0.4 !important; 
 	}
 
+	
 	.nav-finished .site-header--right & {
 
 		@media (max-width: 1024px) {
 			display: none;
 		}
-
 	}
 }
-
-
 
 .hamburger-box {
 	width: 32px;
@@ -77,20 +75,6 @@
 .hamburger-inner::after {
 	bottom: -8px; 
 	width: 25px;
-}
-
-@media (min-width: 900px) {
-	.hamburger-inner {
-		transition: all 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19); 
-	}
-
-	.hamburger-inner::before {
-		transition: top 0.1s 0.35s ease-in, opacity 0.1s ease-in .2s, width 0.1s ease-in;
-	}
-
-	.hamburger-inner::after {
-		transition: bottom 0.1s 0.35s ease-in, transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19), width 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19); 
-	}
 }
 
 .nav-open .hamburger-inner {

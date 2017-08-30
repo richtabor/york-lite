@@ -43,7 +43,7 @@
 	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: 700px) {
 	.sidebar {
 		max-width: 900px;
 		overflow-y: hidden;
@@ -88,7 +88,7 @@
 	border-top: solid 1px #f0f0f0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 700px) {
 	.sidebar--section {
 		border-right: none;
 		display: table;
@@ -127,7 +127,7 @@
 	position: relative;
 	transition: opacity 100ms 0ms ease-in-out;
 	will-change: opacity;
-	@media (min-width: 768px) {
+	@media (min-width: 700px) {
 		display: table-cell;
 		vertical-align: middle;
 	}

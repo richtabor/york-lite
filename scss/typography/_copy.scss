@@ -26,13 +26,13 @@ blockquote {
 	border: none;
 	quotes: none;
 	font-style: italic;
-	line-height: 1.8;
+	line-height: 1.7;
 	font-weight: normal;
 	margin: 35px 0;
 	color: $gray;
 
 	@media (min-width: 600px) {
-		margin-left: 50px;
+		margin: 55px 0 55px 50px;
 	}
 
 	& > p:last-child {

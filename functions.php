@@ -9,7 +9,7 @@
  * @author  @@pkg.author
  * @license @@pkg.license
  */
-
+add_filter( 'jetpack_development_mode', '__return_true' );
 /**
  * York Lite only works in WordPress 4.7 or later.
  */
@@ -70,6 +70,9 @@ function york_setup() {
 	add_image_size( 'york-portfolio-full', 9999, 9999, false );
 
 	add_image_size( 'york-portfolio-thumbnail', 9999, 9999 );
+
+	// Set the default content width.
+	$GLOBALS['content_width'] = 700;
 
 	/*
 	 * This theme uses wp_nav_menu() in the following locations.
@@ -372,6 +375,45 @@ function york_pingback_header() {
 }
 
 add_action( 'wp_head', 'york_pingback_header' );
+
+/**
+ * Replaces "[...]" (appended to automatically generated excerpts) with ... and
+ * a 'Continue reading' link.
+ *
+ * @param string $link Link to single post/page.
+ * @return string 'Continue reading' link prepended with an ellipsis.
+ */
+function liam_excerpt_more( $link ) {
+	if ( is_admin() ) {
+		return $link;
+	}
+
+	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
+		esc_url( get_permalink( get_the_ID() ) ),
+		/* translators: %s: Name of current post */
+		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'york-lite' ), get_the_title( get_the_ID() ) )
+	);
+	return ' &hellip; ' . $link;
+}
+add_filter( 'excerpt_more', 'liam_excerpt_more' );
+
+/**
+ * Replaces "[...]" (appended to automatically generated excerpts) with ... and
+ * a 'Continue reading' link.
+ *
+ * @param string $link Link to single post/page.
+ * @return string 'Continue reading' link prepended with an ellipsis.
+ */
+function modify_read_more_link() {
+
+	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
+		esc_url( get_permalink( get_the_ID() ) ),
+		/* translators: %s: Name of current post */
+		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'york-lite' ), get_the_title( get_the_ID() ) )
+	);
+	return $link;
+}
+add_filter( 'the_content_more_link', 'modify_read_more_link' );
 
 /**
  * Custom template tags for this theme.

@@ -12,7 +12,7 @@
 	}
 
 	&:hover &__inner {
-		transform: scale(.98);
+		transform: scale(.99);
 
 		/* Applies styles when Reduced Motion is enabled */
 		@media screen and (prefers-reduced-motion: reduce) {
@@ -21,7 +21,7 @@
 	}
 
 	&:hover .wp-post-image {
-		transform: scale(1.1);
+		transform: scale(1.05);
 
 		/* Applies styles when Reduced Motion is enabled */
 		@media screen and (prefers-reduced-motion: reduce) {
@@ -32,11 +32,13 @@
 	.wp-post-image {
 		transition: transform .4s ease-in-out;
 	}
-
-
 }
 
-
+.entry-summary {
+	padding: 0 20px;
+	margin: 0 auto;
+	max-width: 770px;
+}
 
 .entry-content,
 .comment-content {
@@ -84,14 +86,67 @@
 	pre {
 		margin: 3em 0 2.8em;
 	}
-
-	p:last-of-type {
-		margin-bottom: 0;
-	}
 }
 
 .entry-date + .updated {
 	display: none;
+}
+
+.page-links {
+	display: block;
+	clear: both;
+	padding-top: 50px;
+
+	span {
+		@include font-size(15px);
+		background-color: $lightgray;
+		border-radius: 3px;
+		display: inline-block;
+		height: 32px;
+		line-height: 32px;
+		text-align: center;
+		transition: 200ms background cubic-bezier(0.3, -0.55, 0.1, 1.1);
+		width: 32px;
+	}
+
+	a {
+		box-shadow: none;
+		color: $black;
+		transition: 200ms color cubic-bezier(0.3, -0.55, 0.1, 1.1);
+	}
+
+	a span {
+		color: $gray;
+
+		&:hover {
+			background: #eee;
+		}
+	}
+}
+
+p.attachment {
+	text-align: center;
+
+	a {
+		display: block;
+		box-shadow: none;
+	}
+}
+
+.more-link {
+	@include underline-on-hover;
+}
+
+.taxonomy-description {
+	font-style: italic;
+	display: inline-block;
+	color: $gray;
+	max-width: 560px;
+	margin: 30px auto 0;
+
+	@media only screen and (min-width: 700px) {
+		margin-top: 35px;
+	}
 }
 
 .bypostauthor {
@@ -110,28 +165,24 @@
 	display: none;
 }
 
-.more-link {
-	display: block;
-}
-
 .sticky {
 	color: inherit;
 }
 
 .icon-sticky {
-	display: block;
-	margin: 0 auto 15px;
+	display: inline-block;
 	text-align: center;
 	fill: $gray;
         height: 1.5em;
        	width: 1.5em;
        	position: relative;
        	top: 7px;
-       	opacity: .33;
+       	margin-right: 10px;
 
        	@media (min-width: 600px) {
-		height: 2em;
-       		width: 2em;
-       		top: 12px;
+		height: 1.8em;
+       		width: 1.8em;
+       		top: 10px;
+       		margin-right: 15px;
 	}
 }

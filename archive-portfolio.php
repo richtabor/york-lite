@@ -38,7 +38,7 @@ get_header(); ?>
 		</div>
 
 	<?php else :
-		get_template_part( 'components/content', 'none' );
+		get_template_part( 'components/post/content', 'none' );
 	endif; ?>
 
 </div>

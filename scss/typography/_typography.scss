@@ -9,9 +9,9 @@ textarea {
 	font-weight: normal;
 	line-height: 28px;
 
-	@media (min-width: 768px) {
-		@include font-size(19px);
-		line-height: 1.8em;
+	@media (min-width: 700px) {
+		@include font-size(18px);
+		line-height: 1.75em;
 	}
 }
 

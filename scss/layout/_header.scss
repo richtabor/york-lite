@@ -1,6 +1,6 @@
 .site-header {
 	@include clearfix();
-	padding: 40px 4% 0 4%;
+	padding: 30px 4% 0 4%;
 
 	.admin-bar & {
 		top: 32px;
@@ -13,7 +13,7 @@
 	&--left,
 	&--right {
 		float: left;
-		@media (min-width: 768px) {
+		@media (min-width: 700px) {
 			float: left;
 			width: 50%;
 		}
@@ -35,11 +35,18 @@
 			right: 4%;
 		}
 
+		.nav-open & {
+			z-index: -1;
+		}
 	}
 
 	.site-title {
 		display: inline-block;
 		font-size: 30px;
 		margin: 0;
+
+		a {
+			transition: 200ms color cubic-bezier(0.3, -0.55, 0.1, 1.1);
+		}
 	}
 }

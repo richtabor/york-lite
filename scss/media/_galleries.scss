@@ -1,41 +1,99 @@
-.entry-content .tiled-gallery {
-	margin: 10% 0;
-}
-
-.tiled-gallery .tiled-gallery-item a {
-	cursor: default;
-	pointer-events: none;
-}
-
-.entry-content .tiled-gallery-caption {
-	font-size: 14px;
-	padding: 7px 5px;
-	text-align: center;
-}
-
-.gallery {
-	float: left;
-	margin: auto;
-	width: 100%;
-}
-
 .gallery-item {
-	float: left;
-	margin-left: 0;
-	text-align: center;
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+	margin: 0 0 1.5em;
+	padding: 0 1em 0 0;
+	width: 50%;
 
-	img {
-		border: none;
-		margin: 10px 0;
-		padding: 0;
+	a {
+		box-shadow: none !important;
 	}
 }
 
-.gallery-caption {
-	font-size: 12px;
-	font-weight: normal;
-	line-height: 22px;
-	margin: 0;
-	padding: 5px;
-	text-align: center;
+.gallery-columns-1 .gallery-item {
+	width: 100%;
 }
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-item a,
+.gallery-item a:hover,
+.gallery-item a:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background: none;
+	display: inline-block;
+	max-width: 100%;
+}
+
+.gallery-item a img {
+	display: block;
+	-webkit-transition: -webkit-filter 0.2s ease-in;
+	transition: -webkit-filter 0.2s ease-in;
+	transition: filter 0.2s ease-in;
+	transition: filter 0.2s ease-in, -webkit-filter 0.2s ease-in;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.gallery-item a:hover img,
+.gallery-item a:focus img {
+	-webkit-filter: opacity(60%);
+	filter: opacity(60%);
+}
+
+.gallery-caption {
+	display: block;
+	text-align: left;
+	padding: 0 10px 0 0;
+	margin-bottom: 0;
+}
+
+// .entry-content .tiled-gallery {
+// 	margin: 10% 0;
+// }
+
+// .tiled-gallery .tiled-gallery-item a {
+// 	cursor: default;
+// 	pointer-events: none;
+// }
+
+// .entry-content .tiled-gallery-caption {
+// 	font-size: 14px;
+// 	padding: 7px 5px;
+// 	text-align: center;
+// }
+
+// .gallery {
+// 	float: left;
+// 	margin: auto;
+// 	width: 100%;
+// }
+
+// .gallery-item {
+// 	float: left;
+// 	margin-left: 0;
+// 	text-align: center;
+
+// 	img {
+// 		border: none;
+// 		margin: 10px 0;
+// 		padding: 0;
+// 	}
+// }
+
+// .gallery-caption {
+// 	font-size: 12px;
+// 	font-weight: normal;
+// 	line-height: 22px;
+// 	margin: 0;
+// 	padding: 5px;
+// 	text-align: center;
+// }

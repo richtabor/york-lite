@@ -1,90 +1,100 @@
-article.post {
-	margin: 0 auto;
-	max-width: 900px;
-
-	.entry-title {
-		@include font-size(30px);
-		line-height: 1.6;
-		margin: 0;
-
-		@media (min-width: 768px) {
-			@include font-size(50px);
-			line-height: 1.7em;
-		}
-
-		a {
-			display: block;
-		}
-	}
-
-	.cat-links,
-	.entry-meta,
-	.tags-links {
-		font-size: $font-size__meta-mobile;
-		font-style: italic;
-		display: inline-block;
-		margin-top: 3vh;
-		color: $gray;
-
-		@media (min-width: 600px) {
-			font-size: $font-size__meta;
-		}
-
-		@media only screen and (min-width: 600px) {
-			margin-top: 1.75vw;
-		}
-	}
-
-	.cat-links {
-		margin-bottom: 3vh;
-		margin-top: 0;
-
-		@media only screen and (min-width: 600px) {
-			margin-bottom: 1.2vw;
-		}
-	}
-}
-
-.search .type-portfolio {
-	.entry-media {
-		text-align: center;
-	}
-}
-
-
-
-
-
-
-.page-header,
 .entry-header {
-	margin: 70px 0;
-	padding: 1vh 0;
-	text-align: center;
-
-	@media (min-width: 768px) {
-		margin: 100px 0;
-		padding: 6vh 50px;
-	}
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 900px;
 }
 
 .page-header {
 
 	.page-title {
-		@include font-size(20px);
+		@include font-size(22px);
 
-		@media (min-width: 600px) {
+		@media (min-width: 700px) {
 			@include font-size(28px);
 		}
 	}
 
+	.search &,
 	.archive & {
 		margin-bottom: 0;
 		padding-bottom: 0;
 	}
 }
 
+.page-header,
+.entry-header {
+	margin-top: 90px;
+	margin-bottom: 90px;
+	padding: 1vh 0;
+	text-align: center;
 
+	@media (min-width: 700px) {
+		padding: 4vh 50px;
+	}
+}
+
+.entry-title {
+	@include font-size(30px);
+	line-height: 1.6em;
+	margin: 0;
+
+	@media (min-width: 800px) {
+		@include font-size(50px);
+		
+	}
+
+	a {
+		display: block;
+		transition: 200ms color cubic-bezier(0.3, -0.55, 0.1, 1.1);
+
+		&:hover {
+			color: $gray--hover;
+		}
+	}
+}
+
+.cat-links,
+.entry-meta,
+.more-link,
+.tags-links {
+	font-size: $font-size__meta-mobile;
+	font-style: italic;
+	display: inline-block;
+	color: $gray;
+
+	@media only screen and (min-width: 700px) {
+		font-size: $font-size__meta;
+	}
+
+	a {
+		@include underline-on-hover;
+		color: $gray;
+
+		&:hover {
+			color: $gray--hover;
+		}
+	}
+}
+
+.cat-links {
+	margin-bottom: 20px;
+	max-width: 500px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	@media only screen and (min-width: 700px) {
+		margin-bottom: 15px;
+	}
+}
+
+.entry-meta {
+	margin-top: 25px;
+
+	@media only screen and (min-width: 700px) {
+		margin-top: 25px;
+	}
+}
 
 
 

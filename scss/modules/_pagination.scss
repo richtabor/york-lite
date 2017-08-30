@@ -8,6 +8,7 @@
         color: $black;
         @include font-size(12px);
         text-transform: uppercase;
+        transform: translate3d(0, 0, 0);
         letter-spacing: .15em;
         text-decoration: none;
         display: inline-block;
@@ -22,7 +23,7 @@
     }
 
     a:hover {
-        opacity: .5;
+        opacity: .4;
     }
 
     .page-numbers:not(.next):not(.prev) {
