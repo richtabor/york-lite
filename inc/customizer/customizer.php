@@ -19,8 +19,9 @@ function york_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport   = 'postMessage';
 
 	$wp_customize->selective_refresh->add_partial( 'blogname', array(
-		'selector' => '.site-title a',
-		'render_callback' => 'york_customize_partial_blogname',
+		'selector' 		=> '.site-title a',
+		'settings' 		=> array( 'blogname' ),
+		'render_callback' 	=> 'york_customize_partial_blogname',
 	) );
 
 	/**
