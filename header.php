@@ -25,13 +25,13 @@
 
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'york-lite' ); ?></a>
 
-	<header id="masthead" class="site-header clearfix"> 
-			
+	<header id="masthead" class="site-header clearfix">
+
 		<div class="site-header--left">
 			<?php york_site_logo(); ?>
 		</div>
 
-		<div class="site-header--right"> 
+		<div class="site-header--right">
 
 			<div class="hamburger mobile-menu-toggle">
 				<div class="hamburger-box">
@@ -44,7 +44,7 @@
 	</header><!-- .site-header -->
 
 	<div id="content" class="site-content clearfix">
-		
+
 		<?php if ( york_is_frontpage() ) : ?>
 
 			<header class="hero entry-header">
