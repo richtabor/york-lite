@@ -99,7 +99,7 @@ if ( ! function_exists( 'york_social_navigation' ) ) :
 		if ( has_nav_menu( 'social' ) ) : ?>
 
 			<nav class="social-navigation" aria-label="<?php esc_attr_e( 'Social Menu', 'york-lite' ); ?>">
-				
+
 				<?php
 					wp_nav_menu( array(
 						'theme_location' => 'social',
@@ -109,9 +109,9 @@ if ( ! function_exists( 'york_social_navigation' ) ) :
 						'link_after'     => '</span>' . york_get_svg( array( 'icon' => 'chain' ) ),
 					) );
 				?>
-				
+
 			</nav><!-- .social-navigation -->
-		
+
 		<?php
 		endif;
 	}
@@ -179,7 +179,7 @@ if ( ! function_exists( 'york_post_thumbnail' ) ) :
 		if ( '' !== get_the_post_thumbnail() ) { ?>
 
 			<div class="entry-media">
-				
+
 				<?php if ( is_singular() ) :
 					the_post_thumbnail( 'york-featured-image' );
 				else : ?>
@@ -264,3 +264,97 @@ if ( ! function_exists( 'york_entry_footer' ) ) :
 		}
 	}
 endif;
+
+if ( ! class_exists( 'YorkClassMobileNavigationWalker' ) ) :
+	/**
+	 * Determine whether blog/site has more than one category.
+	 *
+	 * @return bool True of there is more than one category, false otherwise.
+	 */
+	class YorkClassMobileNavigationWalker extends Walker_Nav_Menu {
+
+
+		function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
+			$id_field = $this->db_fields['id'];
+			if ( is_object( $args[0] ) ) {
+				$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+			}
+			return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+		}
+
+		function start_lvl( &$output, $depth = 0, $args = array() ) {
+			$indent = str_repeat( "\t", $depth );
+			$output .= "\n" . $indent  .'<ul class="sub_menu">' . "\n";
+		}
+
+		function end_lvl( &$output, $depth = 0, $args = array() ) {
+			$indent = str_repeat( "\t", $depth );
+			$output .= "$indent</ul>\n";
+		}
+
+		function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+
+			$sub = '';
+			$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // Code indent.
+
+			if ( $depth >= 0 && $args->has_children ) :
+				$sub = ' has_sub';
+			endif;
+
+			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+			$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+
+			$anchor = '';
+			if ( '' !== $item->anchor ) {
+				$anchor = '#'.esc_attr( $item->anchor );
+			}
+
+			$active = '';
+			if ( '' === $item->anchor && ( ( 0 === $item->current && $depth ) || ( 0 === $item->current_item_ancestor && $depth ) ) ) :
+				$active = 'york-active-item';
+			endif;
+
+			$output .= $indent . '<li id="mobile-menu-item-'. $item->ID . '" class="' . $class_names . ' ' . $active . $sub .'">';
+
+			$current_a = '';
+
+			// Attributes.
+			$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+			$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target ) .'"' : '';
+			$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn ) .'"' : '';
+			$attributes .= ' href="'   . esc_attr( $item->url ) .$anchor.'"';
+
+			if ( ( 0 === $item->current && $depth ) || ( 0 === $item->current_item_ancestor && $depth ) ) :
+				$current_a .= ' current ';
+			endif;
+			if ( esc_attr( $item->url ) === '#' ) {
+				$current_a .= ' york-mobile-no-link';
+			}
+
+			$attributes .= ' class="'. $current_a . '"';
+			$item_output = $args->before;
+			if ( '' === $item->hide ) {
+				if ( '' === $item->nolink ) {
+					$item_output .= '<a'. $attributes .'>';
+				} else {
+					$item_output .= '<h6>';
+				}
+				$item_output .= $args->link_before .apply_filters( 'the_title', $item->title, $item->ID );
+				$item_output .= $args->link_after;
+				if ( '' === $item->nolink ) {
+					$item_output .= '</a>';
+				} else {
+					$item_output .= '</h6>';
+				}
+
+				if ( $args->has_children ) {
+					$item_output .= '<span class="mobile-navigation--arrow"></span>';
+				}
+			}
+			$item_output .= $args->after;
+
+			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		}
+	}
+endif;
+

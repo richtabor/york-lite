@@ -24,7 +24,6 @@
 		return 'http://www.w3.org/2000/svg' === ( 'undefined' !== typeof SVGRect && div.firstChild && div.firstChild.namespaceURI );
 	}
 
-	/* Portfolio Masonry */
 	function masonry() {
 
 		var container = projects.imagesLoaded( function() {
@@ -53,10 +52,40 @@
 		}
 	}
 
+	function mobile_dropdowns() {
+		var navigationHolder = $( '.main-navigation' );
+		var dropdownOpener   = $( '.main-navigation .mobile-navigation--arrow, main-navigation h6, .main-navigation a.york-mobile-no-link' );
+		var animationSpeed   = 200;
+
+		if ( dropdownOpener.length ) {
+			dropdownOpener.each( function() {
+				$( this ).on( 'tap click', function(e) {
+					var dropdownToOpen = $( this ).nextAll( 'ul' ).first();
+
+					if ( dropdownToOpen.length ) {
+						e.preventDefault();
+						e.stopPropagation();
+
+						var openerParent = $( this ).parent( 'li' );
+						if ( dropdownToOpen.is( ':visible' ) ) {
+							dropdownToOpen.slideUp( animationSpeed );
+							openerParent.removeClass( 'york-opened' );
+						} else {
+							dropdownToOpen.slideDown( animationSpeed );
+							openerParent.addClass( 'york-opened' );
+						}
+					}
+				});
+			});
+		}
+	}
+
 	/* Document Ready */
 	$( document ).ready(function() {
 
 		scrollingDiv();
+
+		mobile_dropdowns();
 
 		supportsInlineSVG();
 

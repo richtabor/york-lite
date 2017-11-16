@@ -50,6 +50,11 @@ Source: https://necolas.github.io/normalize.css/
 
 == Changelog ==
 
+= 1.0.3 =
+* Released: November 15, 2017
+Fixed scrolling issues within the sidebar
+Fixed multi-menu display
+
 = 1.0 =
 * Released: December 6, 2016
 
