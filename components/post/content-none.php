@@ -21,7 +21,7 @@
 	<div class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
-			
+
 			<?php /* translators: link to publish a new post */ ?>
 			<p><?php printf( esc_html__( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'york-lite' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
@@ -33,5 +33,5 @@
 
 		endif; ?>
 	</div><!-- .page-content -->
-	
+
 </section>

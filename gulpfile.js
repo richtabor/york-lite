@@ -47,7 +47,7 @@ var projectPHPWatchFiles    = ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*
 var distBuildFiles          = ['./**', '!scss', '!scss/**', '!_dist', '!_dist/**', '!_demo', '!_demo/**', '!node_module/', '!node_modules/**', '!*.json', '!*.map', '!*.xml', '!gulpfile.js', '!*.sublime-project', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.DS_Store', '!*.gitignore', '!TODO', '!*.git', '!*.DS_Store'];
 var distDestination         = './_dist/';
 
-// Build /slug/ contents within the _dist folder 
+// Build /slug/ contents within the _dist folder
 var themeDestination         = './_dist/'+slug+'/';
 var themeBuildFiles          = './_dist/'+slug+'/**/*';
 
@@ -316,7 +316,7 @@ gulp.task('copy', function () {
 // });
 
 // gulp.task('clean-readme.md', ['readme'], function () {
-//     return gulp.src('./_dist/'+slug+'/readme.md', {read: false} ) 
+//     return gulp.src('./_dist/'+slug+'/readme.md', {read: false} )
 //    .pipe(cleaner());
 // });
 
@@ -370,7 +370,7 @@ gulp.task('variables', ['copy'], function () {
 });
 
 gulp.task('zip-theme', ['variables'], function() {
-    return gulp.src( './_dist/'+slug+'/**' )
+    return gulp.src( './_dist/'+slug+'/**', { base: '_dist' } )
     .pipe( zip( slug + '.zip' ) )
     .pipe( gulp.dest( distDestination ) );
 });

@@ -6,18 +6,25 @@
 	padding-top: 5px;
 }
 
+.search.search-no-results .site-content {
+	margin: 0 auto;
+	max-width: 40em;
+	text-align: center;
+}
+
+.search .site-content .page-title {
+	margin: 0 auto 20px;
+}
+
+/* Search */
 .search .page-content input[type="search"].search-field {
-	width: calc(100% - 21%);
+	width: 70%;
+	display: inline-block;
 }
 
 .search .page-content input[type="submit"] {
-	bottom: 0;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
 	width: 20%;
+	display: inline-block;
 }
 
 .search .page-title {

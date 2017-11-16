@@ -76,7 +76,7 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: components/post/content.php:49, functions.php:787, functions.php:823
+#: components/post/content.php:49, functions.php:789, functions.php:825
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
@@ -96,58 +96,58 @@ msgstr ""
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:165, functions.php:359, inc/template-tags.php:101
+#: functions.php:165, functions.php:361, inc/template-tags.php:101
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:287
+#: functions.php:289
 msgctxt "Theme starter content"
 msgid "Logo"
 msgstr ""
 
-#: functions.php:303
+#: functions.php:305
 msgctxt "Theme starter content"
 msgid "A WordPress theme by ThemeBeans"
 msgstr ""
 
-#: functions.php:325
+#: functions.php:327
 msgid "Primary"
 msgstr ""
 
-#: functions.php:341, functions.php:503
+#: functions.php:343, functions.php:505
 msgid "Footer"
 msgstr ""
 
-#: functions.php:483
+#: functions.php:485
 msgid "Flyout"
 msgstr ""
 
-#: functions.php:487
+#: functions.php:489
 msgid "Appears on the theme flyout sidebar."
 msgstr ""
 
-#: functions.php:507
+#: functions.php:509
 msgid "Appears at the top of the site footer."
 msgstr ""
 
-#: functions.php:589
+#: functions.php:591
 msgid "Write a comment . . ."
 msgstr ""
 
-#: functions.php:591
+#: functions.php:593
 msgid "Name"
 msgstr ""
 
-#: functions.php:593
+#: functions.php:595
 msgid "email@address.com"
 msgstr ""
 
-#: functions.php:633
+#: functions.php:635
 msgctxt "Playfair Display font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:647
+#: functions.php:649
 msgctxt "Lora font: on or off"
 msgid "on"
 msgstr ""
@@ -160,31 +160,31 @@ msgstr ""
 msgid "York Lite requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
 msgstr ""
 
-#: inc/customizer/customizer.php:36
+#: inc/customizer/customizer.php:37
 msgid "Theme Options"
 msgstr ""
 
-#: inc/customizer/customizer.php:37
+#: inc/customizer/customizer.php:38
 msgid "Customize various options throughout the theme with the settings within this panel."
 msgstr ""
 
-#: inc/customizer/customizer.php:51
+#: inc/customizer/customizer.php:52
 msgid "Upgrade to York Pro"
 msgstr ""
 
-#: inc/customizer/customizer.php:52
+#: inc/customizer/customizer.php:53
 msgid "Learn More"
 msgstr ""
 
-#: inc/customizer/customizer.php:69
+#: inc/customizer/customizer.php:70
 msgid "Logo Max Width"
 msgstr ""
 
-#: inc/customizer/customizer.php:89
+#: inc/customizer/customizer.php:90
 msgid "Portfolio Overlay"
 msgstr ""
 
-#: inc/customizer/customizer.php:100
+#: inc/customizer/customizer.php:101
 msgid "Portfolio Overlay Text"
 msgstr ""
 
