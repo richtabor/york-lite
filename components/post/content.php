@@ -5,7 +5,6 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */
@@ -15,7 +14,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
-		
+
 		<?php
 		if ( is_sticky() ) :
 			echo wp_kses( york_get_svg( array( 'icon' => 'sticky' ) ), york_svg_allowed_html() );

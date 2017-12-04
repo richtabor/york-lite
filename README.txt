@@ -50,7 +50,13 @@ Source: https://necolas.github.io/normalize.css/
 
 == Changelog ==
 
-= 1.0.3 =
+= 1.0.5 =
+* Released: November 17, 2017
+Added TGMPA support for the Portfolio Post Type plugin
+Re-fixed the multi-menu display
+Touched up nothing found styles
+
+= 1.0.4 =
 * Released: November 15, 2017
 Fixed scrolling issues within the sidebar
 Fixed multi-menu display

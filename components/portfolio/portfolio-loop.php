@@ -3,7 +3,6 @@
  * The template for displaying the portfolio loop.
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */

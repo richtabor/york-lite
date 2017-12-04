@@ -5,7 +5,6 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */

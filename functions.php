@@ -5,7 +5,6 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */
@@ -206,7 +205,7 @@ add_action( 'after_setup_theme', 'york_setup' );
 /**
  * Use front-page.php when Front page displays is set to a static page.
  *
- * @param string $template front-page.php.
+ * @param string|string $template front-page.php.
  *
  * @return string The template to be used: blank if is_home() is true (defaults to index.php), else $template.
  */
@@ -349,9 +348,9 @@ function york_fonts_url() {
 /**
  * Add preconnect for Google Fonts.
  *
- * @param  array  $urls           URLs to print for resource hints.
- * @param  string $relation_type  The relation type the URLs are printed.
- * @return array  $urls           URLs to print for resource hints.
+ * @param  array         $urls           URLs to print for resource hints.
+ * @param  string|string $relation_type  The relation type the URLs are printed.
+ * @return array         $urls           URLs to print for resource hints.
  */
 function york_resource_hints( $urls, $relation_type ) {
 	if ( wp_style_is( 'york-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
@@ -378,10 +377,9 @@ function york_pingback_header() {
 add_action( 'wp_head', 'york_pingback_header' );
 
 /**
- * Replaces "[...]" (appended to automatically generated excerpts) with ... and
- * a 'Continue reading' link.
+ * Replaces the excerpt more link.
  *
- * @param string $link Link to single post/page.
+ * @param string|string $link Link to single post/page.
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
 function york_excerpt_more( $link ) {
@@ -402,7 +400,6 @@ add_filter( 'excerpt_more', 'york_excerpt_more' );
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
  * a 'Continue reading' link.
  *
- * @param string $link Link to single post/page.
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
 function york_modify_read_more_link() {
@@ -441,3 +438,8 @@ require get_theme_file_path( '/inc/jetpack.php' );
  * SVG icons functions and filters.
  */
 require get_theme_file_path( '/inc/icons.php' );
+
+/**
+ * Load the TGMPA class.
+ */
+require get_parent_theme_file_path( '/inc/plugins.php' );

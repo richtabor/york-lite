@@ -49,4 +49,10 @@
 		} );
 	} );
 
+	wp.customize( 'text_color', function( value ) {
+		value.bind( function( newval ) {
+			$( 'body, body th, body input, body mark, body button, body select, body textarea, body .comment-meta, body comment-author, body .comment-meta a, body .comment-author a, body .comment-meta a:hover, body .comment-author a:hover, body .page-links a, body .pagination a, body .pagination span, body .add-a-menu, body .main-navigation ul ul li a:hover, body .page-links a, body .main-navigation a:not(.add-a-menu), body .wp-caption-text, body.single .navigation a, body .entry-content a:hover, body  .entry-content a:focus ' ).css( 'color', newval );
+		} );
+	} );
+
 } )( jQuery );

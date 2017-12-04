@@ -7,7 +7,6 @@
  * relies on many newer functions and markup changes introduced in 4.7.
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */

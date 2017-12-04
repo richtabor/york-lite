@@ -5,7 +5,6 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */
@@ -30,5 +29,5 @@
 			) );
 		?>
 	</div>
-	
+
 </article>

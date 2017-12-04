@@ -3,7 +3,6 @@
  * Theme Customizer functionality
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */
@@ -78,8 +77,21 @@ function york_customize_register( $wp_customize ) {
 		),
 	) ) );
 
+	// Text color.
+	$wp_customize->add_setting( 'text_color', array(
+		'default'               => '#000000',
+		'sanitize_callback'     => 'sanitize_hex_color',
+		'transport'             => 'postMessage',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
+		'label'                 => esc_html__( 'Text Color', 'york-lite' ),
+		'section'               => 'colors',
+	) ) );
+
 	// Let's only use the front-page.php file if the Portfolio Post Type is present.
 	if ( post_type_exists( 'portfolio' ) ) {
+
 		$wp_customize->add_setting( 'overlay_color', array(
 			'default'               => '#000000',
 			'sanitize_callback'     => 'sanitize_hex_color',

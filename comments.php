@@ -8,7 +8,6 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */
@@ -27,7 +26,7 @@ if ( post_password_required() ) {
 	<div id="comments" class="comments comments-area">
 
 		<div class="comments-area__inner">
-			
+
 			<?php
 			if ( have_comments() ) : ?>
 				<h3 class="comments-title">

@@ -5,7 +5,6 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */

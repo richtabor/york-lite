@@ -3,7 +3,6 @@
  * Jetpack Compatibility
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */

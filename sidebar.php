@@ -3,7 +3,6 @@
  * The sidebar containing the flyout widget area.
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */
@@ -29,7 +28,7 @@ $is_active = ( ! is_active_sidebar( 'sidebar-1' ) ) ? 'no-widget-area' : 'has-wi
 				<?php wp_nav_menu( array(
 					'theme_location' => 'primary',
 					'menu_class'     => 'primary-menu',
-					'depth'          => '2',
+					'depth'          => '3',
 					'link_before' 	 => '<span>',
 					'link_after' 	 => '</span>',
 					'walker' 	 => new YorkClassMobileNavigationWalker(),

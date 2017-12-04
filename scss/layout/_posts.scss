@@ -40,7 +40,7 @@
 
 	@media (min-width: 800px) {
 		@include font-size(50px);
-		
+
 	}
 
 	a {
@@ -96,8 +96,13 @@
 	}
 }
 
+.no-results {
 
+	.page-title {
+		margin: 0 auto 20px;
+	}
 
-
-
-
+	margin: 0 auto;
+	max-width: 28em;
+	text-align: center;
+}

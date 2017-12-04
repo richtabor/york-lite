@@ -41,15 +41,15 @@
 		sidebarSection  = $( '.sidebar--section' ),
 		scroll		= ( 'js--scroll' );
 
-		if ( $window.width() > 768 ) {
+		// if ( $window.width() > 768 ) {
 			sidebarSection.children().each( function() {
-				if ( windowHeight < $( this ).innerHeight() ) {
+				if ( windowHeight < $( this ).outerHeight() ) {
 					$( this ).parent().addClass( scroll );
 				} else {
 					$( this ).parent().removeClass( scroll );
 				}
 			});
-		}
+		// }
 	}
 
 	function mobile_dropdowns() {

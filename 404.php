@@ -3,7 +3,6 @@
  * The template for displaying 404 pages (not found)
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */
@@ -21,7 +20,7 @@ get_header(); ?>
 			<?php get_search_form(); ?>
 		</div>
 	</section>
-	
+
 </article>
 
 <?php get_footer();

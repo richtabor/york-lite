@@ -3,7 +3,6 @@
  * SVG icons related functions and filters
  *
  * @package @@pkg.name
- * @version @@pkg.version
  * @author  @@pkg.author
  * @license @@pkg.license
  */
