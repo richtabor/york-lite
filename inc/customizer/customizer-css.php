@@ -16,9 +16,14 @@ function york_customizer_css() {
 	$overlay_text_color 			= get_theme_mod( 'overlay_text_color', '#ffffff' );
 	$site_logo_width 			= get_theme_mod( 'custom_logo_max_width', '90' );
 	$text_color 				= get_theme_mod( 'text_color', '#000000' );
+	$background_color 			= get_theme_mod( 'background_color', '#ffffff' );
 
 	$css =
 	'
+	body .sidebar {
+		background-color: #' . esc_attr( $background_color ) . ';
+	}
+
 	body .project .overlay {
 		background:' . esc_attr( $overlay_color ) . ';
 	}
@@ -57,9 +62,16 @@ function york_customizer_css() {
 		color:' . esc_attr( $text_color ) . ';
 	}
 
-
 	body .mobile-navigation--arrow:after {
 		border-color:' . esc_attr( $text_color ) . ';
+	}
+
+	.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+		background-color:' . esc_attr( $text_color ) . ';
+	}
+
+	.social-navigation svg {
+		fill:' . esc_attr( $text_color ) . ';
 	}
 	';
 

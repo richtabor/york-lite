@@ -91,7 +91,7 @@
 
 .sidebar--section.widget-area {
 	border-right: none;
-	border-top: solid 1px #f0f0f0;
+	border-top: solid 1px rgba( #000, .1 );
 
 	.widget {
 		.customize-partial-edit-shortcut button {
@@ -133,7 +133,7 @@
 	}
 
 	.sidebar--section.widget-area  {
-		border-left: solid 1px #f0f0f0;
+		border-left: solid 1px rgba( #000, .1 );
 	}
 }
 
