@@ -12,9 +12,11 @@
 get_header();
 
 // Start the loop.
-while ( have_posts() ) : the_post();
+while ( have_posts() ) :
 
-	// Include the single post and single portfolio content template.
+	the_post();
+
+	// Include the single portfolio content template.
 	get_template_part( 'components/portfolio/single' );
 
 endwhile;

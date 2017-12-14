@@ -19,7 +19,9 @@ get_header();
 if ( have_posts() ) :
 
 	/* Start the Loop */
-	while ( have_posts() ) : the_post();
+	while ( have_posts() ) :
+
+		the_post();
 
 		/*
 		 * Include the Post-Format-specific template for the content.
@@ -36,8 +38,8 @@ if ( have_posts() ) :
 	 * @link https://codex.wordpress.org/Function_Reference/the_posts_pagination
 	 */
 	the_posts_pagination( array(
-		'prev_text' => york_get_svg( array( 'icon' => 'left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'york-lite' ) . '</span>',
-		'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'york-lite' ) . '</span>' . york_get_svg( array( 'icon' => 'right' ) ),
+		'prev_text'          => york_get_svg( array( 'icon' => 'left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'york-lite' ) . '</span>',
+		'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'york-lite' ) . '</span>' . york_get_svg( array( 'icon' => 'right' ) ),
 		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'york-lite' ) . ' </span>',
 	) );
 

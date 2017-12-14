@@ -132,7 +132,7 @@ function york_setup() {
 	 * See: https://make.wordpress.org/core/2016/11/30/starter-content-for-themes-in-4-7/
 	 */
 	$starter_content = array(
-		'posts' => array(
+		'posts'       => array(
 			'home',
 			'about',
 			'contact',
@@ -142,33 +142,33 @@ function york_setup() {
 		'attachments' => array(
 			'logo' => array(
 				'post_title' => _x( 'Logo', 'Theme starter content', 'york-lite' ),
-				'file' => 'inc/customizer/images/logo.png',
+				'file'       => 'inc/customizer/images/logo.png',
 			),
 		),
 
-		'options' => array(
-			'show_on_front' => 'page',
-			'page_on_front' => '{{home}}',
+		'options'     => array(
+			'show_on_front'   => 'page',
+			'page_on_front'   => '{{home}}',
 			'blogdescription' => _x( 'A WordPress theme by ThemeBeans', 'Theme starter content', 'york-lite' ),
-			'page_for_posts' => '{{blog}}',
+			'page_for_posts'  => '{{blog}}',
 		),
 
-		'theme_mods' => array(
+		'theme_mods'  => array(
 			'site_logo' => '{{image-logo}}',
 		),
 
-		'nav_menus' => array(
+		'nav_menus'   => array(
 
 			'primary' => array(
-				'name' => esc_html__( 'Primary', 'york-lite' ),
+				'name'  => esc_html__( 'Primary', 'york-lite' ),
 				'items' => array(
 					'page_home',
 					'page_about',
 				),
 			),
 
-			'footer' => array(
-				'name' => esc_html__( 'Footer', 'york-lite' ),
+			'footer'  => array(
+				'name'  => esc_html__( 'Footer', 'york-lite' ),
 				'items' => array(
 					'page_home',
 					'page_about',
@@ -176,8 +176,8 @@ function york_setup() {
 				),
 			),
 
-			'social' => array(
-				'name' => esc_html__( 'Social Menu', 'york-lite' ),
+			'social'  => array(
+				'name'  => esc_html__( 'Social Menu', 'york-lite' ),
 				'items' => array(
 					'link_twitter',
 					'link_instagram',
@@ -218,7 +218,7 @@ function york_front_page_template( $template ) {
 
 	return is_home() ? '' : $template;
 }
-add_filter( 'frontpage_template',  'york_front_page_template' );
+add_filter( 'frontpage_template', 'york_front_page_template' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -335,8 +335,8 @@ function york_fonts_url() {
 		}
 
 		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
+			'family' => rawurlencode( implode( '|', $font_families ) ),
+			'subset' => rawurlencode( 'latin,latin-ext' ),
 		);
 
 		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );

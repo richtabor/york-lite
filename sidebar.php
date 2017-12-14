@@ -25,14 +25,18 @@ $is_active = ( ! is_active_sidebar( 'sidebar-1' ) ) ? 'no-widget-area' : 'has-wi
 		<div class="sidebar--section-inner">
 
 			<nav id="site-navigation" class="main-navigation nav primary" aria-label="<?php esc_attr_e( 'Primary Menu', 'york-lite' ); ?>">
-				<?php wp_nav_menu( array(
-					'theme_location' => 'primary',
-					'menu_class'     => 'primary-menu',
-					'depth'          => '0',
-					'link_before' 	 => '<span>',
-					'link_after' 	 => '</span>',
-					'walker' 	 => new YorkClassMobileNavigationWalker(),
-				) ); ?>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'primary',
+						'menu_class'     => 'primary-menu',
+						'depth'          => '0',
+						'link_before'    => '<span>',
+						'link_after'     => '</span>',
+						'walker'         => new YorkClassMobileNavigationWalker(),
+					)
+				);
+				?>
 			</nav>
 
 		</div>

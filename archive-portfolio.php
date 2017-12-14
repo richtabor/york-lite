@@ -19,10 +19,13 @@ get_header(); ?>
 
 	<div class="grid-sizer"></div>
 
-	<?php if ( have_posts() ) :
+	<?php
+	if ( have_posts() ) :
 
 		/* Start the Loop */
-		while ( have_posts() ) : the_post();
+		while ( have_posts() ) :
+
+			the_post();
 
 			if ( has_post_thumbnail() ) :
 
@@ -30,16 +33,20 @@ get_header(); ?>
 
 			endif;
 
-		endwhile; ?>
+		endwhile;
+		?>
 
 		<div id="page_nav">
 			<?php next_posts_link(); ?>
 		</div>
 
-	<?php else :
+	<?php
+	else :
 		get_template_part( 'components/post/content', 'none' );
-	endif; ?>
+	endif;
+	?>
 
 </div>
 
-<?php get_footer();
+<?php
+get_footer();
