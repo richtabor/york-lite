@@ -76,9 +76,8 @@ const AUTOPREFIXER_BROWSERS = [
  */
 var gulp         = require('gulp');
 var sass         = require('gulp-sass');
-var minifycss    = require('gulp-clean-css');
+var minifycss    = require('gulp-uglifycss');
 var autoprefixer = require('gulp-autoprefixer');
-var csscomb      = require('gulp-csscomb');
 var mmq          = require('gulp-merge-media-queries');
 var concat       = require('gulp-concat');
 var uglify       = require('gulp-uglify');
@@ -93,12 +92,11 @@ var reload       = browserSync.reload;
 var wpPot        = require('gulp-wp-pot');
 var sort         = require('gulp-sort');
 var replace      = require('gulp-replace-task');
-var runSequence  = require('gulp-run-sequence');
+var runSequence  = require('run-sequence');
 var zip          = require('gulp-zip');
 var cache        = require('gulp-cache');
 var copy         = require('gulp-copy');
 var cleaner      = require('gulp-clean');
-var rtlcss       = require('gulp-rtlcss');
 
 
 /**
@@ -171,11 +169,6 @@ gulp.task( 'browser-sync', function() {
         .pipe( gulp.dest( styleDestination ) )
 
         .pipe( filter( '**/*.css' ) ) // Filtering stream to only css files
-        //.pipe( mmq( { log: true } ) ) // Merge Media Queries only for .min.css version.
-
-        // .pipe( csscomb() )
-        // .pipe( gulp.dest( './' ) )
-        // .pipe( notify( { message: 'CSS Comb Completed', onLast: true } ) )
 
         .pipe(replace({
           patterns: [
@@ -223,26 +216,6 @@ gulp.task( 'browser-sync', function() {
 
         .pipe( notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) );
  });
-
-
-
-
-gulp.task('rtl', function () {
-    return gulp.src('style.css')
-    .pipe( rtlcss() ) // Convert to RTL.
-    .pipe(rename({ basename: 'rtl' })) // Change the name to ".rtl"
-    .pipe( gulp.dest( './' ) );
-});
-
-
-
-
-gulp.task('csscomb', function() {
-  return gulp.src('style.css')
-    .pipe( csscomb() )
-    .pipe( gulp.dest( './' ) );
-});
-
 
  /**
   * Task: `images`.
