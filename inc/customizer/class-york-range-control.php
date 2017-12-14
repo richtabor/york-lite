@@ -49,7 +49,7 @@ class York_Range_Control extends WP_Customize_Control {
 
 		<div class="value">
 			<span><?php echo esc_attr( $this->value() ); ?></span>
-			<input class="track-input" data-default-value="<?php echo esc_html( $this->default ); ?>" type="number"<?php $this->input_attrs(); ?> value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
+			<input class="track-input" data-default-value="<?php echo esc_attr( $this->default ); ?>" type="number"<?php $this->input_attrs(); ?> value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
 			<em><?php echo esc_html( $this->description ); ?></em>
 		</div>
 
