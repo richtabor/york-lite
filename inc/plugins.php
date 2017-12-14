@@ -26,9 +26,14 @@ function york_register_required_plugins() {
 	 */
 	$plugins = array(
 		array(
-			'name'         => esc_html__( 'Portfolio Post Type', '@@textdomain' ),
-			'slug'         => 'portfolio-post-type',
-			'required'     => false,
+			'name'     => esc_html__( 'Portfolio Post Type', 'york-lite' ),
+			'slug'     => 'portfolio-post-type',
+			'required' => false,
+		),
+		array(
+			'name'     => esc_html__( 'Login Designer', 'york-lite' ),
+			'slug'     => 'login-designer',
+			'required' => false,
 		),
 	);
 
