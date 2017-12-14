@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: 404.php:16
 msgid "That page can&rsquo;t be found."
@@ -25,15 +25,15 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Try a search?"
 msgstr ""
 
-#: archive.php:44, index.php:39, search.php:38
+#: archive.php:47, index.php:41, search.php:38
 msgid "Previous page"
 msgstr ""
 
-#: archive.php:45, index.php:40, search.php:39
+#: archive.php:48, index.php:42, search.php:39
 msgid "Next page"
 msgstr ""
 
-#: archive.php:46, index.php:41, search.php:40
+#: archive.php:49, index.php:43, search.php:40
 msgid "Page"
 msgstr ""
 
@@ -246,9 +246,11 @@ msgstr ""
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:388
+#: inc/class-tgm-plugin-activation.php:388, inc/class-tgm-plugin-activation.php:2952
 msgid "The following plugin was activated successfully:"
-msgstr ""
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
 
 #: inc/class-tgm-plugin-activation.php:390
 msgid "No action taken. Plugin %1$s was already active."
@@ -470,12 +472,6 @@ msgstr ""
 msgid "No plugins are available to be activated at this time."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:2952
-msgid "The following plugin was activated successfully:"
-msgid_plural "The following plugins were activated successfully:"
-msgstr[0] ""
-msgstr[1] ""
-
 #: inc/class-tgm-plugin-activation.php:3158
 msgid "Plugin activation failed."
 msgstr ""
@@ -570,6 +566,14 @@ msgstr ""
 
 #: inc/icons.php:45
 msgid "Please define an SVG icon filename."
+msgstr ""
+
+#: inc/plugins.php:29
+msgid "Portfolio Post Type"
+msgstr ""
+
+#: inc/plugins.php:34
+msgid "Login Designer"
 msgstr ""
 
 #: inc/template-tags.php:22
