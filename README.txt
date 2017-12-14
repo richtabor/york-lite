@@ -1,8 +1,8 @@
 # @@pkg.name #
 
-Contributors: themebeans
+Contributors: themebeans, richtabor
 Requires at least: 4.7
-Tested up to: 4.8.1
+Tested up to: 4.9.1
 Version: @@pkg.version
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -40,13 +40,42 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
-== Resources ==
-
 York Lite bundles the following third-party resources:
 
-normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
+TRT Customizer Pro, Copyright 2016 Justin Tadlock
+License: GPLv2 or later
+Source: https://github.com/justintadlock/trt-customizer-pro
+
+TGM-Plugin-Activation, Copyright 2011, Thomas Griffin
+License: GPLv2 or later
+Source: http://tgmpluginactivation.com
+
+normalize.css, Copyright 2012-2018 Nicolas Gallagher and Jonathan Neal
 License: MIT
 Source: https://necolas.github.io/normalize.css/
+
+Playfair Display Font, Copyright The Playfair Display Project Authors (https://github.com/clauseggers/Playfair-Display)
+License: Open Font License (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+Source: https://fonts.google.com/specimen/Playfair+Display
+
+Lora Font, Copyright Cyreal
+License: Open Font License (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+Source: https://fonts.google.com/specimen/Lora
+
+Screenshot image #1, Copyright Blake Hunter
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://unsplash.com/photos/p01IGh_HxtM
+
+Screenshot image #2, Copyright Tanalee Youngblood
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://unsplash.com/photos/fsdWYNTymjI
+
+Screenshot image #3, Copyright Erol Ahmed
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://unsplash.com/photos/aIYFR0vbADk
+
+Images in assets/images/ directory, Copyright: ThemeBeans
+License: GPLv2 or later
 
 == Changelog ==
 
