@@ -62,35 +62,22 @@ Lora Font, Copyright Cyreal
 License: Open Font License (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
 Source: https://fonts.google.com/specimen/Lora
 
-Screenshot image #1, Copyright Blake Hunter
-License: CC0 1.0 Universal (CC0 1.0)
-Source: https://unsplash.com/photos/p01IGh_HxtM
+Screenshot image #1, Copyright RawPixel
+License: CC0 1.0 Universal (CC0 1.0) (https://creativecommons.org/publicdomain/zero/1.0/deed.en)
+Source: https://pixabay.com/en/season-box-celebrate-celebration-1985856/
 
-Screenshot image #2, Copyright Tanalee Youngblood
-License: CC0 1.0 Universal (CC0 1.0)
-Source: https://unsplash.com/photos/fsdWYNTymjI
+Screenshot image #2, Copyright StockSnap
+License: CC0 1.0 Universal (CC0 1.0) (https://creativecommons.org/publicdomain/zero/1.0/deed.en)
+Source: https://pixabay.com/en/minimal-furniture-drawers-cup-923194/
 
-Screenshot image #3, Copyright Erol Ahmed
-License: CC0 1.0 Universal (CC0 1.0)
-Source: https://unsplash.com/photos/aIYFR0vbADk
+Screenshot image #3, Copyright Giovanni Gargiulo
+License: CC0 1.0 Universal (CC0 1.0) (https://creativecommons.org/publicdomain/zero/1.0/deed.en)
+Source: https://pixabay.com/en/architecture-design-minimal-1087819/
 
 Images in assets/images/ directory, Copyright: ThemeBeans
 License: GPLv2 or later
 
 == Changelog ==
 
-= 1.0.5 =
-* Released: November 17, 2017
-Added TGMPA support for the Portfolio Post Type plugin
-Re-fixed the multi-menu display
-Touched up nothing found styles
-
-= 1.0.4 =
-* Released: November 15, 2017
-Fixed scrolling issues within the sidebar
-Fixed multi-menu display
-
-= 1.0 =
-* Released: December 6, 2016
-
-Initial release
+= 1.1.0 =
+* Released: December 15, 2017
