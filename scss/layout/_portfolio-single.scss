@@ -4,14 +4,19 @@
 		margin: 0 auto;
 		max-width: 1200px;
 
+		.entry-header {
+			text-align: left;
+		}
+
 		.entry-title {
 			display: inline-block;
-			margin-bottom: 25px;	
+			margin-bottom: 25px;
 		}
 
 		.entry-meta {
 			font-size: $font-size__meta-mobile;
 			margin-bottom: 33px;
+			margin-top: 0;
 
 			@media (min-width: 600px) {
 				font-size: $font-size__meta;
@@ -71,8 +76,9 @@
 			a {
 				color: $gray;
 				padding-right: 5px;
+				display: inline-block;
 
-				&:not(:first-of-type)::before {
+				&:not(:last-of-type)::after {
 					content: "/";
 					opacity: .33 !important;
 					color: $gray !important;
@@ -81,6 +87,7 @@
 					position: relative;
 					top: -1px;
 					padding-right: 5px;
+					padding-left: 7px;
 				}
 
 				&:last-child {

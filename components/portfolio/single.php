@@ -16,8 +16,6 @@
 
 			<div class="entry-meta">
 
-				<?php the_time( get_option( 'date_format' ) ); ?>
-
 				<?php york_portfolio_categories(); ?>
 
 				<?php the_meta(); ?>
@@ -25,6 +23,8 @@
 			</div>
 
 		</header>
+
+		<?php york_post_thumbnail(); ?>
 
 		<div class="entry-content">
 			<?php the_content(); ?>

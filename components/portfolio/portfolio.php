@@ -23,7 +23,9 @@
 	if ( $wp_query->have_posts() ) :
 
 		/* Start the Loop */
-		while ( $wp_query->have_posts() ) : $wp_query->the_post();
+		while ( $wp_query->have_posts() ) :
+
+			$wp_query->the_post();
 
 			if ( has_post_thumbnail() ) :
 
@@ -35,7 +37,8 @@
 
 	endif;
 
-	wp_reset_postdata(); ?>
+	wp_reset_postdata();
+	?>
 
 	<div id="page_nav">
 		<?php next_posts_link(); ?>

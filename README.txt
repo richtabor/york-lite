@@ -79,5 +79,11 @@ License: GPLv2 or later
 
 == Changelog ==
 
+= 1.1.1 =
+* New: Added support for CMB2 metaboxes and the portfolio page
+* New: Added a CMB2 metabox for selecting the portfolio post thumbnail size
+* Tweak: Improved singular portfolio view
+* Tweak: Improved frontpage setting page view
+
 = 1.1.0 =
 * Released: December 15, 2017

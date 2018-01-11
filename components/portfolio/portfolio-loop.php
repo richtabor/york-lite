@@ -34,9 +34,9 @@ printf( '<article class="project %1s" >', esc_attr( $size_class ) );
 		 * If there is, that will be assigned as the $portfolio_url variable, if not,
 		 * the post permalink will be assigned.
 		 */
-		$external_url = get_post_meta( $post->ID, '_bean_portfolio_external_url', true );
-		$portfolio_url = ( $external_url ) === true ? $external_url : get_the_permalink();
-		$portfolio_url_class = ( $external_url ) === true ? 'class=project-link project-link_external' : '';
+		$external_url         = get_post_meta( $post->ID, '_bean_portfolio_external_url', true );
+		$portfolio_url        = ( $external_url ) === true ? $external_url : get_the_permalink();
+		$portfolio_url_class  = ( $external_url ) === true ? 'class=project-link project-link_external' : '';
 		$portfolio_url_target = ( $external_url ) === true ? '_blank' : '_self';
 
 		printf( '<a href="%1s" data-id="%2$s" %3$s target="%4$s" class="project-link"></a>',
@@ -46,7 +46,8 @@ printf( '<article class="project %1s" >', esc_attr( $size_class ) );
 			esc_html( $portfolio_url_target )
 		);
 
-		the_post_thumbnail( 'york-portfolio-thumbnail' ); ?>
+		the_post_thumbnail( 'york-portfolio-thumbnail' );
+		?>
 
 		</figure>
 

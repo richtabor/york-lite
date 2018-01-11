@@ -443,3 +443,8 @@ require get_theme_file_path( '/inc/icons.php' );
  * Load the TGMPA class.
  */
 require get_parent_theme_file_path( '/inc/plugins.php' );
+
+/**
+ * Load CMB2 compatibility file.
+ */
+require get_theme_file_path( '/inc/metaboxes.php' );
