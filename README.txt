@@ -2,7 +2,7 @@
 
 Contributors: themebeans, richtabor
 Requires at least: 4.7
-Tested up to: 4.9.1
+Tested up to: 4.9.7
 Version: @@pkg.version
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -27,7 +27,7 @@ For more information about York Lite please go to https://themebeans.com/themes/
 
 == Copyright ==
 
-York Lite WordPress Theme, Copyright 2017 ThemeBeans
+York Lite WordPress Theme, Copyright 2018 ThemeBeans
 York Lite is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
@@ -79,11 +79,15 @@ License: GPLv2 or later
 
 == Changelog ==
 
+= 1.1.2 =
+* Tweak: Add PHPCS code improvements
+* Tweak: Update translation .pot file
+
 = 1.1.1 =
-* New: Added support for CMB2 metaboxes and the portfolio page
-* New: Added a CMB2 metabox for selecting the portfolio post thumbnail size
-* Tweak: Improved singular portfolio view
-* Tweak: Improved frontpage setting page view
+* New: Add support for CMB2 metaboxes and the portfolio page
+* New: Add a CMB2 metabox for selecting the portfolio post thumbnail size
+* Tweak: Improve singular portfolio view
+* Tweak: Improve frontpage setting page view
 
 = 1.1.0 =
-* Released: December 15, 2017
+* Release: December 15, 2017
