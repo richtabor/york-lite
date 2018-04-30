@@ -10,7 +10,7 @@
 	"author_uri": "https://themebeans.com",
 	"author_shop": "ThemeBeans",
 	"license": "http://www.gnu.org/licenses/gpl-3.0.html GNU Public License",
-	"copyright": "Copyright (c) 2017, ThemeBeans of Inventionn LLC",
+	"copyright": "Copyright (c) 2018, ThemeBeans of Inventionn LLC",
 	"devDependencies": {
 		"browser-sync": "^2.11.1",
 		"gulp": "^3.9.1",
