@@ -12,11 +12,11 @@
  */
 function york_customizer_css() {
 
-	$overlay_color 				= get_theme_mod( 'overlay_color', '#000000' );
-	$overlay_text_color 			= get_theme_mod( 'overlay_text_color', '#ffffff' );
-	$site_logo_width 			= get_theme_mod( 'custom_logo_max_width', '90' );
-	$text_color 				= get_theme_mod( 'text_color', '#000000' );
-	$background_color 			= get_theme_mod( 'background_color', '#ffffff' );
+	$overlay_color      = get_theme_mod( 'overlay_color', '#000000' );
+	$overlay_text_color = get_theme_mod( 'overlay_text_color', '#ffffff' );
+	$site_logo_width    = get_theme_mod( 'custom_logo_max_width', '90' );
+	$text_color         = get_theme_mod( 'text_color', '#000000' );
+	$background_color   = get_theme_mod( 'background_color', '#ffffff' );
 
 	$css =
 	'

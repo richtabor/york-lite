@@ -39,7 +39,8 @@ printf( '<article class="project %1s" >', esc_attr( $size_class ) );
 		$portfolio_url_class  = ( $external_url ) === true ? 'class=project-link project-link_external' : '';
 		$portfolio_url_target = ( $external_url ) === true ? '_blank' : '_self';
 
-		printf( '<a href="%1s" data-id="%2$s" %3$s target="%4$s" class="project-link"></a>',
+		printf(
+			'<a href="%1s" data-id="%2$s" %3$s target="%4$s" class="project-link"></a>',
 			esc_url( $portfolio_url ),
 			esc_html( get_the_ID() ),
 			esc_html( $portfolio_url_class ),

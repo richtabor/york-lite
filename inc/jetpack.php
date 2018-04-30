@@ -17,12 +17,14 @@ if ( ! function_exists( 'york_jetpack_setup' ) ) :
 		 *
 		 * See: http://jetpack.me/support/infinite-scroll/
 		 */
-		add_theme_support( 'infinite-scroll', array(
-			'container' => 'hfeed',
-			'render'    => 'york_scroll_render',
-			'footer'    => 'page',
-			'wrapper'    => false,
-		) );
+		add_theme_support(
+			'infinite-scroll', array(
+				'container' => 'hfeed',
+				'render'    => 'york_scroll_render',
+				'footer'    => 'page',
+				'wrapper'   => false,
+			)
+		);
 
 		// Add theme support for Responsive Videos.
 		add_theme_support( 'jetpack-responsive-videos' );

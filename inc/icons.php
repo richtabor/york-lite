@@ -16,7 +16,7 @@ function york_include_svg_icons() {
 
 	// If it exists, include it.
 	if ( file_exists( $svg_icons ) ) {
-		require_once( $svg_icons );
+		require_once $svg_icons;
 	}
 }
 add_action( 'wp_footer', 'york_include_svg_icons', 9999 );
@@ -137,11 +137,13 @@ function york_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	if ( 'social' === $args->theme_location ) {
 		foreach ( $social_icons as $attr => $value ) {
 			if ( false !== strpos( $item_output, $attr ) ) {
-				$item_output = str_replace( $args->link_after, '</span>' . york_get_svg(
-					array(
-						'icon' => esc_attr( $value ),
-					)
-				), $item_output );
+				$item_output = str_replace(
+					$args->link_after, '</span>' . york_get_svg(
+						array(
+							'icon' => esc_attr( $value ),
+						)
+					), $item_output
+				);
 			}
 		}
 	}
@@ -207,9 +209,9 @@ function york_svg_allowed_html() {
 
 	$array = array(
 		'svg' => array(
-			'class' => array(),
+			'class'       => array(),
 			'aria-hidden' => array(),
-			'role' => array(),
+			'role'        => array(),
 		),
 		'use' => array(
 			'xlink:href' => array(),

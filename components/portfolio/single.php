@@ -10,24 +10,24 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<header class="hero entry-header">
+	<header class="hero entry-header">
 
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-			<div class="entry-meta">
+		<div class="entry-meta">
 
-				<?php york_portfolio_categories(); ?>
+			<?php york_portfolio_categories(); ?>
 
-				<?php the_meta(); ?>
+			<?php the_meta(); ?>
 
-			</div>
-
-		</header>
-
-		<?php york_post_thumbnail(); ?>
-
-		<div class="entry-content">
-			<?php the_content(); ?>
 		</div>
+
+	</header>
+
+	<?php york_post_thumbnail(); ?>
+
+	<div class="entry-content">
+		<?php the_content(); ?>
+	</div>
 
 </article>

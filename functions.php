@@ -76,33 +76,39 @@ function york_setup() {
 	/*
 	 * This theme uses wp_nav_menu() in the following locations.
 	 */
-	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'york-lite' ),
-		'footer'  => esc_html__( 'Footer Menu', 'york-lite' ),
-		'social'  => esc_html__( 'Social Menu', 'york-lite' ),
-	) );
+	register_nav_menus(
+		array(
+			'primary' => esc_html__( 'Primary Menu', 'york-lite' ),
+			'footer'  => esc_html__( 'Footer Menu', 'york-lite' ),
+			'social'  => esc_html__( 'Social Menu', 'york-lite' ),
+		)
+	);
 
 	/*
 	 * Switch default core yorkup for search form, comment form, and comments
 	 * to output valid HTML5.
 	 */
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
+	add_theme_support(
+		'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
 
 	/*
 	 * Enable support for Post Formats.
 	 *
 	 * See: https://codex.wordpress.org/Post_Formats
 	 */
-	add_theme_support( 'post-formats', array(
-		'video',
-		'image',
-	) );
+	add_theme_support(
+		'post-formats', array(
+			'video',
+			'image',
+		)
+	);
 
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
@@ -120,12 +126,14 @@ function york_setup() {
 	 * Enable support for the WordPress default Theme Logo
 	 * See: https://codex.wordpress.org/Theme_Logo
 	 */
-	add_theme_support( 'custom-logo', array(
-		'height'      => 200,
-		'width'       => 300,
-		'flex-width'  => true,
-		'flex-height' => true,
-	) );
+	add_theme_support(
+		'custom-logo', array(
+			'height'      => 200,
+			'width'       => 300,
+			'flex-width'  => true,
+			'flex-height' => true,
+		)
+	);
 
 	/*
 	 * Define starter content for the theme.
@@ -238,25 +246,29 @@ add_action( 'after_setup_theme', 'york_content_width', 0 );
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
 function york_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Flyout', 'york-lite' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Appears on the theme flyout sidebar.', 'york-lite' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h5 class="widget-title">',
-		'after_title'   => '</h5>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Flyout', 'york-lite' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Appears on the theme flyout sidebar.', 'york-lite' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h5 class="widget-title">',
+			'after_title'   => '</h5>',
+		)
+	);
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer', 'york-lite' ),
-		'id'            => 'footer',
-		'description'   => esc_html__( 'Appears at the top of the site footer.', 'york-lite' ),
-		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s clearfix">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h5 class="widget-title">',
-		'after_title'   => '</h5>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer', 'york-lite' ),
+			'id'            => 'footer',
+			'description'   => esc_html__( 'Appears at the top of the site footer.', 'york-lite' ),
+			'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s clearfix">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h5 class="widget-title">',
+			'after_title'   => '</h5>',
+		)
+	);
 }
 add_action( 'widgets_init', 'york_widgets_init' );
 
@@ -387,7 +399,8 @@ function york_excerpt_more( $link ) {
 		return $link;
 	}
 
-	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
+	$link = sprintf(
+		'<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
 		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'york-lite' ), get_the_title( get_the_ID() ) )
@@ -404,7 +417,8 @@ add_filter( 'excerpt_more', 'york_excerpt_more' );
  */
 function york_modify_read_more_link() {
 
-	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
+	$link = sprintf(
+		'<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
 		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'york-lite' ), get_the_title( get_the_ID() ) )

@@ -42,9 +42,11 @@ function york_upgrade_notice() {
 function york_customize() {
 
 	/* translators: installed WordPress version */
-	wp_die( sprintf( esc_html__( 'York Lite requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'york-lite' ), esc_html( $GLOBALS['wp_version'] ) ), '', array(
-		'back_link' => true,
-	) );
+	wp_die(
+		sprintf( esc_html__( 'York Lite requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'york-lite' ), esc_html( $GLOBALS['wp_version'] ) ), '', array(
+			'back_link' => true,
+		)
+	);
 }
 add_action( 'load-customize.php', 'york_customize' );
 

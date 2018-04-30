@@ -14,9 +14,11 @@
 	<div class="grid-sizer"></div>
 
 	<?php
-	$args = apply_filters( 'york_portfolio_args', array(
-		'post_type' => 'portfolio',
-	) );
+	$args = apply_filters(
+		'york_portfolio_args', array(
+			'post_type' => 'portfolio',
+		)
+	);
 
 	$wp_query = new WP_Query( $args );
 

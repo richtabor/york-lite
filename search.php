@@ -23,7 +23,8 @@ get_header(); ?>
 		<?php
 		if ( have_posts() ) :
 			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			while ( have_posts() ) :
+				the_post();
 
 				/**
 				 * Run the loop for the search to output the results.
@@ -34,13 +35,16 @@ get_header(); ?>
 
 			endwhile; // End of the loop.
 
-			the_posts_pagination( array(
-				'prev_text' => york_get_svg( array( 'icon' => 'left' ) ) . '<span class="screen-reader-text">' . esc_html__( 'Previous page', 'york-lite' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next page', 'york-lite' ) . '</span>' . york_get_svg( array( 'icon' => 'right' ) ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'york-lite' ) . ' </span>',
-			) );
+			the_posts_pagination(
+				array(
+					'prev_text'          => york_get_svg( array( 'icon' => 'left' ) ) . '<span class="screen-reader-text">' . esc_html__( 'Previous page', 'york-lite' ) . '</span>',
+					'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Next page', 'york-lite' ) . '</span>' . york_get_svg( array( 'icon' => 'right' ) ),
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'york-lite' ) . ' </span>',
+				)
+			);
 
-		else : ?>
+		else :
+		?>
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'york-lite' ); ?></p>
 			<?php
@@ -49,4 +53,5 @@ get_header(); ?>
 		endif;
 		?>
 
-<?php get_footer();
+<?php
+get_footer();
