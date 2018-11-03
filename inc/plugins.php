@@ -31,6 +31,11 @@ function york_register_required_plugins() {
 			'required' => false,
 		),
 		array(
+			'name'     => esc_html__( 'Block Gallery', 'york-lite' ),
+			'slug'     => 'block-gallery',
+			'required' => false,
+		),
+		array(
 			'name'     => esc_html__( 'Login Designer', 'york-lite' ),
 			'slug'     => 'login-designer',
 			'required' => false,
