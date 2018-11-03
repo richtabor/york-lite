@@ -1,0 +1,50 @@
+// Variables
+@import "variables";
+
+// Editor Widths
+$editor-width: 690px;
+$editor-wide-width: 960px;
+
+/** === Widths === */
+
+// body.gutenberg-editor-page .gutenberg .edit-post-layout {
+// 	.editor-post-title__block,
+// 	.editor-default-block-appender,
+// 	.editor-block-list__block {
+// 		max-width: $editor-width;
+// 	}
+
+// 	.editor-block-list__block[data-align="full"] {
+// 		max-width: none;
+// 	}
+
+// 	.editor-block-list__block[data-align="wide"] {
+// 		max-width: $editor-wide-width;
+// 	}
+// }
+
+// /** === Title === */
+
+// body.gutenberg-editor-page .gutenberg .editor-post-title__block {
+// 	.editor-post-title__input {
+// 		color: $color__text-heading;
+// 		font-family: $font__heading;
+// 		font-size: $font__size-xxl;
+// 		font-style: italic;
+// 		font-weight: $font__weight-heading;
+// 		text-align: center;
+// 	}
+// }
+
+// /** === Default Appender === */
+
+// body.gutenberg-editor-page .gutenberg .editor-default-block-appender__content {
+// 	font-family: $font__body;
+// 	font-size: $font__size_base;
+// 	font-weight: $font__weight-body;
+// }
+
+// .components-placeholder__label,
+// .components-placeholder__instructions {
+// 	color: #191e23;
+// }

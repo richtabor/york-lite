@@ -106,21 +106,8 @@ function york_setup() {
 	add_theme_support(
 		'post-formats', array(
 			'video',
-			'image',
 		)
 	);
-
-	/*
-	 * This theme styles the visual editor to resemble the theme style,
-	 * specifically font, colors, icons, and column width.
-	 */
-	add_editor_style( array( 'assets/css/editor-style.css', york_fonts_url() ) );
-
-	/*
-	 * Enable support for Customizer Selective Refresh.
-	 * See: https://make.wordpress.org/core/2016/02/16/selective-refresh-in-the-customizer/
-	 */
-	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	/*
 	 * Enable support for the WordPress default Theme Logo
@@ -134,6 +121,112 @@ function york_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	/**
+	 * Custom colors for use in the editor.
+	 *
+	 * @link https://wordpress.org/gutenberg/handbook/reference/theme-support/
+	 */
+	add_theme_support(
+		'editor-color-palette', array(
+			array(
+				'name'  => esc_html__( 'Black', 'york-lite' ),
+				'slug'  => 'black',
+				'color' => '#2a2a2a',
+			),
+			array(
+				'name'  => esc_html__( 'Gray', 'york-lite' ),
+				'slug'  => 'gray',
+				'color' => '#727477',
+			),
+			array(
+				'name'  => esc_html__( 'Light Gray', 'york-lite' ),
+				'slug'  => 'light-gray',
+				'color' => '#f8f8f8',
+			),
+			array(
+				'name'  => esc_html__( 'White', 'york-lite' ),
+				'slug'  => 'white',
+				'color' => '#ffffff',
+			),
+			array(
+				'name'  => esc_html__( 'Titan White', 'york-lite' ),
+				'slug'  => 'titan-white',
+				'color' => '#E0D8E2',
+			),
+			array(
+				'name'  => esc_html__( 'Tropical Blue', 'york-lite' ),
+				'slug'  => 'tropical-blue',
+				'color' => '#C5DCF3',
+			),
+			array(
+				'name'  => esc_html__( 'Peppermint', 'york-lite' ),
+				'slug'  => 'peppermint',
+				'color' => '#d0eac4',
+			),
+			array(
+				'name'  => esc_html__( 'Iceberg', 'york-lite' ),
+				'slug'  => 'iceberg',
+				'color' => '#D6EFEE',
+			),
+			array(
+				'name'  => esc_html__( 'Bridesmaid', 'york-lite' ),
+				'slug'  => 'bridesmaid',
+				'color' => '#FBE7DD',
+			),
+			array(
+				'name'  => esc_html__( 'Pipi', 'york-lite' ),
+				'slug'  => 'pipi',
+				'color' => '#fbf3d6',
+			),
+		)
+	);
+
+	/**
+	 * Custom font sizes for use in the editor.
+	 *
+	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#block-font-sizes
+	 */
+	add_theme_support(
+		'editor-font-sizes', array(
+			array(
+				'name'      => __( 'Small', 'york-lite' ),
+				'shortName' => __( 'S', 'york-lite' ),
+				'size'      => 16,
+				'slug'      => 'small',
+			),
+			array(
+				'name'      => __( 'Regular', 'york-lite' ),
+				'shortName' => __( 'M', 'york-lite' ),
+				'size'      => 19,
+				'slug'      => 'regular',
+			),
+			array(
+				'name'      => __( 'Large', 'york-lite' ),
+				'shortName' => __( 'L', 'york-lite' ),
+				'size'      => 24,
+				'slug'      => 'large',
+			),
+			array(
+				'name'      => __( 'Larger', 'york-lite' ),
+				'shortName' => __( 'XL', 'york-lite' ),
+				'size'      => 30,
+				'slug'      => 'larger',
+			),
+		)
+	);
+
+	// Add support for default block styles.
+	add_theme_support( 'wp-block-styles' );
+
+	// Add support for full and wide align images.
+	add_theme_support( 'align-wide' );
+
+	// Add support for editor styles.
+	add_theme_support( 'editor-styles' );
+
+	// Enqueue editor styles.
+	add_editor_style( 'assets/css/style-editor.css', york_fonts_url() );
 
 	/*
 	 * Define starter content for the theme.
@@ -205,28 +298,8 @@ function york_setup() {
 	$starter_content = apply_filters( 'york_starter_content', $starter_content );
 
 	add_theme_support( 'starter-content', $starter_content );
-
 }
-
 add_action( 'after_setup_theme', 'york_setup' );
-
-/**
- * Use front-page.php when Front page displays is set to a static page.
- *
- * @param string|string $template front-page.php.
- *
- * @return string The template to be used: blank if is_home() is true (defaults to index.php), else $template.
- */
-function york_front_page_template( $template ) {
-
-	// Let's only use the front-page.php file if the Portfolio Post Type is present.
-	if ( ! post_type_exists( 'portfolio' ) ) {
-		return;
-	}
-
-	return is_home() ? '' : $template;
-}
-add_filter( 'frontpage_template', 'york_front_page_template' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -288,10 +361,10 @@ add_action( 'wp_enqueue_scripts', 'york_javascript_detection', 0 );
 function york_scripts() {
 
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'york-fonts', york_fonts_url(), array(), null );
+	wp_enqueue_style( 'york-fonts', york_fonts_url(), false, '@@pkg.version', 'all' );
 
 	// Theme stylesheet.
-	wp_enqueue_style( 'york-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'york-style', get_stylesheet_uri(), false, '@@pkg.version', 'all' );
 
 	// Load the standard WordPress comments reply javascript.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -311,8 +384,20 @@ function york_scripts() {
 
 	wp_localize_script( 'york-global', 'york_translation', $translation_array );
 }
-
 add_action( 'wp_enqueue_scripts', 'york_scripts' );
+
+/**
+ * Enqueue supplemental block editor styles.
+ */
+function york_editor_frame_styles() {
+
+	// Load the theme styles within the editor.
+	wp_enqueue_style( 'york-editor-frame-styles', get_theme_file_uri( '/assets/css/style-editor-frame.css' ), false, '@@pkg.version', 'all' );
+
+	// Add custom fonts to the editor.
+	wp_enqueue_style( 'york-fonts', york_fonts_url(), array(), '@@pkg.version', null );
+}
+add_action( 'enqueue_block_editor_assets', 'york_editor_frame_styles' );
 
 /**
  * Register custom fonts.
@@ -376,6 +461,24 @@ function york_resource_hints( $urls, $relation_type ) {
 }
 
 add_filter( 'wp_resource_hints', 'york_resource_hints', 10, 2 );
+
+/**
+ * Use front-page.php when Front page displays is set to a static page.
+ *
+ * @param string|string $template front-page.php.
+ *
+ * @return string The template to be used: blank if is_home() is true (defaults to index.php), else $template.
+ */
+function york_front_page_template( $template ) {
+
+	// Let's only use the front-page.php file if the Portfolio Post Type is present.
+	if ( ! post_type_exists( 'portfolio' ) ) {
+		return;
+	}
+
+	return is_home() ? '' : $template;
+}
+add_filter( 'frontpage_template', 'york_front_page_template' );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.

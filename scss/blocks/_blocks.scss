@@ -1,0 +1,23 @@
+// Editor customizations.
+@import "color-palette";
+@import "font-sizes";
+
+// Import blocks.
+@import "blockgallery";
+@import "blockquote";
+@import "button";
+@import "captions";
+@import "coblocks";
+@import "cover";
+@import "embed";
+@import "file";
+@import "gallery";
+@import "image";
+@import "paragraph";
+@import "preformatted";
+@import "pullquote";
+@import "verse";
+
+// Third party blocks.
+@import "blocks/coblocks";
+@import "blocks/blockgallery";
