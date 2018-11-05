@@ -1,0 +1,77 @@
+.entry-content {
+
+	.wp-block-cover-image,
+	.wp-block-cover {
+		@include blockMobileDisplay();
+		margin-bottom: 2.3em;
+		margin-top: 2.3em;
+		width: auto;
+
+		.wp-block-cover-image-text,
+		.wp-block-cover-text,
+		h2 {
+			font-family: $font__heading;
+			font-size: $font__size-lg;
+			font-weight: $font__weight-heading;
+			max-width: calc(100vw - (2 * 30px));
+			width: calc(100vw - (2 * 30px));
+		}
+
+		&.alignleft,
+		&.alignright {
+			margin-top: 0.5em;
+			width: auto;
+
+			@media screen and (min-width: 499px) {
+				width: 100%;
+			}
+		}
+
+		&.alignleft {
+			@media screen and (min-width: 499px) {
+				margin-right: 40px;
+			}
+		}
+
+		&.alignright {
+			@media screen and (min-width: 499px) {
+				margin-left: 40px;
+			}
+		}
+
+		&.alignleft,
+		&.alignright,
+		&.aligncenter {
+			h2,
+			.wp-block-cover-image-text,
+			.wp-block-cover-text {
+				left: 50%;
+				position: absolute;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				width: 100%;
+				z-index: 1;
+			}
+		}
+
+		&.has-left-content {
+			justify-content: center;
+
+			h2,
+			.wp-block-cover-image-text,
+			.wp-block-cover-text {
+				padding: 30px;
+			}
+		}
+
+		&.has-right-content {
+			justify-content: center;
+
+			h2,
+			.wp-block-cover-image-text,
+			.wp-block-cover-text {
+				padding: 30px;
+			}
+		}
+	}
+}

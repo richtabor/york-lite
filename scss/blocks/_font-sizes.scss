@@ -1,0 +1,19 @@
+.has-small-font-size {
+	font-size: 16px;
+}
+
+.has-regular-font-size {
+	font-size: 18px;
+
+	@media screen and (min-width: 599px) {
+		font-size: $font__size_base;
+	}
+}
+
+.has-large-font-size {
+	font-size: 24px;
+}
+
+.has-larger-font-size {
+	font-size: 30px;
+}

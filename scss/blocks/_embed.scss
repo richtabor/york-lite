@@ -1,0 +1,19 @@
+.entry-content {
+
+	//! Embeds
+	.wp-block-embed {
+		margin-top: 2.5em;
+		margin-bottom: 2.5em;
+
+		.jetpack-video-wrapper,
+		.fluid-width-video-wrapper {
+			margin: 0;
+		}
+
+		figcaption {
+			color: $gray;
+			margin-bottom: -8px;
+			margin-top: 8px;
+		}
+	}
+}

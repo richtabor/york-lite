@@ -1,0 +1,22 @@
+.entry-content {
+
+	.wp-block-gallery {
+		margin-bottom: 1.5em;
+		margin-top: 2.3em;
+		padding-left: 0;
+
+		.blocks-gallery-image,
+		.blocks-gallery-item {
+			padding-left: 0;
+		}
+
+		&.columns-1 li:last-child {
+			margin-bottom: 14px;
+		}
+	}
+
+	.wp-block-gallery .blocks-gallery-image:last-child,
+	.wp-block-gallery .blocks-gallery-item:last-child {
+		margin-bottom: 16px;
+	}
+}

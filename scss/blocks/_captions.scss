@@ -1,0 +1,19 @@
+.entry-content {
+
+	.wp-block-audio figcaption,
+	.wp-block-video figcaption,
+	.wp-block-embed figcaption,
+	.wp-block-image figcaption,
+	.wp-block-gallery .blocks-gallery-image figcaption,
+	.wp-block-gallery .blocks-gallery-item figcaption {
+		font-size: $font__size-xs;
+		line-height: $font__line-height-pre;
+		margin: 0;
+		text-align: center;
+	}
+
+	.wp-block-gallery .blocks-gallery-image figcaption,
+	.wp-block-gallery .blocks-gallery-item figcaption {
+		padding-bottom: 10px;
+	}
+}

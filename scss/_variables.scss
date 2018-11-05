@@ -1,0 +1,85 @@
+$font__body: "Lora", serif;
+$font__heading: "Playfair Display", sans-serif;
+
+$font__size_base: 19px;
+$font__size-ratio: 1.1;
+
+$font__size-xxs: 1em / (1.5 * $font__size-ratio);
+$font__size-xs: 1em / (1.25 * $font__size-ratio);
+$font__size-sm: 1em / (1 * $font__size-ratio);
+$font__size-md: 1em * (1.25 * $font__size-ratio);
+$font__size-mdlrg: 1em * (1.5 * $font__size-ratio);
+$font__size-lg: 1em * (1.75 * $font__size-ratio);
+$font__size-xl: 1em * (2 * $font__size-ratio);
+$font__size-xxl: 1em * (2.5 * $font__size-ratio);
+$font__size-xxxl: 1em * (5 * $font__size-ratio);
+
+$font__line-height-body: 1.75;
+$font__line-height-heading: 1.35;
+$font__line-height-pre: 1.6;
+
+$font__weight-body: 400;
+$font__weight-heading: 400;
+
+$black: #000000;
+$white: #fff;
+$gray: #869092;
+
+$color__text-heading: #000000;
+$color__text-main: #000000;
+
+$color__background-button: $color__text-main;
+$color__background-button-hover: #444;
+$color--background-body: #fff;
+
+// Old
+$font__main: "Lora", "Georgia", serif;
+$font__heading: 'Playfair Display', "Georgia", serif;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", Courier, monospace;
+
+$font-size__meta: 17px;
+$font-size__meta-mobile: 15px;
+
+$accent: #218799;
+$lightgray: #f0f0f0;
+$gray: rgba(0, 0, 0, .44);
+$gray--hover: rgba(0, 0, 0, .66);
+
+$white: #fff;
+$color--error: #e85c41;
+$color--success: #2cb994;
+
+$color--background-body: #fff;
+$color--background-screen: #f1f1f1;
+$color--background-hr: #ccc;
+$color--background-button: #e6e6e6;
+$color--background-pre: #f1f1f1;
+$color--background-ins: #fff9c0;
+$color--background-input-focus: #fff;
+
+$color--background-lightbox: #fff;
+$color--background-lightbox-dark: #1c1c21;
+$color--background-lightbox-button: $black;
+$color--background-lightbox-button-dark: #dfdfe2;
+
+$color--text-screen: #21759b;
+$color--text-input: $black;
+$color--text-input-focus: $black;
+$color--text-input-placeholder: #bbb;
+$color--text-footer-a: #bbb;
+$color--link: #4169e1;
+$color--link-visited: #800080;
+$color--link-hover: #333;
+
+$color--border-button: #ccc #ccc #888;
+$color--border-button-hover: #ccc #888 #aaa;
+$color--border-button-focus: #aaa #888 #888;
+$color--border-input: #e6e6e6;
+$color--border-input-hover: #d6d6d6;
+$color--border-input-focus: #c6c6c6;
+$color--border-abbr: #e8e8e8;
+$color--border-table: #ccc;
+$color--border-footer: rgba(0, 0, 0, 0.075);
+
+$color--outline-button: #959595;

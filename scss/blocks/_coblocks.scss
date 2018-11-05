@@ -1,0 +1,141 @@
+.entry-content {
+
+	.wp-block-coblocks-alert {
+		@include blockMobileDisplay();
+		margin-bottom: 2.2em;
+		margin-top: 2.3em;
+		padding-bottom: 0.7em;
+		padding-top: 0.7em;
+
+		&__title {
+			font-size: 19px;
+		}
+
+		&__text {
+			font-size: 18px;
+		}
+	}
+
+	.wp-block-coblocks-accordion {
+		margin-bottom: 2.2em;
+		margin-top: 2.2em;
+	}
+
+	.wp-block-coblocks-click-to-tweet {
+		margin-bottom: 2.3em;
+		margin-top: 1.6em;
+		padding-bottom: 0;
+		padding-top: 0;
+
+		@media (max-width: 700px) {
+			margin-bottom: 1.9em;
+		}
+
+		&__text {
+			color: $color__text-heading;
+			font-family: $font__heading;
+			font-size: $font__size-md;
+			font-weight: $font__weight-heading;
+			line-height: 1.5;
+		}
+
+		&__text::before {
+			top: 8px;
+		}
+
+		&__twitter-btn {
+			border-radius: 4px;
+			font-size: $font__size-sm;
+			height: 44px;
+			line-height: 45px;
+			margin-top: 0.8em;
+			padding: 0 1em;
+
+			@media (max-width: 700px) {
+				font-size: $font__size-sm;
+			}
+
+			&::before {
+				margin-right: 7px;
+			}
+		}
+	}
+
+	.wp-block-coblocks-gist {
+		margin-bottom: 2.1em;
+		margin-top: 2.3em;
+
+		td {
+			border: none;
+		}
+	}
+
+	.wp-block-coblocks-author {
+		@include blockMobileDisplay();
+		border-radius: 0;
+		padding-left: 30px;
+		padding-right: 30px;
+		margin-bottom: 2.3em;
+		margin-top: 2.3em;
+
+		&__name,
+		&__heading {
+			margin-bottom: 0;
+		}
+
+		&__heading {
+			color: $gray;
+			font-size: $font__size-sm;
+		}
+
+		&__biography {
+			font-size: $font__size-sm;
+			margin-bottom: 1.25em;
+		}
+
+		&__name {
+			font-family: $font__heading;
+			margin: 0.15em 0 0.45em;
+		}
+
+		.wp-block-button {
+			margin-top: 0.5em;
+		}
+	}
+
+	.wp-block-coblocks-dynamic-separator {
+		@include blockMobileDisplay();
+		max-width: $content__width - ( $content__padding * 4 );
+	}
+
+	.wp-block-coblocks-pricing-table {
+		margin-bottom: 1.7em;
+		margin-top: 1.4em;
+
+		.pricing-table__title {
+			font-size: $font__size-sm;
+			margin-bottom: .3em;
+		}
+
+		.pricing-table__currency {
+			font-size: $font__size-sm;
+			position: relative;
+			top: 40px;
+		}
+
+		.pricing-table__price {
+			margin-bottom: 1.9em;
+			margin-left: -10px;
+		}
+
+		.pricing-table__amount {
+			font-size: 5.5em;
+			letter-spacing: -0.05em;
+		}
+
+		.pricing-table__features {
+			font-size: $font__size-sm;
+			margin-bottom: 1.7em;
+		}
+	}
+}

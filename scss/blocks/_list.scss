@@ -1,0 +1,29 @@
+.entry-content {
+
+	ul,
+	ol {
+		@include blockMobileDisplay();
+		line-height: 2;
+		margin-bottom: 1.6em;
+
+		ol {
+			margin-bottom: 3px;
+			padding-left: 20px;
+			margin-top: -5px;
+
+			li {
+				list-style: decimal;
+			}
+		}
+
+		ul {
+			margin-bottom: 3px;
+			padding-left: 20px;
+			margin-top: -5px;
+
+			li {
+				list-style: circle;
+			}
+		}
+	}
+}

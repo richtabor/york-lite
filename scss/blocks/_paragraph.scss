@@ -1,0 +1,19 @@
+.entry-content {
+
+	.has-drop-cap {
+		&:not(:focus)::first-letter {
+			color: $black;
+			font-family: $font__heading;
+			font-size: $font__size-xxxl;
+			font-weight: 600;
+			line-height: 1;
+			margin: -0.065em 0.175em 0 0;
+		}
+	}
+
+	p.has-background {
+		@include blockMobileDisplay();
+		margin-bottom: 2.1em;
+		margin-top: 2.2em;
+	}
+}
