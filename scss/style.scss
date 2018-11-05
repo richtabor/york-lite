@@ -7,7 +7,7 @@ Description: @@pkg.description
 Version: @@pkg.version
 License: @@pkg.license
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: @@pkg.textdomain
+Text Domain: 'york-lite'
 Tags: one-column, custom-colors, grid-layout, editor-style, custom-logo, custom-colors, custom-menu, featured-images, theme-options, translation-ready, blog, portfolio, photography
 */
 
@@ -48,7 +48,7 @@ TABLE OF CONTENTS:
 */
 
 // Variables
-@import "variables/variables";
+@import "variables";
 
 // Mixins
 @import "mixins/mixins";
@@ -72,11 +72,6 @@ TABLE OF CONTENTS:
 # Elements
 --------------------------------------------------------------*/
 @import "elements/elements";
-
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-@import "modules/alignments";
 
 /*--------------------------------------------------------------
 # Clearings
@@ -107,6 +102,11 @@ TABLE OF CONTENTS:
 # Layout
 --------------------------------------------------------------*/
 @import "layout/layout";
+
+/*--------------------------------------------------------------
+# Blocks
+--------------------------------------------------------------*/
+@import "blocks/blocks";
 
 /*--------------------------------------------------------------
 # Comments

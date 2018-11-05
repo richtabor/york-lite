@@ -10,7 +10,7 @@ strong {
 }
 
 p {
-	margin: 0 0 30px;
+	margin: 0 0 35px;
 }
 
 dfn,
@@ -21,30 +21,12 @@ i {
 }
 
 blockquote {
- 	@include font-smoothing;
- 	@include font-size(24px);
 	border: none;
 	quotes: none;
-	font-style: italic;
-	line-height: 1.7;
 	font-weight: normal;
-	margin: 35px 0;
-	color: $gray;
-
-	@media (min-width: 600px) {
-		margin: 55px 0 55px 50px;
-	}
 
 	& > p:last-child {
 		margin-bottom: 0;
-	}
-
-
-	cite {
-		@include font-size(20px);
-		display: block;
-		font-style: normal;
-		margin-top: 5px;
 	}
 }
 
@@ -63,19 +45,19 @@ tt,
 var,
 samp,
 pre {
-	font: 17px/1.7 "Monaco", Courier, "Courier New", monospace;
+	font-family: Menlo, Consolas, monaco, monospace;
+	font-size: $font__size-xs;
+	line-height: 1.2;
 }
 
 pre {
 	background-color: $color--background-pre;
 	clear: both;
 	display: block;
-	font-size: 14px;
-	margin: 3.3em 0;
 	overflow: auto;
-	padding: 40px;
 	white-space: pre-wrap;
 	word-wrap: break-word;
+	margin-bottom: 35px;
 }
 
 code {

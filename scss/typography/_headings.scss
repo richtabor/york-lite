@@ -4,44 +4,50 @@ h3,
 h4,
 h5,
 h6 {
-	@include font-smoothing;
-	font-family: $font__heading;
 	clear: both;
+	color: $color__text-heading;
+	font-family: $font__heading;
+	font-weight: $font__weight-heading;
 	font-weight: 400;
+	line-height: $font__line-height-heading;
 	margin: 0;
-	text-rendering: optimizeLegibility;
+
+	.entry-content & {
+		padding-top: 5px;
+		margin-bottom: 30px;
+	}
 }
 
-h1 {
-	@include font-size(42px);
-	line-height: 1.2;
+h1,
+.h1 {
+	font-size: $font__size-lg;
+
+	@media (min-width: 600px) {
+		font-size: $font__size-xl;
+	}
 }
 
-h2 {
-	@include font-size(34px);
-	line-height: 1.3;
+h2,
+.h2 {
+	font-size: $font__size-lg;
 }
 
-h3 {
-	@include font-size(28px);
-	line-height: 1.4;
+h3,
+.h3 {
+	font-size: $font__size-mdlrg;
 }
 
-h4 {
-	@include font-size(26px);
-	line-height: 1.4;
+h4,
+.h4 {
+	font-size: $font__size-md;
 }
 
-h5 {
-	@include font-size(22px);
-	line-height: 1.6;
+h5,
+.h5 {
+	font-size: $font__size-sm;
 }
 
-h6 {
-	@include font-size(24px);
-	font-weight: normal;
-	line-height: 1.75;
-	color: $gray;
-	font-style: italic;
-	font-family: $font__main;
+h6,
+.h6 {
+	font-size: $font__size-xs;
 }

@@ -1,0 +1,576 @@
+/*!
+@@pkg.name Editor Styles
+*/
+/** === Base Typography === */
+body {
+  color: #000000;
+  font-family: "Lora", serif;
+  font-size: 1.375em;
+}
+
+@media screen and (min-width: 599px) {
+  body {
+    font-size: 19px;
+  }
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.75 !important;
+  text-rendering: optimizeLegibility;
+}
+
+@media screen and (min-width: 599px) {
+  p {
+    font-size: 19px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000000;
+  font-family: "Playfair Display", "Georgia", serif;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+h1 {
+  font-size: 1.925em;
+}
+
+@media (min-width: 600px) {
+  h1 {
+    font-size: 2.2em;
+  }
+}
+
+h2 {
+  font-size: 1.925em;
+}
+
+h3 {
+  font-size: 1.65em;
+}
+
+h4 {
+  font-size: 1.375em;
+}
+
+h5 {
+  font-size: 0.9090909091em;
+}
+
+h6 {
+  font-size: 0.7272727273em;
+}
+
+a {
+  color: #000000;
+  box-shadow: inset 0 -1px 0 currentcolor;
+  text-decoration: none;
+  -webkit-transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
+  transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:hover, a:focus {
+  color: #000000;
+  box-shadow: inset 0 0 0 currentcolor, 0 3px 0 currentcolor;
+}
+
+/** === Paragraph === */
+.wp-block-paragraph.has-drop-cap:not(:focus)::first-letter {
+  color: #000000;
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 5.5em;
+  font-weight: 600;
+  line-height: 1;
+  margin: -0.065em 0.175em 0 0;
+}
+
+.wp-block-paragraph.has-background {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/** === Captions === */
+.wp-block-audio figcaption,
+.wp-block-video figcaption,
+.wp-block-image figcaption,
+.wp-block-embed figcaption,
+.blockgallery--primary-caption:not(.has-caption-color),
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption {
+  color: rgba(0, 0, 0, 0.44);
+  font-size: 0.7272727273em;
+  line-height: 1.6;
+}
+
+/** === Verse === */
+.wp-block-verse {
+  background-color: #f1f1f1;
+}
+
+.wp-block-verse pre {
+  font-family: Menlo, Consolas, monaco, monospace;
+  font-size: 0.7272727273em;
+  line-height: 1.2;
+  margin-bottom: 38px;
+  margin-top: 40px;
+  padding-left: 1.2em;
+}
+
+/** === Preformatted Text === */
+.wp-block-preformatted pre {
+  color: #000000;
+  font-size: 0.7272727273em;
+  line-height: 1.8;
+  margin-top: 35px;
+}
+
+/** === Blockquote === */
+.wp-block-quote p {
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 1.925em;
+  font-weight: 400;
+  line-height: 1.4 !important;
+}
+
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+  border-left: 3px solid #000000;
+  margin-left: -14px;
+  padding-left: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  .wp-block-quote:not(.is-large):not(.is-style-large) {
+    margin-left: -1.35em;
+    padding-left: 1em;
+  }
+}
+
+.wp-block-quote.is-large, .wp-block-quote.is-style-large {
+  margin-bottom: 2.1em;
+  margin-top: 2.1em;
+  padding: 0;
+}
+
+.wp-block-quote.is-large p, .wp-block-quote.is-style-large p {
+  font-size: 2.2em;
+  line-height: 1.35 !important;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.wp-block-quote.is-large .wp-block-quote__citation, .wp-block-quote.is-style-large .wp-block-quote__citation {
+  font-size: 0.9090909091em;
+  margin-top: 2em;
+  text-align: left;
+}
+
+.wp-block-quote cite,
+.wp-block-quote footer,
+.wp-block-quote .wp-block-quote__citation {
+  color: rgba(0, 0, 0, 0.44);
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 0.7272727273em;
+  line-height: 1.6;
+}
+
+.wp-block-quote .editor-rich-text + .editor-rich-text {
+  margin-top: -25px;
+}
+
+/** === Pullquote === */
+.wp-block-pullquote {
+  color: #000000;
+  border-color: #000000;
+  margin-bottom: 2.4em;
+  margin-top: 2.4em;
+  padding: 35px 20px;
+}
+
+.wp-block-pullquote p {
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 1.65em !important;
+  line-height: 1.5 !important;
+}
+
+.wp-block-pullquote blockquote {
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  text-align: center;
+  word-break: break-word;
+  -webkit-hyphens: none;
+     -moz-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none;
+}
+
+.wp-block-pullquote .wp-block-pullquote__citation {
+  font-size: 0.9090909091em;
+  text-transform: none;
+}
+
+.wp-block-pullquote blockquote:not([class*="text-color"]) .wp-block-pullquote__citation {
+  color: rgba(0, 0, 0, 0.44);
+}
+
+.wp-block-pullquote .editor-rich-text + .editor-rich-text {
+  margin-top: -15px;
+}
+
+.wp-block-pullquote.is-style-solid-color {
+  padding: 30px 40px;
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote {
+  line-height: 1.35 !important;
+  text-align: left;
+}
+
+.wp-block-pullquote.is-style-solid-color .wp-block-pullquote__citation {
+  margin-top: 1.9em;
+  text-transform: uppercase;
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote:not(.has-text-color) p,
+.wp-block-pullquote.is-style-solid-color blockquote:not(.has-text-color) .wp-block-pullquote__citation {
+  color: #fff;
+}
+
+.wp-block-pullquote.is-style-solid-color:not([class*="background-color"]) {
+  background-color: #000000;
+}
+
+body[data-type="core/pullquote"][data-align="left"] .wp-block-pullquote,
+body[data-type="core/pullquote"][data-align="right"] .wp-block-pullquote {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+body[data-type="core/pullquote"][data-align="left"] blockquote > .block-library-pullquote__content .editor-rich-text__tinymce[data-is-empty="true"]::before,
+body[data-type="core/pullquote"][data-align="left"] blockquote > .editor-rich-text p,
+body[data-type="core/pullquote"][data-align="left"] p,
+body[data-type="core/pullquote"][data-align="right"] blockquote > .block-library-pullquote__content .editor-rich-text__tinymce[data-is-empty="true"]::before,
+body[data-type="core/pullquote"][data-align="right"] blockquote > .editor-rich-text p,
+body[data-type="core/pullquote"][data-align="right"] p {
+  font-size: 1.65em;
+  line-height: 1.3 !important;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+body[data-type="core/pullquote"][data-align="left"] .editor-rich-text + .editor-rich-text,
+body[data-type="core/pullquote"][data-align="right"] .editor-rich-text + .editor-rich-text {
+  margin-top: 20px;
+}
+
+body[data-type="core/pullquote"][data-align="left"] .editor-block-list__block-edit,
+body[data-type="core/pullquote"][data-align="right"] .editor-block-list__block-edit {
+  max-width: 50%;
+}
+
+body[data-type="core/pullquote"][data-align="left"] .editor-block-list__block-edit .wp-block-pullquote:not(.is-style-solid-color),
+body[data-type="core/pullquote"][data-align="right"] .editor-block-list__block-edit .wp-block-pullquote:not(.is-style-solid-color) {
+  padding-top: 1.25em;
+  padding-bottom: 1.25em;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+body[data-type="core/pullquote"][data-align="left"] .editor-block-list__block-edit .wp-block-pullquote.is-style-solid-color,
+body[data-type="core/pullquote"][data-align="right"] .editor-block-list__block-edit .wp-block-pullquote.is-style-solid-color {
+  padding: 1.75em;
+  padding-top: 1.6em;
+}
+
+body[data-type="core/pullquote"][data-align="left"] blockquote > .block-library-pullquote__content .editor-rich-text__tinymce[data-is-empty="true"]::before,
+body[data-type="core/pullquote"][data-align="left"] blockquote > .editor-rich-text p,
+body[data-type="core/pullquote"][data-align="left"] p,
+body[data-type="core/pullquote"][data-align="left"] .wp-block-pullquote__citation,
+body[data-type="core/pullquote"][data-align="right"] blockquote > .block-library-pullquote__content .editor-rich-text__tinymce[data-is-empty="true"]::before,
+body[data-type="core/pullquote"][data-align="right"] blockquote > .editor-rich-text p,
+body[data-type="core/pullquote"][data-align="right"] p,
+body[data-type="core/pullquote"][data-align="right"] .wp-block-pullquote__citation {
+  text-align: left;
+}
+
+/** === Button === */
+.wp-block-button .wp-block-button__link {
+  border-radius: 30px;
+  font-size: 18px;
+  padding: 14px 30px;
+}
+
+@media screen and (min-width: 599px) {
+  .wp-block-button .wp-block-button__link {
+    font-size: 19px;
+  }
+}
+
+/** === List === */
+.block-library-list {
+  margin-top: 1.9em;
+}
+
+.block-library-list .editor-rich-text__tinymce,
+.block-library-list .editor-rich-text__tinymce ol,
+.block-library-list .editor-rich-text__tinymce ul {
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+/** === File === */
+.wp-block-file .wp-block-file__textlink {
+  text-decoration: underline;
+}
+
+.wp-block-file .wp-block-file__button {
+  font-size: 0.7272727273em;
+  left: 5px;
+  padding: 0.38em 1.3em 0.28em;
+  position: relative;
+  top: -2px;
+}
+
+/** === Gallery === */
+.wp-block-gallery {
+  margin-top: 45px;
+  margin-bottom: -5px;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption,
+.wp-block-gallery .gallery-item .gallery-caption {
+  padding-bottom: 10px;
+}
+
+/** === Image === */
+.wp-block-image {
+  margin-bottom: 1.7em;
+  margin-top: 2.3em;
+}
+
+.wp-block-image figcaption {
+  margin-top: .25em;
+}
+
+body[data-type="core/image"][data-align="left"] .wp-block-image,
+body[data-type="core/image"][data-align="right"] .wp-block-image {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+body[data-type="core/image"][data-align="wide"] .wp-block-image,
+body[data-type="core/image"][data-align="full"] .wp-block-image {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/** === Cover === */
+.wp-block-cover {
+  margin-bottom: 2.35em;
+  margin-top: 2.35em;
+}
+
+.wp-block-cover h2,
+.wp-block-cover .wp-block-cover-text {
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 1.925em;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.wp-block-cover.has-left-content {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wp-block-cover.has-left-content h2,
+.wp-block-cover.has-left-content .wp-block-cover-text {
+  padding: 1em;
+}
+
+.wp-block-cover.has-right-content {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wp-block-cover.has-right-content h2,
+.wp-block-cover.has-right-content .wp-block-cover-text {
+  padding: 1em;
+}
+
+body[data-type="core/cover"][data-align="left"] h2,
+body[data-type="core/cover"][data-align="left"] .wp-block-cover-text,
+body[data-type="core/cover"][data-align="right"] h2,
+body[data-type="core/cover"][data-align="right"] .wp-block-cover-text {
+  max-width: 305px;
+  width: 100%;
+}
+
+body[data-type="core/cover"][data-align="wide"] h2,
+body[data-type="core/cover"][data-align="wide"] .wp-block-cover-text,
+body[data-type="core/cover"][data-align="full"] h2,
+body[data-type="core/cover"][data-align="full"] .wp-block-cover-text {
+  max-width: calc(6 * (100vw / 12));
+  padding: 0;
+  width: calc(6 * (100vw / 12));
+}
+
+/** === Embeds === */
+.wp-block-embed {
+  margin-top: 2.4em;
+  margin-bottom: 2.4em;
+}
+
+.wp-block-embed figcaption {
+  margin-bottom: -8px;
+}
+
+/** === Block Gallery === */
+@media screen and (min-width: 599px) {
+  .blockgallery {
+    margin-bottom: 2.4em;
+    margin-top: 2.3em;
+  }
+}
+
+@media screen and (min-width: 599px) {
+  body[data-type="blockgallery/carousel"] {
+    margin-bottom: 2.3em;
+  }
+}
+
+/** === CoBlocks === */
+.wp-block-coblocks-alert {
+  padding: 0.7em 1em !important;
+}
+
+.wp-block-coblocks-alert__title {
+  font-size: 19px;
+  margin-bottom: 0.3em;
+}
+
+.wp-block-coblocks-alert__text {
+  font-size: 18px;
+}
+
+.wp-block-coblocks-accordion {
+  margin-top: 2.4em;
+  margin-bottom: -.5em;
+}
+
+.wp-block-coblocks-click-to-tweet {
+  margin-bottom: 2em !important;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.wp-block-coblocks-click-to-tweet__text {
+  color: #000000;
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 1.375em;
+  font-weight: 400;
+  line-height: 1.5 !important;
+}
+
+.wp-block-coblocks-click-to-tweet__text::before {
+  top: 8px;
+}
+
+.wp-block-coblocks-click-to-tweet__twitter-btn {
+  border-radius: 4px;
+  font-size: 0.9090909091em;
+  font-weight: 400;
+  height: 44px;
+  line-height: 45px !important;
+  margin-top: 1em;
+  padding: 0 1em;
+}
+
+.wp-block-coblocks-click-to-tweet__twitter-btn::before {
+  margin-right: 7px;
+}
+
+.wp-block-coblocks-author {
+  border-radius: 0;
+  margin-bottom: 2em !important;
+  margin-top: 2em !important;
+}
+
+.wp-block-coblocks-author__name, .wp-block-coblocks-author__heading {
+  margin-bottom: 0;
+}
+
+.wp-block-coblocks-author__heading {
+  color: rgba(0, 0, 0, 0.44);
+  font-size: 0.9090909091em;
+}
+
+.wp-block-coblocks-author__biography {
+  font-size: 0.9090909091em;
+  margin-bottom: 1.25em;
+}
+
+.wp-block-coblocks-author__name {
+  font-family: "Playfair Display", "Georgia", serif;
+  margin: 0.15em 0 0.3em !important;
+}
+
+.wp-block-coblocks-author .wp-block-button {
+  margin-top: .15em;
+}
+
+.wp-block-coblocks-pricing-table-item {
+  padding-top: 3.6em;
+  padding-bottom: 3.6em;
+}
+
+.wp-block-coblocks-pricing-table-item .pricing-table__title {
+  font-size: 0.9090909091em;
+  margin-bottom: 0;
+}
+
+.wp-block-coblocks-pricing-table-item .pricing-table__currency {
+  font-size: 0.9090909091em;
+  position: relative;
+  top: 32px;
+}
+
+.wp-block-coblocks-pricing-table-item .pricing-table__price {
+  margin-bottom: 2.1em;
+  margin-left: -10px;
+}
+
+.wp-block-coblocks-pricing-table-item .pricing-table__amount {
+  font-size: 5.5em;
+  letter-spacing: -0.05em;
+}
+
+.wp-block-coblocks-pricing-table-item .pricing-table__features {
+  font-size: 0.9090909091em;
+  margin-bottom: 1em;
+  line-height: 2;
+  padding-left: 0;
+}

@@ -18,7 +18,9 @@ get_header(); ?>
 		<?php else : ?>
 			<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'york-lite' ); ?></h1>
 		<?php endif; ?>
-	</header><!-- .page-header -->
+	</header>
+
+	<div class="hfeed">
 
 		<?php
 		if ( have_posts() ) :
@@ -52,6 +54,7 @@ get_header(); ?>
 
 		endif;
 		?>
+	</div>
 
 <?php
 get_footer();

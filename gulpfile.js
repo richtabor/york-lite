@@ -33,13 +33,18 @@ var jsCustomSRC             = './assets/js/global.js'; // Path to JS custom scri
 var jsCustomDestination     = './assets/js/'; // Path to place the compiled JS custom scripts file.
 var jsCustomFile            = 'global'; // Compiled JS custom file name.
 
+// Style Editor.
+var styleEditorStyles	    = './scss/style-editor.scss';
+var styleEditorFrameStyles  = './scss/style-editor-frame.scss';
+var gutenbergDestination    = './assets/css/';
+
 // Images related.
 var imagesSRC               = './assets/images/src/**/*.{png,jpg,gif,svg}'; // Source folder of images which should be optimized.
 var imagesDestination       = './assets/images/'; // Destination folder of optimized images. Must be different from the imagesSRC folder.
 
 // Watch files paths.
-var styleWatchFiles         = './scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
-var vendorJSWatchFiles      = './assets/js/vendors/**/*.js'; // Path to all vendor JS files.
+var styleWatchFiles         = './scss/**/*.scss';
+var vendorJSWatchFiles      = './assets/js/vendors/**/*.js';
 var customJSWatchFiles      = ['./assets/js/custom/**/*.js', '!_dist/assets/js/custom/**/*.js', '!_demo/assets/js/custom/**/*.js' ];
 var projectPHPWatchFiles    = ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*.php', '!_demo', '!_demo/**','!_demo/**/*.php'];
 
@@ -68,8 +73,6 @@ const AUTOPREFIXER_BROWSERS = [
     'android >= 4',
     'bb >= 10'
 ];
-
-
 
 /**
  * Load Plugins.
@@ -213,9 +216,55 @@ gulp.task( 'browser-sync', function() {
         .pipe(gulp.dest( './' ))
 
         .pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
-
-        .pipe( notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) );
  });
+
+ gulp.task( 'style-editor-styles', function(done) {
+
+	gulp.src( styleEditorStyles, { allowEmpty: true } )
+
+	.pipe( sass( {
+		errLogToConsole: true,
+		outputStyle: 'expanded',
+		precision: 10
+	} ) )
+
+	.on('error', console.error.bind(console))
+
+	.pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
+
+	.pipe( lineec() )
+
+	.pipe( gulp.dest( gutenbergDestination ) )
+
+	.pipe( browserSync.stream() )
+
+	done();
+
+});
+
+gulp.task( 'style-editor-frame-styles', function(done) {
+
+	gulp.src( styleEditorFrameStyles, { allowEmpty: true } )
+
+	.pipe( sass( {
+		errLogToConsole: true,
+		outputStyle: 'expanded',
+		precision: 10
+	} ) )
+
+	.on('error', console.error.bind(console))
+
+	.pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
+
+	.pipe( lineec() )
+
+	.pipe( gulp.dest( gutenbergDestination ) )
+
+	.pipe( browserSync.stream() )
+
+	done();
+
+});
 
  /**
   * Task: `images`.
@@ -239,7 +288,6 @@ gulp.task( 'browser-sync', function() {
             svgoPlugins: [{removeViewBox: false}]
         } ) )
         .pipe(gulp.dest( imagesDestination ))
-        .pipe( notify( { message: 'TASK: "images" Completed! 💯', onLast: true } ) );
  });
 
 
@@ -249,9 +297,9 @@ gulp.task( 'browser-sync', function() {
   *
   * Watches for file changes and runs specific tasks.
   */
-gulp.task( 'default', ['clear','styles', 'images' ,'browser-sync' ], function () {
+gulp.task( 'default', ['clear','styles', 'style-editor-styles', 'style-editor-frame-styles', 'images' ,'browser-sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload ); // Reload on PHP file changes.
-	gulp.watch( styleWatchFiles, [ 'styles' ] ); // Reload on SCSS file changes.
+	gulp.watch( styleWatchFiles, [ 'styles', 'style-editor-styles', 'style-editor-frame-styles' ] ); // Reload on SCSS file changes.
 });
 
 

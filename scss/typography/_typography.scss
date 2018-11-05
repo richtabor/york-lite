@@ -3,15 +3,14 @@ button,
 input,
 select,
 textarea {
-	@include font-size(16px);
-	color: $black;
+	@include font-size(18px);
+	color: $color__text-main;
 	font-family: $font__main;
-	font-weight: normal;
-	line-height: 28px;
+	font-weight: $font__weight-body;
+	line-height: $font__line-height-body;
 
 	@media (min-width: 700px) {
-		@include font-size(18px);
-		line-height: 1.75em;
+		font-size: $font__size_base;
 	}
 }
 

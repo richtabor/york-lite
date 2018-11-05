@@ -1,0 +1,55 @@
+.entry-content {
+
+	.wp-block-quote {
+		margin-bottom: 1.6em;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 1.6em;
+
+		&:not(.is-large),
+		&:not(.is-style-large) {
+			border-left: 3px solid $black;
+		}
+
+		p {
+			font-family: $font__heading;
+			font-size: $font__size-lg;
+			font-style: normal;
+			font-weight: $font__weight-heading;
+			line-height: 1.4;
+			margin-bottom: 0;
+		}
+
+		cite {
+			color: $gray;
+			display: block;
+			font-size: $font__size-xs;
+			margin-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		&.is-large,
+		&.is-style-large {
+			@include blockMobileDisplay();
+			border-left: none;
+			margin-bottom: 2em;
+			padding-left: 0;
+			padding-right: 0;
+			margin-top: 2em;
+
+			p:first-of-type {
+				font-size: $font__size-xl;
+				font-style: italic;
+				line-height: 1.35;
+			}
+
+			cite,
+			footer {
+				font-size: $font__size-sm;
+				padding-bottom: 5px;
+				margin-top: 0.65em;
+				text-align: left;
+			}
+		}
+	}
+}

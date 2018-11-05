@@ -180,9 +180,13 @@ if ( ! function_exists( 'york_post_thumbnail' ) ) :
 			return;
 		}
 
+		// If Gutenberg exists, do not use the featured image.
+		if ( is_singular() && function_exists( 'register_block_type' ) ) {
+			return;
+		}
+
 		if ( '' !== get_the_post_thumbnail() ) {
 		?>
-
 			<div class="entry-media">
 
 				<?php
@@ -269,7 +273,7 @@ if ( ! function_exists( 'york_entry_footer' ) ) :
 
 			if ( $tags_list ) {
 				/* Translators: number of comments */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %s', 'york-lite' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<div class="tags-links">' . esc_html__( 'Tagged: %s', 'york-lite' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 	}

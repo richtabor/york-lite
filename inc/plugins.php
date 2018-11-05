@@ -26,13 +26,23 @@ function york_register_required_plugins() {
 	 */
 	$plugins = array(
 		array(
-			'name'     => esc_html__( 'Portfolio Post Type', 'york-lite' ),
-			'slug'     => 'portfolio-post-type',
+			'name'     => esc_html__( 'Gutenberg', 'york-lite' ),
+			'slug'     => 'gutenberg',
+			'required' => false,
+		),
+		array(
+			'name'     => esc_html__( 'CoBlocks', 'york-lite' ),
+			'slug'     => 'coblocks',
 			'required' => false,
 		),
 		array(
 			'name'     => esc_html__( 'Block Gallery', 'york-lite' ),
 			'slug'     => 'block-gallery',
+			'required' => false,
+		),
+		array(
+			'name'     => esc_html__( 'Portfolio Post Type', 'york-lite' ),
+			'slug'     => 'portfolio-post-type',
 			'required' => false,
 		),
 		array(
