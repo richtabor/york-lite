@@ -1,11 +1,3 @@
-// Content variables
-$content__width: 720px;
-$content__width--wide: 920px !important;
-$content__padding: 20px;
-$content__width--less-padding: $content__width - ( $content__padding * 2 );
-$content__media-query: $content__width - 1;
-$content__align--leftright-margin: $content__width / 2 - $content__padding;
-
 @mixin blockMobileDisplay {
 	margin-left: $content__padding;
 	margin-right: $content__padding;
@@ -39,6 +31,19 @@ $content__align--leftright-margin: $content__width / 2 - $content__padding;
 // Third party blocks.
 @import "coblocks";
 @import "blockgallery";
+
+.hfeed {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 900px;
+	padding-left: $content__padding;
+	padding-right: $content__padding;
+
+	.entry-header {
+		padding-bottom: 0;
+		margin-bottom: 40px;
+	}
+}
 
 .entry-content > *,
 .entry-summary > * {

@@ -105,8 +105,11 @@ a:hover, a:focus {
 .wp-block-audio figcaption,
 .wp-block-video figcaption,
 .wp-block-image figcaption,
+.wp-block-embed figcaption,
+.blockgallery--primary-caption:not(.has-caption-color),
 .wp-block-gallery .blocks-gallery-image figcaption,
 .wp-block-gallery .blocks-gallery-item figcaption {
+  color: rgba(0, 0, 0, 0.44);
   font-size: 0.7272727273em;
   line-height: 1.6;
 }
@@ -364,6 +367,10 @@ body[data-type="core/pullquote"][data-align="right"] .wp-block-pullquote__citati
   margin-top: 2.3em;
 }
 
+.wp-block-image figcaption {
+  margin-top: .25em;
+}
+
 body[data-type="core/image"][data-align="left"] .wp-block-image,
 body[data-type="core/image"][data-align="right"] .wp-block-image {
   margin-top: 0.5em;
@@ -431,7 +438,7 @@ body[data-type="core/cover"][data-align="full"] .wp-block-cover-text {
   width: calc(6 * (100vw / 12));
 }
 
-/** === Embed === */
+/** === Embeds === */
 .wp-block-embed {
   margin-top: 2.4em;
   margin-bottom: 2.4em;

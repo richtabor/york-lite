@@ -2,23 +2,26 @@
 
 	.hentry {
 		margin: 0 auto;
-		max-width: 1200px;
 
 		.entry-header {
 			text-align: left;
+			padding-bottom: 0;
+			max-width: $content__width;
+			padding-left: $content__padding;
+			padding-right: $content__padding;
 		}
 
 		.entry-title {
 			display: inline-block;
-			margin-bottom: 25px;
 		}
 
 		.entry-meta {
+			display: block;
 			font-size: $font-size__meta-mobile;
-			margin-bottom: 33px;
 			margin-top: 0;
 
 			@media (min-width: 600px) {
+				display: inline-block;
 				font-size: $font-size__meta;
 			}
 

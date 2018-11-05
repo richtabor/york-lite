@@ -32,6 +32,14 @@ $color__background-button: $color__text-main;
 $color__background-button-hover: #444;
 $color--background-body: #fff;
 
+// Content variables
+$content__width: 720px;
+$content__width--wide: 920px !important;
+$content__padding: 20px;
+$content__width--less-padding: $content__width - ( $content__padding * 2 );
+$content__media-query: $content__width - 1;
+$content__align--leftright-margin: $content__width / 2 - $content__padding;
+
 // Old
 $font__main: "Lora", "Georgia", serif;
 $font__heading: 'Playfair Display', "Georgia", serif;

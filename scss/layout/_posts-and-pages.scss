@@ -90,7 +90,11 @@ p.attachment {
 }
 
 .more-link {
-	@include underline-on-hover;
+	display: block !important;
+	margin: 0 auto;
+	text-align: center;
+	box-shadow: none !important;
+	margin-top: -10px;
 }
 
 .taxonomy-description {
@@ -114,10 +118,6 @@ p.attachment {
 }
 
 .post-password-required input[type="submit"] {
-	display: none;
-}
-
-.post-password-required label {
 	display: none;
 }
 

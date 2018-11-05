@@ -23,8 +23,8 @@
 
 .page-header,
 .entry-header {
-	margin-top: 90px;
-	margin-bottom: 90px;
+	margin-top: 110px;
+	margin-bottom: 40px;
 	padding: 1vh 0;
 	text-align: center;
 
@@ -74,6 +74,10 @@
 			color: $gray--hover;
 		}
 	}
+}
+
+.tags-links {
+	display: block;
 }
 
 .cat-links {

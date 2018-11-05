@@ -34,7 +34,8 @@
 
 		if ( 'post' === get_post_type() ) {
 			york_posted_on();
-		} ?>
+		}
+		?>
 
 	</header>
 
@@ -43,22 +44,26 @@
 	<div class="entry-content">
 
 		<?php
-		the_content( sprintf(
-			/* translators: %s: Name of current post */
-			__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'york-lite' ),
-			get_the_title()
-		) );
+		the_content(
+			sprintf(
+				/* translators: %s: Name of current post */
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'york-lite' ),
+				get_the_title()
+			)
+		);
 
-		wp_link_pages( array(
-			'before'      => '<div class="page-links">' . __( 'Pages:', 'york-lite' ),
-			'after'       => '</div>',
-			'link_before' => '<span class="page-number">',
-			'link_after'  => '</span>',
-		) );
+		wp_link_pages(
+			array(
+				'before'      => '<div class="page-links">' . __( 'Pages:', 'york-lite' ),
+				'after'       => '</div>',
+				'link_before' => '<span class="page-number">',
+				'link_after'  => '</span>',
+			)
+		);
 		?>
 
 		<?php york_entry_footer(); ?>
 
 	</div>
 
-</article><!-- #post-## -->
+</article>

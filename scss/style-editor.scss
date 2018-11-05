@@ -109,8 +109,10 @@ a {
 .wp-block-video figcaption,
 .wp-block-image figcaption,
 .wp-block-embed figcaption,
+.blockgallery--primary-caption:not(.has-caption-color),
 .wp-block-gallery .blocks-gallery-image figcaption,
 .wp-block-gallery .blocks-gallery-item figcaption {
+	color: $gray;
 	font-size: $font__size-xs;
 	line-height: 1.6;
 }
@@ -369,6 +371,10 @@ body[data-type="core/pullquote"][data-align="right"] {
 .wp-block-image {
 	margin-bottom: 1.7em;
 	margin-top: 2.3em;
+
+	figcaption {
+		margin-top: .25em;
+	}
 }
 
 body[data-type="core/image"][data-align="left"],
