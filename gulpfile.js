@@ -216,8 +216,6 @@ gulp.task( 'browser-sync', function() {
         .pipe(gulp.dest( './' ))
 
         .pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
-
-        .pipe( notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) );
  });
 
  gulp.task( 'style-editor-styles', function(done) {
@@ -290,7 +288,6 @@ gulp.task( 'style-editor-frame-styles', function(done) {
             svgoPlugins: [{removeViewBox: false}]
         } ) )
         .pipe(gulp.dest( imagesDestination ))
-        .pipe( notify( { message: 'TASK: "images" Completed! 💯', onLast: true } ) );
  });
 
 
