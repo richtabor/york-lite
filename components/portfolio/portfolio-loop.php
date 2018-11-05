@@ -47,7 +47,7 @@ printf( '<article class="project %1s" >', esc_attr( $size_class ) );
 			esc_html( $portfolio_url_target )
 		);
 
-		the_post_thumbnail( 'york-portfolio-thumbnail' );
+		the_post_thumbnail( 'york-featured-image' );
 		?>
 
 		</figure>

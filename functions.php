@@ -52,10 +52,16 @@ function york_setup() {
 	 *     An array of custom-background support arguments.
 	 * }
 	 */
-	$args = array(
-		'default-color' => 'ffffff',
+	add_theme_support(
+		'custom-background',
+		apply_filters(
+			'york_custom_background_args',
+			array(
+				'default-color' => 'ffffff',
+				'default-image' => '',
+			)
+		)
 	);
-	add_theme_support( 'custom-background', $args );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -63,15 +69,7 @@ function york_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
-
 	add_image_size( 'york-featured-image', 9999, 9999, false );
-
-	add_image_size( 'york-portfolio-full', 9999, 9999, false );
-
-	add_image_size( 'york-portfolio-thumbnail', 9999, 9999 );
-
-	// Set the default content width.
-	$GLOBALS['content_width'] = 700;
 
 	/*
 	 * This theme uses wp_nav_menu() in the following locations.
@@ -121,6 +119,12 @@ function york_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	/*
+	 * Enable support for Customizer Selective Refresh.
+	 * See: https://make.wordpress.org/core/2016/02/16/selective-refresh-in-the-customizer/
+	 */
+	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	/**
 	 * Custom colors for use in the editor.
@@ -190,26 +194,26 @@ function york_setup() {
 	add_theme_support(
 		'editor-font-sizes', array(
 			array(
-				'name'      => __( 'Small', 'york-lite' ),
-				'shortName' => __( 'S', 'york-lite' ),
+				'name'      => esc_html__( 'Small', 'york-lite' ),
+				'shortName' => esc_html__( 'S', 'york-lite' ),
 				'size'      => 16,
 				'slug'      => 'small',
 			),
 			array(
-				'name'      => __( 'Regular', 'york-lite' ),
-				'shortName' => __( 'M', 'york-lite' ),
+				'name'      => esc_html__( 'Regular', 'york-lite' ),
+				'shortName' => esc_html__( 'M', 'york-lite' ),
 				'size'      => 19,
 				'slug'      => 'regular',
 			),
 			array(
-				'name'      => __( 'Large', 'york-lite' ),
-				'shortName' => __( 'L', 'york-lite' ),
+				'name'      => esc_html__( 'Large', 'york-lite' ),
+				'shortName' => esc_html__( 'L', 'york-lite' ),
 				'size'      => 24,
 				'slug'      => 'large',
 			),
 			array(
-				'name'      => __( 'Larger', 'york-lite' ),
-				'shortName' => __( 'XL', 'york-lite' ),
+				'name'      => esc_html__( 'Larger', 'york-lite' ),
+				'shortName' => esc_html__( 'XL', 'york-lite' ),
 				'size'      => 30,
 				'slug'      => 'larger',
 			),
