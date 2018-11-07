@@ -1,8 +1,8 @@
 # @@pkg.name #
 
-Contributors: themebeans, richtabor
+Contributors: richtabor, themebeans
 Requires at least: 4.7
-Tested up to: 4.9.7
+Tested up to: 5.0.0
 Version: @@pkg.version
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -78,6 +78,9 @@ Images in assets/images/ directory, Copyright: ThemeBeans
 License: GPLv2 or later
 
 == Changelog ==
+
+= 2.0.0 =
+* New: Add support for the Gutenberg block editor and WordPress 5.0
 
 = 1.1.2 =
 * Tweak: Add PHPCS code improvements
