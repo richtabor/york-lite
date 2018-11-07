@@ -1,8 +1,11 @@
 /** === Widths === */
-body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-post-title__block,
 body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-default-block-appender,
 body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-block-list__block {
   max-width: 710px;
+}
+
+body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-post-title__block {
+  max-width: 780px;
 }
 
 body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-block-list__block[data-align="full"] {

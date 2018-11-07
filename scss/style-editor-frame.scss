@@ -8,10 +8,13 @@ $editor-wide-width: 960px;
 /** === Widths === */
 
 body.gutenberg-editor-page .gutenberg .edit-post-layout {
-	.editor-post-title__block,
 	.editor-default-block-appender,
 	.editor-block-list__block {
 		max-width: $editor-width;
+	}
+
+	.editor-post-title__block {
+		max-width: 780px;
 	}
 
 	.editor-block-list__block[data-align="full"] {

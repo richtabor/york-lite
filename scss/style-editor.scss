@@ -115,6 +115,10 @@ a {
 	color: $gray;
 	font-size: $font__size-xs;
 	line-height: 1.6;
+
+	a {
+		color: $gray;
+	}
 }
 
 /** === Verse === */

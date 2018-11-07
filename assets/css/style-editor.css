@@ -114,6 +114,16 @@ a:hover, a:focus {
   line-height: 1.6;
 }
 
+.wp-block-audio figcaption a,
+.wp-block-video figcaption a,
+.wp-block-image figcaption a,
+.wp-block-embed figcaption a,
+.blockgallery--primary-caption:not(.has-caption-color) a,
+.wp-block-gallery .blocks-gallery-image figcaption a,
+.wp-block-gallery .blocks-gallery-item figcaption a {
+  color: rgba(0, 0, 0, 0.44);
+}
+
 /** === Verse === */
 .wp-block-verse {
   background-color: #f1f1f1;
