@@ -230,7 +230,10 @@ function york_setup() {
 	add_theme_support( 'editor-styles' );
 
 	// Enqueue editor styles.
-	add_editor_style( 'assets/css/style-editor.css', york_fonts_url() );
+	add_editor_style( 'assets/css/style-editor.css' );
+
+	// Enqueue fonts in the editor.
+	add_editor_style( york_fonts_url() );
 
 	/*
 	 * Define starter content for the theme.
@@ -313,7 +316,7 @@ add_action( 'after_setup_theme', 'york_setup' );
  * @global int $content_width
  */
 function york_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'york_content_width', 644 );
+	$GLOBALS['content_width'] = apply_filters( 'york_content_width', 700 );
 }
 add_action( 'after_setup_theme', 'york_content_width', 0 );
 
@@ -394,14 +397,40 @@ add_action( 'wp_enqueue_scripts', 'york_scripts' );
  * Enqueue supplemental block editor styles.
  */
 function york_editor_frame_styles() {
-
-	// Load the theme styles within the editor.
 	wp_enqueue_style( 'york-editor-frame-styles', get_theme_file_uri( '/assets/css/style-editor-frame.css' ), false, '@@pkg.version', 'all' );
-
-	// Add custom fonts to the editor.
-	wp_enqueue_style( 'york-fonts', york_fonts_url(), array(), '@@pkg.version', null );
 }
 add_action( 'enqueue_block_editor_assets', 'york_editor_frame_styles' );
+
+/**
+ * Enqueue Customizer settings into the block editor.
+ */
+function york_editor_customizer_styles() {
+
+	// Register Customizer styles within the editor to use for inline additions.
+	wp_register_style( 'york-editor-customizer-styles', false, '@@pkg.version', 'all' );
+
+	// Enqueue the Customizer style.
+	wp_enqueue_style( 'york-editor-customizer-styles' );
+
+	// Add custom colors to the editor.
+	wp_add_inline_style( 'york-editor-customizer-styles', york_editor_customizer_colors() );
+}
+add_action( 'enqueue_block_editor_assets', 'york_editor_customizer_styles' );
+
+/**
+ * Add customizer colors to the block editor.
+ */
+function york_editor_customizer_colors() {
+
+	// Retrieve colors from the Customizer.
+	$background_color = get_theme_mod( 'background_color', '#ffffff' );
+
+	// Build styles.
+	$css  = '';
+	$css .= '.block-editor__container { background-color: #' . esc_attr( $background_color ) . '; }';
+
+	return wp_strip_all_tags( apply_filters( 'york_editor_customizer_colors', $css ) );
+}
 
 /**
  * Register custom fonts.

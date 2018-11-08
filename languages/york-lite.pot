@@ -25,15 +25,15 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Try a search?"
 msgstr ""
 
-#: archive.php:48, index.php:42, search.php:40
+#: archive.php:50, index.php:45, search.php:42
 msgid "Previous page"
 msgstr ""
 
-#: archive.php:49, index.php:43, search.php:41
+#: archive.php:51, index.php:46, search.php:43
 msgid "Next page"
 msgstr ""
 
-#: archive.php:50, index.php:44, search.php:42
+#: archive.php:52, index.php:47, search.php:44
 msgid "Page"
 msgstr ""
 
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: components/page/content-page.php:28, components/post/content.php:53
+#: components/page/content-page.php:28, components/post/content.php:57
 msgid "Pages:"
 msgstr ""
 
@@ -76,7 +76,7 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: components/post/content.php:48, functions.php:406, functions.php:424
+#: components/post/content.php:50
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
@@ -88,66 +88,138 @@ msgstr ""
 msgid "%1$s by %2$s"
 msgstr ""
 
-#: footer.php:42, functions.php:82
+#: footer.php:42, functions.php:80
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:81, sidebar.php:27
+#: functions.php:79, sidebar.php:27
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:83, functions.php:188, inc/template-tags.php:101
+#: functions.php:81, functions.php:285, inc/template-tags.php:101
 msgid "Social Menu"
 msgstr ""
 
+#: functions.php:137
+msgid "Black"
+msgstr ""
+
+#: functions.php:142
+msgid "Gray"
+msgstr ""
+
+#: functions.php:147
+msgid "Light Gray"
+msgstr ""
+
 #: functions.php:152
+msgid "White"
+msgstr ""
+
+#: functions.php:157
+msgid "Titan White"
+msgstr ""
+
+#: functions.php:162
+msgid "Tropical Blue"
+msgstr ""
+
+#: functions.php:167
+msgid "Peppermint"
+msgstr ""
+
+#: functions.php:172
+msgid "Iceberg"
+msgstr ""
+
+#: functions.php:177
+msgid "Bridesmaid"
+msgstr ""
+
+#: functions.php:182
+msgid "Pipi"
+msgstr ""
+
+#: functions.php:197, inc/metaboxes.php:44
+msgid "Small"
+msgstr ""
+
+#: functions.php:198
+msgid "S"
+msgstr ""
+
+#: functions.php:203
+msgid "Regular"
+msgstr ""
+
+#: functions.php:204
+msgid "M"
+msgstr ""
+
+#: functions.php:209, inc/metaboxes.php:46
+msgid "Large"
+msgstr ""
+
+#: functions.php:210
+msgid "L"
+msgstr ""
+
+#: functions.php:215
+msgid "Larger"
+msgstr ""
+
+#: functions.php:216
+msgid "XL"
+msgstr ""
+
+#: functions.php:249
 msgctxt "Theme starter content"
 msgid "Logo"
 msgstr ""
 
-#: functions.php:160
+#: functions.php:257
 msgctxt "Theme starter content"
 msgid "A WordPress theme by ThemeBeans"
 msgstr ""
 
-#: functions.php:171
+#: functions.php:268
 msgid "Primary"
 msgstr ""
 
-#: functions.php:179, functions.php:263
+#: functions.php:276, functions.php:340
 msgid "Footer"
 msgstr ""
 
-#: functions.php:251
+#: functions.php:328
 msgid "Flyout"
 msgstr ""
 
-#: functions.php:253
+#: functions.php:330
 msgid "Appears on the theme flyout sidebar."
 msgstr ""
 
-#: functions.php:265
+#: functions.php:342
 msgid "Appears at the top of the site footer."
 msgstr ""
 
-#: functions.php:307
+#: functions.php:384
 msgid "Write a comment . . ."
 msgstr ""
 
-#: functions.php:308
+#: functions.php:385
 msgid "Name"
 msgstr ""
 
-#: functions.php:309
+#: functions.php:386
 msgid "email@address.com"
 msgstr ""
 
-#: functions.php:329
+#: functions.php:418
 msgctxt "Playfair Display font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:336
+#: functions.php:425
 msgctxt "Lora font: on or off"
 msgid "on"
 msgstr ""
@@ -568,11 +640,43 @@ msgstr ""
 msgid "Please define an SVG icon filename."
 msgstr ""
 
+#: inc/metaboxes.php:29
+msgid "Portfolio Settings"
+msgstr ""
+
+#: inc/metaboxes.php:38
+msgid "Grid Thumbnail Size"
+msgstr ""
+
+#: inc/metaboxes.php:39
+msgid "Select the size of the project thumbnail."
+msgstr ""
+
+#: inc/metaboxes.php:45
+msgid "Medium"
+msgstr ""
+
+#: inc/metaboxes.php:47
+msgid "Extra Large"
+msgstr ""
+
 #: inc/plugins.php:29
-msgid "Portfolio Post Type"
+msgid "Gutenberg"
 msgstr ""
 
 #: inc/plugins.php:34
+msgid "CoBlocks"
+msgstr ""
+
+#: inc/plugins.php:39
+msgid "Block Gallery"
+msgstr ""
+
+#: inc/plugins.php:44
+msgid "Portfolio Post Type"
+msgstr ""
+
+#: inc/plugins.php:49
 msgid "Login Designer"
 msgstr ""
 
@@ -584,7 +688,7 @@ msgstr ""
 msgid "<span class=\"screen-reader-text\">Posted on</span> %s"
 msgstr ""
 
-#: inc/template-tags.php:272
+#: inc/template-tags.php:276
 msgid "Tagged: %s"
 msgstr ""
 
@@ -592,6 +696,6 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: search.php:49
+#: search.php:51
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""

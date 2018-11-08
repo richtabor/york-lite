@@ -272,7 +272,7 @@ if ( ! function_exists( 'york_entry_footer' ) ) :
 			}
 
 			if ( $tags_list ) {
-				/* Translators: number of comments */
+				/* Translators: tags */
 				printf( '<div class="tags-links">' . esc_html__( 'Tagged: %s', 'york-lite' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 			}
 		}

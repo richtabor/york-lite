@@ -1,5 +1,5 @@
 $font__body: "Lora", serif;
-$font__heading: "Playfair Display", sans-serif;
+$font__heading: "Playfair Display", serif;
 
 $font__size_base: 19px;
 $font__size-ratio: 1.1;
@@ -34,23 +34,21 @@ $color--background-body: #fff;
 
 // Content variables
 $content__width: 720px;
-$content__width--wide: 920px !important;
+$content__width--wide: 920px;
 $content__padding: 20px;
 $content__width--less-padding: $content__width - ( $content__padding * 2 );
+$content__width--wide--less-padding: $content__width--wide - ( $content__padding * 2 );
 $content__media-query: $content__width - 1;
+$content__media-query--wide: $content__width--wide - 1;
 $content__align--leftright-margin: $content__width / 2 - $content__padding;
+$content__align--mobile-media-query--min: 499px;
+$content__align--mobile-media-query--max: $content__align--mobile-media-query--min - 1;
+$content__align--width: 300px;
 
 // Old
-$font__main: "Lora", "Georgia", serif;
-$font__heading: 'Playfair Display', "Georgia", serif;
-$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-$font__pre: "Courier 10 Pitch", Courier, monospace;
-
 $font-size__meta: 17px;
 $font-size__meta-mobile: 15px;
 
-$accent: #218799;
-$lightgray: #f0f0f0;
 $gray: rgba(0, 0, 0, .44);
 $gray--hover: rgba(0, 0, 0, .66);
 
@@ -88,6 +86,4 @@ $color--border-input-hover: #d6d6d6;
 $color--border-input-focus: #c6c6c6;
 $color--border-abbr: #e8e8e8;
 $color--border-table: #ccc;
-$color--border-footer: rgba(0, 0, 0, 0.075);
-
 $color--outline-button: #959595;

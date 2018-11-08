@@ -33,9 +33,9 @@
 			@include blockMobileDisplay();
 			border-left: none;
 			margin-bottom: 2em;
+			margin-top: 2em;
 			padding-left: 0;
 			padding-right: 0;
-			margin-top: 2em;
 
 			p:first-of-type {
 				font-size: $font__size-xl;
@@ -48,7 +48,7 @@
 				font-size: $font__size-sm;
 				padding-bottom: 5px;
 				margin-top: 0.65em;
-				text-align: left;
+				text-align: inherit;
 			}
 		}
 	}

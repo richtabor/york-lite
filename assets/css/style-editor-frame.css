@@ -1,71 +1,7 @@
-/** === Widths === */
-body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-default-block-appender,
-body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-block-list__block {
-  max-width: 710px;
-}
-
-body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-post-title__block {
-  max-width: 780px;
-}
-
-body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-block-list__block[data-align="full"] {
-  max-width: none;
-}
-
-body.gutenberg-editor-page .gutenberg .edit-post-layout .editor-block-list__block[data-align="wide"] {
-  max-width: 960px;
-}
-
-/** === Title === */
-body.gutenberg-editor-page .gutenberg .editor-post-title__block {
-  margin-bottom: 75px;
-}
-
-@media (min-width: 800px) {
-  body.gutenberg-editor-page .gutenberg .editor-post-title__block {
-    margin-top: 40px;
-  }
-}
-
-body.gutenberg-editor-page .gutenberg .editor-post-title__block .editor-post-title__input {
-  color: #000000;
-  font-family: "Playfair Display", "Georgia", serif;
-  font-size: 30px;
-  font-weight: 400;
-  line-height: 1.6em;
-  text-align: center;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
-@media (min-width: 800px) {
-  body.gutenberg-editor-page .gutenberg .editor-post-title__block .editor-post-title__input {
-    font-size: 50px;
-  }
-}
-
-/** === Default Appender === */
-body.gutenberg-editor-page .gutenberg .editor-default-block-appender__content {
-  font-family: "Lora", serif;
-  font-size: 1.375em;
-  font-weight: 400;
-}
-
-@media screen and (min-width: 599px) {
-  body.gutenberg-editor-page .gutenberg .editor-default-block-appender__content {
-    font-size: 19px;
-  }
-}
-
-.components-placeholder__label,
-.components-placeholder__instructions {
-  color: #191e23;
-}
-
 /** === Title: Portfolio Post Type === */
 body.gutenberg-editor-page.post-type-portfolio .gutenberg .editor-post-title__block {
   margin-bottom: 0;
+  max-width: 710px;
 }
 
 @media (min-width: 800px) {

@@ -6,6 +6,10 @@
 	.wp-block-image figcaption,
 	.blockgallery--primary-caption:not(.has-caption-color) {
 		color: $gray;
+
+		a:hover {
+			color: $gray;
+		}
 	}
 
 	.wp-block-audio figcaption,

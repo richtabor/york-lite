@@ -2,9 +2,12 @@
 
 	ul,
 	ol {
-		@include blockMobileDisplay();
 		line-height: 2;
 		margin-bottom: 1.6em;
+
+		li {
+			margin: 0 0 3px 25px;
+		}
 
 		ol {
 			margin-bottom: 3px;

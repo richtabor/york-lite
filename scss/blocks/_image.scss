@@ -1,38 +1,65 @@
 .entry-content {
-
 	.wp-block-image {
-		margin-top: 2.3em;
-		margin-bottom: 2.3em;
+		> img,
+		figure,
+		&.alignwide,
+		&.alignfull {
+			margin-bottom: 2.2em;
+			margin-top: 2.2em;
+		}
 
 		img {
 			display: block;
+
+			@media screen and (max-width: $content__align--mobile-media-query--max) {
+				width: 100%;
+			}
+		}
+
+		figcaption {
+			font-weight: 400;
+			margin-bottom: -8px;
+			margin-top: 15px;
+		}
+
+		.alignleft {
+			margin-right: $content__padding;
+
+			@media screen and (min-width: $content__align--mobile-media-query--min) {
+				margin-right: 40px;
+			}
+		}
+
+		.alignright {
+			margin-left: $content__padding;
+
+			@media screen and (min-width: $content__align--mobile-media-query--min) {
+				margin-left: 40px;
+			}
 		}
 
 		.alignleft,
 		.alignright {
 			max-width: 100%;
-			margin-bottom: 1.5em;
-			margin-top: 0.5em;
-		}
 
-		.alignleft {
-			margin-right: 2em;
-		}
+			@media screen and (min-width: $content__align--mobile-media-query--min) {
+				margin-bottom: 1.75em;
+				margin-top: 0.5em;
+			}
 
-		.alignright {
-			margin-left: 2em;
+			// Override theme styles from core.
+			@media screen and (max-width: $content__align--mobile-media-query--max) {
+				display: block;
+				float: none;
+				margin-left: 0;
+				margin-right: 0;
+			}
 		}
 
 		.alignfull img {
-			width: 100vw;
 			margin-left: auto;
 			margin-right: auto;
-		}
-
-		figcaption {
-			font-weight: 400;
-			margin-top: 15px;
-			margin-bottom: -8px;
+			width: 100vw;
 		}
 	}
 }
