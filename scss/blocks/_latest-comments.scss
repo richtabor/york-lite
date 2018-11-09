@@ -1,6 +1,7 @@
 .entry-content {
 	.wp-block-latest-comments {
-		margin-top: 0;
+		margin-bottom: $content__spacer - 5px;
+		margin-top: $content__spacer - 5px;
 		padding-left: 0;
 
 		&.alignwide {

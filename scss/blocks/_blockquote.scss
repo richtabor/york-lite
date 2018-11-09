@@ -1,10 +1,11 @@
 .entry-content {
-
 	.wp-block-quote {
-		margin-bottom: 1.9em;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 1.6em;
+		margin-bottom: $content__spacer--mobile + 5px;
+
+		@media screen and (min-width: $content__media-query) {
+			margin-bottom: $content__spacer - 10px;
+			margin-top: $content__spacer - 40px;
+		}
 
 		&:not(.is-large),
 		&:not(.is-style-large) {
@@ -25,15 +26,13 @@
 			display: block;
 			font-size: $font__size-xs;
 			margin-top: 10px;
-			padding-bottom: 10px;
 		}
 
-		&.is-large,
 		&.is-style-large {
 			@include blockMobileDisplay();
 			border-left: none;
-			margin-bottom: 2em;
-			margin-top: 2em;
+			margin-bottom: $content__spacer;
+			margin-top: $content__spacer;
 			padding-left: 0;
 			padding-right: 0;
 
@@ -46,8 +45,8 @@
 			cite,
 			footer {
 				font-size: $font__size-sm;
-				padding-bottom: 5px;
 				margin-top: 0.65em;
+				padding-bottom: 5px;
 				text-align: inherit;
 			}
 		}

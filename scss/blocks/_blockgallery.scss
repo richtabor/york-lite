@@ -1,11 +1,5 @@
-.entry-content {
-
-	> [class*="blockgallery"] {
-		margin-bottom: 2.3em;
-		margin-top: 2.3em;
-
-		figcaption {
-			margin: 0;
-		}
+.wp-block-blockgallery-stacked {
+	li:last-child .blockgallery--caption {
+		margin-bottom: -10px;
 	}
 }

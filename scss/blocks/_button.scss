@@ -1,13 +1,21 @@
 .entry-content {
-
 	.wp-block-button__link {
 		@include font-size(18px);
 		font-weight: 400;
-		padding: 14px 30px;
+		padding: 14px 30px 15px;
 		border-radius: 30px;
 
 		@media (min-width: 700px) {
 			font-size: $font__size_base;
+		}
+
+		&:not(.has-background) {
+			&,
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $black
+			}
 		}
 
 		&:hover {

@@ -45,6 +45,9 @@ $content__align--mobile-media-query--min: 499px;
 $content__align--mobile-media-query--max: $content__align--mobile-media-query--min - 1;
 $content__align--width: 300px;
 
+$content__spacer: 44px;
+$content__spacer--mobile: 30px;
+
 // Old
 $font-size__meta: 17px;
 $font-size__meta-mobile: 15px;
@@ -87,3 +90,25 @@ $color--border-input-focus: #c6c6c6;
 $color--border-abbr: #e8e8e8;
 $color--border-table: #ccc;
 $color--outline-button: #959595;
+
+@mixin blockMobileDisplay {
+	margin-left: $content__padding;
+	margin-right: $content__padding;
+	max-width: $content__width--less-padding;
+
+	@media screen and (min-width: $content__media-query) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@mixin blockWideDisplay {
+	margin-left: $content__padding;
+	margin-right: $content__padding;
+	max-width: $content__width--wide--less-padding;
+
+	@media screen and (min-width: $content__media-query--wide) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

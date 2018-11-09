@@ -1,8 +1,6 @@
 .entry-content {
 	.wp-block-cover {
 		@include blockMobileDisplay();
-		margin-bottom: 2.3em;
-		margin-top: 2.3em;
 		width: auto;
 
 		.wp-block-cover-text {

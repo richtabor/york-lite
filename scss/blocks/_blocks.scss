@@ -1,32 +1,10 @@
-@mixin blockMobileDisplay {
-	margin-left: $content__padding;
-	margin-right: $content__padding;
-	max-width: $content__width--less-padding;
-
-	@media screen and (min-width: $content__media-query) {
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
-@mixin blockWideDisplay {
-	margin-left: $content__padding;
-	margin-right: $content__padding;
-	max-width: $content__width--wide--less-padding;
-
-	@media screen and (min-width: $content__media-query--wide) {
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
 // Editor customizations.
 @import "color-palette";
 @import "font-sizes";
 
 // Import blocks.
 @import "archives-categories";
-@import "audio";
+@import "audio-video";
 @import "blockquote";
 @import "button";
 @import "captions";
@@ -46,7 +24,6 @@
 @import "separator";
 @import "table";
 @import "verse";
-@import "video";
 
 // Third party blocks.
 @import "coblocks";
@@ -65,18 +42,39 @@
 	}
 }
 
+// Fix for text content that has more spacing.
+.entry-content,
+.entry-summary {
+	ol,
+	p:not(.has-background),
+	ul:not(.wp-block-gallery) {
+		margin-top: -2px;
+		margin-bottom: $content__spacer--mobile - 10px;
+
+		@media screen and (min-width: $content__media-query) {
+			margin-bottom: $content__spacer - 10px;
+		}
+	}
+}
+
 .entry-content > *,
 .entry-summary > * {
-	margin-left: auto;
-	margin-right: auto;
+	margin: $content__spacer--mobile auto;
 	max-width: $content__width;
 	padding-left: $content__padding;
 	padding-right: $content__padding;
 
+	@media screen and (min-width: $content__media-query) {
+		margin-top: $content__spacer;
+		margin-bottom: $content__spacer;
+	}
+
+	&:first-child,
 	> *:first-child {
 		margin-top: 0;
 	}
 
+	&:last-child,
 	> *:last-child {
 		margin-bottom: 0;
 	}

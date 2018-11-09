@@ -1,13 +1,5 @@
 .entry-content {
 	.wp-block-image {
-		> img,
-		figure,
-		&.alignwide,
-		&.alignfull {
-			margin-bottom: 2.2em;
-			margin-top: 2.2em;
-		}
-
 		img {
 			display: block;
 
@@ -20,11 +12,6 @@
 			font-weight: 400;
 			margin-bottom: -8px;
 			margin-top: 15px;
-		}
-
-		> img + figcaption {
-			margin-bottom: 30px;
-			margin-top: -30px;
 		}
 
 		.alignleft {

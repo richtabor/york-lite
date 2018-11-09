@@ -1,15 +1,23 @@
 .entry-content {
-
 	.wp-block-pullquote {
 		@include blockMobileDisplay();
 		border-color: $black;
-		margin-bottom: 2.4em;
-		margin-top: 2.4em;
-		padding-bottom: 40px;
-		padding-top: 40px;
+		padding-bottom: 2.5em;
+		padding-top: 2.2em;
 
 		&.alignwide {
 			@include blockWideDisplay();
+		}
+
+		&.alignfull {
+			padding-left: 20px;
+			padding-right: 20px;
+
+			p {
+				max-width: $content__width--wide;
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
 
 		blockquote {
@@ -18,6 +26,10 @@
 			padding: 0;
 			text-align: center;
 			word-break: break-word;
+
+			p {
+				margin-bottom: 0;
+			}
 
 			&:not([class*="text-color"]) {
 				color: $color__text-main;
@@ -78,8 +90,6 @@
 		}
 
 		&.is-style-solid-color {
-			margin-bottom: 2em;
-			margin-top: 2.1em;
 			padding: 15px 35px;
 
 			&.alignleft,

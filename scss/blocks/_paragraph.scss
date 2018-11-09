@@ -1,5 +1,4 @@
 .entry-content {
-
 	.has-drop-cap {
 		&:not(:focus)::first-letter {
 			color: $black;
@@ -13,7 +12,5 @@
 
 	p.has-background {
 		@include blockMobileDisplay();
-		margin-bottom: 2.1em;
-		margin-top: 2.2em;
 	}
 }

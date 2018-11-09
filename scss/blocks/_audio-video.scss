@@ -1,0 +1,23 @@
+.entry-content {
+	.wp-block-audio,
+	.wp-block-video {
+		figcaption {
+			padding-top: 10px;
+			margin-bottom: -10px !important;
+		}
+	}
+
+	.wp-block-audio {
+		audio {
+			width: 100%;
+			margin-bottom: -10px;
+		}
+	}
+
+	.wp-block-video {
+		video {
+			width: 100%;
+			margin-bottom: -10px;
+		}
+	}
+}
