@@ -1,79 +1,23 @@
-.has-black-background-color {
-	background-color: #2a2a2a;
-}
+$color_1: #2a2a2a;
+$color_2: #727477;
+$color_3: #f8f8f8;
+$color_4: #fff;
+$color_5: #e0d8e2;
+$color_6: #c5dcf3;
+$color_7: #d0eac4;
+$color_8: #fbf3d6;
+$color_9: #fbe7dd;
+$color_10: #d6efee;
 
-.has-black-color {
-	color: #2a2a2a;
-}
+$colors: (black, $color_1), (gray, $color_2), (light-gray, $color_3), (white, $color_4), (titan-white, $color_5), (tropical-blue, $color_6),
+	(peppermint, $color_7), (pipi, $color_8), (bridesmaid, $color_9), (iceberg, $color_10);
 
-.has-gray-background-color {
-	background-color: #727477;
-}
+@each $name, $color in $colors {
+	.has-#{$name}-color {
+		color: $color;
+	}
 
-.has-gray-color {
-	color: #727477;
-}
-
-.has-light-gray-background-color {
-	background-color: #f8f8f8;
-}
-
-.has-light-gray-color {
-	color: #f8f8f8;
-}
-
-.has-white-background-color {
-	background-color: #fff;
-}
-
-.has-white-color {
-	color: #fff;
-}
-
-.has-titan-white-background-color {
-	background-color: #e0d8e2;
-}
-
-.has-titan-white-color {
-	color: #e0d8e2;
-}
-
-.has-tropical-blue-background-color {
-	background-color: #c5dcf3;
-}
-
-.has-tropical-blue-color {
-	color: #c5dcf3;
-}
-
-.has-peppermint-background-color {
-	background-color: #d0eac4;
-}
-
-.has-peppermint-color {
-	color: #d0eac4;
-}
-
-.has-pipi-background-color {
-	background-color: #fbf3d6;
-}
-
-.has-pipi-color {
-	color: #fbf3d6;
-}
-
-.has-bridesmaid-background-color {
-	background-color: #fbe7dd;
-}
-
-.has-bridesmaid-color {
-	color: #fbe7dd;
-}
-
-.has-iceberg-background-color {
-	background-color: #d6efee;
-}
-
-.has-iceberg-color {
-	color: #d6efee;
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
 }
