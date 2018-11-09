@@ -442,6 +442,107 @@ figcaption a,
   padding-left: 1em;
 }
 
+/** === Archives, Categories === */
+ul.wp-block-archives,
+ul.wp-block-categories__list {
+  line-height: 2;
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+ul.wp-block-archives li,
+ul.wp-block-categories__list li {
+  margin-bottom: 4px;
+}
+
+ul.wp-block-archives li:last-child,
+ul.wp-block-categories__list li:last-child {
+  margin-bottom: 0;
+}
+
+/** === Latest Posts === */
+.wp-block-latest-posts {
+  margin-top: -10px;
+}
+
+.wp-block-latest-posts.is-grid {
+  margin-bottom: calc(2.3em - 10px);
+  margin-top: 2.4em;
+}
+
+.wp-block-latest-posts.is-grid li {
+  background: #f1f1f1;
+  border: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: 1.6;
+  padding: 1em 1.5em 1.2em;
+}
+
+@media (max-width: 599px) {
+  .wp-block-latest-posts.is-grid li {
+    margin-right: 0;
+  }
+}
+
+.wp-block-latest-posts.is-grid li a {
+  box-shadow: none;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.wp-block-latest-posts.is-grid li a::after {
+  content: '';
+}
+
+.wp-block-latest-posts.is-grid li:last-child a::after {
+  content: '';
+}
+
+.wp-block-latest-posts.is-grid .wp-block-latest-posts__post-date {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin-top: 25px;
+}
+
+.wp-block-latest-posts:not(.is-grid) {
+  line-height: 2;
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+.wp-block-latest-posts:not(.is-grid) li {
+  margin-bottom: 10px;
+}
+
+.wp-block-latest-posts:not(.is-grid) li:last-child {
+  margin-bottom: 0;
+}
+
+.wp-block-latest-posts .wp-block-latest-posts__post-date {
+  color: rgba(0, 0, 0, 0.44);
+  font-size: 0.7272727273em;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.wp-block[data-type="core/latest-posts"][data-align="full"] .wp-block-latest-posts:not(.is-grid) {
+  padding-left: 40px;
+}
+
 /** === File === */
 .wp-block-file .wp-block-file__textlink {
   text-decoration: underline;
