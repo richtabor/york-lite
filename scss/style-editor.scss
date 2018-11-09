@@ -251,11 +251,6 @@ figcaption,
 		line-height: 1;
 		margin: -0.065em 0.175em 0 0;
 	}
-
-	&.has-background {
-		margin-top: 40px;
-		margin-bottom: 40px;
-	}
 }
 
 /** === Verse === */
@@ -462,9 +457,9 @@ figcaption,
 
 .wp-block[data-type="core/pullquote"][data-align="full"] {
 	blockquote p {
-		max-width: $content__width--wide;
 		margin-left: auto;
 		margin-right: auto;
+		max-width: $content__width--wide;
 	}
 }
 
@@ -494,8 +489,8 @@ figcaption,
 
 .wp-block[data-type="core/button"] {
 	.wp-block-button {
-		margin-top: 8px;
 		margin-bottom: 8px;
+		margin-top: 8px;
 	}
 }
 
@@ -634,6 +629,7 @@ ul.wp-block-categories__list {
 	}
 
 	.wp-block-file__button {
+		background: $black;
 		font-size: $font__size-xs;
 		left: 5px;
 		padding: 0.38em 1.3em 0.28em;
