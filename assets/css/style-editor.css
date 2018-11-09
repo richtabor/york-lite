@@ -179,8 +179,8 @@ a:focus {
 }
 
 a:hover, a:focus {
+  box-shadow: inset 0 0 0 currentColor, 0 3px 0 currentColor;
   color: #000000;
-  box-shadow: inset 0 0 0 currentcolor, 0 3px 0 currentcolor;
 }
 
 /** === Captions === */
@@ -196,11 +196,41 @@ figcaption a,
   color: rgba(0, 0, 0, 0.44);
 }
 
-/** === Code === */
+/** === Code / HTML === */
 .wp-block-code {
-  margin-bottom: 3em;
-  margin-top: 3em;
+  margin-bottom: 2.9em;
+  margin-top: 2.9em;
   padding: 20px 25px 14px;
+}
+
+.wp-block-html {
+  margin-top: 2.2em;
+}
+
+/** === Latest Comments === */
+.wp-block-latest-comments {
+  margin-top: 1.5em;
+}
+
+.wp-block-latest-comments__comment {
+  font-size: 17px;
+  margin-bottom: 1.4em !important;
+}
+
+.wp-block-latest-comments__comment-date {
+  color: rgba(0, 0, 0, 0.44);
+  margin-top: 0.75em;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.wp-block-latest-comments__comment-excerpt p {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.wp-block[data-type="core/latest-comments"][data-align="full"] ol.wp-block-latest-comments {
+  padding-left: 20px;
 }
 
 /** === Paragraph === */
@@ -600,6 +630,12 @@ ul.wp-block-categories__list.aligncenter {
   width: 100%;
 }
 
+/** === Table === */
+.wp-block-table {
+  margin-bottom: 2.2em;
+  margin-top: 2.2em;
+}
+
 /** === Gallery === */
 .wp-block-gallery:not(.editor-media-placeholder) {
   margin-bottom: -5px;
@@ -857,4 +893,11 @@ ul.wp-block-categories__list.aligncenter {
   margin-bottom: 1em;
   line-height: 2;
   padding-left: 0;
+}
+
+/** === Classic === */
+.wp-block[data-type="core/freeform"] {
+  margin-bottom: 2.9em;
+  margin-top: 2.9em;
+  max-width: 680px;
 }

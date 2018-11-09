@@ -30,8 +30,6 @@ img {
 	vertical-align: middle;
 }
 
-@import "tables";
-
 .hidden {
 	@include hide();
 	display: none;
