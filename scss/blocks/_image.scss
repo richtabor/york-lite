@@ -22,6 +22,11 @@
 			margin-top: 15px;
 		}
 
+		> img + figcaption {
+			margin-bottom: 30px;
+			margin-top: -30px;
+		}
+
 		.alignleft {
 			margin-right: $content__padding;
 

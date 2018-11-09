@@ -2,7 +2,7 @@
 	.wp-block-archives,
 	.wp-block-categories {
 		margin-top: -5px;
-		margin-bottom: 1.9em;
+		margin-bottom: 1.7em;
 
 		li {
 			margin-bottom: 4px;
@@ -10,6 +10,34 @@
 			&:last-child {
 				margin-bottom: 0;
 			}
+		}
+
+		&.alignleft {
+			@media screen and (min-width: $content__media-query) {
+				margin-bottom: 1em;
+				padding-left: 0;
+			}
+		}
+
+		&.alignright {
+
+			@media screen and (min-width: $content__media-query) {
+				margin-bottom: 1em;
+				padding-right: 0;
+			}
+
+			@media screen and (max-width: $content__width) {
+				margin-left: 0;
+			}
+		}
+
+		&.aligncenter {
+			list-style: none;
+			text-align: center;
+		}
+
+		&.alignfull {
+			padding-left: 20px;
 		}
 	}
 }

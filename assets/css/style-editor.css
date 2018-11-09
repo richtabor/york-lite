@@ -460,6 +460,23 @@ ul.wp-block-categories__list li:last-child {
   margin-bottom: 0;
 }
 
+ul.wp-block-archives.aligncenter,
+ul.wp-block-categories__list.aligncenter {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.wp-block[data-type="core/categories"][data-align="center"] ul.wp-block-categories__list {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.wp-block[data-type="core/categories"][data-align="full"] ul.wp-block-categories__list {
+  padding-left: 40px;
+}
+
 /** === Latest Posts === */
 .wp-block-latest-posts {
   margin-top: -10px;
