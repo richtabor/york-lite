@@ -1,0 +1,21 @@
+/*!
+@@pkg.name Editor Frame Styles
+*/
+
+// Variables
+@import "variables";
+
+/** === Title: Portfolio Post Type === */
+body.gutenberg-editor-page.post-type-portfolio .gutenberg .editor-post-title__block {
+	margin-bottom: 0;
+	max-width: $content__width;
+
+	@media (min-width: 800px) {
+		margin-top: 20px;
+	}
+
+	.editor-post-title__input {
+		padding-bottom: 0;
+		text-align: left;
+	}
+}

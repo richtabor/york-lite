@@ -1,7 +1,10 @@
+/*!
+@@pkg.name Editor Frame Styles
+*/
 /** === Title: Portfolio Post Type === */
 body.gutenberg-editor-page.post-type-portfolio .gutenberg .editor-post-title__block {
   margin-bottom: 0;
-  max-width: 710px;
+  max-width: 720px;
 }
 
 @media (min-width: 800px) {
