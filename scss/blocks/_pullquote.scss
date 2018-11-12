@@ -121,8 +121,9 @@
 				background-color: $black;
 			}
 
+			blockquote:not([class*="text-color"]),
 			blockquote:not([class*="text-color"]) cite,
-			blockquote:not([class*="text-color"]) {
+			blockquote:not([class*="text-color"]) a {
 				color: $white;
 			}
 		}

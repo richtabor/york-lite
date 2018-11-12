@@ -7,7 +7,6 @@
 			margin-top: $content__spacer - 40px;
 		}
 
-		&:not(.is-large),
 		&:not(.is-style-large) {
 			border-left: 3px solid $black;
 		}
@@ -42,8 +41,7 @@
 				line-height: 1.35;
 			}
 
-			cite,
-			footer {
+			cite {
 				font-size: $font__size-sm;
 				margin-top: 0.65em;
 				padding-bottom: 5px;

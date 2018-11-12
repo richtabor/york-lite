@@ -22,6 +22,10 @@
 		padding-left: 0 !important;
 	}
 
+	&:last-of-type {
+		padding-bottom: 0 !important;
+	}
+
 	@media screen and (min-width: 600px) {
 		&-sml {
 			padding: 15px;

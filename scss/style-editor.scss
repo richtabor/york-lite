@@ -243,6 +243,12 @@ figcaption,
 /** === Paragraph === */
 
 .wp-block-paragraph {
+
+	&.has-background {
+		margin-bottom: $content__spacer;
+		margin-top: $content__spacer;
+	}
+
 	&.has-drop-cap:not(:focus)::first-letter {
 		color: $black;
 		font-family: $font__heading;
@@ -297,7 +303,7 @@ figcaption,
 		line-height: 1.4 !important;
 	}
 
-	&:not(.is-large):not(.is-style-large) {
+	&:not(.is-style-large) {
 		border-left: 3px solid $black;
 		margin-left: -14px;
 		padding-left: 10px;
@@ -328,8 +334,6 @@ figcaption,
 		}
 	}
 
-	cite,
-	footer,
 	.wp-block-quote__citation {
 		color: $gray;
 		font-family: $font__heading;
@@ -394,6 +398,7 @@ figcaption,
 		}
 
 		blockquote:not(.has-text-color) p,
+		blockquote:not(.has-text-color) a,
 		blockquote:not(.has-text-color) .wp-block-pullquote__citation {
 			color: $white;
 		}
@@ -729,8 +734,11 @@ ul.wp-block-categories__list {
 /** === Cover === */
 
 .wp-block-cover {
-	margin-bottom: 2.35em;
-	margin-top: 2.35em;
+
+	&:not(.editor-media-placeholder) {
+		margin-bottom: 2.35em;
+		margin-top: 2.35em;
+	}
 
 	&-text {
 		font-family: $font__heading;

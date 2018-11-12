@@ -234,6 +234,11 @@ figcaption a,
 }
 
 /** === Paragraph === */
+.wp-block-paragraph.has-background {
+  margin-bottom: 44px;
+  margin-top: 44px;
+}
+
 .wp-block-paragraph.has-drop-cap:not(:focus)::first-letter {
   color: #000000;
   font-family: "Playfair Display", serif;
@@ -241,11 +246,6 @@ figcaption a,
   font-weight: 600;
   line-height: 1;
   margin: -0.065em 0.175em 0 0;
-}
-
-.wp-block-paragraph.has-background {
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 /** === Verse === */
@@ -285,14 +285,14 @@ figcaption a,
   line-height: 1.4 !important;
 }
 
-.wp-block-quote:not(.is-large):not(.is-style-large) {
+.wp-block-quote:not(.is-style-large) {
   border-left: 3px solid #000000;
   margin-left: -14px;
   padding-left: 10px;
 }
 
 @media screen and (min-width: 600px) {
-  .wp-block-quote:not(.is-large):not(.is-style-large) {
+  .wp-block-quote:not(.is-style-large) {
     margin-left: -1.35em;
     padding-left: 1em;
   }
@@ -318,8 +318,6 @@ figcaption a,
   text-align: inherit;
 }
 
-.wp-block-quote cite,
-.wp-block-quote footer,
 .wp-block-quote .wp-block-quote__citation {
   color: rgba(0, 0, 0, 0.44);
   font-family: "Playfair Display", serif;
@@ -387,6 +385,7 @@ figcaption a,
 }
 
 .wp-block-pullquote.is-style-solid-color blockquote:not(.has-text-color) p,
+.wp-block-pullquote.is-style-solid-color blockquote:not(.has-text-color) a,
 .wp-block-pullquote.is-style-solid-color blockquote:not(.has-text-color) .wp-block-pullquote__citation {
   color: #fff;
 }
@@ -459,9 +458,9 @@ figcaption a,
 }
 
 .wp-block[data-type="core/pullquote"][data-align="full"] blockquote p {
-  max-width: 920px;
   margin-left: auto;
   margin-right: auto;
+  max-width: 920px;
 }
 
 /** === Button === */
@@ -482,8 +481,8 @@ figcaption a,
 }
 
 .wp-block[data-type="core/button"] .wp-block-button {
-  margin-top: 8px;
   margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 /** === List === */
@@ -624,6 +623,7 @@ ul.wp-block-categories__list.aligncenter {
 }
 
 .wp-block-file .wp-block-file__button {
+  background: #000000;
   font-size: 0.7272727273em;
   left: 5px;
   padding: 0.38em 1.3em 0.28em;
@@ -706,7 +706,7 @@ ul.wp-block-categories__list.aligncenter {
 }
 
 /** === Cover === */
-.wp-block-cover {
+.wp-block-cover:not(.editor-media-placeholder) {
   margin-bottom: 2.35em;
   margin-top: 2.35em;
 }
