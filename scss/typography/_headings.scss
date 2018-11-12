@@ -13,8 +13,15 @@ h6 {
 	margin: 0;
 
 	.entry-content & {
-		padding-top: 5px;
-		margin-bottom: 30px;
+		margin-bottom: 0 !important;
+
+		+ p {
+			margin-top: $content__spacer / 2;
+		}
+
+		+ .wp-block-image {
+			margin-top: ( $content__spacer / 2 ) + 10;
+		}
 	}
 }
 

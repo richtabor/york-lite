@@ -28,11 +28,24 @@
 		margin-bottom: $content__spacer + 12px;
 		margin-top: $content__spacer + 12px;
 	}
+
+	&[data-type="core/heading"] {
+		margin-bottom: 0;
+	}
 }
 
-.editor-inner-blocks .wp-block {
-	margin-top: 0 !important;
+/** === Headings === */
+
+.wp-block[data-type="core/heading"] {
 	margin-bottom: 0 !important;
+
+	+ .wp-block[data-type="core/paragraph"] {
+		margin-top: - ( $content__spacer / 2 ) - 2 !important;
+	}
+
+	+ .wp-block[data-type="core/image"] {
+		margin-top: - ( $content__spacer / 2 ) + 5 !important;
+	}
 }
 
 /** === Title === */
@@ -926,10 +939,6 @@ ul.wp-block-categories__list {
 		margin-bottom: 1em;
 		line-height: 2;
 		padding-left: 0;
-	}
-
-	.editor-inner-blocks .wp-block-button {
-		margin-bottom: 0;
 	}
 }
 

@@ -26,9 +26,21 @@
   margin-top: 42px;
 }
 
-.editor-inner-blocks .wp-block {
-  margin-top: 0 !important;
+.wp-block[data-type="core/heading"] {
+  margin-bottom: 0;
+}
+
+/** === Headings === */
+.wp-block[data-type="core/heading"] {
   margin-bottom: 0 !important;
+}
+
+.wp-block[data-type="core/heading"] + .wp-block[data-type="core/paragraph"] {
+  margin-top: -17px !important;
+}
+
+.wp-block[data-type="core/heading"] + .wp-block[data-type="core/image"] {
+  margin-top: -10px !important;
 }
 
 /** === Title === */
@@ -867,10 +879,6 @@ ul.wp-block-categories__list.aligncenter {
   margin-bottom: 1em;
   line-height: 2;
   padding-left: 0;
-}
-
-.wp-block-coblocks-pricing-table-item .editor-inner-blocks .wp-block-button {
-  margin-bottom: 0;
 }
 
 /** === Classic === */
