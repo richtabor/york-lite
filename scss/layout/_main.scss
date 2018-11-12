@@ -1,5 +1,4 @@
 .site-content {
-	// padding: 0 4%;
 	margin-top: -80px; //Subtract the header height.
 }
 
@@ -19,7 +18,7 @@
 	padding-right: $content__padding;
 
 	.entry-header {
-		padding-bottom: 0;
 		margin-bottom: 40px;
+		padding-bottom: 0;
 	}
 }

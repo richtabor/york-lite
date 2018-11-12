@@ -8,12 +8,6 @@
 		padding: 11vw 4%;
 	}
 
-	@media (max-width: 601px) {
-		.home & {
-			border: none;
-		}
-	}
-
 	ul {
 		list-style: none;
 		margin: 0;
@@ -59,6 +53,10 @@
 		&:first-of-type {
 			margin-right: 10px;
 		}
+	}
+
+	.widget-title {
+		margin-bottom: 15px;
 	}
 }
 

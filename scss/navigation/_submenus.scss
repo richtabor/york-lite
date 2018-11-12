@@ -1,6 +1,6 @@
 .main-navigation ul ul {
-	padding: 0.25em 0 0 0;
 	margin-bottom: -.25em;
+	padding: 0.25em 0 0 0;
 
 	li {
 		padding: 0.15em 0;
@@ -69,23 +69,24 @@
 		opacity: .65;
 	}
 
-	&:before, &:after {
+	&::before,
+	&::after {
 		content: '';
 		display: block;
 		position: absolute;
 		right: 0;
 	}
 
-	&:after {
+	&::after {
 		border-bottom: 2px solid currentColor;
 		border-right: 2px solid currentColor;
 		content: " ";
 		display: block;
 		height: 8px;
+		margin-right: -5px;
+		margin-top: -5px;
 		position: absolute;
 		right: 50%;
-		margin-top: -5px;
-		margin-right: -5px;
 		top: 50%;
 		transform: rotate(-45deg);
 		transition: transform 300ms cubic-bezier(0.33,0,0.2,1), top 100ms cubic-bezier(0.33,0,0.2,1), opacity 200ms cubic-bezier(0.33,0,0.2,1);
@@ -93,7 +94,7 @@
 		z-index: 99;
 	}
 
-	.york-opened > &:after {
+	.york-opened > &::after {
 		transform: rotate(45deg) translate(-2px,-2px);
 	}
 }
