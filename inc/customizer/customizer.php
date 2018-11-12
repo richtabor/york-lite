@@ -94,7 +94,7 @@ function york_customize_register( $wp_customize ) {
 	// Text color.
 	$wp_customize->add_setting(
 		'text_color', array(
-			'default'           => '#000000',
+			'default'           => '#232323',
 			'sanitize_callback' => 'sanitize_hex_color',
 			'transport'         => 'postMessage',
 		)
@@ -114,7 +114,7 @@ function york_customize_register( $wp_customize ) {
 
 		$wp_customize->add_setting(
 			'overlay_color', array(
-				'default'           => '#000000',
+				'default'           => '#232323',
 				'sanitize_callback' => 'sanitize_hex_color',
 				'transport'         => 'postMessage',
 			)
