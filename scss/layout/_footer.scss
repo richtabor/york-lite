@@ -35,11 +35,17 @@
 			}
 		}
 	}
-	
+
 	.site-info {
+		color: $gray;
 
 		a {
 			transition: 200ms color cubic-bezier(0.3, -0.55, 0.1, 1.1);
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
 

@@ -91,6 +91,24 @@ function york_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Heading color.
+	$wp_customize->add_setting(
+		'heading_color', array(
+			'default'           => '#232323',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, 'heading_color', array(
+				'label'   => esc_html__( 'Heading Color', 'york-lite' ),
+				'section' => 'colors',
+			)
+		)
+	);
+
 	// Text color.
 	$wp_customize->add_setting(
 		'text_color', array(

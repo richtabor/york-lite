@@ -32,19 +32,10 @@
 	&[data-type="core/heading"] {
 		margin-bottom: 0;
 	}
-}
 
-/** === Headings === */
-
-.wp-block[data-type="core/heading"] {
-	margin-bottom: 0 !important;
-
-	+ .wp-block[data-type="core/paragraph"] {
-		margin-top: - ( $content__spacer / 2 ) - 2 !important;
-	}
-
-	+ .wp-block[data-type="core/image"] {
-		margin-top: - ( $content__spacer / 2 ) + 5 !important;
+	.editor-inner-blocks & {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
 	}
 }
 
@@ -55,7 +46,7 @@
 	max-width: 780px;
 
 	@media (min-width: 800px) {
-		margin-bottom: 75px;
+		margin-bottom: 70px;
 		margin-top: 40px;
 	}
 
@@ -212,16 +203,17 @@ a {
 	}
 }
 
-/** === Captions === */
+/** === Headings === */
 
-figcaption,
-.gallery-caption {
-	color: $gray;
-	font-size: $font__size-xs;
-	line-height: 1.6;
+.wp-block[data-type="core/heading"] {
+	margin-bottom: 0 !important;
 
-	a {
-		color: $gray;
+	+ .wp-block[data-type="core/paragraph"] {
+		margin-top: - ( $content__spacer / 2 ) - 2 !important;
+	}
+
+	+ .wp-block[data-type="core/image"] {
+		margin-top: - ( $content__spacer / 2 ) + 5 !important;
 	}
 }
 
@@ -245,6 +237,19 @@ figcaption,
 		font-weight: 600;
 		line-height: 1;
 		margin: -0.065em 0.175em 0 0;
+	}
+}
+
+/** === Captions === */
+
+figcaption,
+.gallery-caption {
+	color: $gray;
+	font-size: $font__size-xs;
+	line-height: 1.6;
+
+	a {
+		color: $gray;
 	}
 }
 
@@ -489,6 +494,13 @@ figcaption,
 				background-color: $black
 			}
 		}
+	}
+
+	&.is-style-outline .wp-block-button__link,
+	&.is-style-outline .wp-block-button__link:hover,
+	&.is-style-outline .wp-block-button__link:focus,
+	&.is-style-outline .wp-block-button__link:active {
+		background: transparent !important;
 	}
 }
 
@@ -911,34 +923,26 @@ ul.wp-block-categories__list {
 
 .wp-block-coblocks-pricing-table-item {
 
-	.pricing-table__title {
+	&__title {
 		font-size: $font__size-sm;
-		margin-bottom: 0;
 	}
 
-	.pricing-table__currency {
+	&__currency {
 		font-size: $font__size-sm;
 		position: relative;
-		top: 41px;
-		right: 5px;
-		line-height: 1;
+		align-items: center;
 	}
 
-	.pricing-table__price {
-		margin-bottom: 2.1em;
-		margin-left: -10px;
+	&__price-wrapper {
+		margin-bottom: 1.9em;
 	}
 
-	.pricing-table__amount {
-		font-size: 5.5em;
-		letter-spacing: -0.05em;
+	&__amount {
+		font-family: $font__heading;
 	}
 
-	.pricing-table__features {
+	&__features {
 		font-size: $font__size-sm;
-		margin-bottom: 1em;
-		line-height: 2;
-		padding-left: 0;
 	}
 }
 

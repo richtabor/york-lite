@@ -95,32 +95,26 @@
 		}
 	}
 
-	.wp-block-coblocks-pricing-table {
+	.wp-block-coblocks-pricing-table-item {
 
-		.pricing-table__title {
+		&__title {
 			font-size: $font__size-sm;
-			margin-bottom: .3em;
 		}
 
-		.pricing-table__currency {
+		&__currency {
 			font-size: $font__size-sm;
-			position: relative;
-			top: 40px;
-			right: 5px;
-			line-height: 1;
 		}
 
-		.pricing-table__price {
+		&__price-wrapper {
 			margin-bottom: 1.9em;
-			margin-left: -10px;
+			align-items: center;
 		}
 
-		.pricing-table__amount {
-			font-size: 5.5em;
-			letter-spacing: -0.05em;
+		&__amount {
+			font-family: $font__heading;
 		}
 
-		.pricing-table__features {
+		&__features {
 			font-size: $font__size-sm;
 			margin-bottom: 1.7em;
 		}

@@ -13,7 +13,8 @@
 	p.has-background {
 		@include blockMobileDisplay();
 
-		margin: $content__spacer--mobile + 12px auto;
+		margin-top: $content__spacer--mobile;
+		margin-bottom: $content__spacer--mobile;
 
 		@media screen and (min-width: $content__media-query) {
 			margin-bottom: $content__spacer + 12px;

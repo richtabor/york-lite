@@ -98,7 +98,6 @@ function york_setup() {
 
 	/*
 	 * Enable support for Post Formats.
-	 *
 	 * See: https://codex.wordpress.org/Post_Formats
 	 */
 	add_theme_support(
@@ -125,6 +124,12 @@ function york_setup() {
 	 * See: https://make.wordpress.org/core/2016/02/16/selective-refresh-in-the-customizer/
 	 */
 	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	/*
+	 * Enable support for responsive embedded content
+	 * See: https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#responsive-embedded-content
+	 */
+	add_theme_support( 'responsive-embeds' );
 
 	/**
 	 * Custom colors for use in the editor.
@@ -235,8 +240,6 @@ function york_setup() {
 	// Enqueue fonts in the editor.
 	add_editor_style( york_fonts_url() );
 
-	add_theme_support( 'responsive-embeds' );
-
 	/*
 	 * Define starter content for the theme.
 	 * See: https://make.wordpress.org/core/2016/11/30/starter-content-for-themes-in-4-7/
@@ -335,8 +338,8 @@ function york_widgets_init() {
 			'description'   => esc_html__( 'Appears on the theme flyout sidebar.', 'york-lite' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h5 class="widget-title">',
-			'after_title'   => '</h5>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
 		)
 	);
 
@@ -347,8 +350,8 @@ function york_widgets_init() {
 			'description'   => esc_html__( 'Appears at the top of the site footer.', 'york-lite' ),
 			'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s clearfix">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h5 class="widget-title">',
-			'after_title'   => '</h5>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
 		)
 	);
 }
@@ -426,10 +429,15 @@ function york_editor_customizer_colors() {
 
 	// Retrieve colors from the Customizer.
 	$background_color = get_theme_mod( 'background_color', '#ffffff' );
+	$text_color       = get_theme_mod( 'text_color', '#232323' );
+	$heading_color    = get_theme_mod( 'heading_color', '#232323' );
 
 	// Build styles.
 	$css  = '';
 	$css .= '.block-editor__container { background-color: #' . esc_attr( $background_color ) . '; }';
+	$css .= '.editor-styles-wrapper.edit-post-visual-editor .editor-post-title__block .editor-post-title__input { color: ' . esc_attr( $heading_color ) . '; }';
+	$css .= '.editor-styles-wrapper.edit-post-visual-editor { color: ' . esc_attr( $text_color ) . '; }';
+	$css .= '.wp-block-heading h1, .wp-block-heading h2, .wp-block-heading h3, .wp-block-heading h4, .wp-block-heading h5, .wp-block-heading h6 { color: ' . esc_attr( $heading_color ) . ' !important; }';
 
 	return wp_strip_all_tags( apply_filters( 'york_editor_customizer_colors', $css ) );
 }

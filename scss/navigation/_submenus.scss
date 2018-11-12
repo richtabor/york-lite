@@ -10,7 +10,6 @@
 			opacity: .6;
 
 			&:hover {
-				color: $black;
 				opacity: 1;
 			}
 		}
@@ -29,7 +28,6 @@
 			font-size: 20px !important;
 
 			&:hover {
-				color: $black;
 				opacity: 1;
 			}
 		}
@@ -79,8 +77,8 @@
 	}
 
 	&:after {
-		border-bottom: 2px solid $black;
-		border-right: 2px solid $black;
+		border-bottom: 2px solid currentColor;
+		border-right: 2px solid currentColor;
 		content: " ";
 		display: block;
 		height: 8px;

@@ -1,4 +1,14 @@
 .entry-content {
+	.wp-block-button {
+
+		&.is-style-outline .wp-block-button__link:not(.has-background),
+		&.is-style-outline .wp-block-button__link:not(.has-background):focus,
+		&.is-style-outline .wp-block-button__link:not(.has-background):hover,
+		&.is-style-outline .wp-block-button__link:not(.has-background):active {
+			background: transparent;
+		}
+	}
+
 	.wp-block-button__link {
 		@include font-size(18px);
 		font-weight: 400;
