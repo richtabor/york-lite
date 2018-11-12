@@ -1,11 +1,5 @@
 .entry-content {
 	.wp-block-quote {
-		margin-bottom: $content__spacer--mobile + 5px;
-
-		@media screen and (min-width: $content__media-query) {
-			margin-bottom: $content__spacer - 10px;
-			margin-top: $content__spacer - 40px;
-		}
 
 		&:not(.is-style-large) {
 			border-left: 3px solid $black;

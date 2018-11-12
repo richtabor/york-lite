@@ -296,6 +296,9 @@ figcaption,
 /** === Blockquote === */
 
 .wp-block-quote {
+	margin-bottom: $content__spacer;
+	margin-top: $content__spacer;
+
 	p {
 		font-family: $font__heading;
 		font-size: $font__size-lg;

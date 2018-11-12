@@ -278,6 +278,11 @@ figcaption a,
 }
 
 /** === Blockquote === */
+.wp-block-quote {
+  margin-bottom: 44px;
+  margin-top: 44px;
+}
+
 .wp-block-quote p {
   font-family: "Playfair Display", serif;
   font-size: 1.925em;
