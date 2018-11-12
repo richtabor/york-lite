@@ -1,16 +1,14 @@
 .entry-content {
 	ul,
 	ol {
-		line-height: 2;
 
 		li {
-			margin: 0 0 3px 20px;
+			margin: 0 0 5px 20px;
 		}
 
 		ol {
-			margin-bottom: 3px;
-			padding-left: 20px;
-			margin-top: -5px;
+			margin-bottom: 7px;
+			padding-left: 0;
 
 			li {
 				list-style: decimal;
@@ -18,9 +16,8 @@
 		}
 
 		ul {
-			margin-bottom: 3px;
-			padding-left: 20px;
-			margin-top: -5px;
+			margin-bottom: 7px;
+			padding-left: 0;
 
 			li {
 				list-style: circle;

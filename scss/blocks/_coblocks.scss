@@ -6,29 +6,27 @@
 
 		&__title {
 			font-size: 19px;
-			margin-bottom: 0.8em !important;
+			margin-bottom: 0;
+			margin-top: 0;
 		}
 
 		&__text {
 			font-size: 18px;
-			margin-bottom: 0 !important;
+			margin-bottom: 0;
+			margin-top: 0;
 		}
 	}
 
 	.wp-block-coblocks-click-to-tweet {
-		margin-bottom: $content__spacer--mobile + 15px;
-
-		@media screen and (min-width: $content__media-query) {
-			margin-bottom: $content__spacer + 15px;
-		}
 
 		&__text {
-			color: $color__text-heading;
 			font-family: $font__heading;
-			font-size: $font__size-lg;
 			font-weight: $font__weight-heading;
 			line-height: 1.5;
-			margin-bottom: 5px !important;
+
+			&:not([class*="font-size"]) {
+				font-size: $font__size-lg;
+			}
 		}
 
 		&__text::before {
@@ -42,6 +40,7 @@
 			font-size: $font__size-sm;
 			height: 44px;
 			line-height: 45px;
+			margin-bottom: 10px !important;
 			margin-top: 1em;
 			padding: 0 1em;
 
@@ -62,7 +61,7 @@
 		padding-right: 30px;
 
 		&__heading {
-			margin-bottom: 0 !important;
+			margin-bottom: 0;
 		}
 
 		&__heading {
@@ -72,12 +71,12 @@
 
 		&__biography {
 			font-size: $font__size-sm;
-			margin-bottom: 1.25em !important;
+			margin-bottom: 1.25em;
 		}
 
 		&__name {
 			font-family: $font__heading;
-			margin: 0.1em 0 0.45em !important;
+			margin: 0.1em 0 0.45em;
 		}
 
 		.wp-block-button {
@@ -87,8 +86,6 @@
 
 	.wp-block-coblocks-dynamic-separator {
 		@include blockMobileDisplay();
-		margin-bottom: $content__spacer - 12px;
-		margin-top: $content__spacer - 12px;
 		max-width: $content__width - ( $content__padding * 4 );
 
 		@media screen and (max-width: $content__width) {

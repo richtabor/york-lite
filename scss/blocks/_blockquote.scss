@@ -1,6 +1,5 @@
 .entry-content {
 	.wp-block-quote {
-
 		&:not(.is-style-large) {
 			border-left: 3px solid $black;
 		}
@@ -22,12 +21,13 @@
 		}
 
 		&.is-style-large {
-			@include blockMobileDisplay();
 			border-left: none;
-			margin-bottom: $content__spacer;
-			margin-top: $content__spacer;
-			padding-left: 0;
-			padding-right: 0;
+			margin: $content__spacer auto;
+
+			@media screen and (min-width: $content__media-query) {
+				margin-bottom: $content__spacer + 12px;
+				margin-top: $content__spacer + 12px;
+			}
 
 			p:first-of-type {
 				font-size: $font__size-xl;

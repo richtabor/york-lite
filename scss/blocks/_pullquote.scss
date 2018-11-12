@@ -4,6 +4,7 @@
 		border-color: $black;
 		padding-bottom: 2.5em;
 		padding-top: 2.2em;
+		border-width: 3px;
 
 		&.alignwide {
 			@include blockWideDisplay();
@@ -59,7 +60,7 @@
 			display: inline-block;
 			font-size: $font__size-sm;
 			line-height: 1.6;
-			margin-bottom: -0.2em;
+			margin-bottom: 0.1em;
 			margin-top: 1em;
 			text-transform: none;
 		}

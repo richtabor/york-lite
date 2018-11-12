@@ -2,14 +2,6 @@
 	.wp-block-archives,
 	.wp-block-categories {
 
-		li {
-			margin-bottom: 4px;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-
 		&.alignleft {
 			@media screen and (min-width: $content__media-query) {
 				margin-bottom: 1em;
@@ -31,6 +23,7 @@
 
 		&.aligncenter {
 			list-style: none;
+			padding-left: 0;
 			text-align: center;
 		}
 

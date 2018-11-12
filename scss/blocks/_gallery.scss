@@ -1,7 +1,13 @@
 .entry-content {
 	.wp-block-gallery {
-		.blocks-gallery-item {
-			padding-left: 0;
+		margin: $content__spacer--mobile + 12px auto -6px;
+
+		@media screen and (min-width: $content__media-query) {
+			margin-top: $content__spacer + 12px;
+		}
+
+		.blocks-gallery-item:last-child {
+			margin-bottom: 16px;
 		}
 	}
 }

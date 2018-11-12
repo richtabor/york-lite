@@ -1,16 +1,8 @@
 .entry-content {
-
 	.wp-block-separator {
 		background: none;
 		border-bottom-color: #ccc;
-		margin-bottom: $content__spacer--mobile - 3px;
-		margin-top: $content__spacer--mobile - 3px;
 		max-width: $content__width--less-padding - $content__padding * 2;
-
-		@media screen and (min-width: $content__media-query) {
-			margin-top: $content__spacer - 5px;
-			margin-bottom: $content__spacer - 5px;
-		}
 
 		&:not(.is-style-wide):not(.is-style-dots) {
 			width: calc(100px - #{$content__padding} * 2);

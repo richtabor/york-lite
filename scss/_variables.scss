@@ -25,8 +25,8 @@ $black: #000000;
 $white: #fff;
 $gray: #869092;
 
-$color__text-heading: #000000;
-$color__text-main: #000000;
+$color__text-heading: #232323;
+$color__text-main: #232323;
 
 $color__background-button: $color__text-main;
 $color__background-button-hover: #444;
@@ -45,8 +45,8 @@ $content__align--mobile-media-query--min: 499px;
 $content__align--mobile-media-query--max: $content__align--mobile-media-query--min - 1;
 $content__align--width: 300px;
 
-$content__spacer: 44px;
-$content__spacer--mobile: 30px;
+$content__spacer: 30px;
+$content__spacer--mobile: 20px;
 
 // Old
 $font-size__meta: 17px;

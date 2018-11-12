@@ -14,3 +14,16 @@
 .projects {
 	padding: 0 4%;
 }
+
+.hfeed {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 900px;
+	padding-left: $content__padding;
+	padding-right: $content__padding;
+
+	.entry-header {
+		padding-bottom: 0;
+		margin-bottom: 40px;
+	}
+}

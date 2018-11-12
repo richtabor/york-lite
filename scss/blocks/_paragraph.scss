@@ -12,5 +12,12 @@
 
 	p.has-background {
 		@include blockMobileDisplay();
+
+		margin: $content__spacer--mobile + 12px auto;
+
+		@media screen and (min-width: $content__media-query) {
+			margin-bottom: $content__spacer + 12px;
+			margin-top: $content__spacer + 12px;
+		}
 	}
 }

@@ -1,7 +1,7 @@
 .entry-content {
 	.wp-block-code {
 		@include blockMobileDisplay();
-		padding: 20px;
+		padding: 0.8em 1.1em;
 
 		&,
 		code {
