@@ -1,5 +1,8 @@
 .projects {
-	transition-property: height, width;
+
+	@media screen and (min-width: 600px) {
+		padding: 0 4%;
+	}
 }
 
 .project {

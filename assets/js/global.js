@@ -29,7 +29,7 @@
 		var container = projects.imagesLoaded( function() {
 			container.masonry({
 				itemSelector: '.project',
-				transitionDuration: '.75s',
+				transitionDuration: '.5s',
 			});
 		});
 	}
