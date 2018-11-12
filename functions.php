@@ -235,6 +235,8 @@ function york_setup() {
 	// Enqueue fonts in the editor.
 	add_editor_style( york_fonts_url() );
 
+	add_theme_support( 'responsive-embeds' );
+
 	/*
 	 * Define starter content for the theme.
 	 * See: https://make.wordpress.org/core/2016/11/30/starter-content-for-themes-in-4-7/
