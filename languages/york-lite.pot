@@ -96,130 +96,130 @@ msgstr ""
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:81, functions.php:285, inc/template-tags.php:101
+#: functions.php:81, functions.php:293, inc/template-tags.php:101
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:137
+#: functions.php:142
 msgid "Black"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:147
 msgid "Gray"
 msgstr ""
 
-#: functions.php:147
+#: functions.php:152
 msgid "Light Gray"
 msgstr ""
 
-#: functions.php:152
+#: functions.php:157
 msgid "White"
 msgstr ""
 
-#: functions.php:157
+#: functions.php:162
 msgid "Titan White"
 msgstr ""
 
-#: functions.php:162
+#: functions.php:167
 msgid "Tropical Blue"
 msgstr ""
 
-#: functions.php:167
+#: functions.php:172
 msgid "Peppermint"
 msgstr ""
 
-#: functions.php:172
+#: functions.php:177
 msgid "Iceberg"
 msgstr ""
 
-#: functions.php:177
+#: functions.php:182
 msgid "Bridesmaid"
 msgstr ""
 
-#: functions.php:182
+#: functions.php:187
 msgid "Pipi"
 msgstr ""
 
-#: functions.php:197, inc/metaboxes.php:44
+#: functions.php:202, inc/metaboxes.php:44
 msgid "Small"
 msgstr ""
 
-#: functions.php:198
+#: functions.php:203
 msgid "S"
 msgstr ""
 
-#: functions.php:203
-msgid "Regular"
+#: functions.php:208, inc/metaboxes.php:45
+msgid "Medium"
 msgstr ""
 
-#: functions.php:204
+#: functions.php:209
 msgid "M"
 msgstr ""
 
-#: functions.php:209, inc/metaboxes.php:46
+#: functions.php:214, inc/metaboxes.php:46
 msgid "Large"
 msgstr ""
 
-#: functions.php:210
+#: functions.php:215
 msgid "L"
 msgstr ""
 
-#: functions.php:215
+#: functions.php:220
 msgid "Larger"
 msgstr ""
 
-#: functions.php:216
+#: functions.php:221
 msgid "XL"
-msgstr ""
-
-#: functions.php:249
-msgctxt "Theme starter content"
-msgid "Logo"
 msgstr ""
 
 #: functions.php:257
 msgctxt "Theme starter content"
+msgid "Logo"
+msgstr ""
+
+#: functions.php:265
+msgctxt "Theme starter content"
 msgid "A WordPress theme by ThemeBeans"
 msgstr ""
 
-#: functions.php:268
+#: functions.php:276
 msgid "Primary"
 msgstr ""
 
-#: functions.php:276, functions.php:340
+#: functions.php:284, functions.php:348
 msgid "Footer"
 msgstr ""
 
-#: functions.php:328
+#: functions.php:336
 msgid "Flyout"
 msgstr ""
 
-#: functions.php:330
+#: functions.php:338
 msgid "Appears on the theme flyout sidebar."
 msgstr ""
 
-#: functions.php:342
+#: functions.php:350
 msgid "Appears at the top of the site footer."
 msgstr ""
 
-#: functions.php:384
+#: functions.php:392
 msgid "Write a comment . . ."
 msgstr ""
 
-#: functions.php:385
+#: functions.php:393
 msgid "Name"
 msgstr ""
 
-#: functions.php:386
+#: functions.php:394
 msgid "email@address.com"
 msgstr ""
 
-#: functions.php:418
+#: functions.php:421
 msgctxt "Playfair Display font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:425
+#: functions.php:428
 msgctxt "Lora font: on or off"
 msgid "on"
 msgstr ""
@@ -621,14 +621,18 @@ msgid "Logo Max Width"
 msgstr ""
 
 #: inc/customizer/customizer.php:106
+msgid "Heading Color"
+msgstr ""
+
+#: inc/customizer/customizer.php:124
 msgid "Text Color"
 msgstr ""
 
-#: inc/customizer/customizer.php:126
+#: inc/customizer/customizer.php:144
 msgid "Portfolio Overlay"
 msgstr ""
 
-#: inc/customizer/customizer.php:143
+#: inc/customizer/customizer.php:161
 msgid "Portfolio Overlay Text"
 msgstr ""
 
@@ -650,10 +654,6 @@ msgstr ""
 
 #: inc/metaboxes.php:39
 msgid "Select the size of the project thumbnail."
-msgstr ""
-
-#: inc/metaboxes.php:45
-msgid "Medium"
 msgstr ""
 
 #: inc/metaboxes.php:47

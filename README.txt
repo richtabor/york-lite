@@ -6,7 +6,7 @@ Tested up to: 5.0.0
 Version: @@pkg.version
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: white, light, one-column, custom-colors, grid-layout, editor-style, custom-logo, custom-colors, custom-menu, featured-images, theme-options, translation-ready, blog, portfolio, photography
+Tags: white, light, one-column, custom-colors, grid-layout, editor-style, custom-logo, custom-menu, featured-images, theme-options, translation-ready, blog, portfolio, photography
 
 == Description ==
 
