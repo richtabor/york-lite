@@ -80,7 +80,13 @@ License: GPLv2 or later
 == Changelog ==
 
 = 2.0.0 =
-* New: Add support for the Gutenberg block editor and WordPress 5.0
+* New: Full support for Gutenberg and WordPress 5.0
+* New: Add support for CoBlocks, Gutenberg Blocks for Content Marketers - https://coblocks.com
+* New: Add support for Block Gallery, gallery Gutenberg Blocks - https://wpblockgallery.com
+* New: Add custom Gutenberg editor color palette
+* New: Add custom editor font sizes
+* New: Add support for PHP 7.2
+* New: Enable support for responsive embedded content
 
 = 1.1.2 =
 * Tweak: Add PHPCS code improvements

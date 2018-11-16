@@ -1,7 +1,10 @@
 .entry-content {
 	.wp-block-quote {
+		padding-left: $content__padding;
+		padding-right: $content__padding;
+
 		&:not(.is-style-large) {
-			border-left: 3px solid $black;
+			border-left: $block__quote--border-width solid $black;
 		}
 
 		p {

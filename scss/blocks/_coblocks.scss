@@ -61,26 +61,25 @@
 		padding-right: 30px;
 
 		&__heading {
-			margin-bottom: 0;
-		}
-
-		&__heading {
 			color: $gray;
 			font-size: $font__size-xs;
+			margin-bottom: 0;
 		}
 
 		&__biography {
 			font-size: $font__size-sm;
-			margin-bottom: 1.25em;
+			margin-bottom: 1em;
+			margin-top: 0.1em;
 		}
 
 		&__name {
 			font-family: $font__heading;
-			margin: 0.1em 0 0.45em;
+			font-size: $font__size-md;
+			margin: 0.1em 0 0.6em;
 		}
 
 		.wp-block-button {
-			margin-top: 0.5em;
+			margin-top: 0;
 		}
 	}
 
@@ -96,9 +95,9 @@
 	}
 
 	.wp-block-coblocks-pricing-table-item {
-
 		&__title {
 			font-size: $font__size-sm;
+			margin-bottom: 0;
 		}
 
 		&__currency {
@@ -106,8 +105,8 @@
 		}
 
 		&__price-wrapper {
-			margin-bottom: 1.9em;
 			align-items: center;
+			margin-bottom: 1.9em;
 		}
 
 		&__amount {

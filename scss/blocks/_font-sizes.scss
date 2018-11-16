@@ -2,12 +2,8 @@
 	font-size: 16px;
 }
 
-.has-regular-font-size {
-	font-size: 18px;
-
-	@media screen and (min-width: 599px) {
-		font-size: $font__size_base;
-	}
+.has-medium-font-size {
+	font-size: 19px;
 }
 
 .has-large-font-size {

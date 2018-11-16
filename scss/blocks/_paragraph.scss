@@ -1,7 +1,6 @@
 .entry-content {
 	.has-drop-cap {
 		&:not(:focus)::first-letter {
-			color: $black;
 			font-family: $font__heading;
 			font-size: $font__size-xxxl;
 			font-weight: 600;

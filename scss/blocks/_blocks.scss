@@ -9,6 +9,7 @@
 @import "button";
 @import "captions";
 @import "code";
+@import "columns";
 @import "cover";
 @import "embed";
 @import "file";
@@ -50,26 +51,41 @@
 		}
 	}
 
-	&:first-child,
+	&:first-child {
+		margin-top: 0 !important;
+	}
+
+	&:last-child {
+		margin-bottom: 0 !important;
+	}
+
 	> *:first-child {
 		margin-top: 0;
 	}
 
-	&:last-child,
 	> *:last-child {
 		margin-bottom: 0;
 	}
 
 	&.alignwide {
 		max-width: $content__width--wide;
+
+		@media screen and (min-width: $content__media-query) {
+			margin-bottom: $content__spacer + 20px;
+			margin-top: $content__spacer + 20px;
+		}
 	}
 
 	&.alignfull {
-		margin-left: 0;
-		margin-right: 0;
+		margin: $content__spacer + 10px 0;
 		max-width: 100% !important;
 		padding-left: 0;
 		padding-right: 0;
+
+		@media screen and (min-width: $content__media-query) {
+			margin-bottom: $content__spacer + 30px;
+			margin-top: $content__spacer + 30px;
+		}
 	}
 
 	&.alignleft {

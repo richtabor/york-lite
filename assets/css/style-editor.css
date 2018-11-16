@@ -9,25 +9,37 @@
   max-width: 710px;
 }
 
-.wp-block[data-align="wide"] {
-  max-width: 910px;
-}
-
-.wp-block[data-align="full"] {
-  max-width: none;
-}
-
-.wp-block .wp-block {
-  width: 100%;
-}
-
 .wp-block:not([data-type="core/paragraph"]):not([data-type="core/list"]):not([data-type="core/archives"]):not([data-type="core/categories"]):not([data-type="core/latest-posts"]):not([data-type="core/latest-comments"]) {
   margin-bottom: 42px;
   margin-top: 42px;
 }
 
-.wp-block[data-type="core/heading"] {
-  margin-bottom: 0;
+.wp-block[data-align="wide"] {
+  max-width: 910px;
+}
+
+@media screen and (min-width: 719px) {
+  .wp-block[data-align="wide"] {
+    margin-bottom: 52px !important;
+    margin-top: 52px !important;
+  }
+}
+
+.wp-block[data-align="full"] {
+  margin-bottom: 40px !important;
+  margin-top: 40px !important;
+  max-width: none;
+}
+
+@media screen and (min-width: 719px) {
+  .wp-block[data-align="full"] {
+    margin-bottom: 60px !important;
+    margin-top: 60px !important;
+  }
+}
+
+.wp-block .wp-block {
+  width: 100%;
 }
 
 .editor-inner-blocks .wp-block {
@@ -227,7 +239,6 @@ a:hover, a:focus {
 }
 
 .wp-block-paragraph.has-drop-cap:not(:focus)::first-letter {
-  color: #232323;
   font-family: "Playfair Display", serif;
   font-size: 5.5em;
   font-weight: 600;
@@ -236,9 +247,15 @@ a:hover, a:focus {
 }
 
 /** === Captions === */
+figcaption {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
 figcaption,
 .gallery-caption {
   color: rgba(0, 0, 0, 0.44);
+  font-family: "Lora", serif;
   font-size: 0.7272727273em;
   line-height: 1.6;
 }
@@ -294,7 +311,7 @@ figcaption a,
 }
 
 .wp-block-quote:not(.is-style-large) {
-  border-left: 3px solid #232323;
+  border-left: 4px solid #232323;
   margin-left: -14px;
   padding-left: 10px;
 }
@@ -387,8 +404,8 @@ figcaption a,
 }
 
 .wp-block-pullquote.is-style-solid-color .wp-block-pullquote__citation {
-  margin-top: 1.7em;
-  text-transform: uppercase;
+  margin-top: 1em;
+  opacity: 0.8;
 }
 
 .wp-block-pullquote.is-style-solid-color blockquote:not(.has-text-color) p,
@@ -647,13 +664,6 @@ ul.wp-block-categories__list.aligncenter {
 }
 
 /** === Video === */
-.wp-block-video figcaption,
-.wp-block-audio figcaption,
-.wp-block-embed figcaption {
-  margin-top: 10px;
-  margin-bottom: -10px;
-}
-
 .wp-block-video video {
   margin-bottom: -10px;
   width: 100%;
@@ -686,7 +696,8 @@ ul.wp-block-categories__list.aligncenter {
 }
 
 .wp-block-gallery figcaption.editor-rich-text__tinymce {
-  color: #fff;
+  color: #fff !important;
+  margin: 0;
   padding-bottom: 8px;
 }
 
@@ -696,8 +707,8 @@ ul.wp-block-categories__list.aligncenter {
 }
 
 .wp-block-image figcaption {
-  margin-top: .25em;
   margin-bottom: -8px;
+  margin-top: -2px;
 }
 
 .wp-block[data-type="core/image"][data-align="left"] .wp-block-image:not(.editor-media-placeholder),
@@ -851,12 +862,14 @@ ul.wp-block-categories__list.aligncenter {
 
 .wp-block-coblocks-author__biography {
   font-size: 0.9090909091em;
-  margin-bottom: 1.25em;
+  margin-bottom: 1em;
+  margin-top: 0.1em;
 }
 
 .wp-block-coblocks-author__name {
   font-family: "Playfair Display", serif;
-  margin: 0.15em 0 0.3em;
+  font-size: 1.375em;
+  margin: 0.1em 0 0.6em;
 }
 
 .wp-block-coblocks-author .wp-block-button {
@@ -865,18 +878,19 @@ ul.wp-block-categories__list.aligncenter {
 
 .wp-block-coblocks-pricing-table-item__title {
   font-size: 0.9090909091em;
+  margin-bottom: 0;
 }
 
 .wp-block-coblocks-pricing-table-item__currency {
   font-size: 0.9090909091em;
   position: relative;
+}
+
+.wp-block-coblocks-pricing-table-item__price-wrapper {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.wp-block-coblocks-pricing-table-item__price-wrapper {
   margin-bottom: 1.9em;
 }
 
@@ -893,4 +907,10 @@ ul.wp-block-categories__list.aligncenter {
   margin-bottom: 52px !important;
   margin-top: 52px !important;
   max-width: 680px;
+}
+
+/** === Columns === */
+.wp-block[data-type="core/columns"] .wp-block-columns {
+  margin-bottom: -10px;
+  margin-top: -10px;
 }

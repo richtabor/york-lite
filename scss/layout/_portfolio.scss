@@ -1,4 +1,6 @@
 .projects {
+	float: left;
+	width: 100%;
 	overflow: hidden;
 
 	@media screen and (min-width: 600px) {
@@ -7,63 +9,60 @@
 }
 
 .project {
-	float: left;
+float: left;
 	margin: 0;
 	padding: 0;
 	position: relative;
 	transition: transform, opacity 100ms;
 
+	@media screen and (max-width: 599px) {
+		float: none;
+		height: auto !important;
+		margin-bottom: 4%;
+		position: relative !important;
+		top: auto !important;
+		transform: none !important;
+	}
+
 	&:first-of-type {
-		@media screen and (min-width: 600px) {
-			padding-left: 0 !important;
-		}
+		padding-left: 0 !important;
 	}
 
-	&:last-of-type {
-		padding-bottom: 0 !important;
-	}
-
-	&-sml {
-		padding: 10px;
-		width: 200px;
-
-		@media screen and (min-width: 600px) {
+	@media screen and (min-width: 600px) {
+		&-sml {
 			padding: 15px;
-			width: 250px
+
+			img {
+				width: 185px;
+			}
 		}
-	}
 
-	&-med {
-		padding: 20px;
-		width: 280px;
-
-		@media screen and (min-width: 600px) {
+		&-med {
 			padding: 30px;
-			width: 350px
+
+			img {
+				width: 250px;
+			}
 		}
-	}
 
-	&-lrg {
-		padding: 10px;
-		width: 350px;
+		&-lrg {
+			padding: 50px;
 
-		@media screen and (min-width: 600px) {
-			padding: 20px;
-			width: 400px
+			img {
+				width: 370px;
+			}
 		}
-	}
 
-	&-xlg {
-		padding: 40px;
-		width: 450px;
-
-		@media screen and (min-width: 600px) {
+		&-xlg {
 			padding: 60px;
-			width: 550px
-		}
 
+			img {
+				width: 500px;
+			}
+		}
 	}
 }
+
 
 @media screen and (min-width: 1400) {
 	.project-sml {
@@ -84,6 +83,22 @@
 
 	.project img {
 		height: auto;
+	}
+
+	.project-sml img {
+		width: 200px;
+	}
+
+	.project-med img {
+		width: 300px;
+	}
+
+	.project-lrg img {
+		width: 450px;
+	}
+
+	.project-xlg img {
+		width: 750px;
 	}
 }
 

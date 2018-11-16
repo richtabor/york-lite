@@ -1,5 +1,6 @@
 $font__body: "Lora", serif;
 $font__heading: "Playfair Display", serif;
+$font__figcaption: $font__body;
 
 $font__size_base: 19px;
 $font__size-ratio: 1.1;
@@ -44,9 +45,11 @@ $content__align--leftright-margin: $content__width / 2 - $content__padding;
 $content__align--mobile-media-query--min: 499px;
 $content__align--mobile-media-query--max: $content__align--mobile-media-query--min - 1;
 $content__align--width: 300px;
-
 $content__spacer: 30px;
 $content__spacer--mobile: 20px;
+
+$block__quote--border-width: 4px;
+$block__quote--cite-font: $font__figcaption;
 
 // Old
 $font-size__meta: 17px;
