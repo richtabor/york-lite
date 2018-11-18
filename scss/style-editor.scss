@@ -89,10 +89,11 @@
 
 /** === Default Appender === */
 
-.editor-default-block-appender input[type="text"].editor-default-block-appender__content {
+.editor-default-block-appender textarea.editor-default-block-appender__content {
 	font-family: $font__body;
 	font-size: $font__size-md;
 	font-weight: $font__weight-body;
+	line-height: 1.4; // Default editor line height
 
 	@media screen and (min-width: 599px) {
 		font-size: $font__size_base;
