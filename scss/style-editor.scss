@@ -220,8 +220,13 @@ a {
 		margin-top: - ( $content__spacer / 2 ) - 2 !important;
 	}
 
-	+ .wp-block[data-type="core/image"] {
-		margin-top: - ( $content__spacer / 2 ) + 5 !important;
+	+ .wp-block[data-type="core/image"],
+	+ .wp-block[data-type="core/gallery"] {
+		margin-top: -($content__spacer / 2) + 5 !important;
+	}
+
+	+ .wp-block[data-type*="blockgallery"] {
+		margin-top: -($content__spacer / 2) + 5 !important;
 	}
 }
 

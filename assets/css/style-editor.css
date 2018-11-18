@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
-York Lite Editor Styles
+@@pkg.name Editor Styles
 */
 /** === Content Width === */
 .wp-block {
@@ -222,7 +222,12 @@ a:hover, a:focus {
   margin-top: -17px !important;
 }
 
-.wp-block[data-type="core/heading"] + .wp-block[data-type="core/image"] {
+.wp-block[data-type="core/heading"] + .wp-block[data-type="core/image"],
+.wp-block[data-type="core/heading"] + .wp-block[data-type="core/gallery"] {
+  margin-top: -10px !important;
+}
+
+.wp-block[data-type="core/heading"] + .wp-block[data-type*="blockgallery"] {
   margin-top: -10px !important;
 }
 
