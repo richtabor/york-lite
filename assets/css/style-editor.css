@@ -89,14 +89,15 @@
 }
 
 /** === Default Appender === */
-.editor-default-block-appender input[type="text"].editor-default-block-appender__content {
+.editor-default-block-appender textarea.editor-default-block-appender__content {
   font-family: "Lora", serif;
   font-size: 1.375em;
   font-weight: 400;
+  line-height: 1.4;
 }
 
 @media screen and (min-width: 599px) {
-  .editor-default-block-appender input[type="text"].editor-default-block-appender__content {
+  .editor-default-block-appender textarea.editor-default-block-appender__content {
     font-size: 19px;
   }
 }
@@ -471,8 +472,8 @@ figcaption a,
 
 .wp-block[data-type="core/pullquote"][data-align="left"] .editor-block-list__block-edit .wp-block-pullquote.is-style-solid-color,
 .wp-block[data-type="core/pullquote"][data-align="right"] .editor-block-list__block-edit .wp-block-pullquote.is-style-solid-color {
-  padding: 1.75em;
-  padding-top: 1.6em;
+  padding: 1.65em;
+  padding-top: 1.5em;
 }
 
 .wp-block[data-type="core/pullquote"][data-align="left"] p,
