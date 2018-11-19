@@ -79,6 +79,14 @@ License: GPLv2 or later
 
 == Changelog ==
 
+= 2.0.1 =
+* Tweak: Add check for Gutenberg or WordPress 5.0
+* Tweak: Fix pullquote line height
+* Tweak: Fix pullquote padding within the editor
+* Tweak: Fix display of Contact Form 7 shortcode blocks
+* Tweak: Resolve Gutenberg 4.4 inserter error
+* Tweak: Add default margin to p
+
 = 2.0.0 =
 * New: Full support for Gutenberg and WordPress 5.0
 * New: Add support for CoBlocks, Gutenberg Blocks for Content Marketers - https://coblocks.com
