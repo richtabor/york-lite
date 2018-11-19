@@ -26,11 +26,6 @@ function york_register_required_plugins() {
 	 */
 	$plugins = array(
 		array(
-			'name'     => esc_html__( 'Gutenberg', 'york-lite' ),
-			'slug'     => 'gutenberg',
-			'required' => false,
-		),
-		array(
 			'name'     => esc_html__( 'CoBlocks', 'york-lite' ),
 			'slug'     => 'coblocks',
 			'required' => false,
@@ -51,6 +46,21 @@ function york_register_required_plugins() {
 			'required' => false,
 		),
 	);
+
+	// Let's check if the block editor is activated.
+	if ( ! function_exists( 'register_block_type' ) ) {
+
+		$gutenberg = array(
+			array(
+				'name'     => esc_html__( 'Gutenberg', 'york-lite' ),
+				'slug'     => 'gutenberg',
+				'required' => false,
+			),
+		);
+
+		// Combine the two arrays.
+		$args = array_merge( $args, $gutenberg );
+	}
 
 	/*
 	 * Array of configuration settings. Amend each line as needed.
