@@ -217,10 +217,10 @@ function york_setup() {
 				'slug'      => 'large',
 			),
 			array(
-				'name'      => esc_html__( 'Larger', 'york-lite' ),
+				'name'      => esc_html__( 'Huge', 'york-lite' ),
 				'shortName' => esc_html__( 'XL', 'york-lite' ),
 				'size'      => 30,
-				'slug'      => 'larger',
+				'slug'      => 'huge',
 			),
 		)
 	);

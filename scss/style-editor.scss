@@ -280,7 +280,7 @@ figcaption,
 	pre {
 		font-family: Menlo, Consolas, monaco, monospace;
 		font-size: $font__size-xs;
-		line-height: 1.2;
+		line-height: 1.8;
 		padding-left: 1.2em;
 	}
 }
@@ -710,6 +710,7 @@ ul.wp-block-categories__list {
 		margin-bottom: -10px;
 
 		iframe {
+			margin-bottom: -10px !important;
 
 			@media screen and (min-width: 650px) {
 				margin-left: 5.5vw;
