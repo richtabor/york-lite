@@ -106,6 +106,12 @@
 	margin-bottom: $content__spacer + 12px;
 	margin-top: $content__spacer + 12px;
 
+	.wp-block[data-align="full"] &,
+	.wp-block[data-align="wide"] & {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+
 	&__label,
 	&__instructions {
 		color: #191e23;
@@ -741,6 +747,7 @@ ul.wp-block-categories__list {
 /** === Image === */
 
 .wp-block-image {
+	margin-top: 0;
 
 	&:not(.editor-media-placeholder) {
 		// Fixes extra space where the image is not set all the way on the bottom of the div.
