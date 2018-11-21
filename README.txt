@@ -81,7 +81,8 @@ License: GPLv2 or later
 
 = 2.0.2 =
 * Tweak: Minor gallery style touch-ups for Gutenberg 4.5
-* Tweak: Fix pullquote line height
+* Tweak: Fix wide alignment image selection
+* Tweak: Rename "Larger" font size to "Huge"
 
 = 2.0.1 =
 * Tweak: Add check for Gutenberg or WordPress 5.0
