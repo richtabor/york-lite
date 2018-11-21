@@ -165,7 +165,7 @@ msgid "L"
 msgstr ""
 
 #: functions.php:220
-msgid "Larger"
+msgid "Huge"
 msgstr ""
 
 #: functions.php:221
@@ -661,23 +661,23 @@ msgid "Extra Large"
 msgstr ""
 
 #: inc/plugins.php:29
-msgid "Gutenberg"
-msgstr ""
-
-#: inc/plugins.php:34
 msgid "CoBlocks"
 msgstr ""
 
-#: inc/plugins.php:39
+#: inc/plugins.php:34
 msgid "Block Gallery"
 msgstr ""
 
-#: inc/plugins.php:44
+#: inc/plugins.php:39
 msgid "Portfolio Post Type"
 msgstr ""
 
-#: inc/plugins.php:49
+#: inc/plugins.php:44
 msgid "Login Designer"
+msgstr ""
+
+#: inc/plugins.php:55
+msgid "Gutenberg"
 msgstr ""
 
 #: inc/template-tags.php:22
