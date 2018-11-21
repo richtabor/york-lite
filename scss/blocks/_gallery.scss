@@ -1,13 +1,34 @@
 .entry-content {
 	.wp-block-gallery {
-		margin: $content__spacer--mobile + 12px auto -6px;
 
-		@media screen and (min-width: $content__media-query) {
-			margin-top: $content__spacer + 12px;
+		&:not(.alignwide):not(.alignfull) {
+			margin: $content__spacer--mobile + 12px auto -6px;
+
+			@media screen and (min-width: $content__media-query) {
+				margin-top: $content__spacer + 12px;
+			}
 		}
 
 		.blocks-gallery-item:last-child {
 			margin-bottom: 16px;
+		}
+
+		&.alignwide {
+			margin: $content__spacer + 8px auto $content__spacer - 10px;
+
+			@media screen and (min-width: $content__media-query) {
+				margin-bottom: $content__spacer + 6px;
+				margin-top: $content__spacer + 20px;
+			}
+		}
+
+		&.alignfull {
+			margin: $content__spacer + 8px 0 $content__spacer - 10px;
+
+			@media screen and (min-width: $content__media-query) {
+				margin-bottom: $content__spacer + 15px;
+				margin-top: $content__spacer + 30px;
+			}
 		}
 	}
 }
