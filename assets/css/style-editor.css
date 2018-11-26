@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
-York Lite Editor Styles
+@@pkg.name Editor Styles
 */
 /** === Content Width === */
 .wp-block {
@@ -207,8 +207,8 @@ a {
   color: #232323;
   box-shadow: inset 0 -1px 0 currentcolor;
   text-decoration: none;
-  -webkit-transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
-  transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
+  -webkit-transition: box-shadow 130ms ease-in-out;
+  transition: box-shadow 130ms ease-in-out;
 }
 
 a:focus {
@@ -227,6 +227,10 @@ a:hover, a:focus {
 
 .wp-block[data-type="core/heading"] + .wp-block[data-type="core/paragraph"] {
   margin-top: -17px !important;
+}
+
+.wp-block[data-type="core/heading"] + .wp-block[data-type="core/list"] {
+  margin-top: -18px !important;
 }
 
 .wp-block[data-type="core/heading"] + .wp-block[data-type="core/image"],
@@ -260,20 +264,23 @@ a:hover, a:focus {
 
 /** === Captions === */
 figcaption {
-  margin-top: 10px;
   margin-bottom: -10px;
+  margin-top: 10px;
+}
+
+figcaption a {
+  color: inherit;
 }
 
 figcaption,
 .gallery-caption {
-  color: rgba(0, 0, 0, 0.44);
   font-family: "Lora", serif;
   font-size: 0.7272727273em;
   line-height: 1.6;
 }
 
-figcaption a,
-.gallery-caption a {
+figcaption:not(.blockgallery--caption),
+.blockgallery:not(.has-caption-color) figcaption {
   color: rgba(0, 0, 0, 0.44);
 }
 
@@ -314,7 +321,7 @@ figcaption a,
   border-bottom-color: #ccc;
 }
 
-/** === Blockquote === */
+/** === Quote === */
 .wp-block-quote p {
   font-family: "Playfair Display", serif;
   font-size: 1.925em;
@@ -430,6 +437,10 @@ figcaption a,
   background-color: #232323;
 }
 
+.wp-block[data-type="core/quote"] .editor-block-mover {
+  left: -45px;
+}
+
 .wp-block[data-type="core/pullquote"][data-align="left"] .wp-block-pullquote,
 .wp-block[data-type="core/pullquote"][data-align="right"] .wp-block-pullquote {
   margin-bottom: 0;
@@ -503,6 +514,7 @@ figcaption a,
 .wp-block-button .wp-block-button__link {
   border-radius: 30px;
   font-size: 18px;
+  line-height: 24px;
   padding: 14px 30px;
 }
 
@@ -688,17 +700,13 @@ ul.wp-block-categories__list.aligncenter {
 }
 
 /** === Embeds === */
-.wp-block-embed-twitter {
-  margin-bottom: -10px;
-}
-
 .wp-block-embed-twitter iframe {
   margin-bottom: -10px !important;
 }
 
 @media screen and (min-width: 650px) {
   .wp-block-embed-twitter iframe {
-    margin-left: 5.5vw;
+    margin-left: 5vw;
   }
 }
 

@@ -26,13 +26,15 @@ h6 {
 			top: 5px;
 		}
 
-		+ p {
+		+ p,
+		+ ul,
+		+ ol {
 			margin-top: $content__spacer / 2;
 		}
 
 		+ .wp-block-image,
 		+ .wp-block-gallery {
-			margin-top: ( $content__spacer / 2 ) + 10;
+			margin-top: ($content__spacer / 2) + 10 !important;
 		}
 
 		+ div[class*="blockgallery"] {
