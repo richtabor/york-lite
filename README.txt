@@ -79,6 +79,9 @@ License: GPLv2 or later
 
 == Changelog ==
 
+= 2.0.3 =
+* Tweak: Minor style tweaks for captions and headings
+
 = 2.0.2 =
 * Tweak: Minor gallery style touch-ups for Gutenberg 4.5
 * Tweak: Fix wide alignment image selection
