@@ -17,6 +17,10 @@
 		}
 	}
 
+	.wp-block-coblocks-social:not(.is-style-mask) .wp-block-button__link {
+		color: #fff;
+	}
+
 	.wp-block-coblocks-click-to-tweet {
 
 		&__text {
