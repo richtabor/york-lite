@@ -51,6 +51,7 @@
 
 .editor-post-title__block {
 	margin-bottom: 55px;
+	margin-top: 0 !important;
 	max-width: 780px;
 
 	@media (min-width: 800px) {
@@ -520,6 +521,7 @@ figcaption:not(.blockgallery--caption),
 	.wp-block-button__link {
 		border-radius: 30px;
 		font-size: 18px;
+		font-style: italic;
 		line-height: 24px;
 		padding: 14px 30px;
 
