@@ -21,3 +21,8 @@ $colors: (black, $color_1), (gray, $color_2), (light-gray, $color_3), (white, $c
 		background-color: $color;
 	}
 }
+
+// Fallback color for .has-background-color.
+.has-background:not([class*="background-color"]) {
+	background-color: $color--has-background-color-fallback;
+}
