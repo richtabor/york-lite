@@ -79,6 +79,12 @@ License: GPLv2 or later
 
 == Changelog ==
 
+= 2.0.4 =
+* Tweak: Adjust button block styling
+* Tweak: Add fallback background color for the editor color palette
+* Tweak: Adjust left/right aligned gallery block styling
+* Tweak: Adjust button block styling
+
 = 2.0.3 =
 * Tweak: Minor style tweaks for captions and headings
 
