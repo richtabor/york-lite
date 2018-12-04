@@ -517,33 +517,35 @@ figcaption:not(.blockgallery--caption),
 /** === Button === */
 
 .wp-block-button {
+	&.is-style-outline .wp-block-button__link,
+	&.is-style-outline .wp-block-button__link:hover,
+	&.is-style-outline .wp-block-button__link:focus,
+	&.is-style-outline .wp-block-button__link:active {
+		background: transparent !important;
+	}
 
 	.wp-block-button__link {
-		border-radius: 30px;
 		font-size: 18px;
-		font-style: italic;
 		line-height: 24px;
 		padding: 14px 30px;
 
 		@media screen and (min-width: 599px) {
 			font-size: $font__size_base;
 		}
-
-		&:not(.has-background) {
-			&,
-			&:hover,
-			&:active,
-			&:focus {
-				background-color: $black
-			}
-		}
 	}
+}
 
-	&.is-style-outline .wp-block-button__link,
-	&.is-style-outline .wp-block-button__link:hover,
-	&.is-style-outline .wp-block-button__link:focus,
-	&.is-style-outline .wp-block-button__link:active {
-		background: transparent !important;
+.wp-block-button__link {
+	border-radius: 30px;
+	font-style: italic;
+
+	&:not(.has-background) {
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: $black;
+		}
 	}
 }
 
@@ -761,6 +763,17 @@ ul.wp-block-categories__list {
 	}
 }
 
+.wp-block[data-type="core/gallery"][data-align="left"],
+.wp-block[data-type="core/gallery"][data-align="right"] {
+	.wp-block-gallery:not(.editor-media-placeholder) {
+		margin-bottom: 0;
+
+		@media screen and (min-width: $content__align--mobile-media-query--min) {
+			margin-top: 0.5em;
+		}
+	}
+}
+
 /** === Image === */
 
 .wp-block-image {
@@ -820,10 +833,8 @@ ul.wp-block-categories__list {
 		}
 
 		.wp-block-cover-text {
-			margin-right: 0;
 			padding-left: 35px;
 			padding-right: 35px;
-			text-align: right;
 		}
 	}
 }
