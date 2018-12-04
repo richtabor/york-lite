@@ -7,15 +7,26 @@
 		&.is-style-outline .wp-block-button__link:not(.has-background):active {
 			background: transparent;
 		}
+
+		.wp-block-button__link {
+			&:not(.has-background) {
+				&,
+				&:hover,
+				&:active,
+				&:focus {
+					background-color: $black;
+				}
+			}
+		}
 	}
 
 	.wp-block-button__link {
 		@include font-size(18px);
-		font-weight: 400;
-		padding: 14px 30px 15px;
 		border-radius: 30px;
-		font-style: italic;
 		box-shadow: none;
+		font-style: italic;
+		font-weight: 400;
+		padding: 9px 30px 11px;
 
 		@media (min-width: 700px) {
 			font-size: $font__size_base;
