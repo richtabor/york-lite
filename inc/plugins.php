@@ -47,21 +47,6 @@ function york_register_required_plugins() {
 		),
 	);
 
-	// Let's check if the block editor is activated.
-	if ( ! function_exists( 'register_block_type' ) ) {
-
-		$gutenberg = array(
-			array(
-				'name'     => esc_html__( 'Gutenberg', 'york-lite' ),
-				'slug'     => 'gutenberg',
-				'required' => false,
-			),
-		);
-
-		// Combine the two arrays.
-		$args = array_merge( $args, $gutenberg );
-	}
-
 	/*
 	 * Array of configuration settings. Amend each line as needed.
 	 *
