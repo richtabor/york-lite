@@ -676,10 +676,6 @@ msgstr ""
 msgid "Login Designer"
 msgstr ""
 
-#: inc/plugins.php:55
-msgid "Gutenberg"
-msgstr ""
-
 #: inc/template-tags.php:22
 msgid "by %s"
 msgstr ""
