@@ -334,6 +334,7 @@ figcaption:not(.blockgallery--caption),
 
 /** === Quote === */
 
+blockquote,
 .wp-block-quote {
 
 	p {
@@ -1000,6 +1001,10 @@ ul.wp-block-categories__list {
 	margin-bottom: $content__spacer + 22px !important;
 	margin-top: $content__spacer + 22px !important;
 	max-width: $content__width--less-padding;
+
+	.wp-block-freeform blockquote {
+		margin-left: 0;
+	}
 }
 
 /** === Columns === */
