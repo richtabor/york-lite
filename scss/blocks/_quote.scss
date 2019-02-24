@@ -14,7 +14,10 @@
 			font-style: normal;
 			font-weight: $font__weight-heading;
 			line-height: 1.4;
-			margin-bottom: 0;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
 		}
 
 		cite {
