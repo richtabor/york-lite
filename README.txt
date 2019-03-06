@@ -79,6 +79,10 @@ License: GPLv2 or later
 
 == Changelog ==
 
+= 2.0.5 =
+* Fix: Improve portfolio single post editor styles
+* Tweak: Adjust core Button block styling
+
 = 2.0.4 =
 * New: Supports WordPress 5.0 🔥
 * Tweak: Adjust button block styling

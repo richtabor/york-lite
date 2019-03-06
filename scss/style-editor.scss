@@ -516,42 +516,55 @@ blockquote,
 }
 
 /** === Button === */
-
 .wp-block-button {
-	&.is-style-outline .wp-block-button__link,
-	&.is-style-outline .wp-block-button__link:hover,
-	&.is-style-outline .wp-block-button__link:focus,
-	&.is-style-outline .wp-block-button__link:active {
-		background: transparent !important;
-	}
-
-	&.is-style-squared .wp-block-button__link {
-		border-radius: 0;
-	}
 
 	.wp-block-button__link {
 		font-size: 18px;
 		line-height: 24px;
-		padding: 14px 30px;
+		font-weight: 400;
+		padding: 15px 30px;
+		font-style: italic;
 
 		@media screen and (min-width: 599px) {
 			font-size: $font__size_base;
 		}
 	}
-}
 
-.wp-block-button__link {
-	border-radius: 30px;
-	font-style: italic;
+	&:not(.is-style-outline) .wp-block-button__link {
+		background: $black;
+	}
 
-	&:not(.has-background) {
-		&,
-		&:hover,
-		&:active,
-		&:focus {
-			background-color: $black;
+	&:not(.is-style-squared) .wp-block-button__link {
+		border-radius: 5px;
+	}
+
+	&.is-style-outline .wp-block-button__link {
+		padding-top: 13px;
+		padding-bottom: 13px;
+	}
+
+	&.is-style-3d .wp-block-button__link:not(.has-background) {
+		box-shadow: inset 0 -3px 0 0 #000 !important;
+	}
+
+	&.is-style-outline,
+	&.is-style-outline:hover,
+	&.is-style-outline:focus,
+	&.is-style-outline:active {
+		background: transparent !important;
+		color: $black;
+
+		.wp-block-button__link {
+
+			&:not(.has-background) {
+				background: transparent !important;
+			}
 		}
 	}
+}
+
+.is-style-outline .wp-block-button__link {
+	background: transparent !important;
 }
 
 /** === List === */

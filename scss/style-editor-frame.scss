@@ -6,16 +6,17 @@
 @import "variables";
 
 /** === Title: Portfolio Post Type === */
-body.gutenberg-editor-page.post-type-portfolio .gutenberg .editor-post-title__block {
-	margin-bottom: 0;
+body.block-editor-page.post-type-portfolio .block-editor .editor-post-title__block {
+	margin-bottom: 0 !important;
 	max-width: $content__width;
 
 	@media (min-width: 800px) {
-		margin-top: 20px;
+		margin-top: 0;
 	}
 
 	.editor-post-title__input {
 		padding-bottom: 0;
+		padding-top: 0;
 		text-align: left;
 	}
 }

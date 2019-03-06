@@ -1,19 +1,20 @@
 /*!
-York Lite Editor Frame Styles
+@@pkg.name Editor Frame Styles
 */
 /** === Title: Portfolio Post Type === */
-body.gutenberg-editor-page.post-type-portfolio .gutenberg .editor-post-title__block {
-  margin-bottom: 0;
+body.block-editor-page.post-type-portfolio .block-editor .editor-post-title__block {
+  margin-bottom: 0 !important;
   max-width: 720px;
 }
 
 @media (min-width: 800px) {
-  body.gutenberg-editor-page.post-type-portfolio .gutenberg .editor-post-title__block {
-    margin-top: 20px;
+  body.block-editor-page.post-type-portfolio .block-editor .editor-post-title__block {
+    margin-top: 0;
   }
 }
 
-body.gutenberg-editor-page.post-type-portfolio .gutenberg .editor-post-title__block .editor-post-title__input {
+body.block-editor-page.post-type-portfolio .block-editor .editor-post-title__block .editor-post-title__input {
   padding-bottom: 0;
+  padding-top: 0;
   text-align: left;
 }
