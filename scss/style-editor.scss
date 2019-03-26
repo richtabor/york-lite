@@ -912,20 +912,26 @@ ul.wp-block-categories__list {
 .wp-block-coblocks-alert {
 	padding: 0.8em 1em 0.7em;
 
+	&__text,
 	&__title {
-		font-size: 19px;
-		margin-bottom: 0;
-		margin-top: 0;
-	}
-
-	&__text {
-		font-size: 18px;
 		margin-bottom: 0;
 		margin-top: 0;
 	}
 }
 
+.wp-block[data-type="coblocks/alert"] {
+	&:not([data-custom-fontsize="1"]) &__title {
+		font-size: 19px;
+	}
+
+	&:not([data-custom-fontsize="1"]) &__text {
+		font-size: 18px;
+	}
+}
+
 .wp-block-coblocks-click-to-tweet {
+	border: none !important;
+	padding: 0 !important;
 
 	&__text {
 		color: $color__text-heading;
@@ -947,7 +953,7 @@ ul.wp-block-categories__list {
 		font-weight: $font__weight-heading;
 		height: 44px;
 		line-height: 45px !important;
-		margin-top: 1.1em !important;
+		margin-top: 2.5em !important;
 		margin-bottom: 10px !important;
 		padding: 0 1em;
 

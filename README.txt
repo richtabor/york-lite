@@ -81,6 +81,7 @@ License: GPLv2 or later
 
 = 2.0.5 =
 * Fix: Improve portfolio single post editor styles
+* Fix: Adjust Alert block typography control functionality
 * Tweak: Adjust core Button block styling
 
 = 2.0.4 =
