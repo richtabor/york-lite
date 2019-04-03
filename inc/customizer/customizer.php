@@ -29,7 +29,6 @@ function york_customize_register( $wp_customize ) {
 	 * Add custom controls.
 	 */
 	include get_parent_theme_file_path( '/inc/customizer/class-york-range-control.php' );
-	include get_parent_theme_file_path( '/inc/customizer/class-york-upgrade-control.php' );
 
 	/**
 	 * Top-Level Customizer sections and panels.
@@ -39,26 +38,6 @@ function york_customize_register( $wp_customize ) {
 			'title'       => esc_html__( 'Theme Options', 'york-lite' ),
 			'description' => esc_html__( 'Customize various options throughout the theme with the settings within this panel.', 'york-lite' ),
 			'priority'    => 30,
-		)
-	);
-
-	/**
-	 * Add the theme upgrade section.
-	 *
-	 * @see https://github.com/justintadlock/trt-customizer-pro
-	 */
-
-	$wp_customize->register_section_type( 'York_Upgrade_Control' );
-
-	$wp_customize->add_section(
-		new York_Upgrade_Control(
-			$wp_customize, 'theme_upgrade', array(
-				'type'     => 'upgrade-theme',
-				'title'    => esc_html__( 'Upgrade to York Pro', 'york-lite' ),
-				'pro_text' => esc_html__( 'Learn More', 'york-lite' ),
-				'pro_url'  => 'https://themebeans.com/themes/york-pro',
-				'priority' => 9999,
-			)
 		)
 	);
 
