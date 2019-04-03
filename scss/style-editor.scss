@@ -219,6 +219,14 @@ a {
 	}
 }
 
+code {
+	font-size: 0.9375rem;
+	padding: 3px 10px;
+	position: relative;
+	border-radius: 3px;
+	background-color: $color--background-pre;
+}
+
 /** === Headings === */
 
 .wp-block[data-type="core/heading"] {
