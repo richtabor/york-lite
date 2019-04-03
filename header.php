@@ -19,41 +19,45 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<?php
+	if ( function_exists( 'wp_body_open' ) ) {
+		wp_body_open();
+	}
+	?>
+	<div id="page" class="site clearfix">
 
-<div id="page" class="site clearfix">
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'york-lite' ); ?></a>
 
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'york-lite' ); ?></a>
+		<header id="masthead" class="site-header clearfix">
 
-	<header id="masthead" class="site-header clearfix">
-
-		<div class="site-header--left">
-			<?php york_site_logo(); ?>
-		</div>
-
-		<div class="site-header--right">
-
-			<div class="hamburger mobile-menu-toggle">
-				<div class="hamburger-box">
-					<div class="hamburger-inner"></div>
-				</div>
+			<div class="site-header--left">
+				<?php york_site_logo(); ?>
 			</div>
 
-		</div>
+			<div class="site-header--right">
 
-	</header><!-- .site-header -->
-
-	<div id="content" class="site-content clearfix">
-
-		<?php if ( york_is_frontpage() ) : ?>
-
-			<header class="hero entry-header">
-
-				<div class="hero-wrapper">
-
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
+				<div class="hamburger mobile-menu-toggle">
+					<div class="hamburger-box">
+						<div class="hamburger-inner"></div>
+					</div>
 				</div>
 
-			</header>
+			</div>
 
-		<?php endif; ?>
+		</header><!-- .site-header -->
+
+		<div id="content" class="site-content clearfix">
+
+			<?php if ( york_is_frontpage() ) : ?>
+
+				<header class="hero entry-header">
+
+					<div class="hero-wrapper">
+
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+					</div>
+
+				</header>
+
+			<?php endif; ?>
