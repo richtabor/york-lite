@@ -8,6 +8,7 @@ var project                 = pkg.name;
 var slug                    = pkg.slug;
 var slugUppercase           = slug.toUpperCase();
 var projectURL              = 'http://demo.dev/york';
+var environment		    = require('./environment.json');
 
 // Translation related.
 var text_domain             = 'york-lite';
@@ -120,7 +121,7 @@ gulp.task( 'browser-sync', function() {
         // @link http://www.browsersync.io/docs/options/
 
         // Project URL.
-        proxy: projectURL,
+        proxy: environment.devURL,
 
         // `true` Automatically open the browser with BrowserSync live server.
         // `false` Stop the browser from automatically opening.
