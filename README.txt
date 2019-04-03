@@ -80,9 +80,11 @@ License: GPLv2 or later
 == Changelog ==
 
 = 2.0.5 =
+* New: Add support for the new `wp_body_open` hook in WordPress 5.2+
 * Fix: Improve portfolio single post editor styles
 * Fix: Adjust Alert block typography control functionality
 * Tweak: Adjust core Button block styling
+* Tweak: Add proper styling for the new <code> format within the block editor
 
 = 2.0.4 =
 * New: Supports WordPress 5.0 🔥
